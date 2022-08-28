@@ -42,7 +42,7 @@
 
 ## 💡 About
 
-This is the original Whittle game built with [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/).
+This is the original Whittle game.
 
 ## 🧾 Rules
 
@@ -57,4 +57,4 @@ The project changelog can be found [here](https://github.com/ollyrowe/whittle/bl
 
 ## 📝 License
 
-This project is licensed under the terms of the **MIT** license.
+This project is licensed under the terms of the [MIT](https://github.com/ollyrowe/whittle/blob/master/LICENSE) license.
