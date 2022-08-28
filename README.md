@@ -42,7 +42,7 @@
 
 ## 💡 About
 
-This is the original Whittle game.
+This is the official Whittle game.
 
 ## 🧾 Rules
 
