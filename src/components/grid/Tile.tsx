@@ -6,11 +6,7 @@ interface Props {
 }
 
 const Tile: React.FC<Props> = ({ children }) => {
-  return (
-    <Box>
-      <Content>{children}</Content>
-    </Box>
-  );
+  return <Box>{children}</Box>;
 };
 
 const Box = styled.div`
@@ -24,22 +20,10 @@ const Box = styled.div`
   margin: 2.5px;
   border: 2px solid ${(props) => props.theme.border};
   border-radius: 2px;
-  width: 20%;
-  padding-bottom: calc(20% - 9px);
-  max-width: 80px;
-  max-height: 80px;
+  width: 61px;
+  height: 61px;
   user-select: none;
-`;
-
-const Content = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-shrink: 0;
 `;
 
 export default Tile;
