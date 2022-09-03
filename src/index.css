@@ -12,3 +12,21 @@ body {
 #root {
   height: 100%;
 }
+
+@media only screen and (min-width: 769px) {
+  html {
+    overflow: overlay !important;
+  }
+
+  ::-webkit-scrollbar {
+    min-width: 16px;
+    min-height: 16px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: solid 6px transparent;
+    border-radius: 9px;
+    background-clip: content-box;
+    background-color: #a9a9a964;
+  }
+}
