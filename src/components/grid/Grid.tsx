@@ -2,13 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Row from "./Row";
 import Tile from "./Tile";
-import AspectRatioRetainer from "../utils/AspectRatioRetainer";
 import { GRID_HEIGHT, GRID_WIDTH } from "../../misc/constants";
 
 const Grid: React.FC = () => {
   return (
     <Background>
-      <Container ratio={[GRID_WIDTH, GRID_HEIGHT]}>
+      <Container>
         {new Array(GRID_HEIGHT).fill(0).map((_, index) => (
           <Row key={index}>
             {new Array(GRID_WIDTH).fill(0).map((_, index) => (
@@ -29,7 +28,7 @@ const Background = styled.div`
   justify-content: center;
 `;
 
-const Container = styled(AspectRatioRetainer)`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
