@@ -15,7 +15,7 @@
       alt="Website Status"
     />
   </a>
-  <a href="https://github.com/ollyrowe/wowhittlerdle/releases">
+  <a href="https://github.com/ollyrowe/whittle/releases">
     <img
       src="https://img.shields.io/github/v/release/ollyrowe/whittle?color=%2300B0FF"
       alt="Latest Release"
