@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Grid from "./Grid";
+import TileProvider from "./TileProvider";
 
 it("renders", () => {
-  render(<Grid />);
+  render(<TileProvider letters={[]} />);
 });
