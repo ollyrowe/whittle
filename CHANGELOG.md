@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/ollyrowe/whittle/compare/v1.1.1...v1.2.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* reduce app bar border width ([ebd47ce](https://github.com/ollyrowe/whittle/commit/ebd47cea2f807fcb68ac4c953d2fe91b5cebce78))
+
+
+### Features
+
+* add basic drag and drop capability ([4d824de](https://github.com/ollyrowe/whittle/commit/4d824deb69d7db24eecdb1a47cb449565f7bf42e))
+* add custom desktop scrollbar ([bb3de9b](https://github.com/ollyrowe/whittle/commit/bb3de9beee647845c95f607a92e541ef9b824045))
+* implement basic rack component ([1872927](https://github.com/ollyrowe/whittle/commit/1872927b9c8483bc2b4b0154564cb210e4b5c90a))
+
 ## [1.1.1](https://github.com/ollyrowe/whittle/compare/v1.1.0...v1.1.1) (2022-09-12)
 
 
