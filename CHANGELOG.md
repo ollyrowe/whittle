@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/ollyrowe/whittle/compare/v1.3.0...v1.3.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* add dnd sensor to fix touch issue ([d86dd85](https://github.com/ollyrowe/whittle/commit/d86dd8521d30e138faa4e62047a85f607fb60942))
+
 # [1.3.0](https://github.com/ollyrowe/whittle/compare/v1.2.0...v1.3.0) (2022-09-12)
 
 
