@@ -5,7 +5,14 @@ import {
   rectSwappingStrategy,
   SortableContext,
 } from "@dnd-kit/sortable";
-import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import {
+  DndContext,
+  DragEndEvent,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import { Letter } from "../../model/Letter";
 import { Tile } from "../../model/Tile";
 import { BOARD_HEIGHT, BOARD_WIDTH } from "../../misc/constants";
@@ -29,6 +36,11 @@ const TileProvider: React.FC<Props> = ({ letters, children }) => {
   );
 
   const tileIDs = tiles.map((tile) => tile.getID());
+
+  const mouseSensor = useSensor(MouseSensor);
+  const touchSensor = useSensor(TouchSensor);
+
+  const sensors = useSensors(mouseSensor, touchSensor);
 
   /**
    * Function which handles the swapping of tiles upon completion
@@ -89,7 +101,7 @@ const TileProvider: React.FC<Props> = ({ letters, children }) => {
 
   return (
     <TileContext.Provider value={providedContext}>
-      <DndContext onDragEnd={onDragEnd}>
+      <DndContext sensors={sensors} onDragEnd={onDragEnd}>
         <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
           {children}
         </SortableContext>
