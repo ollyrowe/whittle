@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/ollyrowe/whittle/compare/v1.2.0...v1.3.0) (2022-09-12)
+
+
+### Bug Fixes
+
+* update manifest links ([b902ae1](https://github.com/ollyrowe/whittle/commit/b902ae19a4c36997a0e4db6ba17dde9b84e5d7f4))
+
+
+### Features
+
+* add how to play modal ([7a1c52f](https://github.com/ollyrowe/whittle/commit/7a1c52f5b5bba071881ac140924bf0734f577d2a))
+
 # [1.2.0](https://github.com/ollyrowe/whittle/compare/v1.1.1...v1.2.0) (2022-09-12)
 
 
