@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ollyrowe/whittle/compare/v1.0.0...v1.1.0) (2022-09-12)
+
+
+### Features
+
+* add word lists ([1e2e303](https://github.com/ollyrowe/whittle/commit/1e2e303e626e850ac98852189dea7b02fd98012d))
+
 # 1.0.0 (2022-08-28)
 
 
