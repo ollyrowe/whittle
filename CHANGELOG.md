@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/ollyrowe/whittle/compare/v1.3.1...v1.4.0) (2022-09-18)
+
+
+### Features
+
+* add stats modal ([158d351](https://github.com/ollyrowe/whittle/commit/158d351a9ad2dec39fab8ff770c271b5fe254fb6))
+
 ## [1.3.1](https://github.com/ollyrowe/whittle/compare/v1.3.0...v1.3.1) (2022-09-12)
 
 
