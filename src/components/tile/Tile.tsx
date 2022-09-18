@@ -75,7 +75,7 @@ interface BoxProps {
 /**
  * Square box which renders the letter.
  */
-const Box = styled.div<BoxProps>`
+export const Box = styled.div<BoxProps>`
   display: flex;
   align-items: center;
   justify-content: center;
