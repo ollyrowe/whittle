@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/ollyrowe/whittle/compare/v1.4.0...v1.4.1) (2022-09-18)
+
+
+### Bug Fixes
+
+* next game count down accounts for dst ([ed415a3](https://github.com/ollyrowe/whittle/commit/ed415a326888a67eb000dc3becad16eef67d7bd6))
+
 # [1.4.0](https://github.com/ollyrowe/whittle/compare/v1.3.1...v1.4.0) (2022-09-18)
 
 
