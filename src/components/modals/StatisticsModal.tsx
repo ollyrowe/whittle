@@ -17,7 +17,13 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
       const localMidnight = new Date();
       localMidnight.setHours(24, 0, 0, 0);
       // Difference between midnight and current time
-      setTimeLeft(new Date(localMidnight.getTime() - new Date().getTime()));
+      setTimeLeft(
+        new Date(
+          localMidnight.getTime() +
+            localMidnight.getTimezoneOffset() * 60 * 1000 -
+            new Date().getTime()
+        )
+      );
     }, 1000);
 
     return () => clearInterval(secondTimer);
