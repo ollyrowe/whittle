@@ -64,6 +64,7 @@ const HowToIcon = styled(FontAwesomeIcon)`
   margin: 15px;
   cursor: pointer;
 `;
+
 const StatsIcon = styled(FontAwesomeIcon)`
   display: flex;
   justify-content: flex-end;

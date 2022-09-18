@@ -49,9 +49,7 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
           <StatsTextBlock>Current Streak</StatsTextBlock>
         </StatsRow>
         <TimeText>Next Whittle In</TimeText>
-        <TimeLeftText>
-          <b>{timeLeft.toLocaleTimeString()}</b>
-        </TimeLeftText>
+        <TimeLeftText>{timeLeft.toLocaleTimeString()}</TimeLeftText>
       </Container>
     </Modal>
   );
@@ -73,7 +71,7 @@ const TimeLeftText = styled.p`
   font-size: 1em;
   margin-top: 0;
   margin-bottom: 1.5em;
-  text-weight: bold;
+  font-weight: bold;
 `;
 
 const StatsTextBlock = styled.p`
