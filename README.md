@@ -36,6 +36,7 @@
 <p align="center">
   <a href="#-about">About</a> •
   <a href="#-rules">Rules</a> •
+  <a href="#-sources">Inspiration</a> •
   <a href="#-changelog">Changelog</a> •
   <a href="#-license">License</a>
 </p>
@@ -50,6 +51,11 @@ This is the official Whittle game.
 - Place letters to form words and join them together until all letters have been placed
 - Words must be spelt from left to right or from top to bottom
 - Can you _whittle_ it down and place as few words as possible?
+
+## ✨ Inspiration
+
+- This game is mainly inspired by the word game [BANANAGRAMS](https://bananagrams.com/) as well as other more recent popular online word games such as [Wordle](https://www.nytimes.com/games/wordle/)
+- The word list for this game comes from [Collins Dictionary](https://www.collinsdictionary.com/games/scrabble/word-finder), which uses the official scrabble tournament word list
 
 ## 📈 Changelog
 
