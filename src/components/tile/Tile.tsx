@@ -1,34 +1,47 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS, Transform } from "@dnd-kit/utilities";
-import { TileContext } from "./TileProvider";
-import { Letter } from "../../model/Letter";
+import { GameContext } from "../providers/GameProvider";
+import { TileState } from "../../model/enums/TileState";
+import { Letter } from "../../model/enums/Letter";
 
 type TileSize = "regular" | "small";
 
 interface Props {
   id: number;
+  state: TileState;
   letter?: Letter;
   hasPlaceholder?: boolean;
   size?: TileSize;
+  disabled?: boolean;
 }
 
 export const Tile: React.FC<Props> = ({
   id,
+  state,
   letter,
   hasPlaceholder = false,
   size = "regular",
+  disabled = false,
 }) => {
-  const { getNewIndex } = useContext(TileContext);
+  const theme = useTheme();
+
+  const { getNewIndex } = useContext(GameContext);
 
   const { attributes, listeners, transform, transition, setNodeRef } =
-    useSortable({
-      id,
-      getNewIndex,
-      /* Tiles without letters cannot be moved */
-      disabled: !letter,
-    });
+    useSortable({ id, getNewIndex, disabled });
+
+  const getTileColor = () => {
+    switch (state) {
+      case TileState.CORRECT:
+        return theme.green;
+      case TileState.PARTIALLY_CORRECT:
+        return theme.amber;
+      default:
+        return theme.border;
+    }
+  };
 
   return (
     <Placeholder size={size} visible={hasPlaceholder}>
@@ -36,12 +49,13 @@ export const Tile: React.FC<Props> = ({
         ref={setNodeRef}
         size={size}
         isBlank={!letter}
+        color={getTileColor()}
         transform={transform}
         transition={transition}
         {...attributes}
         {...listeners}
       >
-        {letter?.getValue()}
+        {letter}
       </Box>
     </Placeholder>
   );
@@ -68,6 +82,7 @@ const Placeholder = styled.div<PlaceholderProps>`
 interface BoxProps {
   size: TileSize;
   isBlank: boolean;
+  color?: string;
   transform: Transform | null;
   transition?: string;
 }
@@ -81,8 +96,8 @@ export const Box = styled.div<BoxProps>`
   justify-content: center;
   font-size: ${(props) => fontSize[props.size]};
   font-weight: bold;
-  background-color: ${(props) => props.theme.border};
-  border: 2px solid ${(props) => props.theme.border};
+  background-color: ${(props) => props.color || props.theme.border};
+  border: 2px solid ${(props) => props.color || props.theme.border};
   border-radius: 2px;
   width: ${(props) => tileSize[props.size]}px;
   height: ${(props) => tileSize[props.size]}px;

@@ -1,1 +1,3 @@
-export type Location = "board" | "rack";
+export type Location =
+  | { name: "board"; row: number; column: number }
+  | { name: "rack" };

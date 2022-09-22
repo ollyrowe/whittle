@@ -1,49 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
-import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import HowToPlayIcon from "../icons/HowToPlayIcon";
+import StatsIcon from "../icons/StatsIcon";
 import HowToPlayModal from "../modals/HowToPlayModal";
 import StatisticsModal from "../modals/StatisticsModal";
+import { GameContext } from "../providers/GameProvider";
 
 const AppBar: React.FC = () => {
-  const [displayHowToPlayModal, setDisplayHowToPlayModal] = useState(false);
-  const [displayStatisticsModal, setDisplayStatisticsModal] = useState(false);
+  const { displayStats, openStats, closeStats } = useContext(GameContext);
 
-  const openHowToPlayModal = () => {
-    setDisplayHowToPlayModal(true);
+  const [displayHowToPlay, setDisplayHowToPlay] = useState(false);
+
+  const openHowToPlay = () => {
+    setDisplayHowToPlay(true);
   };
 
-  const closeHowToPlayModal = () => {
-    setDisplayHowToPlayModal(false);
-  };
-
-  const openStatisticsModal = () => {
-    setDisplayStatisticsModal(true);
-  };
-
-  const closeStatisticsModal = () => {
-    setDisplayStatisticsModal(false);
+  const closeHowToPlay = () => {
+    setDisplayHowToPlay(false);
   };
 
   return (
-    <Container>
-      <Title>Whittle</Title>
-      <HowToIcon
-        icon={faCircleQuestion}
-        size="xl"
-        onClick={openHowToPlayModal}
-      />
-      <StatsIcon icon={faChartLine} size="lg" onClick={openStatisticsModal} />
-      <HowToPlayModal
-        open={displayHowToPlayModal}
-        onClose={closeHowToPlayModal}
-      />
-      <StatisticsModal
-        open={displayStatisticsModal}
-        onClose={closeStatisticsModal}
-      />
-    </Container>
+    <>
+      <Container>
+        <Title>Whittle</Title>
+        <HowToPlayButton size="xl" onClick={openHowToPlay} />
+        <StatsButton size="lg" onClick={openStats} />
+      </Container>
+      <HowToPlayModal open={displayHowToPlay} onClose={closeHowToPlay} />
+      <StatisticsModal open={displayStats} onClose={closeStats} />
+    </>
   );
 };
 
@@ -59,13 +44,13 @@ const Title = styled.h1`
   max-width: 65px;
 `;
 
-const HowToIcon = styled(FontAwesomeIcon)`
+const HowToPlayButton = styled(HowToPlayIcon)`
   position: absolute;
   margin: 15px;
   cursor: pointer;
 `;
 
-const StatsIcon = styled(FontAwesomeIcon)`
+const StatsButton = styled(StatsIcon)`
   display: flex;
   justify-content: flex-end;
   margin: 15px;

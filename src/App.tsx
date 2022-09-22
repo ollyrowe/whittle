@@ -2,46 +2,25 @@ import React from "react";
 import AppBar from "./components/appbar/AppBar";
 import Board from "./components/board/Board";
 import Rack from "./components/rack/Rack";
-import TileProvider from "./components/tile/TileProvider";
+import GameProvider from "./components/providers/GameProvider";
 import styled, { ThemeProvider } from "styled-components";
 import { useThemeToggle } from "./hooks/useThemeToggle";
-import { Letter } from "./model/Letter";
-import { Character } from "./model/enums/Character";
-
-const characters = [
-  Character.A,
-  Character.B,
-  Character.C,
-  Character.D,
-  Character.E,
-  Character.F,
-  Character.G,
-  Character.H,
-  Character.I,
-  Character.J,
-  Character.K,
-  Character.L,
-  Character.M,
-  Character.N,
-  Character.O,
-];
-
-const createLetters = () => {
-  return characters.map((character) => new Letter(character));
-};
+import { useGame } from "./hooks/useGame";
 
 const App: React.FC = () => {
   const theme = useThemeToggle();
 
+  const game = useGame();
+
   return (
     <ThemeProvider theme={theme}>
-      <TileProvider letters={createLetters()}>
+      <GameProvider game={game}>
         <Container>
           <AppBar />
           <Board />
           <Rack />
         </Container>
-      </TileProvider>
+      </GameProvider>
     </ThemeProvider>
   );
 };

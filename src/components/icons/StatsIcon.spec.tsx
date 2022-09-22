@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import TileProvider from "./TileProvider";
+import StatsIcon from "./StatsIcon";
 
 it("renders", () => {
-  render(<TileProvider letters={[]} />);
+  render(<StatsIcon />);
 });

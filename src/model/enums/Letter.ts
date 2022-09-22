@@ -1,4 +1,4 @@
-export enum Character {
+export enum Letter {
   A = "A",
   B = "B",
   C = "C",
