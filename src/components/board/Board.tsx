@@ -1,19 +1,21 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Tile from "../tile/Tile";
-import { TileContext } from "../tile/TileProvider";
+import { GameContext } from "../providers/GameProvider";
 
 export const Board: React.FC = () => {
-  const { tiles } = useContext(TileContext);
+  const { board } = useContext(GameContext);
 
   return (
     <Background>
       <Container>
-        {tiles.board.map((tile) => (
+        {board.getTiles().map((tile) => (
           <Tile
             key={tile.getID()}
+            state={tile.getState()}
             id={tile.getID()}
             letter={tile.getLetter()}
+            disabled={tile.isDisabled() || board.isDisabled()}
             hasPlaceholder
           />
         ))}
