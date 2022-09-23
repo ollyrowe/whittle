@@ -69,7 +69,7 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
 
   return (
     <GameContext.Provider value={{ ...game, getNewIndex }}>
-      <DndContext sensors={sensors} onDragEnd={onDragEnd}>
+      <DndContext sensors={sensors} onDragEnd={onDragEnd} autoScroll={false}>
         <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
           {children}
         </SortableContext>
