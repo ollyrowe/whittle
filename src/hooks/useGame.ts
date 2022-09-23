@@ -3,6 +3,7 @@ import { Board } from "../model/Board";
 import { Letter } from "../model/enums/Letter";
 import { Rack } from "../model/Rack";
 import { Tile } from "../model/Tile";
+import { gameWinSound, tilePlaceSound } from "../misc/sounds";
 
 export interface Game {
   board: Board;
@@ -53,6 +54,9 @@ export const useGame = (): Game => {
    * @param secondTile - the second tile being swapped.
    */
   const onSwapTiles = (firstTile: Tile, secondTile: Tile) => {
+    // Play the tile place sound effect
+    tilePlaceSound.play();
+
     if (firstTile !== secondTile) {
       const updatedBoard = new Board(board.getTiles());
       const updatedRack = new Rack(rack.getTiles());
@@ -93,10 +97,8 @@ export const useGame = (): Game => {
         if (boardTilesWithLetters.every((tile) => tile.isCorrect())) {
           // If all letter tiles are connected
           if (updatedBoard.areLettersConnected()) {
-            // User has won the game, disabled the board
-            updatedBoard.disable();
-            // Display the game statistics
-            setDisplayStats(true);
+            // Handle the game win
+            handleWin(updatedBoard);
           }
         }
       }
@@ -104,6 +106,20 @@ export const useGame = (): Game => {
       setBoard(updatedBoard);
       setRack(updatedRack);
     }
+  };
+
+  /**
+   * Handles the game win.
+   *
+   * @param board - the board to be updated.
+   */
+  const handleWin = (board: Board) => {
+    // Play the game win sound effect
+    gameWinSound.play();
+    // Disable the board
+    board.disable();
+    // Display the game statistics
+    setDisplayStats(true);
   };
 
   /**
