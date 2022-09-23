@@ -1,3 +1,16 @@
+# [1.6.0](https://github.com/ollyrowe/whittle/compare/v1.5.0...v1.6.0) (2022-09-23)
+
+
+### Bug Fixes
+
+* disable dnd auto scroll ([7e0abd9](https://github.com/ollyrowe/whittle/commit/7e0abd9517e0dc0907eb96c84f929f61107fb16c))
+
+
+### Features
+
+* add game sound files ([875b536](https://github.com/ollyrowe/whittle/commit/875b536b032ae6358f11cffc867d0afec7789b55))
+* integrate sound effects into game logic ([f5b827d](https://github.com/ollyrowe/whittle/commit/f5b827d4b4db68ee417f86d68f188b6fe8fd7bb8))
+
 # [1.5.0](https://github.com/ollyrowe/whittle/compare/v1.4.1...v1.5.0) (2022-09-23)
 
 
