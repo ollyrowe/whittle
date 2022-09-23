@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/ollyrowe/whittle/compare/v1.4.1...v1.5.0) (2022-09-23)
+
+
+### Features
+
+* add core game logic ([5b36c59](https://github.com/ollyrowe/whittle/commit/5b36c59b065b5abf068482e7e1456de8a4ee930e))
+
 ## [1.4.1](https://github.com/ollyrowe/whittle/compare/v1.4.0...v1.4.1) (2022-09-18)
 
 
