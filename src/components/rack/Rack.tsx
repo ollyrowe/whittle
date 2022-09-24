@@ -38,6 +38,7 @@ const Container = styled.div`
   justify-content: center;
   margin-top: 2.5px;
   margin-bottom: 2.5px;
+  height: fit-content;
 `;
 
 export default Rack;
