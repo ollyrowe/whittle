@@ -24,25 +24,10 @@ export const useGame = (): Game => {
   const [board, setBoard] = useState(new Board());
 
   // The rack containing the initial letter set
-  const [rack, setRack] = useState(new Rack([]));
+  const [rack, setRack] = useState(new Rack(createTiles()));
 
   // Whether the statistics modal should be displayed
   const [displayStats, setDisplayStats] = useState(false);
-
-  /**
-   * Initialises a new game.
-   */
-  const initialiseGame = () => {
-    setBoard(new Board());
-    setRack(new Rack(createTiles()));
-  };
-
-  /**
-   * Upon initial render, initialise a new game.
-   */
-  useEffect(() => {
-    initialiseGame();
-  }, []);
 
   /**
    * Callback which should be invoked on swapping two game tiles.
@@ -71,15 +56,25 @@ export const useGame = (): Game => {
       firstTile.setLocation(secondTile.getLocation());
       secondTile.setLocation(firstTileLocation);
 
-      // Reset the state of each tile in the board
-      updatedBoard.getTiles().forEach((tile) => tile.reset());
-      // Reset the state of each tile in the rack
-      updatedRack.getTiles().forEach((tile) => tile.reset());
+      setBoard(updatedBoard);
+      setRack(updatedRack);
+    }
+  };
 
-      // Calculate the new state of each tile on the board
-      updatedBoard.getTiles().forEach((tile) => {
-        tile.setState(updatedBoard.getTileState(tile));
-      });
+  /**
+   * Effect which handles the core game logic.
+   *
+   * Watches for changes to the board and rack.
+   */
+  useEffect(() => {
+    // If the board or rack's tiles haven't yet been updated
+    if (!board.isUpdated() || !rack.isUpdated()) {
+      const updatedBoard = new Board(board.getTiles());
+      const updatedRack = new Rack(rack.getTiles());
+
+      // Update the statuses of the tiles
+      updatedBoard.updateTileStatuses();
+      updatedRack.updateTileStatuses();
 
       // All tiles with letters currently in the rack
       const rackTilesWithLetters = updatedRack
@@ -106,7 +101,7 @@ export const useGame = (): Game => {
       setBoard(updatedBoard);
       setRack(updatedRack);
     }
-  };
+  }, [board, rack]);
 
   /**
    * Handles the game win.

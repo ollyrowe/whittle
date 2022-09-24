@@ -4,10 +4,15 @@ import { Tile } from "./Tile";
  * Represents an abstract container which stores tiles.
  */
 export abstract class Container {
+  /** The contained tiles */
   protected tiles: Tile[];
+
+  /** Whether the tile statuses are up-to-date */
+  protected updated: boolean;
 
   constructor(tiles: Tile[]) {
     this.tiles = tiles;
+    this.updated = false;
   }
 
   /**
@@ -36,6 +41,8 @@ export abstract class Container {
         ? firstTile
         : tile
     );
+    // The tile statuses may no longer be up-to-date
+    this.updated = false;
   }
 
   /**
@@ -47,4 +54,18 @@ export abstract class Container {
   includes(tile: Tile) {
     return this.tiles.some((t) => t.getID() === tile.getID());
   }
+
+  /**
+   * Determines whether this container's tiles have been updated.
+   *
+   * @return boolean indicating whether the container's tiles have been updated.
+   */
+  isUpdated() {
+    return this.updated;
+  }
+
+  /**
+   * Updates the states of the contained tiles.
+   */
+  abstract updateTileStatuses(): void;
 }
