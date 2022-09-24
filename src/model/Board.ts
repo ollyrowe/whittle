@@ -35,13 +35,20 @@ export class Board extends Container {
     this.disabled = true;
   }
 
+  updateTileStatuses() {
+    // Calculate the new state of each tile on the board
+    this.tiles.forEach((tile) => tile.setState(this.getTileState(tile)));
+    // Update the updated state
+    this.updated = true;
+  }
+
   /**
    * Determines the state of a given tile.
    *
    * @param tile - the tile to determine the state of.
    * @returns the state of the tile.
    */
-  getTileState(tile: Tile) {
+  private getTileState(tile: Tile) {
     // If the tile is actually on the board
     if (tile.getLocation().name === "board") {
       // Get the words that this tile forms part of
