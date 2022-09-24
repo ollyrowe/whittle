@@ -38,4 +38,6 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   max-width: 350px;
+  height: fit-content;
+  margin: auto;
 `;
