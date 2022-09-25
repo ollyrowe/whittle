@@ -78,6 +78,7 @@ export const Tile: React.FC<Props> = ({
         size={size}
         isBlank={!hasLetter}
         isDragging={isDragging}
+        isOver={isOver}
         color={getTileColor()}
         transform={applyTransformation ? transform : null}
         transition={transition}
@@ -116,6 +117,7 @@ interface BoxProps {
   size: TileSize;
   isBlank: boolean;
   isDragging?: boolean;
+  isOver?: boolean;
   color?: string;
   transform: Transform | null;
   transition?: string;
@@ -126,6 +128,7 @@ interface BoxProps {
  */
 export const Box = styled.div<BoxProps>`
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   font-size: ${(props) => fontSize[props.size]};
@@ -145,6 +148,8 @@ export const Box = styled.div<BoxProps>`
       props.isDragging &&
       "2px 4px 10px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.25), "}
     inset 0px -5px 0px 0px rgba(0, 0, 0, 0.1);
+  z-index: ${(props) =>
+    props.isDragging ? 9999 : props.isOver ? 9998 : "auto"};
 `;
 
 type SizeMapping<T> = { [size in TileSize]: T };
