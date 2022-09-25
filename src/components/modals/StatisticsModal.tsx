@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
+import { useNextGameTimer } from "../../hooks/useNextGameTimer";
 import Modal from "./Modal";
 import { Box } from "./../tile/Tile";
 
@@ -9,25 +10,8 @@ interface Props {
 }
 
 const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
-  // Time left until next whittle is released
-  const [timeLeft, setTimeLeft] = useState(new Date());
-
-  useEffect(() => {
-    const secondTimer = setInterval(() => {
-      const localMidnight = new Date();
-      localMidnight.setHours(24, 0, 0, 0);
-      // Difference between midnight and current time
-      setTimeLeft(
-        new Date(
-          localMidnight.getTime() +
-            localMidnight.getTimezoneOffset() * 60 * 1000 -
-            new Date().getTime()
-        )
-      );
-    }, 1000);
-
-    return () => clearInterval(secondTimer);
-  }, []);
+  // Time left until the next whittle is released
+  const timeUntilNextGame = useNextGameTimer();
 
   return (
     <Modal title="Statistics" open={open} onClose={onClose}>
@@ -47,7 +31,7 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
           <StatsTextBlock>Current Streak</StatsTextBlock>
         </StatsRow>
         <TimeText>Next Whittle In</TimeText>
-        <TimeLeftText>{timeLeft.toLocaleTimeString()}</TimeLeftText>
+        <TimeLeftText>{timeUntilNextGame}</TimeLeftText>
       </Container>
     </Modal>
   );
