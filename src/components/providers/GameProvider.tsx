@@ -51,7 +51,13 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
 
       const overTile = tiles.find((letter) => letter.getID() === over.id)!;
 
-      onSwapTiles(activeTile, overTile);
+      // Whether the tile to be swapped has been hovered over for the required period of time
+      const hasOverTimerLapsed = over.data.current?.hasOverTimerLapsed;
+
+      // If the tile doesn't have a letter or the over timer has lapsed
+      if (!overTile.hasLetter() || hasOverTimerLapsed) {
+        onSwapTiles(activeTile, overTile);
+      }
     }
   };
 
