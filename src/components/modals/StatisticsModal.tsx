@@ -33,21 +33,13 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
     <Modal title="Statistics" open={open} onClose={onClose}>
       <Container>
         <div>
-          <TodayBox size="regular" isBlank={false} transform={null}>
-            ?
-          </TodayBox>
+          <TodayBox size="regular">?</TodayBox>
           <TextBlock>Today's Score</TextBlock>
         </div>
         <StatsRow>
-          <StatsBox size="regular" isBlank={false} transform={null}>
-            0
-          </StatsBox>
-          <StatsBox size="regular" isBlank={false} transform={null}>
-            0
-          </StatsBox>
-          <StatsBox size="regular" isBlank={false} transform={null}>
-            0
-          </StatsBox>
+          <StatsBox size="regular">0</StatsBox>
+          <StatsBox size="regular">0</StatsBox>
+          <StatsBox size="regular">0</StatsBox>
         </StatsRow>
         <StatsRow>
           <StatsTextBlock>Solved</StatsTextBlock>

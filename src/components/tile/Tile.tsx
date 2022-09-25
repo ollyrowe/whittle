@@ -115,11 +115,11 @@ const Placeholder = styled.div<PlaceholderProps>`
 
 interface BoxProps {
   size: TileSize;
-  isBlank: boolean;
+  isBlank?: boolean;
   isDragging?: boolean;
   isOver?: boolean;
   color?: string;
-  transform: Transform | null;
+  transform?: Transform | null;
   transition?: string;
 }
 
@@ -141,7 +141,7 @@ export const Box = styled.div<BoxProps>`
   user-select: none;
   flex-shrink: 0;
   opacity: ${(props) => (props.isBlank ? 0 : 1)};
-  transform: ${(props) => CSS.Transform.toString(props.transform)};
+  transform: ${(props) => CSS.Transform.toString(props.transform || null)};
   transition: ${(props) => props.transition && props.transition + ","}
     background-color 1s cubic-bezier(0.19, 1, 0.22, 1);
   box-shadow: ${(props) =>
