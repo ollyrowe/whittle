@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled, { useTheme } from "styled-components";
+import { useConditionTimer } from "../../hooks/useConditionTimer";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS, Transform } from "@dnd-kit/utilities";
 import { GameContext } from "../providers/GameProvider";
@@ -29,14 +30,35 @@ export const Tile: React.FC<Props> = ({
 
   const { getNewIndex } = useContext(GameContext);
 
+  // Whether this tile has been hovered over for the required time period
+  const [hasOverTimerLapsed, setHasOverTimerLapsed] = useState(false);
+
+  // Whether this tile has a letter
+  const hasLetter = !!letter;
+
   const {
     attributes,
     listeners,
     transform,
     transition,
     isDragging,
+    isOver,
     setNodeRef,
-  } = useSortable({ id, getNewIndex, disabled });
+  } = useSortable({
+    id,
+    getNewIndex,
+    disabled,
+    data: { hasOverTimerLapsed },
+  });
+
+  // Detect whether this tile has been hovered over for the required time period
+  const isOverTimerState = useConditionTimer(isOver, HOVER_PERIOD);
+
+  // Upon change to the isOver timer state, update the local state accordingly
+  useEffect(() => setHasOverTimerLapsed(isOverTimerState), [isOverTimerState]);
+
+  // Whether the sortable transformation should be applied to the tile
+  const applyTransformation = isDragging || !hasLetter || hasOverTimerLapsed;
 
   const getTileColor = () => {
     switch (state) {
@@ -54,10 +76,10 @@ export const Tile: React.FC<Props> = ({
       <Box
         ref={setNodeRef}
         size={size}
-        isBlank={!letter}
+        isBlank={!hasLetter}
         isDragging={isDragging}
         color={getTileColor()}
-        transform={transform}
+        transform={applyTransformation ? transform : null}
         transition={transition}
         {...attributes}
         {...listeners}
@@ -69,6 +91,9 @@ export const Tile: React.FC<Props> = ({
 };
 
 export default Tile;
+
+/** The hover time period in milliseconds */
+const HOVER_PERIOD = 150;
 
 interface PlaceholderProps {
   visible: boolean;
