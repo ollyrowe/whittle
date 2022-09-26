@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/ollyrowe/whittle/compare/v1.6.0...v1.6.1) (2022-09-26)
+
+
+### Bug Fixes
+
+* update layout styles for mobile displays ([c3c08c1](https://github.com/ollyrowe/whittle/commit/c3c08c17aa02b8c1dbb03858ccfa6817ec6aa4a2))
+
 # [1.6.0](https://github.com/ollyrowe/whittle/compare/v1.5.0...v1.6.0) (2022-09-23)
 
 
