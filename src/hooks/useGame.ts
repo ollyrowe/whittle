@@ -5,6 +5,7 @@ import { Rack } from "../model/Rack";
 import { Tile } from "../model/Tile";
 import { gameWinSound, tilePlaceSound } from "../misc/sounds";
 import useSettings, { SettingsOptions } from "./useSettings";
+import { useConfetti, ConfettiControls } from "./useConfetti";
 
 export interface Game {
   board: Board;
@@ -14,6 +15,7 @@ export interface Game {
   displayStats: boolean;
   openStats: () => void;
   closeStats: () => void;
+  confetti: ConfettiControls;
 }
 
 /**
@@ -33,6 +35,9 @@ export const useGame = (): Game => {
 
   // Whether the statistics modal should be displayed
   const [displayStats, setDisplayStats] = useState(false);
+
+  // Confetti firing controls
+  const confetti = useConfetti();
 
   /**
    * Callback which should be invoked on swapping two game tiles.
@@ -93,8 +98,10 @@ export const useGame = (): Game => {
       board.disable();
       // Display the game statistics
       setDisplayStats(true);
+      // Fire confetti after a short delay
+      setTimeout(confetti.fire, 150);
     },
-    [playSound]
+    [playSound, confetti.fire]
   );
 
   /**
@@ -161,6 +168,7 @@ export const useGame = (): Game => {
     displayStats,
     openStats,
     closeStats,
+    confetti,
   };
 };
 
