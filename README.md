@@ -36,7 +36,7 @@
 <p align="center">
   <a href="#-about">About</a> •
   <a href="#-rules">Rules</a> •
-  <a href="#-sources">Inspiration</a> •
+  <a href="#-inspiration">Inspiration</a> •
   <a href="#-changelog">Changelog</a> •
   <a href="#-license">License</a>
 </p>
