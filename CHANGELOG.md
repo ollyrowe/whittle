@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/ollyrowe/whittle/compare/v1.6.1...v1.7.0) (2022-09-27)
+
+
+### Bug Fixes
+
+* update tile styles to fix stacking issue ([772b4b5](https://github.com/ollyrowe/whittle/commit/772b4b56aeaf2cd042ffa481fc8ea9652ba820ff))
+
+
+### Features
+
+* add tile swap delay to improve usability ([20a5cf7](https://github.com/ollyrowe/whittle/commit/20a5cf7ba9e4e68cfb384071235e5a4feefa4c36))
+* improve tile styles and transitions ([78bff66](https://github.com/ollyrowe/whittle/commit/78bff6679c3e9537bc7b9247a4fe81fff7b6ba9e))
+
 ## [1.6.1](https://github.com/ollyrowe/whittle/compare/v1.6.0...v1.6.1) (2022-09-26)
 
 
