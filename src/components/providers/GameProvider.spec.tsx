@@ -22,6 +22,13 @@ const mockGame: GameContextProps = {
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},
   },
+  confetti: {
+    canvasProps: {
+      refConfetti: () => {},
+      style: {},
+    },
+    fire: () => {},
+  },
 };
 
 it("renders", () => {

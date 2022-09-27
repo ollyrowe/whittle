@@ -1,4 +1,5 @@
 import React from "react";
+import CanvasConfetti from "react-canvas-confetti";
 import {
   arraySwap,
   NewIndexGetter,
@@ -26,7 +27,7 @@ interface Props {
 }
 
 const GameProvider: React.FC<Props> = ({ game, children }) => {
-  const { board, rack, settings, onSwapTiles } = game;
+  const { board, rack, settings, onSwapTiles, confetti } = game;
 
   const tiles = [...board.getTiles(), ...rack.getTiles()];
 
@@ -77,15 +78,22 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
   };
 
   return (
-    <GameContext.Provider value={{ ...game, getNewIndex }}>
-      <ThemeProvider theme={settings.theme}>
-        <DndContext sensors={sensors} onDragEnd={onDragEnd} autoScroll={false}>
-          <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
-            {children}
-          </SortableContext>
-        </DndContext>
-      </ThemeProvider>
-    </GameContext.Provider>
+    <>
+      <GameContext.Provider value={{ ...game, getNewIndex }}>
+        <ThemeProvider theme={settings.theme}>
+          <DndContext
+            sensors={sensors}
+            onDragEnd={onDragEnd}
+            autoScroll={false}
+          >
+            <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
+              {children}
+            </SortableContext>
+          </DndContext>
+        </ThemeProvider>
+      </GameContext.Provider>
+      <CanvasConfetti {...confetti.canvasProps} />
+    </>
   );
 };
 
@@ -111,5 +119,12 @@ export const GameContext = React.createContext<GameContextProps>({
     toggleTheme: () => {},
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},
+  },
+  confetti: {
+    canvasProps: {
+      refConfetti: () => {},
+      style: {},
+    },
+    fire: () => {},
   },
 });
