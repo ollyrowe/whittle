@@ -1,7 +1,12 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Rack from "./Rack";
+import MockThemeProvider from "../providers/MockThemeProvider";
 
 it("renders", () => {
-  render(<Rack />);
+  render(
+    <MockThemeProvider>
+      <Rack />
+    </MockThemeProvider>
+  );
 });

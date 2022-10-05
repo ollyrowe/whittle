@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { useNextGameTimer } from "../../hooks/useNextGameTimer";
+import { Typography } from "@mui/material";
 import Modal from "./Modal";
+import { useNextGameTimer } from "../../hooks/useNextGameTimer";
 import { Box } from "./../tile/Tile";
 
 interface Props {
@@ -14,8 +15,13 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
   const timeUntilNextGame = useNextGameTimer();
 
   return (
-    <Modal title="Statistics" open={open} onClose={onClose}>
-      <Container>
+    <Modal
+      title="Statistics"
+      open={open}
+      onClose={onClose}
+      aria-describedby="statistics"
+    >
+      <Container id="statistics">
         <div>
           <TodayBox size="regular">?</TodayBox>
           <TextBlock>Today's Score</TextBlock>
@@ -37,26 +43,31 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
   );
 };
 
-const TextBlock = styled.p`
+const Container = styled.div`
+  text-align: center;
+`;
+
+const TodayBox = styled(Box)`
+  margin-right: auto;
+  margin-left: auto;
+`;
+
+const TextBlock = styled(Typography)`
   font-size: 1em;
   margin-top: 0;
   margin-bottom: 1.5em;
 `;
 
-const TimeText = styled.p`
-  font-size: 1em;
-  margin-top: 0;
-  margin-bottom: 0.5em;
+const StatsRow = styled.div`
+  display: inline-flex;
 `;
 
-const TimeLeftText = styled.p`
-  font-size: 1em;
-  margin-top: 0;
-  margin-bottom: 1.5em;
-  font-weight: bold;
+const StatsBox = styled(Box)`
+  margin-left: 10px;
+  margin-right: 10px;
 `;
 
-const StatsTextBlock = styled.p`
+const StatsTextBlock = styled(Typography)`
   font-size: 1em;
   margin-top: 0;
   margin-bottom: 1.5em;
@@ -67,22 +78,17 @@ const StatsTextBlock = styled.p`
   text-align: center;
 `;
 
-const Container = styled.div`
-  text-align: center;
+const TimeText = styled(Typography)`
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 `;
 
-const TodayBox = styled(Box)`
-  margin-right: auto;
-  margin-left: auto;
-`;
-
-const StatsRow = styled.div`
-  display: inline-flex;
-`;
-
-const StatsBox = styled(Box)`
-  margin-left: 10px;
-  margin-right: 10px;
+const TimeLeftText = styled(Typography)`
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  font-weight: bold;
 `;
 
 export default StatisticsModal;

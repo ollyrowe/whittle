@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import styled, { useTheme } from "styled-components";
+import { useTheme } from "@mui/material";
+import styled from "styled-components";
 import { useConditionTimer } from "../../hooks/useConditionTimer";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS, Transform } from "@dnd-kit/utilities";
@@ -63,11 +64,11 @@ export const Tile: React.FC<Props> = ({
   const getTileColor = () => {
     switch (state) {
       case TileState.CORRECT:
-        return theme.green;
+        return theme.palette.tile.green;
       case TileState.PARTIALLY_CORRECT:
-        return theme.amber;
+        return theme.palette.tile.amber;
       default:
-        return theme.border;
+        return theme.palette.tile.default;
     }
   };
 
@@ -106,7 +107,7 @@ interface PlaceholderProps {
  * Placeholder div which applies an inset border around the tile.
  */
 const Placeholder = styled.div<PlaceholderProps>`
-  box-shadow: ${(props) => props.visible && "inset 0px 0px 0px 2px #d3d6da"};
+  box-shadow: ${(props) => props.visible && "inset 0px 0px 0px 2px " + props.theme.palette.border };
   margin: 2.5px;
   width: ${(props) => tileSize[props.size]}px;
   height: ${(props) => tileSize[props.size]}px;
@@ -133,10 +134,10 @@ export const Box = styled.div<BoxProps>`
   justify-content: center;
   font-size: ${(props) => fontSize[props.size]};
   font-weight: bold;
-  background-color: ${(props) => props.color || props.theme.border};
+  background-color: ${(props) => props.color || props.theme.palette.tile.default};
   border-radius: 4px;
   width: ${(props) => tileSize[props.size]}px;
-  height: ${(props) => tileSize[props.size] - 5}px;
+  height: ${(props) => tileSize[props.size]}px;
   padding-bottom: 5px;
   user-select: none;
   flex-shrink: 0;

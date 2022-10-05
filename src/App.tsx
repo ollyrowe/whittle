@@ -1,16 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 import AppBar from "./components/appbar/AppBar";
 import Board from "./components/board/Board";
 import Rack from "./components/rack/Rack";
 import GameProvider from "./components/providers/GameProvider";
-import styled, { ThemeProvider } from "styled-components";
-import { useThemeToggle } from "./hooks/useThemeToggle";
+import ThemeProvider from "./components/providers/ThemeProvider";
 import { useGame } from "./hooks/useGame";
+import { useThemeToggle } from "./hooks/useThemeToggle";
 
 const App: React.FC = () => {
-  const theme = useThemeToggle();
-
   const game = useGame();
+
+  const theme = useThemeToggle();
 
   return (
     <ThemeProvider theme={theme}>
@@ -30,7 +31,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: ${(props) => props.theme.background};
+  background-color: ${props => props.theme.palette.background.default}
 `;
 
 export default App;
