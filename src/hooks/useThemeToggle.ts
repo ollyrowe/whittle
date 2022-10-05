@@ -1,21 +1,26 @@
 import { useState } from "react";
-import { lightTheme, darkTheme, ThemeMode } from "../misc/theme";
+import { useMediaQuery, Theme as MuiTheme } from "@mui/material";
+import { lightTheme, darkTheme } from "../misc/theme";
 
 /**
  * Hook which stores the current theme which can be toggled.
  *
  * @returns the currently selected theme.
  */
-export const useThemeToggle = () => {
+export const useThemeToggle = (): ToggleableTheme => {
+  const prefersDarkTheme = useMediaQuery("(prefers-color-scheme: dark)");
+
   const [theme, setTheme] = useState(prefersDarkTheme ? darkTheme : lightTheme);
 
   const toggle = () => {
-    setTheme(theme.mode === ThemeMode.Light ? darkTheme : lightTheme);
+    setTheme(theme === lightTheme ? darkTheme : lightTheme);
   };
 
   return { ...theme, toggle };
 };
 
-const prefersDarkTheme = window.matchMedia(
-  "(prefers-color-scheme: dark)"
-).matches;
+export default useThemeToggle;
+
+export interface ToggleableTheme extends MuiTheme {
+  toggle: () => void;
+}

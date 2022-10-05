@@ -1,5 +1,15 @@
 import "@testing-library/jest-dom";
 
+jest.mock("@mui/material", () => {
+  const originalModule = jest.requireActual("@mui/material");
+
+  return {
+    __esModule: true,
+    ...originalModule,
+    useMediaQuery: () => true,
+  };
+});
+
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: jest.fn().mockImplementation((query) => ({

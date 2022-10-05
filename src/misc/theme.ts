@@ -1,40 +1,43 @@
-export enum ThemeMode {
-  Light = "Light",
-  Dark = "Dark",
-}
+import { createTheme } from "@mui/material";
 
-export interface Theme {
-  mode: ThemeMode;
-  background: string;
-  paper: string;
-  text: string;
-  border: string;
-  active: string;
-  grey: string;
-  green: string;
-  amber: string;
-}
+export const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#9f7060",
+    },
+    background: {
+      default: "#ffffff",
+    },
+    text: {
+      primary: "#3a3a3c",
+    },
+    tile: {
+      default: "#d3d6da",
+      green: "#6aaa64",
+      amber: "#c9b458",
+    },
+    border: "#d3d6da",
+  },
+});
 
-export const lightTheme: Theme = {
-  mode: ThemeMode.Light,
-  background: "#ffffff",
-  paper: "#8e9193",
-  text: "#3a3a3c",
-  border: "#d3d6da",
-  active: "#a2a3a4",
-  grey: "#d3d6da",
-  green: "#6aaa64",
-  amber: "#c9b458",
-};
-
-export const darkTheme: Theme = {
-  mode: ThemeMode.Dark,
-  background: "#121213",
-  paper: "#3a3a3c",
-  text: "#ffffff",
-  border: "#3a3a3c",
-  active: "#656667",
-  grey: "#818384",
-  green: "#538d4e",
-  amber: "#b59f3b",
-};
+export const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#9f7060",
+    },
+    background: {
+      default: "#121213",
+    },
+    text: {
+      primary: "#ffffff",
+    },
+    tile: {
+      default: "#b7b9bc",
+      green: "#538d4e",
+      amber: "#b59f3b",
+    },
+    border: "#3a3a3c",
+  },
+});
