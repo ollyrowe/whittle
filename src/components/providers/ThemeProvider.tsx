@@ -1,10 +1,9 @@
 import React from "react";
-import { ThemeProvider as MuiThemeProvider } from "@mui/material";
+import { ThemeProvider as MuiThemeProvider, Theme } from "@mui/material";
 import { ThemeProvider as ScThemeProvider } from "styled-components";
-import { ToggleableTheme } from "../../hooks/useThemeToggle";
 
 interface Props {
-  theme: ToggleableTheme;
+  theme: Theme;
   children?: React.ReactNode;
 }
 

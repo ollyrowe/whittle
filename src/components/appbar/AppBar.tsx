@@ -4,15 +4,19 @@ import { IconButton } from "@mui/material";
 import {
   HelpOutline as HelpOutlineIcon,
   BarChart as BarChartIcon,
+  Settings as SettingsIcon,
 } from "@mui/icons-material";
 import HowToPlayModal from "../modals/HowToPlayModal";
 import StatisticsModal from "../modals/StatisticsModal";
+import SettingsModal from "../modals/SettingsModal";
 import { GameContext } from "../providers/GameProvider";
 
 const AppBar: React.FC = () => {
   const { displayStats, openStats, closeStats } = useContext(GameContext);
 
   const [displayHowToPlay, setDisplayHowToPlay] = useState(false);
+
+  const [displaySettings, setDisplaySettings] = useState(false);
 
   const openHowToPlay = () => {
     setDisplayHowToPlay(true);
@@ -22,22 +26,50 @@ const AppBar: React.FC = () => {
     setDisplayHowToPlay(false);
   };
 
+  const openSettings = () => {
+    setDisplaySettings(true);
+  };
+
+  const closeSettings = () => {
+    setDisplaySettings(false);
+  };
+
   return (
     <>
       <Container>
-        <AppBarButton onClick={openHowToPlay}>
-          <HelpOutlineIcon />
-        </AppBarButton>
+        <LeftButtonContainer>
+          <AppBarButton onClick={openHowToPlay}>
+            <HelpOutlineIcon />
+          </AppBarButton>
+        </LeftButtonContainer>
         <Title>Whittle</Title>
-        <AppBarButton onClick={openStats}>
-          <BarChartIcon />
-        </AppBarButton>
+        <RightButtonContainer>
+          <AppBarButton onClick={openStats}>
+            <BarChartIcon />
+          </AppBarButton>
+          <AppBarButton onClick={openSettings}>
+            <SettingsIcon />
+          </AppBarButton>
+        </RightButtonContainer>
       </Container>
       <HowToPlayModal open={displayHowToPlay} onClose={closeHowToPlay} />
       <StatisticsModal open={displayStats} onClose={closeStats} />
+      <SettingsModal open={displaySettings} onClose={closeSettings} />
     </>
   );
 };
+
+const LeftButtonContainer = styled.div`
+  position: absolute;
+  left: ${(props) => props.theme.spacing(0.5)};
+  top: ${(props) => props.theme.spacing(0.5)};
+`;
+
+const RightButtonContainer = styled.div`
+  position: absolute;
+  right: ${(props) => props.theme.spacing(0.5)};
+  top: ${(props) => props.theme.spacing(0.5)};
+`;
 
 const Container = styled.div`
   display: flex;
@@ -55,7 +87,7 @@ const Title = styled.h1`
 
 const AppBarButton = styled(IconButton)`
   color: ${(props) => props.theme.palette.text.primary};
-  margin: auto ${(props) => props.theme.spacing(2)};
+  margin: ${(props) => props.theme.spacing(0.5)};
 `;
 
 export default AppBar;

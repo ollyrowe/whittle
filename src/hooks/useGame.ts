@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Board } from "../model/Board";
 import { Letter } from "../model/enums/Letter";
 import { Rack } from "../model/Rack";
 import { Tile } from "../model/Tile";
 import { gameWinSound, tilePlaceSound } from "../misc/sounds";
+import useSettings, { SettingsOptions } from "./useSettings";
 
 export interface Game {
   board: Board;
   rack: Rack;
+  settings: SettingsOptions;
   onSwapTiles: (firstTile: Tile, secondTile: Tile) => void;
   displayStats: boolean;
   openStats: () => void;
@@ -26,6 +28,9 @@ export const useGame = (): Game => {
   // The rack containing the initial letter set
   const [rack, setRack] = useState(new Rack(createTiles()));
 
+  // The game settings storing the user's preferences
+  const settings = useSettings();
+
   // Whether the statistics modal should be displayed
   const [displayStats, setDisplayStats] = useState(false);
 
@@ -40,7 +45,7 @@ export const useGame = (): Game => {
    */
   const onSwapTiles = (firstTile: Tile, secondTile: Tile) => {
     // Play the tile place sound effect
-    tilePlaceSound.play();
+    playSound(tilePlaceSound);
 
     if (firstTile !== secondTile) {
       const updatedBoard = new Board(board.getTiles());
@@ -60,6 +65,37 @@ export const useGame = (): Game => {
       setRack(updatedRack);
     }
   };
+
+  /**
+   * Plays a sound if the user wants to hear it.
+   *
+   * @param sound - the sound to be played.
+   */
+  const playSound = useCallback(
+    (sound: HTMLAudioElement) => {
+      if (settings.enableSoundFx) {
+        sound.play();
+      }
+    },
+    [settings]
+  );
+
+  /**
+   * Handles the game win.
+   *
+   * @param board - the board to be updated.
+   */
+  const handleWin = useCallback(
+    (board: Board) => {
+      // Play the game win sound effect
+      playSound(gameWinSound);
+      // Disable the board
+      board.disable();
+      // Display the game statistics
+      setDisplayStats(true);
+    },
+    [playSound]
+  );
 
   /**
    * Effect which handles the core game logic.
@@ -101,21 +137,7 @@ export const useGame = (): Game => {
       setBoard(updatedBoard);
       setRack(updatedRack);
     }
-  }, [board, rack]);
-
-  /**
-   * Handles the game win.
-   *
-   * @param board - the board to be updated.
-   */
-  const handleWin = (board: Board) => {
-    // Play the game win sound effect
-    gameWinSound.play();
-    // Disable the board
-    board.disable();
-    // Display the game statistics
-    setDisplayStats(true);
-  };
+  }, [board, rack, handleWin]);
 
   /**
    * Opens the statistics modal.
@@ -131,7 +153,15 @@ export const useGame = (): Game => {
     setDisplayStats(false);
   };
 
-  return { board, rack, onSwapTiles, displayStats, openStats, closeStats };
+  return {
+    board,
+    rack,
+    settings,
+    onSwapTiles,
+    displayStats,
+    openStats,
+    closeStats,
+  };
 };
 
 const letters = [
