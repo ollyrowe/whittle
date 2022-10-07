@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/ollyrowe/whittle/compare/v1.7.0...v1.8.0) (2022-10-07)
+
+
+### Features
+
+* add user settings modal ([6679726](https://github.com/ollyrowe/whittle/commit/66797262621b5248fd974f10c10c75ec226bb97f))
+
 # [1.7.0](https://github.com/ollyrowe/whittle/compare/v1.6.1...v1.7.0) (2022-09-27)
 
 
