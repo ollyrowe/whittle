@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/ollyrowe/whittle/compare/v1.8.0...v1.9.0) (2022-10-07)
+
+
+### Features
+
+* add confetti win animation ([460af91](https://github.com/ollyrowe/whittle/commit/460af91554c18a26b76b4d2e50ff179cdaf2413b))
+
 # [1.8.0](https://github.com/ollyrowe/whittle/compare/v1.7.0...v1.8.0) (2022-10-07)
 
 
