@@ -13,6 +13,9 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
+import ThemeProvider from "./ThemeProvider";
+import { defaultSettings } from "../../hooks/useSettings";
+import { createLightTheme } from "../../misc/theme";
 import { Game } from "../../hooks/useGame";
 import { Board } from "../../model/Board";
 import { Rack } from "../../model/Rack";
@@ -23,7 +26,7 @@ interface Props {
 }
 
 const GameProvider: React.FC<Props> = ({ game, children }) => {
-  const { board, rack, onSwapTiles } = game;
+  const { board, rack, settings, onSwapTiles } = game;
 
   const tiles = [...board.getTiles(), ...rack.getTiles()];
 
@@ -75,18 +78,20 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
 
   return (
     <GameContext.Provider value={{ ...game, getNewIndex }}>
-      <DndContext sensors={sensors} onDragEnd={onDragEnd} autoScroll={false}>
-        <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
-          {children}
-        </SortableContext>
-      </DndContext>
+      <ThemeProvider theme={settings.theme}>
+        <DndContext sensors={sensors} onDragEnd={onDragEnd} autoScroll={false}>
+          <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
+            {children}
+          </SortableContext>
+        </DndContext>
+      </ThemeProvider>
     </GameContext.Provider>
   );
 };
 
 export default GameProvider;
 
-interface GameContextProps extends Game {
+export interface GameContextProps extends Game {
   /** Gets the new index of a tile based on a swap */
   getNewIndex: NewIndexGetter;
 }
@@ -99,4 +104,12 @@ export const GameContext = React.createContext<GameContextProps>({
   openStats: () => {},
   closeStats: () => {},
   getNewIndex: () => -1,
+  settings: {
+    ...defaultSettings,
+    theme: createLightTheme(false),
+    toggleEasyMode: () => {},
+    toggleTheme: () => {},
+    toggleHighContrastMode: () => {},
+    toggleSoundFx: () => {},
+  },
 });

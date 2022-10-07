@@ -33,7 +33,9 @@ const Modal: React.FC<Props> = ({
       onClose={onClose}
       TransitionComponent={Transition}
       maxWidth="xs"
+      fullWidth
       keepMounted
+      PaperProps={{ sx: { backgroundImage: "none" } }}
       {...dialogProps}
     >
       <CenteredTitle>
