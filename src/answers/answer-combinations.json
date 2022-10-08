@@ -1,0 +1,791 @@
+[
+  {
+    "date": "Jan 1",
+    "theme": "Happy New Year's Day!",
+    "letters": [
+      "R",
+      "B",
+      "W",
+      "H",
+      "E",
+      "C",
+      "U",
+      "N",
+      "L",
+      "E",
+      "A",
+      "Y",
+      "B",
+      "E",
+      "B"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "B", "row": 1, "column": 1 },
+          { "letter": "U", "row": 2, "column": 1 },
+          { "letter": "B", "row": 3, "column": 1 },
+          { "letter": "B", "row": 4, "column": 1 },
+          { "letter": "L", "row": 5, "column": 1 },
+          { "letter": "Y", "row": 6, "column": 1 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "Y", "row": 6, "column": 1 },
+          { "letter": "E", "row": 6, "column": 2 },
+          { "letter": "A", "row": 6, "column": 3 },
+          { "letter": "R", "row": 6, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "C", "row": 2, "column": 4 },
+          { "letter": "H", "row": 3, "column": 4 },
+          { "letter": "E", "row": 4, "column": 4 },
+          { "letter": "E", "row": 5, "column": 4 },
+          { "letter": "R", "row": 6, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "N", "row": 4, "column": 3 },
+          { "letter": "E", "row": 4, "column": 4 },
+          { "letter": "W", "row": 4, "column": 5 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Feb 14",
+    "theme": "Happy Valentine's Day!",
+    "letters": [
+      "V",
+      "U",
+      "E",
+      "L",
+      "H",
+      "S",
+      "T",
+      "Y",
+      "S",
+      "O",
+      "R",
+      "O",
+      "E",
+      "R",
+      "A"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "H", "row": 1, "column": 5 },
+          { "letter": "E", "row": 2, "column": 5 },
+          { "letter": "A", "row": 3, "column": 5 },
+          { "letter": "R", "row": 4, "column": 5 },
+          { "letter": "T", "row": 5, "column": 5 },
+          { "letter": "S", "row": 6, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "R", "row": 6, "column": 1 },
+          { "letter": "O", "row": 6, "column": 2 },
+          { "letter": "S", "row": 6, "column": 3 },
+          { "letter": "E", "row": 6, "column": 4 },
+          { "letter": "S", "row": 6, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "L", "row": 2, "column": 2 },
+          { "letter": "O", "row": 2, "column": 3 },
+          { "letter": "V", "row": 2, "column": 4 },
+          { "letter": "E", "row": 2, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "Y", "row": 1, "column": 3 },
+          { "letter": "O", "row": 2, "column": 3 },
+          { "letter": "U", "row": 3, "column": 3 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Mar 17",
+    "theme": "Happy Saint Patrick's Day!",
+    "letters": [
+      "E",
+      "N",
+      "Y",
+      "G",
+      "K",
+      "D",
+      "N",
+      "E",
+      "C",
+      "R",
+      "O",
+      "L",
+      "U",
+      "I",
+      "O"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "G", "row": 1, "column": 1 },
+          { "letter": "O", "row": 2, "column": 1 },
+          { "letter": "L", "row": 3, "column": 1 },
+          { "letter": "D", "row": 4, "column": 1 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "G", "row": 1, "column": 1 },
+          { "letter": "R", "row": 1, "column": 2 },
+          { "letter": "E", "row": 1, "column": 3 },
+          { "letter": "E", "row": 1, "column": 4 },
+          { "letter": "N", "row": 1, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "L", "row": 3, "column": 1 },
+          { "letter": "U", "row": 3, "column": 2 },
+          { "letter": "C", "row": 3, "column": 3 },
+          { "letter": "K", "row": 3, "column": 4 },
+          { "letter": "Y", "row": 3, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "C", "row": 3, "column": 3 },
+          { "letter": "O", "row": 4, "column": 3 },
+          { "letter": "I", "row": 5, "column": 3 },
+          { "letter": "N", "row": 6, "column": 3 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Oct 31",
+    "theme": "Happy Halloween!",
+    "letters": [
+      "O",
+      "T",
+      "P",
+      "G",
+      "S",
+      "A",
+      "K",
+      "S",
+      "Y",
+      "H",
+      "S",
+      "C",
+      "R",
+      "O",
+      "O"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "G", "row": 1, "column": 1 },
+          { "letter": "H", "row": 2, "column": 1 },
+          { "letter": "O", "row": 3, "column": 1 },
+          { "letter": "S", "row": 4, "column": 1 },
+          { "letter": "T", "row": 5, "column": 1 },
+          { "letter": "S", "row": 6, "column": 1 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "S", "row": 6, "column": 1 },
+          { "letter": "C", "row": 6, "column": 2 },
+          { "letter": "A", "row": 6, "column": 3 },
+          { "letter": "R", "row": 6, "column": 4 },
+          { "letter": "Y", "row": 6, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "S", "row": 1, "column": 5 },
+          { "letter": "P", "row": 2, "column": 5 },
+          { "letter": "O", "row": 3, "column": 5 },
+          { "letter": "O", "row": 4, "column": 5 },
+          { "letter": "K", "row": 5, "column": 5 },
+          { "letter": "Y", "row": 6, "column": 5 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Nov 1",
+    "theme": "Transport",
+    "letters": [
+      "A",
+      "R",
+      "A",
+      "B",
+      "L",
+      "N",
+      "R",
+      "T",
+      "P",
+      "O",
+      "A",
+      "I",
+      "S",
+      "C",
+      "E"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "T", "row": 1, "column": 4 },
+          { "letter": "R", "row": 2, "column": 4 },
+          { "letter": "A", "row": 3, "column": 4 },
+          { "letter": "I", "row": 4, "column": 4 },
+          { "letter": "N", "row": 5, "column": 4 },
+          { "letter": "S", "row": 6, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "B", "row": 1, "column": 1 },
+          { "letter": "O", "row": 1, "column": 2 },
+          { "letter": "A", "row": 1, "column": 3 },
+          { "letter": "T", "row": 1, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "C", "row": 3, "column": 3 },
+          { "letter": "A", "row": 3, "column": 4 },
+          { "letter": "R", "row": 3, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "P", "row": 5, "column": 1 },
+          { "letter": "L", "row": 5, "column": 2 },
+          { "letter": "A", "row": 5, "column": 3 },
+          { "letter": "N", "row": 5, "column": 4 },
+          { "letter": "E", "row": 5, "column": 5 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Nov 2",
+    "theme": "Weather",
+    "letters": [
+      "I",
+      "H",
+      "S",
+      "R",
+      "D",
+      "C",
+      "G",
+      "N",
+      "U",
+      "A",
+      "I",
+      "L",
+      "O",
+      "O",
+      "F"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "R", "row": 1, "column": 2 },
+          { "letter": "A", "row": 2, "column": 2 },
+          { "letter": "I", "row": 3, "column": 2 },
+          { "letter": "N", "row": 4, "column": 2 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "H", "row": 2, "column": 1 },
+          { "letter": "A", "row": 2, "column": 2 },
+          { "letter": "I", "row": 2, "column": 3 },
+          { "letter": "L", "row": 2, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "C", "row": 1, "column": 4 },
+          { "letter": "L", "row": 2, "column": 4 },
+          { "letter": "O", "row": 3, "column": 4 },
+          { "letter": "U", "row": 4, "column": 4 },
+          { "letter": "D", "row": 5, "column": 4 },
+          { "letter": "S", "row": 6, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "F", "row": 6, "column": 1 },
+          { "letter": "O", "row": 6, "column": 2 },
+          { "letter": "G", "row": 6, "column": 3 },
+          { "letter": "S", "row": 6, "column": 4 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Nov 3",
+    "theme": "Numbers",
+    "letters": [
+      "E",
+      "V",
+      "N",
+      "T",
+      "E",
+      "O",
+      "E",
+      "L",
+      "E",
+      "W",
+      "E",
+      "T",
+      "S",
+      "I",
+      "N"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "T", "row": 1, "column": 3 },
+          { "letter": "W", "row": 2, "column": 3 },
+          { "letter": "E", "row": 3, "column": 3 },
+          { "letter": "L", "row": 4, "column": 3 },
+          { "letter": "V", "row": 5, "column": 3 },
+          { "letter": "E", "row": 6, "column": 3 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "T", "row": 2, "column": 2 },
+          { "letter": "W", "row": 2, "column": 3 },
+          { "letter": "O", "row": 2, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "S", "row": 5, "column": 1 },
+          { "letter": "E", "row": 5, "column": 2 },
+          { "letter": "V", "row": 5, "column": 3 },
+          { "letter": "E", "row": 5, "column": 4 },
+          { "letter": "N", "row": 5, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "N", "row": 3, "column": 5 },
+          { "letter": "I", "row": 4, "column": 5 },
+          { "letter": "N", "row": 5, "column": 5 },
+          { "letter": "E", "row": 6, "column": 5 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Nov 4",
+    "theme": "Maths",
+    "letters": [
+      "T",
+      "L",
+      "I",
+      "T",
+      "C",
+      "O",
+      "E",
+      "A",
+      "I",
+      "O",
+      "P",
+      "R",
+      "F",
+      "C",
+      "R"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "P", "row": 2, "column": 2 },
+          { "letter": "R", "row": 3, "column": 2 },
+          { "letter": "O", "row": 4, "column": 2 },
+          { "letter": "O", "row": 5, "column": 2 },
+          { "letter": "F", "row": 6, "column": 2 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "T", "row": 5, "column": 1 },
+          { "letter": "O", "row": 5, "column": 2 },
+          { "letter": "T", "row": 5, "column": 3 },
+          { "letter": "A", "row": 5, "column": 4 },
+          { "letter": "L", "row": 5, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "P", "row": 2, "column": 2 },
+          { "letter": "I", "row": 2, "column": 3 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "C", "row": 1, "column": 5 },
+          { "letter": "I", "row": 2, "column": 5 },
+          { "letter": "R", "row": 3, "column": 5 },
+          { "letter": "C", "row": 4, "column": 5 },
+          { "letter": "L", "row": 5, "column": 5 },
+          { "letter": "E", "row": 6, "column": 5 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Nov 5",
+    "theme": "Birds",
+    "letters": [
+      "C",
+      "S",
+      "N",
+      "D",
+      "H",
+      "K",
+      "N",
+      "K",
+      "Y",
+      "U",
+      "T",
+      "R",
+      "E",
+      "A",
+      "W"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "T", "row": 1, "column": 2 },
+          { "letter": "U", "row": 2, "column": 2 },
+          { "letter": "R", "row": 3, "column": 2 },
+          { "letter": "K", "row": 4, "column": 2 },
+          { "letter": "E", "row": 5, "column": 2 },
+          { "letter": "Y", "row": 6, "column": 2 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "D", "row": 2, "column": 1 },
+          { "letter": "U", "row": 2, "column": 2 },
+          { "letter": "C", "row": 2, "column": 3 },
+          { "letter": "K", "row": 2, "column": 4 },
+          { "letter": "S", "row": 2, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "H", "row": 5, "column": 1 },
+          { "letter": "E", "row": 5, "column": 2 },
+          { "letter": "N", "row": 5, "column": 3 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "S", "row": 2, "column": 5 },
+          { "letter": "W", "row": 3, "column": 5 },
+          { "letter": "A", "row": 4, "column": 5 },
+          { "letter": "N", "row": 5, "column": 5 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Nov 6",
+    "theme": "Flowers",
+    "letters": [
+      "L",
+      "C",
+      "P",
+      "L",
+      "I",
+      "T",
+      "S",
+      "A",
+      "L",
+      "I",
+      "I",
+      "Y",
+      "U",
+      "O",
+      "U"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "T", "row": 1, "column": 3 },
+          { "letter": "U", "row": 2, "column": 3 },
+          { "letter": "L", "row": 3, "column": 3 },
+          { "letter": "I", "row": 4, "column": 3 },
+          { "letter": "P", "row": 5, "column": 3 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "L", "row": 1, "column": 1 },
+          { "letter": "O", "row": 1, "column": 2 },
+          { "letter": "T", "row": 1, "column": 3 },
+          { "letter": "U", "row": 1, "column": 4 },
+          { "letter": "S", "row": 1, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "L", "row": 3, "column": 1 },
+          { "letter": "I", "row": 3, "column": 2 },
+          { "letter": "L", "row": 3, "column": 3 },
+          { "letter": "Y", "row": 3, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "L", "row": 1, "column": 1 },
+          { "letter": "I", "row": 2, "column": 1 },
+          { "letter": "L", "row": 3, "column": 1 },
+          { "letter": "A", "row": 4, "column": 1 },
+          { "letter": "C", "row": 5, "column": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Dec 25",
+    "theme": "Merry Christmas!",
+    "letters": [
+      "F",
+      "I",
+      "F",
+      "G",
+      "F",
+      "E",
+      "T",
+      "T",
+      "E",
+      "I",
+      "N",
+      "S",
+      "L",
+      "O",
+      "R"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "T", "row": 1, "column": 4 },
+          { "letter": "I", "row": 2, "column": 4 },
+          { "letter": "N", "row": 3, "column": 4 },
+          { "letter": "S", "row": 4, "column": 4 },
+          { "letter": "E", "row": 5, "column": 4 },
+          { "letter": "L", "row": 6, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "G", "row": 1, "column": 1 },
+          { "letter": "I", "row": 1, "column": 2 },
+          { "letter": "F", "row": 1, "column": 3 },
+          { "letter": "T", "row": 1, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "F", "row": 4, "column": 1 },
+          { "letter": "R", "row": 4, "column": 2 },
+          { "letter": "O", "row": 4, "column": 3 },
+          { "letter": "S", "row": 4, "column": 4 },
+          { "letter": "T", "row": 4, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "E", "row": 5, "column": 4 },
+          { "letter": "L", "row": 5, "column": 5 },
+          { "letter": "F", "row": 5, "column": 6 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Shrove Tuesday",
+    "theme": "Happy Pancake Day!",
+    "letters": [
+      "N",
+      "H",
+      "M",
+      "P",
+      "E",
+      "V",
+      "G",
+      "S",
+      "L",
+      "A",
+      "R",
+      "O",
+      "E",
+      "G",
+      "N"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "S", "row": 1, "column": 4 },
+          { "letter": "H", "row": 2, "column": 4 },
+          { "letter": "R", "row": 3, "column": 4 },
+          { "letter": "O", "row": 4, "column": 4 },
+          { "letter": "V", "row": 5, "column": 4 },
+          { "letter": "E", "row": 6, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "P", "row": 1, "column": 1 },
+          { "letter": "A", "row": 1, "column": 2 },
+          { "letter": "N", "row": 1, "column": 3 },
+          { "letter": "S", "row": 1, "column": 4 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "L", "row": 4, "column": 1 },
+          { "letter": "E", "row": 4, "column": 2 },
+          { "letter": "M", "row": 4, "column": 3 },
+          { "letter": "O", "row": 4, "column": 4 },
+          { "letter": "N", "row": 4, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "E", "row": 4, "column": 2 },
+          { "letter": "G", "row": 5, "column": 2 },
+          { "letter": "G", "row": 6, "column": 2 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "Easter Sunday",
+    "theme": "Happy Easter!",
+    "letters": [
+      "R",
+      "N",
+      "G",
+      "S",
+      "E",
+      "U",
+      "O",
+      "I",
+      "Y",
+      "P",
+      "G",
+      "B",
+      "N",
+      "H",
+      "G"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "S", "row": 1, "column": 3 },
+          { "letter": "P", "row": 2, "column": 3 },
+          { "letter": "R", "row": 3, "column": 3 },
+          { "letter": "I", "row": 4, "column": 3 },
+          { "letter": "N", "row": 5, "column": 3 },
+          { "letter": "G", "row": 6, "column": 3 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "H", "row": 2, "column": 1 },
+          { "letter": "O", "row": 2, "column": 2 },
+          { "letter": "P", "row": 2, "column": 3 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "E", "row": 2, "column": 5 },
+          { "letter": "G", "row": 3, "column": 5 },
+          { "letter": "G", "row": 4, "column": 5 },
+          { "letter": "Y", "row": 5, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "B", "row": 5, "column": 1 },
+          { "letter": "U", "row": 5, "column": 2 },
+          { "letter": "N", "row": 5, "column": 3 },
+          { "letter": "N", "row": 5, "column": 4 },
+          { "letter": "Y", "row": 5, "column": 5 }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "First day of Hanukkah",
+    "theme": "Happy Hanukkah!",
+    "letters": [
+      "G",
+      "T",
+      "M",
+      "L",
+      "E",
+      "T",
+      "E",
+      "H",
+      "E",
+      "I",
+      "S",
+      "A",
+      "K",
+      "L",
+      "P"
+    ],
+    "solution": [
+      {
+        "letters": [
+          { "letter": "T", "row": 1, "column": 3 },
+          { "letter": "E", "row": 2, "column": 3 },
+          { "letter": "M", "row": 3, "column": 3 },
+          { "letter": "P", "row": 4, "column": 3 },
+          { "letter": "L", "row": 5, "column": 3 },
+          { "letter": "E", "row": 6, "column": 3 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "L", "row": 1, "column": 1 },
+          { "letter": "A", "row": 1, "column": 2 },
+          { "letter": "T", "row": 1, "column": 3 },
+          { "letter": "K", "row": 1, "column": 4 },
+          { "letter": "E", "row": 1, "column": 5 }
+        ]
+      },
+      {
+        "letters": [
+          { "letter": "L", "row": 1, "column": 1 },
+          { "letter": "I", "row": 2, "column": 1 },
+          { "letter": "G", "row": 3, "column": 1 },
+          { "letter": "H", "row": 4, "column": 1 },
+          { "letter": "T", "row": 5, "column": 1 },
+          { "letter": "S", "row": 6, "column": 1 }
+        ]
+      }
+    ]
+  }
+]
