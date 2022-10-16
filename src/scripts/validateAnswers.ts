@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { AnswerValidator } from "../answers/AnswerValidator";
+import { AnswerValidator } from "../model/answers/AnswerValidator";
 import answerCombinations from "../answers/answers.json";
 import eventAnswerCombinations from "../answers/event-answers.json";
 

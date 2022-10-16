@@ -1,6 +1,6 @@
-import { Board } from "../model/Board";
+import { Board } from "../Board";
 import { AnswerParser } from "./AnswerParser";
-import { Event } from "./Event";
+import { Event } from "../enums/Event";
 
 /**
  * Answer Validator.

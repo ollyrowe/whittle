@@ -1,6 +1,6 @@
-import { Board } from "../model/Board";
-import { Letter } from "../model/enums/Letter";
-import { Tile } from "../model/Tile";
+import { Board } from "../Board";
+import { Letter } from "../enums/Letter";
+import { Tile } from "../Tile";
 import { Answer } from "./AnswerValidator";
 
 /**
