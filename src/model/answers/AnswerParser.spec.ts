@@ -1,4 +1,4 @@
-import { Board } from "../model/Board";
+import { Board } from "../Board";
 import { AnswerParser } from "./AnswerParser";
 import { valid as validAnswer } from "./testAnswers";
 
