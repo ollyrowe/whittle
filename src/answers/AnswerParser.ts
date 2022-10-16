@@ -1,4 +1,4 @@
-import { Board, BOARD_HEIGHT, BOARD_WIDTH } from "../model/Board";
+import { Board } from "../model/Board";
 import { Letter } from "../model/enums/Letter";
 import { Tile } from "../model/Tile";
 import { Answer } from "./AnswerValidator";
@@ -33,8 +33,8 @@ export class AnswerParser {
 
     const tiles: Tile[] = [];
 
-    for (let row = 1; row <= BOARD_HEIGHT; row++) {
-      for (let column = 1; column <= BOARD_WIDTH; column++) {
+    for (let row = 1; row <= Board.HEIGHT; row++) {
+      for (let column = 1; column <= Board.WIDTH; column++) {
         const solutionTile = solutionTiles.find((tile) => {
           const location = tile.getLocation();
 

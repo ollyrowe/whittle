@@ -13,6 +13,11 @@ export class Board extends Container {
   /** Whether the contained tiles should be disabled */
   disabled: boolean;
 
+  /** The width of the board */
+  static WIDTH = 5;
+  /** The height of the board */
+  static HEIGHT = 6;
+
   constructor(tiles?: Tile[]) {
     super(tiles || Board.createTiles());
 
@@ -275,8 +280,8 @@ export class Board extends Container {
   private static createTiles() {
     const tiles = [];
 
-    for (let row = 1; row <= BOARD_HEIGHT; row++) {
-      for (let column = 1; column <= BOARD_WIDTH; column++) {
+    for (let row = 1; row <= Board.HEIGHT; row++) {
+      for (let column = 1; column <= Board.WIDTH; column++) {
         tiles.push(new Tile({ name: "board", row, column }));
       }
     }
@@ -284,6 +289,3 @@ export class Board extends Container {
     return tiles;
   }
 }
-
-export const BOARD_WIDTH = 5;
-export const BOARD_HEIGHT = 6;

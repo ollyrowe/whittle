@@ -1,4 +1,4 @@
-import { Board, BOARD_HEIGHT, BOARD_WIDTH } from "../model/Board";
+import { Board } from "../model/Board";
 import { AnswerParser } from "./AnswerParser";
 import { Event } from "./Event";
 
@@ -245,7 +245,7 @@ export class AnswerValidator {
         const { row, column } = location;
 
         return (
-          row < 1 || row > BOARD_HEIGHT || column < 1 || column > BOARD_WIDTH
+          row < 1 || row > Board.HEIGHT || column < 1 || column > Board.WIDTH
         );
       }
 
