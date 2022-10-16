@@ -1,4 +1,4 @@
-name: Test
+name: Test - Unit
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 14.x
       - run: npm install
-      - run: npm test
+      - run: npm run test:unit
 
       - name: Tests ✅
         if: ${{ success() }}
