@@ -1,4 +1,4 @@
-import { BOARD_HEIGHT, BOARD_WIDTH } from "../model/Board";
+import { Board } from "../model/Board";
 import { AnswerParser } from "./AnswerParser";
 import { valid as validAnswer } from "./testAnswers";
 
@@ -32,7 +32,7 @@ describe("AnswerParser", () => {
 
     const tiles = board.getTiles();
 
-    expect(tiles).toHaveLength(BOARD_WIDTH * BOARD_HEIGHT);
+    expect(tiles).toHaveLength(Board.WIDTH * Board.HEIGHT);
 
     tiles.forEach((tile) => {
       const location = tile.getLocation();
