@@ -159,7 +159,7 @@ export class Board extends Container {
    * @param location - the location on the board.
    * @returns any words that the tile's letter forms.
    */
-  private getWordsAt(location: Location): {
+  public getWordsAt(location: Location): {
     vertical?: Word;
     horizontal?: Word;
   } {
@@ -188,20 +188,20 @@ export class Board extends Container {
 
           const horizontalLetters: Letter[] = [];
 
+          let currentColumn = startColumn;
+
+          let tile = this.getTileAt(currentColumn, location.row);
+
           // Starting at left-most letter tile, go right through all neighbouring letters
-          for (let column = startColumn; column <= BOARD_WIDTH; column++) {
-            const tile = this.getTileAt(column, location.row);
+          while (tile && tile.hasLetter()) {
+            // Push the letter to the array
+            horizontalLetters.push(tile.getLetter()!);
 
-            const letter = tile?.getLetter();
+            // Increment the current column
+            currentColumn++;
 
-            // If the tile has a letter
-            if (letter) {
-              // Push the letter to the array
-              horizontalLetters.push(letter);
-            } else {
-              // Otherwise, stop looping through the tiles
-              break;
-            }
+            // Update the tile to be the next one along
+            tile = this.getTileAt(currentColumn, location.row);
           }
 
           let startRow = location.row;
@@ -220,20 +220,20 @@ export class Board extends Container {
 
           const verticalLetters: Letter[] = [];
 
+          let currentRow = startRow;
+
+          tile = this.getTileAt(location.column, currentRow);
+
           // Starting at top-most letter tile, go down through all neighbouring letters
-          for (let row = startRow; row <= BOARD_HEIGHT; row++) {
-            const tile = this.getTileAt(location.column, row);
+          while (tile && tile.hasLetter()) {
+            // Push the letter to the array
+            verticalLetters.push(tile.getLetter()!);
 
-            const letter = tile?.getLetter();
+            // Increment the current row
+            currentRow++;
 
-            // If the tile has a letter
-            if (letter) {
-              // Push the letter to the array
-              verticalLetters.push(letter);
-            } else {
-              // Otherwise, stop looping through the tiles
-              break;
-            }
+            // Update the tile to be the next one down
+            tile = this.getTileAt(location.column, currentRow);
           }
 
           return {
@@ -285,5 +285,5 @@ export class Board extends Container {
   }
 }
 
-const BOARD_WIDTH = 5;
-const BOARD_HEIGHT = 6;
+export const BOARD_WIDTH = 5;
+export const BOARD_HEIGHT = 6;
