@@ -258,7 +258,7 @@
         "letters": "EMBER"
       },
       {
-        "direction": "horizontal",
+        "direction": "vertical",
         "start": { "row": 3, "column": 5 },
         "letters": "BURN"
       }
