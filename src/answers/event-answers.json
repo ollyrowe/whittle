@@ -25,5 +25,270 @@
         "letters": "NEW"
       }
     ]
+  },
+  {
+    "date": "Chinese New Year",
+    "theme": "Happy Chinese New Year!",
+    "letters": "AOPDDEAGLRNRGNA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "DRAGON"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "RED"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 2 },
+        "letters": "GOLD"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "PANDA"
+      }
+    ]
+  },
+  {
+    "date": "Valentine's Day",
+    "theme": "Happy Valentine's Day!",
+    "letters": "VUELHSTYSOROERA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "HEARTS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "ROSES"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 2 },
+        "letters": "LOVE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "YOU"
+      }
+    ]
+  },
+  {
+    "date": "Shrove Tuesday",
+    "theme": "Happy Pancake Day!",
+    "letters": "NHMPEVGSLAROEGN",
+    "words": [
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "PANS"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "SHROVE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "LEMON"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 4, "column": 2 },
+        "letters": "EGG"
+      }
+    ]
+  },
+  {
+    "date": "St. Patrick's Day",
+    "theme": "Happy Saint Patrick's Day!",
+    "letters": "ENYGKDNECROLUIO",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "GOLD"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "GREEN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "LUCKY"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 3 },
+        "letters": "COIN"
+      }
+    ]
+  },
+  {
+    "date": "April Fools' Day",
+    "theme": "Happy April Fools' Day!",
+    "letters": "RTKFOCLSJIRIKOE",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "FIRST"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "TRICK"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "FOOL"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "JOKE"
+      }
+    ]
+  },
+  {
+    "date": "Easter Sunday",
+    "theme": "Happy Easter!",
+    "letters": "RNGSEUOIYPGBNHG",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "SPRING"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "HOP"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "EGGY"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "BUNNY"
+      }
+    ]
+  },
+  {
+    "date": "First Day of Pride Month",
+    "theme": "Happy Pride Month!",
+    "letters": "ASRTHYENARLLGVO",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "TRANS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "ALLY"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "GAY"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 3 },
+        "letters": "LOVE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 2 },
+        "letters": "HER"
+      }
+    ]
+  },
+  {
+    "date": "Halloween",
+    "theme": "Happy Halloween!",
+    "letters": "OTPGSAKSYHSCROO",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "GHOSTS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "SCARY"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "SPOOKY"
+      }
+    ]
+  },
+  {
+    "date": "First Day of Hanukkah",
+    "theme": "Happy Hanukkah!",
+    "letters": "BINRCHEBSALGTLD",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "LIGHTS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "RABBI"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "CANDLE"
+      }
+    ]
+  },
+  {
+    "date": "Christmas",
+    "theme": "Merry Christmas!",
+    "letters": "FIFGFETTEINSLOR",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "TINSEL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "GIFT"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "FROST"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 3 },
+        "letters": "ELF"
+      }
+    ]
   }
 ]
