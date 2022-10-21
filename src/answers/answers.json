@@ -655,32 +655,6 @@
     ]
   },
   {
-    "theme": "Subjects",
-    "letters": "RHTAOLARSTICMNT",
-    "words": [
-      {
-        "direction": "vertical",
-        "start": { "row": 1, "column": 4 },
-        "letters": "CHOIR"
-      },
-      {
-        "direction": "horizontal",
-        "start": { "row": 2, "column": 1 },
-        "letters": "MATHS"
-      },
-      {
-        "direction": "horizontal",
-        "start": { "row": 4, "column": 1 },
-        "letters": "LATIN"
-      },
-      {
-        "direction": "vertical",
-        "start": { "row": 4, "column": 2 },
-        "letters": "ART"
-      }
-    ]
-  },
-  {
     "theme": "Air",
     "letters": "FORVDTAIUEARVNP",
     "words": [
