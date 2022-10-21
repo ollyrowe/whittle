@@ -27,17 +27,15 @@ export class GraphUtils {
     getConnectedNodes: (node: T) => T[],
     discoveredNodes: T[] = []
   ): T[] {
-    discoveredNodes.push(node);
+    if (!discoveredNodes.includes(node)) {
+      discoveredNodes.push(node);
 
-    const adjacentNodes = getConnectedNodes(node);
+      const adjacentNodes = getConnectedNodes(node);
 
-    const undiscoveredNodes = adjacentNodes.filter(
-      (node) => !discoveredNodes.includes(node)
-    );
-
-    undiscoveredNodes.forEach((node) =>
-      GraphUtils.discoverNodes(node, getConnectedNodes, discoveredNodes)
-    );
+      adjacentNodes.forEach((node) =>
+        GraphUtils.discoverNodes(node, getConnectedNodes, discoveredNodes)
+      );
+    }
 
     return discoveredNodes;
   }
