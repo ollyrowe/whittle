@@ -1,3 +1,11 @@
+# [1.11.0](https://github.com/ollyrowe/whittle/compare/v1.10.1...v1.11.0) (2022-10-21)
+
+
+### Features
+
+* add first day of pride month event ([107c3bd](https://github.com/ollyrowe/whittle/commit/107c3bd7813568ab4d288802cdf51486604c4e2f))
+* update game win audio ([429c1ef](https://github.com/ollyrowe/whittle/commit/429c1ef436b1fadbf998abf45b5c8f3a70acbce6))
+
 ## [1.10.1](https://github.com/ollyrowe/whittle/compare/v1.10.0...v1.10.1) (2022-10-21)
 
 
