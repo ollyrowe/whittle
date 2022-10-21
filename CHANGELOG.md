@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/ollyrowe/whittle/compare/v1.11.0...v1.12.0) (2022-10-21)
+
+
+### Features
+
+* add first 38 game solutions ([565b234](https://github.com/ollyrowe/whittle/commit/565b23465b93c7a3cc5378a8f231d16ed4abbe56))
+
 # [1.11.0](https://github.com/ollyrowe/whittle/compare/v1.10.1...v1.11.0) (2022-10-21)
 
 
