@@ -363,7 +363,7 @@
       },
       {
         "direction": "vertical",
-        "start": { "row": 4, "column": 5 },
+        "start": { "row": 3, "column": 5 },
         "letters": "BEAN"
       }
     ]
