@@ -30,7 +30,7 @@
     "date": "Chinese New Year",
     "theme": "Happy Chinese New Year!",
     "letters": "AOPDDEAGLRNRGNA",
-    "solution": [
+    "words": [
       {
         "direction": "vertical",
         "start": { "row": 1, "column": 3 },
@@ -246,7 +246,7 @@
     "date": "First day of Hanukkah",
     "theme": "Happy Hanukkah!",
     "letters": "BINRCHEBSALGTLD",
-    "solution": [
+    "words": [
       {
         "direction": "vertical",
         "start": { "row": 1, "column": 5 },
