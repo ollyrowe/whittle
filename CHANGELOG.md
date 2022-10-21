@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/ollyrowe/whittle/compare/v1.10.0...v1.10.1) (2022-10-21)
+
+
+### Bug Fixes
+
+* update dfs algorithm to account for loops ([87e205d](https://github.com/ollyrowe/whittle/commit/87e205ddd53719f80a2dfed03afed956d42ebb76))
+
 # [1.10.0](https://github.com/ollyrowe/whittle/compare/v1.9.0...v1.10.0) (2022-10-21)
 
 
