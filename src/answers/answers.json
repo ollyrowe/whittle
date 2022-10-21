@@ -24,5 +24,717 @@
         "letters": "PLANE"
       }
     ]
+  },
+  {
+    "theme": "Weather",
+    "letters": "IHSRDCGNUAILOOF",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "RAIN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "HAIL"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "CLOUDS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "FOGS"
+      }
+    ]
+  },
+  {
+    "theme": "Numbers",
+    "letters": "EVNTEOELEWETSIN",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "TWELVE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 2 },
+        "letters": "TWO"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "SEVEN"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "NINE"
+      }
+    ]
+  },
+  {
+    "theme": "Birds",
+    "letters": "CSNDHKNKYUTREAW",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "TURKEY"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "DUCKS"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "SWAN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "HEN"
+      }
+    ]
+  },
+  {
+    "theme": "Flowers",
+    "letters": "LCPLITSALIIYUOU",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "LILAC"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "TULIP"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "LOTUS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "LILY"
+      }
+    ]
+  },
+  {
+    "theme": "Maths",
+    "letters": "TLITCOEAIOPRFCR",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 2 },
+        "letters": "PROOF"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "TOTAL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 2 },
+        "letters": "PI"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "CIRCLE"
+      }
+    ]
+  },
+  {
+    "theme": "Fast Food",
+    "letters": "SRBFASOHBIIEKCT",
+    "words": [
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "FISH"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "FRIES"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "KEBAB"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 4 },
+        "letters": "TACO"
+      }
+    ]
+  },
+  {
+    "theme": "Metals",
+    "letters": "OZSBIOLNTREINET",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "BRONZE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 2 },
+        "letters": "IRON"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "TIN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "STEEL"
+      }
+    ]
+  },
+  {
+    "theme": "Pets",
+    "letters": "PATPOAGCRUTSRDA",
+    "words": [
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "PUP"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "PARROT"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 3 },
+        "letters": "RAT"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "CATS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 2 },
+        "letters": "DOG"
+      }
+    ]
+  },
+  {
+    "theme": "Fire",
+    "letters": "RLRFEENEBIAMMUB",
+    "words": [
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "FIRE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "FLAME"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "EMBER"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 5 },
+        "letters": "BURN"
+      }
+    ]
+  },
+  {
+    "theme": "Alcohol",
+    "letters": "IKEWDNMSCHYIEUR",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "WHISKY"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "WINE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "CIDER"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "RUM"
+      }
+    ]
+  },
+  {
+    "theme": "Arts",
+    "letters": "TSRNAIAUACEDDMA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "ART"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "DRAMA"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 4 },
+        "letters": "MUSIC"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "DANCE"
+      }
+    ]
+  },
+  {
+    "theme": "Earth",
+    "letters": "RHYEAKLTLAOCSIO",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "EARTH"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "ROCKS"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 3 },
+        "letters": "CLAY"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "SOIL"
+      }
+    ]
+  },
+  {
+    "theme": "Vegetables",
+    "letters": "ENOEOITATOAPNAB",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "POTATO"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "ONION"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "PEA"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 4, "column": 5 },
+        "letters": "BEAN"
+      }
+    ]
+  },
+  {
+    "theme": "Colours",
+    "letters": "NUEPELDKGIRPERN",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "PURPLE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "PINK"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "GREEN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "RED"
+      }
+    ]
+  },
+  {
+    "theme": "Sports",
+    "letters": "CEKCSNLLSYTNIRU",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "TENNIS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "CYCLE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 3 },
+        "letters": "SKI"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "CURL"
+      }
+    ]
+  },
+  {
+    "theme": "Fabrics",
+    "letters": "ILOCNIEMRNECEDA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "DENIM"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "CORD"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "LINEN"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 1 },
+        "letters": "LACE"
+      }
+    ]
+  },
+  {
+    "theme": "Soft Drinks",
+    "letters": "DJLLOIHAUEASCSO",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "SLUSH"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "SODA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "JUICE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 4 },
+        "letters": "COLA"
+      }
+    ]
+  },
+  {
+    "theme": "Zoo Animals",
+    "letters": "OHESKNUTOLIOMEY",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "SLOTH"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 3 },
+        "letters": "EMU"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "LION"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "MONKEY"
+      }
+    ]
+  },
+  {
+    "theme": "Water",
+    "letters": "APRSTSTSWELAHEW",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "SPLASH"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "SEAS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "WATER"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 4 },
+        "letters": "WET"
+      }
+    ]
+  },
+  {
+    "theme": "Desserts",
+    "letters": "OIRCANEKTOEDUPT",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "COOKIE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "DONUT"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "PIE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "TART"
+      }
+    ]
+  },
+  {
+    "theme": "Hot Drinks",
+    "letters": "CAOMCTEHOOLTETA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 3 },
+        "letters": "COCOA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "MOCHA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "TEA"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "LATTE"
+      }
+    ]
+  },
+  {
+    "theme": "Water Sports",
+    "letters": "DLVPINTDEAECOJE",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "PADDLE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "CANOE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 2 },
+        "letters": "DIVE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "JET"
+      }
+    ]
+  },
+  {
+    "theme": "Furniture",
+    "letters": "BAECDADWTBISHRL",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 2 },
+        "letters": "CHAIR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "TABLE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "DRAWS"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "BEDS"
+      }
+    ]
+  },
+  {
+    "theme": "Materials",
+    "letters": "NTMSDELDOAONWAT",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 2 },
+        "letters": "STONE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 2 },
+        "letters": "SAND"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "WOOD"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "METAL"
+      }
+    ]
+  },
+  {
+    "theme": "Subjects",
+    "letters": "RHTAOLARSTICMNT",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "CHOIR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "MATHS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "LATTE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 4, "column": 2 },
+        "letters": "ART"
+      }
+    ]
+  },
+  {
+    "theme": "Air",
+    "letters": "FORVDTAIUEARVNP",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "VAPOUR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "DRAFT"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 2 },
+        "letters": "AIR"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "VENT"
+      }
+    ]
+  },
+  {
+    "theme": "Insects",
+    "letters": "ELYEUTBEFNEABGT",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "BEETLE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 3 },
+        "letters": "BUG"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "BEE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 2 },
+        "letters": "FLY"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "GNAT"
+      }
+    ]
   }
 ]
