@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/ollyrowe/whittle/compare/v1.9.0...v1.10.0) (2022-10-21)
+
+
+### Features
+
+* add answer validator ([2434206](https://github.com/ollyrowe/whittle/commit/2434206de6774aa3fd16b42e0a39b434ca0e0b83))
+* add answer validator script ([084eb97](https://github.com/ollyrowe/whittle/commit/084eb97011882d0de1933ba44ea5a63c3c936184))
+* add example answers ([2f63446](https://github.com/ollyrowe/whittle/commit/2f6344632782b210e2c6417f57aead4d3a5f5dfe))
+
 # [1.9.0](https://github.com/ollyrowe/whittle/compare/v1.8.0...v1.9.0) (2022-10-07)
 
 
