@@ -7,6 +7,7 @@ import { defaultSettings } from "../../hooks/useSettings";
 import { createLightTheme } from "../../misc/theme";
 
 const mockGame: GameContextProps = {
+  number: 0,
   board: new Board(),
   rack: new Rack([]),
   onSwapTiles: () => {},

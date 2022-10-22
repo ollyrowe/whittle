@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "@fontsource/roboto/300.css";

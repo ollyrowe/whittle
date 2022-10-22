@@ -1,13 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import { Board } from "../model/Board";
-import { Letter } from "../model/enums/Letter";
 import { Rack } from "../model/Rack";
 import { Tile } from "../model/Tile";
 import { gameWinSound, tilePlaceSound } from "../misc/sounds";
 import useSettings, { SettingsOptions } from "./useSettings";
 import { useConfetti, ConfettiControls } from "./useConfetti";
+import { GameLoader } from "../model/game/GameLoader";
 
 export interface Game {
+  number: number;
   board: Board;
   rack: Rack;
   settings: SettingsOptions;
@@ -25,11 +26,14 @@ export interface Game {
  * @returns various game state and control methods.
  */
 export const useGame = (): Game => {
+  // Today's game number
+  const [number, setNumber] = useState(loadedGame.number);
+
   // The main game board component
-  const [board, setBoard] = useState(new Board());
+  const [board, setBoard] = useState(loadedGame.board);
 
   // The rack containing the initial letter set
-  const [rack, setRack] = useState(new Rack(createTiles()));
+  const [rack, setRack] = useState(loadedGame.rack);
 
   // The game settings storing the user's preferences
   const settings = useSettings();
@@ -90,8 +94,11 @@ export const useGame = (): Game => {
    * Resets the game.
    */
   const reset = () => {
-    setBoard(new Board());
-    setRack(new Rack(createTiles()));
+    const game = GameLoader.getTodaysGame();
+
+    setNumber(game.number);
+    setBoard(game.board);
+    setRack(game.rack);
   };
 
   /**
@@ -156,6 +163,13 @@ export const useGame = (): Game => {
   }, [board, rack, handleWin]);
 
   /**
+   * Upon any changes to the board and rack, save the game.
+   */
+  useEffect(() => {
+    GameLoader.saveGame(number, board, rack);
+  }, [number, board, rack]);
+
+  /**
    * Opens the statistics modal.
    */
   const openStats = () => {
@@ -170,6 +184,7 @@ export const useGame = (): Game => {
   };
 
   return {
+    number,
     board,
     rack,
     settings,
@@ -182,24 +197,5 @@ export const useGame = (): Game => {
   };
 };
 
-const letters = [
-  Letter.A,
-  Letter.B,
-  Letter.C,
-  Letter.D,
-  Letter.E,
-  Letter.F,
-  Letter.G,
-  Letter.H,
-  Letter.I,
-  Letter.J,
-  Letter.K,
-  Letter.L,
-  Letter.M,
-  Letter.N,
-  Letter.O,
-];
-
-const createTiles = () => {
-  return letters.map((letter) => new Tile({ name: "rack" }, letter));
-};
+// Load the current game
+const loadedGame = GameLoader.loadGame();

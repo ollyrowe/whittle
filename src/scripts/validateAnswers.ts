@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import chalk from "chalk";
 import { AnswerValidator } from "../model/answers/AnswerValidator";
 import answerCombinations from "../answers/answers.json";
