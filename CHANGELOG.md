@@ -1,3 +1,13 @@
+# [1.13.0](https://github.com/ollyrowe/whittle/compare/v1.12.0...v1.13.0) (2022-10-22)
+
+
+### Features
+
+* add core game loader logic ([ad08f4a](https://github.com/ollyrowe/whittle/commit/ad08f4a80b011ea13fbf8ca6e853f88908ce6a01))
+* add date utility module ([ff1dacb](https://github.com/ollyrowe/whittle/commit/ff1dacb6f32be20d6c67ab00375ed5ac2db6f99a))
+* add game number text above the board ([450bd0f](https://github.com/ollyrowe/whittle/commit/450bd0f91dc45b81df7373bf107de567f8516921))
+* add game reset button ([6715aa0](https://github.com/ollyrowe/whittle/commit/6715aa0b33979eeb56529e9ea2910d9157cb4dd6))
+
 # [1.12.0](https://github.com/ollyrowe/whittle/compare/v1.11.0...v1.12.0) (2022-10-21)
 
 
