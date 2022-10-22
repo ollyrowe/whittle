@@ -5,6 +5,7 @@ import Board from "./components/board/Board";
 import Rack from "./components/rack/Rack";
 import GameProvider from "./components/providers/GameProvider";
 import { useGame } from "./hooks/useGame";
+import { CssBaseline } from "@mui/material";
 
 const App: React.FC = () => {
   const game = useGame();
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Board />
         <Rack />
       </Container>
+      <CssBaseline enableColorScheme />
     </GameProvider>
   );
 };

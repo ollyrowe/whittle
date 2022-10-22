@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme, ThemeOptions } from "@mui/material";
 
 /**
  * Gets the theme based on the desired mode and high-contrast preference.
@@ -22,6 +22,7 @@ export const getTheme = (mode: ThemeMode, enableHighContrast: boolean) => {
 
 export const createLightTheme = (enableHighContrast: boolean) => {
   return createTheme({
+    ...baseThemeOptions,
     palette: {
       mode: "light",
       primary: {
@@ -45,6 +46,7 @@ export const createLightTheme = (enableHighContrast: boolean) => {
 
 export const createDarkTheme = (enableHighContrast: boolean) => {
   return createTheme({
+    ...baseThemeOptions,
     palette: {
       mode: "dark",
       primary: {
@@ -65,6 +67,12 @@ export const createDarkTheme = (enableHighContrast: boolean) => {
       border: colours.grey,
     },
   });
+};
+
+const baseThemeOptions: ThemeOptions = {
+  typography: {
+    fontFamily: "Quicksand",
+  },
 };
 
 const colours = {
