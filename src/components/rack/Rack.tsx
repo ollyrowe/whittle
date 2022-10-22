@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { GameContext } from "../providers/GameProvider";
 import Tile from "../tile/Tile";
+import ResetButton from "./ResetButton";
 
 const Rack: React.FC = () => {
   const { rack } = useContext(GameContext);
@@ -9,15 +10,21 @@ const Rack: React.FC = () => {
   return (
     <Background>
       <Container>
-        {rack.getTiles().map((tile) => (
-          <Tile
-            key={tile.getID()}
-            state={tile.getState()}
-            id={tile.getID()}
-            letter={tile.getLetter()}
-            size="small"
-          />
-        ))}
+        {rack.hasLetterTile() ? (
+          rack
+            .getTiles()
+            .map((tile) => (
+              <Tile
+                key={tile.getID()}
+                state={tile.getState()}
+                id={tile.getID()}
+                letter={tile.getLetter()}
+                size="small"
+              />
+            ))
+        ) : (
+          <ResetButton />
+        )}
       </Container>
     </Background>
   );
