@@ -105,6 +105,7 @@ export interface GameContextProps extends Game {
 }
 
 export const GameContext = React.createContext<GameContextProps>({
+  number: 0,
   board: new Board(),
   rack: new Rack([]),
   onSwapTiles: () => {},

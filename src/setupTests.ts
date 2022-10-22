@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import "@testing-library/jest-dom";
 
 jest.mock("@mui/material", () => {

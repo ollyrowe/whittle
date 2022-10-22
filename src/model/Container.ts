@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Type } from "class-transformer";
 import { Tile } from "./Tile";
 
 /**
@@ -5,6 +7,7 @@ import { Tile } from "./Tile";
  */
 export abstract class Container {
   /** The contained tiles */
+  @Type(() => Tile)
   protected tiles: Tile[];
 
   /** Whether the tile statuses are up-to-date */
