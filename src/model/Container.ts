@@ -65,6 +65,15 @@ export abstract class Container {
   }
 
   /**
+   * Whether the container has a tile with a letter.
+   *
+   * @returns whether a letter tile is present.
+   */
+  hasLetterTile() {
+    return !!this.tiles.find((tile) => tile.hasLetter());
+  }
+
+  /**
    * Updates the states of the contained tiles.
    */
   abstract updateTileStatuses(): void;

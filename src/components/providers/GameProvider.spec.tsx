@@ -13,6 +13,7 @@ const mockGame: GameContextProps = {
   displayStats: false,
   openStats: () => {},
   closeStats: () => {},
+  reset: () => {},
   getNewIndex: () => -1,
   settings: {
     ...defaultSettings,

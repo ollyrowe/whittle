@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { IconButton } from "@mui/material";
 import {
   HelpOutline as HelpOutlineIcon,
+  Autorenew as AutorenewIcon,
   BarChart as BarChartIcon,
   Settings as SettingsIcon,
 } from "@mui/icons-material";
@@ -12,7 +13,8 @@ import SettingsModal from "../modals/SettingsModal";
 import { GameContext } from "../providers/GameProvider";
 
 const AppBar: React.FC = () => {
-  const { displayStats, openStats, closeStats } = useContext(GameContext);
+  const { displayStats, openStats, closeStats, reset } =
+    useContext(GameContext);
 
   const [displayHowToPlay, setDisplayHowToPlay] = useState(false);
 
@@ -40,6 +42,9 @@ const AppBar: React.FC = () => {
         <LeftButtonContainer>
           <AppBarButton onClick={openHowToPlay}>
             <HelpOutlineIcon />
+          </AppBarButton>
+          <AppBarButton onClick={reset}>
+            <AutorenewIcon />
           </AppBarButton>
         </LeftButtonContainer>
         <Title>Whittle</Title>

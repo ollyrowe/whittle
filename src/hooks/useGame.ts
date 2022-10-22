@@ -15,6 +15,7 @@ export interface Game {
   displayStats: boolean;
   openStats: () => void;
   closeStats: () => void;
+  reset: () => void;
   confetti: ConfettiControls;
 }
 
@@ -84,6 +85,14 @@ export const useGame = (): Game => {
     },
     [settings]
   );
+
+  /**
+   * Resets the game.
+   */
+  const reset = () => {
+    setBoard(new Board());
+    setRack(new Rack(createTiles()));
+  };
 
   /**
    * Handles the game win.
@@ -168,6 +177,7 @@ export const useGame = (): Game => {
     displayStats,
     openStats,
     closeStats,
+    reset,
     confetti,
   };
 };

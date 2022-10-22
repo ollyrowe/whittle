@@ -111,6 +111,7 @@ export const GameContext = React.createContext<GameContextProps>({
   displayStats: false,
   openStats: () => {},
   closeStats: () => {},
+  reset: () => {},
   getNewIndex: () => -1,
   settings: {
     ...defaultSettings,
