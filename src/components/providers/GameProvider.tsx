@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CanvasConfetti from "react-canvas-confetti";
 import {
   arraySwap,
@@ -8,11 +8,15 @@ import {
 } from "@dnd-kit/sortable";
 import {
   DndContext,
+  CollisionDetection,
+  UniqueIdentifier,
+  DragStartEvent,
   DragEndEvent,
   MouseSensor,
   TouchSensor,
   useSensor,
   useSensors,
+  rectIntersection,
 } from "@dnd-kit/core";
 import ThemeProvider from "./ThemeProvider";
 import { defaultSettings } from "../../hooks/useSettings";
@@ -33,12 +37,25 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
 
   const tileIDs = tiles.map((tile) => tile.getID());
 
+  // The ID of the currently active tile which is being dragged
+  const [activeTileId, setActiveTileId] = useState<UniqueIdentifier>();
+
   // Drag and drop sensor to enable mouse control
   const mouseSensor = useSensor(MouseSensor);
   // Drag and drop sensor to enable touch control
   const touchSensor = useSensor(TouchSensor);
 
   const sensors = useSensors(mouseSensor, touchSensor);
+
+  /**
+   * Function which updates the currently active tile upon the
+   * initiation of a drag event.
+   *
+   * @param event - the drag start event.
+   */
+  const onDragStart = (event: DragStartEvent) => {
+    setActiveTileId(event.active.id);
+  };
 
   /**
    * Function which handles the swapping of tiles upon completion
@@ -65,13 +82,36 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
     }
   };
 
+  /**
+   * Custom collision detection algorithm which extends the basic behaviour of
+   * the rect intersection algorithm built into dnd-kit.
+   *
+   * This implementation adds the currently active tile as a collision when no
+   * other collisions are detected. The effect of this means that tiles can be
+   * dragged outside of the bounds of the board and rack components.
+   *
+   * @param args - the collision detection arguments.
+   * @returns any identified collisions.
+   */
+  const collisionDetection: CollisionDetection = (args) => {
+    const collisions = rectIntersection(args);
+
+    if (collisions.length === 0 && activeTileId) {
+      collisions.push({ id: activeTileId });
+    }
+
+    return collisions;
+  };
+
   return (
     <>
       <GameContext.Provider value={game}>
         <ThemeProvider theme={settings.theme}>
           <DndContext
             sensors={sensors}
+            onDragStart={onDragStart}
             onDragEnd={onDragEnd}
+            collisionDetection={collisionDetection}
             autoScroll={false}
           >
             <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
