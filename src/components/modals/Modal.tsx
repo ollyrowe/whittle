@@ -34,7 +34,6 @@ const Modal: React.FC<Props> = ({
       TransitionComponent={Transition}
       maxWidth="xs"
       fullWidth
-      keepMounted
       PaperProps={{ sx: { backgroundImage: "none" } }}
       {...dialogProps}
     >
