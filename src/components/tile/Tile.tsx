@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "@mui/material";
 import styled from "styled-components";
 import { useConditionTimer } from "../../hooks/useConditionTimer";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { GameContext } from "../providers/GameProvider";
+import { getNewIndex } from "../providers/GameProvider";
 import { TileState } from "../../model/enums/TileState";
 import { Letter } from "../../model/enums/Letter";
 
@@ -28,8 +28,6 @@ export const Tile: React.FC<Props> = ({
   disabled = false,
 }) => {
   const theme = useTheme();
-
-  const { getNewIndex } = useContext(GameContext);
 
   // Whether this tile has been hovered over for the required time period
   const [hasOverTimerLapsed, setHasOverTimerLapsed] = useState(false);
