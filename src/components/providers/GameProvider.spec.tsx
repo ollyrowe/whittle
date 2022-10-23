@@ -1,12 +1,13 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import GameProvider, { GameContextProps } from "./GameProvider";
+import GameProvider from "./GameProvider";
 import { Board } from "../../model/Board";
 import { Rack } from "../../model/Rack";
+import { Game } from "../../hooks/useGame";
 import { defaultSettings } from "../../hooks/useSettings";
 import { createLightTheme } from "../../misc/theme";
 
-const mockGame: GameContextProps = {
+const mockGame: Game = {
   number: 0,
   board: new Board(),
   rack: new Rack([]),
@@ -15,7 +16,6 @@ const mockGame: GameContextProps = {
   openStats: () => {},
   closeStats: () => {},
   reset: () => {},
-  getNewIndex: () => -1,
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),

@@ -65,21 +65,9 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
     }
   };
 
-  /**
-   * Gets the new index of a tile based on a swap.
-   */
-  const getNewIndex: NewIndexGetter = ({
-    id,
-    items,
-    activeIndex,
-    overIndex,
-  }) => {
-    return arraySwap(items, activeIndex, overIndex).indexOf(id);
-  };
-
   return (
     <>
-      <GameContext.Provider value={{ ...game, getNewIndex }}>
+      <GameContext.Provider value={game}>
         <ThemeProvider theme={settings.theme}>
           <DndContext
             sensors={sensors}
@@ -99,12 +87,19 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
 
 export default GameProvider;
 
-export interface GameContextProps extends Game {
-  /** Gets the new index of a tile based on a swap */
-  getNewIndex: NewIndexGetter;
-}
+/**
+ * Gets the new index of a tile based on a swap.
+ */
+export const getNewIndex: NewIndexGetter = ({
+  id,
+  items,
+  activeIndex,
+  overIndex,
+}) => {
+  return arraySwap(items, activeIndex, overIndex).indexOf(id);
+};
 
-export const GameContext = React.createContext<GameContextProps>({
+export const GameContext = React.createContext<Game>({
   number: 0,
   board: new Board(),
   rack: new Rack([]),
@@ -113,7 +108,6 @@ export const GameContext = React.createContext<GameContextProps>({
   openStats: () => {},
   closeStats: () => {},
   reset: () => {},
-  getNewIndex: () => -1,
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),
