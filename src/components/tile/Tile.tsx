@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useTheme } from "@mui/material";
 import styled from "styled-components";
 import { useConditionTimer } from "../../hooks/useConditionTimer";
@@ -65,7 +65,8 @@ export const Tile: React.FC<Props> = ({
     transition,
   };
 
-  const getTileColor = () => {
+  // The colour of the tile based on the state
+  const color = useMemo(() => {
     switch (state) {
       case TileState.CORRECT:
         return theme.palette.tile.green;
@@ -74,7 +75,7 @@ export const Tile: React.FC<Props> = ({
       default:
         return theme.palette.tile.default;
     }
-  };
+  }, [state, theme]);
 
   return (
     <Placeholder size={size} visible={hasPlaceholder}>
@@ -84,7 +85,7 @@ export const Tile: React.FC<Props> = ({
         isBlank={!hasLetter}
         isDragging={isDragging}
         isOver={isOver}
-        color={getTileColor()}
+        color={color}
         style={style}
         {...attributes}
         {...listeners}
