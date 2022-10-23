@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/ollyrowe/whittle/compare/v1.13.0...v1.14.0) (2022-10-23)
+
+
+### Features
+
+* update global font family ([7469058](https://github.com/ollyrowe/whittle/commit/74690587586dd4f1e510ef5a8768e3dbcc01069e))
+
 # [1.13.0](https://github.com/ollyrowe/whittle/compare/v1.12.0...v1.13.0) (2022-10-22)
 
 
