@@ -7,8 +7,8 @@ const ResetButton: React.FC = () => {
   const game = useContext(GameContext);
 
   return (
-    <IconButton onClick={game.reset}>
-      <AutorenewIcon />
+    <IconButton onClick={game.reset} size="small">
+      <AutorenewIcon fontSize="small" />
     </IconButton>
   );
 };
