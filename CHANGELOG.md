@@ -1,3 +1,19 @@
+## [1.14.1](https://github.com/ollyrowe/whittle/compare/v1.14.0...v1.14.1) (2022-10-24)
+
+
+### Bug Fixes
+
+* allow tiles to be dragged outside of containers ([18f2c72](https://github.com/ollyrowe/whittle/commit/18f2c72f3e5f954ae90fee8910dc36bf7d4369c3))
+* prevent tile dragging causing scroll ([1282c4e](https://github.com/ollyrowe/whittle/commit/1282c4eb3dc1498d6e8c075b25cb8e0953beb888))
+
+
+### Performance Improvements
+
+* add memoization to tile colour ([1efd281](https://github.com/ollyrowe/whittle/commit/1efd281dd0a6894ecc4993508425a92f07bccab0))
+* move new index getter out of game context ([1264a25](https://github.com/ollyrowe/whittle/commit/1264a25075e8d5ade7c9d4f9e004b68b34976a5d))
+* prevent modal from mounting by default ([628046e](https://github.com/ollyrowe/whittle/commit/628046ee533c0c4e4c0eda44f2711cea0d16823b))
+* rework tile to prevent excess class generation ([d0bc183](https://github.com/ollyrowe/whittle/commit/d0bc1838b9a069a770799a6d72e1d73468a47231))
+
 # [1.14.0](https://github.com/ollyrowe/whittle/compare/v1.13.0...v1.14.0) (2022-10-23)
 
 
