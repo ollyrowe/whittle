@@ -32,7 +32,7 @@ const Rack: React.FC = () => {
 
 const Background = styled.div`
   display: flex;
-  padding: 8px 12px;
+  padding: ${(props) => props.theme.spacing(2, 0)};
   flex-grow: 1;
 `;
 
