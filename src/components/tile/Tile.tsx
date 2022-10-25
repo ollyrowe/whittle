@@ -8,8 +8,6 @@ import { getNewIndex } from "../providers/GameProvider";
 import { TileState } from "../../model/enums/TileState";
 import { Letter } from "../../model/enums/Letter";
 
-type TileSize = "regular" | "small";
-
 interface Props {
   id: number;
   state: TileState;
@@ -24,7 +22,7 @@ export const Tile: React.FC<Props> = ({
   state,
   letter,
   hasPlaceholder = false,
-  size = "regular",
+  size = "medium",
   disabled = false,
 }) => {
   const theme = useTheme();
@@ -98,6 +96,8 @@ export const Tile: React.FC<Props> = ({
 
 export default Tile;
 
+export type TileSize = "small" | "medium" | "large";
+
 /** The hover time period in milliseconds */
 const HOVER_PERIOD = 150;
 
@@ -159,10 +159,12 @@ type SizeMapping<T> = { [size in TileSize]: T };
 
 const fontSize: SizeMapping<string> = {
   small: "x-large",
-  regular: "xx-large",
+  medium: "x-large",
+  large: "xx-large",
 };
 
 const tileSize: SizeMapping<number> = {
   small: 37,
-  regular: 62,
+  medium: 44,
+  large: 62,
 };
