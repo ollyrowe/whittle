@@ -3,10 +3,12 @@ import styled from "styled-components";
 import { IconButton } from "@mui/material";
 import {
   HelpOutline as HelpOutlineIcon,
+  EventRepeat as EventRepeatIcon,
   BarChart as BarChartIcon,
   Settings as SettingsIcon,
 } from "@mui/icons-material";
 import HowToPlayModal from "../modals/HowToPlayModal";
+import YesterdayModal from "../modals/YesterdayModal";
 import StatisticsModal from "../modals/StatisticsModal";
 import SettingsModal from "../modals/SettingsModal";
 import { GameContext } from "../providers/GameProvider";
@@ -16,6 +18,8 @@ const AppBar: React.FC = () => {
 
   const [displayHowToPlay, setDisplayHowToPlay] = useState(false);
 
+  const [displayYesterdays, setDisplayYesterdays] = useState(false);
+
   const [displaySettings, setDisplaySettings] = useState(false);
 
   const openHowToPlay = () => {
@@ -24,6 +28,14 @@ const AppBar: React.FC = () => {
 
   const closeHowToPlay = () => {
     setDisplayHowToPlay(false);
+  };
+
+  const openYesterdays = () => {
+    setDisplayYesterdays(true);
+  };
+
+  const closeYesterdays = () => {
+    setDisplayYesterdays(false);
   };
 
   const openSettings = () => {
@@ -37,38 +49,35 @@ const AppBar: React.FC = () => {
   return (
     <>
       <Container>
-        <LeftButtonContainer>
+        <ButtonContainer>
           <AppBarButton onClick={openHowToPlay}>
             <HelpOutlineIcon />
           </AppBarButton>
-        </LeftButtonContainer>
+          <AppBarButton onClick={openYesterdays}>
+            <EventRepeatIcon />
+          </AppBarButton>
+        </ButtonContainer>
         <Title>Whittle</Title>
-        <RightButtonContainer>
+        <ButtonContainer>
           <AppBarButton onClick={openStats}>
             <BarChartIcon />
           </AppBarButton>
           <AppBarButton onClick={openSettings}>
             <SettingsIcon />
           </AppBarButton>
-        </RightButtonContainer>
+        </ButtonContainer>
       </Container>
       <HowToPlayModal open={displayHowToPlay} onClose={closeHowToPlay} />
+      <YesterdayModal open={displayYesterdays} onClose={closeYesterdays} />
       <StatisticsModal open={displayStats} onClose={closeStats} />
       <SettingsModal open={displaySettings} onClose={closeSettings} />
     </>
   );
 };
 
-const LeftButtonContainer = styled.div`
-  position: absolute;
-  left: ${(props) => props.theme.spacing(0.5)};
-  top: ${(props) => props.theme.spacing(0.5)};
-`;
-
-const RightButtonContainer = styled.div`
-  position: absolute;
-  right: ${(props) => props.theme.spacing(0.5)};
-  top: ${(props) => props.theme.spacing(0.5)};
+const ButtonContainer = styled.div`
+  display: flex;
+  margin: auto;
 `;
 
 const Container = styled.div`

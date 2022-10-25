@@ -1,17 +1,14 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import { Typography, alpha } from "@mui/material";
-import { GameContext } from "../providers/GameProvider";
+import React from "react";
+import { Typography } from "@mui/material";
 
-const GameNumber = () => {
-  const { number } = useContext(GameContext);
+interface Props {
+  number: number;
+}
 
-  return <Text>{`Daily Whittle #${number}`}</Text>;
+const GameNumber: React.FC<Props> = ({ number }) => {
+  return (
+    <Typography textAlign="center">{`Daily Whittle #${number}`}</Typography>
+  );
 };
 
 export default GameNumber;
-
-const Text = styled(Typography)`
-  text-align: center;
-  color: ${(props) => alpha(props.theme.palette.text.primary, 0.64)};
-`;

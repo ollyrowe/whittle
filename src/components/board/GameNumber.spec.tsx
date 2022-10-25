@@ -6,7 +6,7 @@ import MockThemeProvider from "../providers/MockThemeProvider";
 it("renders", () => {
   render(
     <MockThemeProvider>
-      <GameNumber />
+      <GameNumber number={1} />
     </MockThemeProvider>
   );
 });

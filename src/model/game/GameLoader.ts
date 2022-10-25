@@ -25,14 +25,14 @@ export class GameLoader {
   public static loadGame() {
     const savedGame = GameLoader.getSavedGame();
 
-    const todaysGameNumber = GameLoader.getTodaysGameNumber();
+    const todaysGame = GameLoader.getTodaysGame();
 
     // If there is a saved game and is for today's game, return it
-    if (savedGame && savedGame.number === todaysGameNumber) {
+    if (savedGame && savedGame.number === todaysGame.number) {
       return savedGame;
     }
 
-    return GameLoader.getTodaysGame();
+    return todaysGame;
   }
 
   /**
@@ -54,9 +54,11 @@ export class GameLoader {
    * @returns today's game state.
    */
   public static getTodaysGame() {
-    const todaysGameNumber = GameLoader.getTodaysGameNumber();
+    const today = new Date();
 
-    const todaysAnswer = GameLoader.getTodaysAnswer();
+    const todaysGameNumber = GameLoader.getGameNumber(today);
+
+    const todaysAnswer = GameLoader.getAnswer(today);
 
     const rackTiles = AnswerParser.createRackTiles(todaysAnswer);
 
@@ -68,21 +70,41 @@ export class GameLoader {
   }
 
   /**
-   * Gets today's answer from the available answers.
+   * Gets the solution to yesterday's game.
    *
-   * @returns today's answer.
+   * @returns yesterday's solution.
    */
-  private static getTodaysAnswer() {
-    const today = new Date();
+  public static getYesterdaysSolution(): GameSolution {
+    const yesterday = new Date();
 
-    const todaysEvent = DateUtils.getEvent(today);
+    yesterday.setDate(yesterday.getDate() - 1);
 
-    // If today is an event day
-    if (todaysEvent) {
+    const yesterdaysGameNumber = GameLoader.getGameNumber(yesterday);
+
+    const yesterdaysAnswer = GameLoader.getAnswer(yesterday);
+
+    const board = AnswerParser.createSolutionBoard(yesterdaysAnswer);
+
+    return {
+      number: yesterdaysGameNumber,
+      theme: yesterdaysAnswer.theme,
+      board,
+    };
+  }
+
+  /**
+   * Gets the answer from the available answers for a given day.
+   *
+   * @param date - the date to get the answer for.
+   * @returns the day's answer.
+   */
+  private static getAnswer(date: Date) {
+    const event = DateUtils.getEvent(date);
+
+    // If the date is an event day
+    if (event) {
       // Locate an event answer for the day if one exists
-      const eventAnswer = eventAnswers.find(
-        (answer) => answer.date === todaysEvent
-      );
+      const eventAnswer = eventAnswers.find((answer) => answer.date === event);
 
       if (eventAnswer) {
         return eventAnswer;
@@ -90,23 +112,21 @@ export class GameLoader {
     }
 
     // Get the game number
-    const gameNumber = GameLoader.getTodaysGameNumber();
+    const gameNumber = GameLoader.getGameNumber(date);
 
-    // Get the answer based on today's number and the total number of answers
-    const todaysAnswer = answers[(gameNumber - 1) % answers.length];
+    // Get the answer based on the game number and the total number of answers
+    const answer = answers[(gameNumber - 1) % answers.length];
 
-    return todaysAnswer;
+    return answer;
   }
 
   /**
-   * Gets the number of today's game.
+   * Gets the number of the game for a given day.
    *
    * @returns the game number.
    */
-  private static getTodaysGameNumber() {
-    const today = new Date();
-
-    return DateUtils.getDaysBetween(GameLoader.FIRST_GAME_DATE, today) + 1;
+  private static getGameNumber(date: Date) {
+    return DateUtils.getDaysBetween(GameLoader.FIRST_GAME_DATE, date) + 1;
   }
 
   /**
@@ -131,6 +151,12 @@ export class GameLoader {
       };
     }
   }
+}
+
+export interface GameSolution {
+  number: number;
+  theme: string;
+  board: Board;
 }
 
 // Local storage keys to support saving of game state between sessions

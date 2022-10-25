@@ -23,13 +23,13 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
     >
       <Container id="statistics">
         <div>
-          <TodayBox size="regular">?</TodayBox>
+          <TodayBox size="large">?</TodayBox>
           <TextBlock>Today's Score</TextBlock>
         </div>
         <StatsRow>
-          <StatsBox size="regular">0</StatsBox>
-          <StatsBox size="regular">0</StatsBox>
-          <StatsBox size="regular">0</StatsBox>
+          <StatsBox size="large">0</StatsBox>
+          <StatsBox size="large">0</StatsBox>
+          <StatsBox size="large">0</StatsBox>
         </StatsRow>
         <StatsRow>
           <StatsTextBlock>Solved</StatsTextBlock>
