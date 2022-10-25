@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Typography, Link, TypographyProps } from "@mui/material";
+import { Typography, Link } from "@mui/material";
 import Modal from "./Modal";
 
 interface Props {
@@ -52,6 +52,6 @@ const Text = styled(Typography)`
   margin-bottom: 1.5em;
 `;
 
-const CenteredText: React.FC<TypographyProps> = styled(Typography)`
+const CenteredText = styled(Typography)`
   text-align: center;
 `;
