@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { IconButton } from "@mui/material";
 import { Autorenew as AutorenewIcon } from "@mui/icons-material";
-import { GameContext } from "../providers/GameProvider";
+import { useGameContext } from "../providers/GameProvider";
 
 interface Props {
   className?: string;
 }
 
 const ResetButton: React.FC<Props> = ({ className }) => {
-  const game = useContext(GameContext);
+  const game = useGameContext();
 
   return (
     <IconButton onClick={game.reset} size="small" className={className}>

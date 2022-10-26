@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { IconButton } from "@mui/material";
 import {
@@ -7,14 +7,14 @@ import {
   BarChart as BarChartIcon,
   Settings as SettingsIcon,
 } from "@mui/icons-material";
+import { useGameContext } from "../providers/GameProvider";
 import HowToPlayModal from "../modals/HowToPlayModal";
 import YesterdayModal from "../modals/YesterdayModal";
 import StatisticsModal from "../modals/StatisticsModal";
 import SettingsModal from "../modals/SettingsModal";
-import { GameContext } from "../providers/GameProvider";
 
 const AppBar: React.FC = () => {
-  const { displayStats, openStats, closeStats } = useContext(GameContext);
+  const { displayStats, openStats, closeStats } = useGameContext();
 
   const [displayHowToPlay, setDisplayHowToPlay] = useState(false);
 

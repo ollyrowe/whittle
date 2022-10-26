@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CanvasConfetti from "react-canvas-confetti";
 import {
   arraySwap,
@@ -164,3 +164,7 @@ export const GameContext = React.createContext<Game>({
     fire: () => {},
   },
 });
+
+export const useGameContext = () => {
+  return useContext(GameContext);
+};

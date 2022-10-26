@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import packageJson from "../../../package.json";
 import {
@@ -11,8 +11,8 @@ import {
   Link,
   useTheme,
 } from "@mui/material";
+import { useGameContext } from "../providers/GameProvider";
 import Modal from "./Modal";
-import { GameContext } from "../providers/GameProvider";
 
 interface Props {
   open: boolean;
@@ -20,7 +20,7 @@ interface Props {
 }
 
 const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
-  const { settings } = useContext(GameContext);
+  const { settings } = useGameContext();
 
   const theme = useTheme();
 

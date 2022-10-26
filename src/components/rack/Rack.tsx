@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { GameContext } from "../providers/GameProvider";
+import { useGameContext } from "../providers/GameProvider";
 import Tile from "../tile/Tile";
 import ResetButton from "./ResetButton";
 
 const Rack: React.FC = () => {
-  const { rack } = useContext(GameContext);
+  const { rack } = useGameContext();
 
   return (
     <Background>
