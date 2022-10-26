@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { alpha } from "@mui/material";
-import { GameContext } from "../providers/GameProvider";
+import { useGameContext } from "../providers/GameProvider";
 import BoardWrapper from "./BoardWrapper";
 import GameNumber from "./GameNumber";
 import ResetButton from "../rack/ResetButton";
 import TileGrid from "./TileGrid";
 
 export const Board: React.FC = () => {
-  const { number, board } = useContext(GameContext);
+  const { number, board } = useGameContext();
 
   return (
     <BoardWrapper>
