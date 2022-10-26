@@ -14,7 +14,7 @@ export const Board: React.FC = () => {
     <BoardWrapper>
       <Header>
         <GameNumber number={number} />
-        <FixedResetButton />
+        <FixedResetButton disabled={!board.hasLetterTile()} />
       </Header>
       <TileGrid
         tiles={board.getTiles()}
