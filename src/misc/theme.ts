@@ -26,7 +26,7 @@ export const createLightTheme = (enableHighContrast: boolean) => {
     palette: {
       mode: "light",
       primary: {
-        main: colours.brown,
+        main: colours.green,
       },
       background: {
         default: colours.white,
@@ -50,7 +50,7 @@ export const createDarkTheme = (enableHighContrast: boolean) => {
     palette: {
       mode: "dark",
       primary: {
-        main: colours.brown,
+        main: colours.darkGreen,
       },
       background: {
         default: colours.darkGrey,
@@ -83,7 +83,6 @@ const colours = {
   darkAmber: "#b59f3b",
   blue: "#85c0f9",
   orange: "#f5793a",
-  brown: "#9f7060",
   grey: "#3a3a3c",
   lightGrey: "#b7b9bc",
   lighterGrey: "#d3d6da",
