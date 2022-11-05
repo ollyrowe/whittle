@@ -72,24 +72,21 @@ export class GameLoader {
   }
 
   /**
-   * Gets the solution to yesterday's game.
+   * Gets the solution for a game given its date.
    *
-   * @returns yesterday's solution.
+   * @param number - the date of the game to fetch the solution for.
+   * @returns the game's solution.
    */
-  public static getYesterdaysSolution(): GameSolution {
-    const yesterday = new Date();
+  public static getSolution(date: Date): GameSolution {
+    const number = GameLoader.getGameNumber(date);
 
-    yesterday.setDate(yesterday.getDate() - 1);
+    const answer = GameLoader.getAnswer(date);
 
-    const yesterdaysGameNumber = GameLoader.getGameNumber(yesterday);
-
-    const yesterdaysAnswer = GameLoader.getAnswer(yesterday);
-
-    const board = AnswerParser.createSolutionBoard(yesterdaysAnswer);
+    const board = AnswerParser.createSolutionBoard(answer);
 
     return {
-      number: yesterdaysGameNumber,
-      theme: yesterdaysAnswer.theme,
+      number,
+      theme: answer.theme,
       board,
     };
   }
