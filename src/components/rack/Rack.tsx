@@ -23,7 +23,7 @@ const Rack: React.FC = () => {
               />
             ))
         ) : (
-          <ResetButton />
+          <ResetButton type="text" />
         )}
       </Container>
     </Background>
