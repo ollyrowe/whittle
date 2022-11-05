@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/ollyrowe/whittle/compare/v1.15.0...v1.16.0) (2022-11-05)
+
+
+### Features
+
+* update theme primary colour ([ff4dc7d](https://github.com/ollyrowe/whittle/commit/ff4dc7d23e9821c2987dca9de3d4d13dd4ab91d8))
+
 # [1.15.0](https://github.com/ollyrowe/whittle/compare/v1.14.1...v1.15.0) (2022-11-05)
 
 
