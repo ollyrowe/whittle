@@ -1,4 +1,5 @@
-import { instanceToPlain, plainToInstance } from "class-transformer";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { instanceToPlain, plainToInstance, Type } from "class-transformer";
 import { Board } from "../Board";
 import { Rack } from "../Rack";
 import { DateUtils } from "../utils/DateUtils";
@@ -63,6 +64,7 @@ export class GameLoader {
     const rackTiles = AnswerParser.createRackTiles(todaysAnswer);
 
     return {
+      date: today,
       number: todaysGameNumber,
       board: new Board(),
       rack: new Rack(rackTiles),
@@ -90,6 +92,38 @@ export class GameLoader {
       theme: yesterdaysAnswer.theme,
       board,
     };
+  }
+
+  /**
+   * Gets all of the historic games that the user has completed from the local storage.
+   *
+   * @returns the previously completed games.
+   */
+  public static getCompletedGames(): CompletedGame[] {
+    const completedGamesItem = localStorage.getItem(COMPLETED_GAMES_LS_KEY);
+
+    if (completedGamesItem) {
+      return plainToInstance(CompletedGame, JSON.parse(completedGamesItem));
+    }
+
+    return [];
+  }
+
+  /**
+   * Adds a completed game to the user's local storage.
+   *
+   * @param completedGame - the completed game to save.
+   */
+  public static addCompletedGame(completedGame: CompletedGame) {
+    const completedGames = GameLoader.getCompletedGames();
+
+    completedGames.push(completedGame);
+
+    // Save the updated completed games within the user's local storage
+    localStorage.setItem(
+      COMPLETED_GAMES_LS_KEY,
+      JSON.stringify(completedGames)
+    );
   }
 
   /**
@@ -136,16 +170,19 @@ export class GameLoader {
    */
   private static getSavedGame() {
     const gameNumberItem = localStorage.getItem(GAME_NUMBER_LS_KEY);
+    const gameDateItem = localStorage.getItem(GAME_DATE_LS_KEY);
     const boardItem = localStorage.getItem(BOARD_LS_KEY);
     const rackItem = localStorage.getItem(RACK_LS_KEY);
 
-    if (gameNumberItem && boardItem && rackItem) {
+    if (gameNumberItem && gameDateItem && boardItem && rackItem) {
       const gameNumber: number = JSON.parse(gameNumberItem);
+      const gameDate: string = JSON.parse(gameDateItem);
       const board: unknown = JSON.parse(boardItem);
       const rack: unknown = JSON.parse(rackItem);
 
       return {
         number: gameNumber,
+        date: new Date(gameDate),
         board: plainToInstance(Board, board),
         rack: plainToInstance(Rack, rack),
       };
@@ -159,7 +196,25 @@ export interface GameSolution {
   board: Board;
 }
 
+export class CompletedGame {
+  public number: number;
+
+  @Type(() => Date)
+  public date: Date;
+
+  @Type(() => Board)
+  public board: Board;
+
+  constructor(number: number, date: Date, board: Board) {
+    this.number = number;
+    this.date = date;
+    this.board = board;
+  }
+}
+
 // Local storage keys to support saving of game state between sessions
 const GAME_NUMBER_LS_KEY = "game-number";
+const GAME_DATE_LS_KEY = "game-date";
 const BOARD_LS_KEY = "board";
 const RACK_LS_KEY = "rack";
+const COMPLETED_GAMES_LS_KEY = "completed-games";

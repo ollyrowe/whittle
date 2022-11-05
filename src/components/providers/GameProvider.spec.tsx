@@ -24,6 +24,7 @@ const mockGame: Game = {
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},
   },
+  completedGames: [],
   confetti: {
     canvasProps: {
       refConfetti: () => {},

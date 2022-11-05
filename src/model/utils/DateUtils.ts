@@ -166,6 +166,34 @@ export class DateUtils {
   }
 
   /**
+   * Gets the date of the day before a given date.
+   *
+   * @param date - the date to return the previous day for.
+   * @returns the previous day.
+   */
+  public static getPreviousDay(date: Date) {
+    const previousDay = new Date(date);
+
+    previousDay.setDate(previousDay.getDate() - 1);
+
+    return previousDay;
+  }
+
+  /**
+   * Gets the date of the day after a given date.
+   *
+   * @param date - the date to return the next day for.
+   * @returns the next day.
+   */
+  public static getNextDay(date: Date) {
+    const nextDay = new Date(date);
+
+    nextDay.setDate(nextDay.getDate() + 1);
+
+    return nextDay;
+  }
+
+  /**
    * Returns the date of easter for a given year.
    *
    * Based on the gist https://gist.github.com/johndyer/0dffbdd98c2046f41180c051f378f343.

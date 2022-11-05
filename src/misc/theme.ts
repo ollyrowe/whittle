@@ -36,8 +36,13 @@ export const createLightTheme = (enableHighContrast: boolean) => {
       },
       tile: {
         default: colours.lighterGrey,
-        green: enableHighContrast ? colours.orange : colours.green,
-        amber: enableHighContrast ? colours.blue : colours.amber,
+        green: enableHighContrast ? highContrastColours.orange : colours.green,
+        amber: enableHighContrast ? highContrastColours.blue : colours.amber,
+      },
+      orange: {
+        default: colours.orange,
+        light: colours.orange,
+        dark: colours.darkOrange,
       },
       border: colours.lighterGrey,
     },
@@ -61,8 +66,17 @@ export const createDarkTheme = (enableHighContrast: boolean) => {
       },
       tile: {
         default: colours.lightGrey,
-        green: enableHighContrast ? colours.orange : colours.darkGreen,
-        amber: enableHighContrast ? colours.blue : colours.darkAmber,
+        green: enableHighContrast
+          ? highContrastColours.orange
+          : colours.darkGreen,
+        amber: enableHighContrast
+          ? highContrastColours.blue
+          : colours.darkAmber,
+      },
+      orange: {
+        default: colours.darkOrange,
+        light: colours.orange,
+        dark: colours.darkOrange,
       },
       border: colours.grey,
     },
@@ -81,12 +95,17 @@ const colours = {
   darkGreen: "#538d4e",
   amber: "#c9b458",
   darkAmber: "#b59f3b",
-  blue: "#85c0f9",
-  orange: "#f5793a",
   grey: "#3a3a3c",
   lightGrey: "#b7b9bc",
   lighterGrey: "#d3d6da",
   darkGrey: "#121213",
+  orange: "#e59e4d",
+  darkOrange: "#d38a3a",
+};
+
+const highContrastColours = {
+  blue: "#85c0f9",
+  orange: "#f5793a",
 };
 
 const prefersDarkTheme = window.matchMedia(

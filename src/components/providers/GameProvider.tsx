@@ -156,6 +156,7 @@ export const GameContext = React.createContext<Game>({
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},
   },
+  completedGames: [],
   confetti: {
     canvasProps: {
       refConfetti: () => {},
