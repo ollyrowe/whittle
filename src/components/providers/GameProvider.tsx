@@ -141,6 +141,7 @@ export const getNewIndex: NewIndexGetter = ({
 
 export const GameContext = React.createContext<Game>({
   number: 0,
+  date: new Date(),
   board: new Board(),
   rack: new Rack([]),
   onSwapTiles: () => {},

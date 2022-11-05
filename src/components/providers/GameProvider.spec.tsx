@@ -9,6 +9,7 @@ import { createLightTheme } from "../../misc/theme";
 
 const mockGame: Game = {
   number: 0,
+  date: new Date(),
   board: new Board(),
   rack: new Rack([]),
   onSwapTiles: () => {},

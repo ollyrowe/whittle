@@ -9,6 +9,7 @@ import { CompletedGame, GameLoader } from "../model/game/GameLoader";
 
 export interface Game {
   number: number;
+  date: Date;
   board: Board;
   rack: Rack;
   settings: SettingsOptions;
@@ -204,6 +205,7 @@ export const useGame = (): Game => {
 
   return {
     number,
+    date,
     board,
     rack,
     settings,
