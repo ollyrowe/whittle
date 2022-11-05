@@ -46,6 +46,7 @@ const Container = styled.div`
   margin-top: 2.5px;
   margin-bottom: 2.5px;
   height: fit-content;
+  min-height: 84px;
 `;
 
 export default Rack;
