@@ -1,3 +1,18 @@
+# [1.15.0](https://github.com/ollyrowe/whittle/compare/v1.14.1...v1.15.0) (2022-11-05)
+
+
+### Bug Fixes
+
+* adjust rack spacing ([019f149](https://github.com/ollyrowe/whittle/commit/019f1495e419833fdb4cd63bca8b545b0bda43b0))
+* enable vertical scrolling ([c378d3b](https://github.com/ollyrowe/whittle/commit/c378d3b9aa19d08ccd14502ceb7e869a715b861c))
+
+
+### Features
+
+* add yesterday modal ([e85aed9](https://github.com/ollyrowe/whittle/commit/e85aed9f9fd34a904dabed867459383d016f7f53))
+* disable reset button when the board is empty ([ea672d6](https://github.com/ollyrowe/whittle/commit/ea672d674e30543927a05c47ff3f4e751e07c69a))
+* move game reset button ([c32dd7e](https://github.com/ollyrowe/whittle/commit/c32dd7eefc825d71674b481a1a07722c0c0eb6b7))
+
 ## [1.14.1](https://github.com/ollyrowe/whittle/compare/v1.14.0...v1.14.1) (2022-10-24)
 
 
