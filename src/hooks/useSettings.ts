@@ -91,7 +91,7 @@ export const defaultSettings: Settings = {
 };
 
 /** Key used to persist user settings to local storage */
-const SETTINGS_LS_KEY = "Settings";
+const SETTINGS_LS_KEY = "settings";
 
 interface Settings {
   themeMode: ThemeMode;
