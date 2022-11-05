@@ -5,13 +5,14 @@ import { Tile } from "../model/Tile";
 import { gameWinSound, tilePlaceSound } from "../misc/sounds";
 import useSettings, { SettingsOptions } from "./useSettings";
 import { useConfetti, ConfettiControls } from "./useConfetti";
-import { GameLoader } from "../model/game/GameLoader";
+import { CompletedGame, GameLoader } from "../model/game/GameLoader";
 
 export interface Game {
   number: number;
   board: Board;
   rack: Rack;
   settings: SettingsOptions;
+  completedGames: CompletedGame[];
   onSwapTiles: (firstTile: Tile, secondTile: Tile) => void;
   displayStats: boolean;
   openStats: () => void;
@@ -29,11 +30,19 @@ export const useGame = (): Game => {
   // Today's game number
   const [number, setNumber] = useState(loadedGame.number);
 
+  // Today's game date
+  const [date, setDate] = useState(loadedGame.date);
+
   // The main game board component
   const [board, setBoard] = useState(loadedGame.board);
 
   // The rack containing the initial letter set
   const [rack, setRack] = useState(loadedGame.rack);
+
+  // The games that the user has already completed
+  const [completedGames, setCompletedGames] = useState(
+    GameLoader.getCompletedGames()
+  );
 
   // The game settings storing the user's preferences
   const settings = useSettings();
@@ -97,9 +106,17 @@ export const useGame = (): Game => {
     const game = GameLoader.getTodaysGame();
 
     setNumber(game.number);
+    setDate(game.date);
     setBoard(game.board);
     setRack(game.rack);
   };
+
+  const saveCompletedGame = useCallback((completedGame: CompletedGame) => {
+    // Update the local completed games
+    setCompletedGames((completedGames) => [...completedGames, completedGame]);
+    // Save the completed game to local storage
+    GameLoader.addCompletedGame(completedGame);
+  }, []);
 
   /**
    * Handles the game win.
@@ -108,6 +125,8 @@ export const useGame = (): Game => {
    */
   const handleWin = useCallback(
     (board: Board) => {
+      // Save the completed game
+      saveCompletedGame(new CompletedGame(number, date, board));
       // Play the game win sound effect
       playSound(gameWinSound);
       // Disable the board
@@ -117,7 +136,7 @@ export const useGame = (): Game => {
       // Fire confetti after a short delay
       setTimeout(confetti.fire, 150);
     },
-    [playSound, confetti.fire]
+    [date, number, saveCompletedGame, playSound, confetti.fire]
   );
 
   /**
@@ -188,6 +207,7 @@ export const useGame = (): Game => {
     board,
     rack,
     settings,
+    completedGames,
     onSwapTiles,
     displayStats,
     openStats,

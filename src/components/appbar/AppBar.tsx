@@ -10,7 +10,7 @@ import {
 import { useGameContext } from "../providers/GameProvider";
 import HowToPlayModal from "../modals/HowToPlayModal";
 import YesterdayModal from "../modals/YesterdayModal";
-import StatisticsModal from "../modals/StatisticsModal";
+import StatisticsModal from "../modals/statistics/StatisticsModal";
 import SettingsModal from "../modals/SettingsModal";
 
 const AppBar: React.FC = () => {
