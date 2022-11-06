@@ -143,6 +143,8 @@ describe("DateUtils", () => {
   it("can calculate the number of dates between two dates", () => {
     expect(DateUtils.getDaysBetween(today, alsoToday)).toBe(0);
     expect(DateUtils.getDaysBetween(today, tomorrow)).toBe(1);
+    expect(DateUtils.getDaysBetween(lateToday, tomorrow)).toBe(1);
+    expect(DateUtils.getDaysBetween(today, lateTomorrow)).toBe(1);
     expect(DateUtils.getDaysBetween(today, tenDaysTime)).toBe(10);
   });
 });
@@ -221,7 +223,24 @@ const dates: Record<Event, Date[]> = {
 const nonEventDay = new Date(2002, 2, 20);
 
 // Other dates
-const today = new Date();
+const now = new Date();
+const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 const alsoToday = new Date(today.getTime());
 const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
 const tenDaysTime = new Date(today.getTime() + 10 * 24 * 60 * 60 * 1000);
+const lateToday = new Date(
+  today.getFullYear(),
+  today.getMonth(),
+  today.getDate(),
+  23,
+  59,
+  59
+);
+const lateTomorrow = new Date(
+  tomorrow.getFullYear(),
+  tomorrow.getMonth(),
+  tomorrow.getDate(),
+  23,
+  59,
+  59
+);
