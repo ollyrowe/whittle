@@ -1,3 +1,18 @@
+# [1.17.0](https://github.com/ollyrowe/whittle/compare/v1.16.0...v1.17.0) (2022-11-06)
+
+
+### Bug Fixes
+
+* align settings local storage key with other keys ([52ed876](https://github.com/ollyrowe/whittle/commit/52ed87649495ae419d283df3c981a3877c182cb9))
+* prevent board from shifting when rack is empty ([d91557c](https://github.com/ollyrowe/whittle/commit/d91557c4fa017355cc86cb367bec01031321642e))
+* update yesterday modal previous game logic ([1a6ecd8](https://github.com/ollyrowe/whittle/commit/1a6ecd8b69d933d0b38bf6cc2feef2aa0df86ed8))
+
+
+### Features
+
+* replace rack reset icon button with text button ([351a1ba](https://github.com/ollyrowe/whittle/commit/351a1ba900e5b205a8f6bb725558490ce9b5f9a2))
+* update statistics modal to include streak ([e14eab2](https://github.com/ollyrowe/whittle/commit/e14eab231283139da88f9cb07321e3a8d32d564d))
+
 # [1.16.0](https://github.com/ollyrowe/whittle/compare/v1.15.0...v1.16.0) (2022-11-05)
 
 
