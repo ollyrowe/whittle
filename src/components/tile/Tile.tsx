@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useTheme } from "@mui/material";
+import { alpha, useTheme } from "@mui/material";
 import styled from "styled-components";
 import { useConditionTimer } from "../../hooks/useConditionTimer";
 import { useSortable } from "@dnd-kit/sortable";
@@ -15,6 +15,7 @@ interface Props {
   hasPlaceholder?: boolean;
   size?: TileSize;
   disabled?: boolean;
+  disablePlaceholder?: boolean;
 }
 
 export const Tile: React.FC<Props> = ({
@@ -24,6 +25,7 @@ export const Tile: React.FC<Props> = ({
   hasPlaceholder = false,
   size = "medium",
   disabled = false,
+  disablePlaceholder = false,
 }) => {
   const theme = useTheme();
 
@@ -76,7 +78,11 @@ export const Tile: React.FC<Props> = ({
   }, [state, theme]);
 
   return (
-    <Placeholder size={size} visible={hasPlaceholder}>
+    <Placeholder
+      size={size}
+      visible={hasPlaceholder}
+      disabled={disablePlaceholder}
+    >
       <Box
         ref={setNodeRef}
         size={size}
@@ -104,6 +110,7 @@ const HOVER_PERIOD = 150;
 interface PlaceholderProps {
   visible: boolean;
   size: TileSize;
+  disabled?: boolean;
   children?: React.ReactNode;
 }
 
@@ -117,6 +124,8 @@ const Placeholder = styled.div<PlaceholderProps>`
   width: ${(props) => tileSize[props.size]}px;
   height: ${(props) => tileSize[props.size]}px;
   border-radius: 4px;
+  background-color: ${(props) =>
+    props.disabled && alpha(props.theme.palette.border, 0.3)};
 `;
 
 interface BoxProps {

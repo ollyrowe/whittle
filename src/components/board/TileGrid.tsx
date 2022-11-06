@@ -19,6 +19,7 @@ export const TileGrid: React.FC<Props> = ({ tiles, tileSize, disabled }) => {
           id={tile.getID()}
           letter={tile.getLetter()}
           disabled={tile.isDisabled() || disabled}
+          disablePlaceholder={disabled}
           size={tileSize}
           hasPlaceholder
         />
