@@ -156,13 +156,28 @@ export class DateUtils {
    * @returns total number of days between the two dates.
    */
   public static getDaysBetween(startDate: Date, endDate: Date) {
-    // Standardise the dates and convert to milliseconds
-    const startDateInMilliseconds = startDate.getTime();
-    const endDateInMilliseconds = endDate.getTime();
+    // Remove all time-based information from the dates
+    const start = new Date(
+      startDate.getFullYear(),
+      startDate.getMonth(),
+      startDate.getDate()
+    );
+    const end = new Date(
+      endDate.getFullYear(),
+      endDate.getMonth(),
+      endDate.getDate()
+    );
 
-    const timeDifferent = endDateInMilliseconds - startDateInMilliseconds;
+    // Convert the dates to milliseconds
+    const startDateInMilliseconds = start.getTime();
+    const endDateInMilliseconds = end.getTime();
 
-    return Math.floor(timeDifferent / DateUtils.MILLISECONDS_IN_DAY);
+    const timeDifference = endDateInMilliseconds - startDateInMilliseconds;
+
+    const dayDifference = timeDifference / DateUtils.MILLISECONDS_IN_DAY;
+
+    // Round to account for any daylight saving offsets
+    return Math.round(dayDifference);
   }
 
   /**
