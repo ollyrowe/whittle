@@ -190,8 +190,8 @@ export const useGame = (): Game => {
    * Upon any changes to the board and rack, save the game.
    */
   useEffect(() => {
-    GameLoader.saveGame(number, board, rack);
-  }, [number, board, rack]);
+    GameLoader.saveGame(number, date, board, rack);
+  }, [number, date, board, rack]);
 
   /**
    * Opens the statistics modal.
