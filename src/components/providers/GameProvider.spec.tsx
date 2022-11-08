@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import { render } from "@testing-library/react";
 import GameProvider from "./GameProvider";
 import { Board } from "../../model/Board";
@@ -26,6 +26,7 @@ const mockGame: Game = {
     toggleSoundFx: () => {},
   },
   completedGames: [],
+  boardRef: createRef(),
   confetti: {
     canvasProps: {
       refConfetti: () => {},

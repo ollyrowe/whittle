@@ -8,10 +8,10 @@ import ResetButton from "../rack/ResetButton";
 import TileGrid from "./TileGrid";
 
 export const Board: React.FC = () => {
-  const { number, board } = useGameContext();
+  const { number, board, boardRef } = useGameContext();
 
   return (
-    <BoardWrapper>
+    <BoardWrapper ref={boardRef}>
       <Header>
         <GameNumber number={number} />
         <FixedResetButton type="icon" disabled={!board.hasLetterTile()} />

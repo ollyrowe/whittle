@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { createRef, useCallback, useEffect, useState } from "react";
 import { Board } from "../model/Board";
 import { Rack } from "../model/Rack";
 import { Tile } from "../model/Tile";
@@ -19,6 +19,7 @@ export interface Game {
   openStats: () => void;
   closeStats: () => void;
   reset: () => void;
+  boardRef: React.RefObject<HTMLDivElement>;
   confetti: ConfettiControls;
 }
 
@@ -53,6 +54,9 @@ export const useGame = (): Game => {
 
   // Confetti firing controls
   const confetti = useConfetti();
+
+  // Ref to be bound to the board component
+  const boardRef = createRef<HTMLDivElement>();
 
   /**
    * Callback which should be invoked on swapping two game tiles.
@@ -215,6 +219,7 @@ export const useGame = (): Game => {
     openStats,
     closeStats,
     reset,
+    boardRef,
     confetti,
   };
 };
