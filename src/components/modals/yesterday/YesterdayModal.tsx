@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Typography } from "@mui/material";
-import { GameLoader } from "../../model/game/GameLoader";
-import Modal from "./Modal";
-import SolutionBoard from "../board/SolutionBoard";
-import { useGameContext } from "../providers/GameProvider";
-import { DateUtils } from "../../model/utils/DateUtils";
+import { GameLoader } from "../../../model/game/GameLoader";
+import Modal from "../Modal";
+import SolutionBoard from "../../board/SolutionBoard";
+import { useGameContext } from "../../providers/GameProvider";
+import { DateUtils } from "../../../model/utils/DateUtils";
 
 interface Props {
   open: boolean;

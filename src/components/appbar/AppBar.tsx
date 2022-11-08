@@ -8,10 +8,10 @@ import {
   Settings as SettingsIcon,
 } from "@mui/icons-material";
 import { useGameContext } from "../providers/GameProvider";
-import HowToPlayModal from "../modals/HowToPlayModal";
-import YesterdayModal from "../modals/YesterdayModal";
+import HowToPlayModal from "../modals/how-to-play/HowToPlayModal";
+import YesterdayModal from "../modals/yesterday/YesterdayModal";
 import StatisticsModal from "../modals/statistics/StatisticsModal";
-import SettingsModal from "../modals/SettingsModal";
+import SettingsModal from "../modals/settings/SettingsModal";
 
 const AppBar: React.FC = () => {
   const { displayStats, openStats, closeStats } = useGameContext();

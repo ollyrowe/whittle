@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import packageJson from "../../../package.json";
+import packageJson from "../../../../package.json";
 import {
   Typography,
   List,
@@ -11,8 +11,8 @@ import {
   Link,
   useTheme,
 } from "@mui/material";
-import { useGameContext } from "../providers/GameProvider";
-import Modal from "./Modal";
+import { useGameContext } from "../../providers/GameProvider";
+import Modal from "../Modal";
 
 interface Props {
   open: boolean;
