@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Typography, Link } from "@mui/material";
-import Modal from "./Modal";
+import Modal from "../Modal";
 
 interface Props {
   open: boolean;
