@@ -42,9 +42,10 @@ export class GameLoader {
    * @param board - the board to be saved.
    * @param rack - the rack to be saved.
    */
-  public static saveGame(number: number, board: Board, rack: Rack) {
+  public static saveGame(number: number, date: Date, board: Board, rack: Rack) {
     // Save the game state to local storage
     localStorage.setItem(GAME_NUMBER_LS_KEY, JSON.stringify(number));
+    localStorage.setItem(GAME_DATE_LS_KEY, JSON.stringify(date));
     localStorage.setItem(BOARD_LS_KEY, JSON.stringify(instanceToPlain(board)));
     localStorage.setItem(RACK_LS_KEY, JSON.stringify(instanceToPlain(rack)));
   }
