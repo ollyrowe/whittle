@@ -5,13 +5,17 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const BoardWrapper: React.FC<Props> = ({ children }) => {
-  return (
-    <Background>
-      <Container>{children}</Container>
-    </Background>
-  );
-};
+const BoardWrapper = React.forwardRef<HTMLDivElement, Props>(
+  ({ children }, ref) => {
+    return (
+      <Background>
+        <OuterContainer>
+          <InnerContainer ref={ref}>{children}</InnerContainer>
+        </OuterContainer>
+      </Background>
+    );
+  }
+);
 
 export default BoardWrapper;
 
@@ -22,6 +26,10 @@ const Background = styled.div`
   justify-content: center;
 `;
 
-const Container = styled.div`
+const OuterContainer = styled.div`
   margin: auto;
+`;
+
+const InnerContainer = styled.div`
+  padding: ${(props) => props.theme.spacing(1)};
 `;

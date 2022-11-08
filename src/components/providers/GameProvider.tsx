@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { createRef, useContext, useState } from "react";
 import CanvasConfetti from "react-canvas-confetti";
 import {
   arraySwap,
@@ -158,6 +158,7 @@ export const GameContext = React.createContext<Game>({
     toggleSoundFx: () => {},
   },
   completedGames: [],
+  boardRef: createRef(),
   confetti: {
     canvasProps: {
       refConfetti: () => {},

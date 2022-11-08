@@ -1,15 +1,24 @@
 import { render } from "@testing-library/react";
 import BoardWrapper from "./BoardWrapper";
+import MockThemeProvider from "../providers/MockThemeProvider";
 
 describe("BoarderWrapper", () => {
   it("renders", () => {
-    render(<BoardWrapper />);
+    render(
+      <MockThemeProvider>
+        <BoardWrapper />
+      </MockThemeProvider>
+    );
   });
 
   it("renders a child", () => {
     const text = "example";
 
-    const { getByText } = render(<BoardWrapper>{text}</BoardWrapper>);
+    const { getByText } = render(
+      <MockThemeProvider>
+        <BoardWrapper>{text}</BoardWrapper>
+      </MockThemeProvider>
+    );
 
     expect(getByText(text)).toBeDefined();
   });
