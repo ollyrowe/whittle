@@ -9,9 +9,9 @@ import { TileState } from "../../model/enums/TileState";
 import { Letter } from "../../model/enums/Letter";
 
 interface Props {
-  id: number;
-  state: TileState;
+  id?: number;
   letter?: Letter;
+  state?: TileState;
   hasPlaceholder?: boolean;
   size?: TileSize;
   disabled?: boolean;
@@ -19,9 +19,9 @@ interface Props {
 }
 
 export const Tile: React.FC<Props> = ({
-  id,
-  state,
+  id = -1,
   letter,
+  state = TileState.DEFAULT,
   hasPlaceholder = false,
   size = "medium",
   disabled = false,
