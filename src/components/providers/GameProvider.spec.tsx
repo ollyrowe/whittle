@@ -16,6 +16,9 @@ const mockGame: Game = {
   displayStats: false,
   openStats: () => {},
   closeStats: () => {},
+  displayHowToPlay: false,
+  openHowToPlay: () => {},
+  closeHowToPlay: () => {},
   reset: () => {},
   settings: {
     ...defaultSettings,

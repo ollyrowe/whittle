@@ -148,6 +148,9 @@ export const GameContext = React.createContext<Game>({
   displayStats: false,
   openStats: () => {},
   closeStats: () => {},
+  displayHowToPlay: false,
+  openHowToPlay: () => {},
+  closeHowToPlay: () => {},
   reset: () => {},
   settings: {
     ...defaultSettings,

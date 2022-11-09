@@ -14,21 +14,18 @@ import StatisticsModal from "../modals/statistics/StatisticsModal";
 import SettingsModal from "../modals/settings/SettingsModal";
 
 const AppBar: React.FC = () => {
-  const { displayStats, openStats, closeStats } = useGameContext();
-
-  const [displayHowToPlay, setDisplayHowToPlay] = useState(false);
+  const {
+    displayStats,
+    openStats,
+    closeStats,
+    displayHowToPlay,
+    openHowToPlay,
+    closeHowToPlay,
+  } = useGameContext();
 
   const [displayYesterdays, setDisplayYesterdays] = useState(false);
 
   const [displaySettings, setDisplaySettings] = useState(false);
-
-  const openHowToPlay = () => {
-    setDisplayHowToPlay(true);
-  };
-
-  const closeHowToPlay = () => {
-    setDisplayHowToPlay(false);
-  };
 
   const openYesterdays = () => {
     setDisplayYesterdays(true);
