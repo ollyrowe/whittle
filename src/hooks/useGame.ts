@@ -18,6 +18,9 @@ export interface Game {
   displayStats: boolean;
   openStats: () => void;
   closeStats: () => void;
+  displayHowToPlay: boolean;
+  openHowToPlay: () => void;
+  closeHowToPlay: () => void;
   reset: () => void;
   confetti: ConfettiControls;
 }
@@ -50,6 +53,9 @@ export const useGame = (): Game => {
 
   // Whether the statistics modal should be displayed
   const [displayStats, setDisplayStats] = useState(false);
+
+  // Whether the how to play modal should be displayed
+  const [displayHowToPlay, setDisplayHowToPlay] = useState(false);
 
   // Confetti firing controls
   const confetti = useConfetti();
@@ -190,6 +196,21 @@ export const useGame = (): Game => {
   }, [number, board, rack]);
 
   /**
+   * Effect which handles the last visited local storage state.
+   *
+   * If this is the user's first visit to the site, the how to play modal is displayed.
+   */
+  useEffect(() => {
+    const lastVisited = localStorage.getItem(LAST_VISITED_LS_KEY);
+
+    if (!lastVisited) {
+      openHowToPlay();
+    }
+
+    localStorage.setItem(LAST_VISITED_LS_KEY, JSON.stringify(new Date()));
+  }, []);
+
+  /**
    * Opens the statistics modal.
    */
   const openStats = () => {
@@ -203,6 +224,20 @@ export const useGame = (): Game => {
     setDisplayStats(false);
   };
 
+  /**
+   * Opens the how to play modal.
+   */
+  const openHowToPlay = () => {
+    setDisplayHowToPlay(true);
+  };
+
+  /**
+   * Closes the how to play modal.
+   */
+  const closeHowToPlay = () => {
+    setDisplayHowToPlay(false);
+  };
+
   return {
     number,
     date,
@@ -214,6 +249,9 @@ export const useGame = (): Game => {
     displayStats,
     openStats,
     closeStats,
+    displayHowToPlay,
+    openHowToPlay,
+    closeHowToPlay,
     reset,
     confetti,
   };
@@ -221,3 +259,6 @@ export const useGame = (): Game => {
 
 // Load the current game
 const loadedGame = GameLoader.loadGame();
+
+// Local storage key used to store the last time the user visited the site
+const LAST_VISITED_LS_KEY = "last-visited";
