@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/ollyrowe/whittle/compare/v1.19.0...v1.20.0) (2022-11-11)
+
+
+### Features
+
+* update favicon ([898a156](https://github.com/ollyrowe/whittle/commit/898a156d7e4ec260cf14c330c1c6aeb59923bdbc))
+
 # [1.19.0](https://github.com/ollyrowe/whittle/compare/v1.18.0...v1.19.0) (2022-11-11)
 
 
