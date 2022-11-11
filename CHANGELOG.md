@@ -1,3 +1,18 @@
+# [1.18.0](https://github.com/ollyrowe/whittle/compare/v1.17.0...v1.18.0) (2022-11-11)
+
+
+### Bug Fixes
+
+* update date utils day difference round logic ([52fae3a](https://github.com/ollyrowe/whittle/commit/52fae3a602859a856cb5f3b08db41750dcba0693))
+* update save game method to persist game date ([524af48](https://github.com/ollyrowe/whittle/commit/524af4857d8411c5cfce3524497ee45db29cc651))
+
+
+### Features
+
+* add examples to how to play modal ([6137221](https://github.com/ollyrowe/whittle/commit/6137221440fa30b7579237010dea39b2a11f8cde))
+* enable answer sharing ([c0184ff](https://github.com/ollyrowe/whittle/commit/c0184ff2ccb4f6c6e6526b77c9e529796fc9e2b5))
+* update disabled board tile styling ([2af6f9f](https://github.com/ollyrowe/whittle/commit/2af6f9f3bafa9cfcfa8c2348e40c926a570067a9))
+
 # [1.17.0](https://github.com/ollyrowe/whittle/compare/v1.16.0...v1.17.0) (2022-11-06)
 
 
