@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/ollyrowe/whittle/compare/v1.18.0...v1.19.0) (2022-11-11)
+
+
+### Features
+
+* display how to play modal on first site visit ([276b130](https://github.com/ollyrowe/whittle/commit/276b130d0eb92a515ceafb1fe9bb9e25d2e4fa76))
+
 # [1.18.0](https://github.com/ollyrowe/whittle/compare/v1.17.0...v1.18.0) (2022-11-11)
 
 
