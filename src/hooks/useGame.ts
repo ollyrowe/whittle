@@ -6,6 +6,7 @@ import { gameWinSound, tilePlaceSound } from "../misc/sounds";
 import useSettings, { SettingsOptions } from "./useSettings";
 import { useConfetti, ConfettiControls } from "./useConfetti";
 import { CompletedGame, GameLoader } from "../model/game/GameLoader";
+import { DateUtils } from "../model/utils/DateUtils";
 
 export interface Game {
   number: number;
@@ -136,8 +137,14 @@ export const useGame = (): Game => {
    */
   const handleWin = useCallback(
     (board: Board) => {
-      // Save the completed game
-      saveCompletedGame(new CompletedGame(number, date, board));
+      // If there isn't already a completed game for the same day
+      if (
+        !completedGames.find((game) => DateUtils.isSameDay(game.date, date))
+      ) {
+        // Save the completed game
+        saveCompletedGame(new CompletedGame(number, date, board));
+      }
+
       // Play the game win sound effect
       playSound(gameWinSound);
       // Disable the board
@@ -147,7 +154,7 @@ export const useGame = (): Game => {
       // Fire confetti after a short delay
       setTimeout(confetti.fire, 150);
     },
-    [date, number, saveCompletedGame, playSound, confetti.fire]
+    [completedGames, date, number, saveCompletedGame, playSound, confetti.fire]
   );
 
   /**
