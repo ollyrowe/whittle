@@ -69,7 +69,7 @@ const Tick = styled(DoneIcon)<TickProps>`
   stroke: ${(props) =>
     props.$hasContrastText ? "white" : props.theme.palette.text.disabled};
   stroke-width: 2;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const Cross = styled(CloseIcon)`
