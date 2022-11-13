@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/ollyrowe/whittle/compare/v1.21.0...v1.22.0) (2022-11-13)
+
+
+### Features
+
+* add 48 more answers ([f8477c8](https://github.com/ollyrowe/whittle/commit/f8477c83338403ac06674de73af0ab3ad5c256b9))
+
 # [1.21.0](https://github.com/ollyrowe/whittle/compare/v1.20.1...v1.21.0) (2022-11-13)
 
 
