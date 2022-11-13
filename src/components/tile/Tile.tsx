@@ -123,7 +123,7 @@ const Placeholder = styled.div<PlaceholderProps>`
   height: ${(props) => tileSize[props.size]}px;
   border-radius: 4px;
   background-color: ${(props) =>
-    props.disabled && alpha(props.theme.palette.border, 0.3)};
+    props.disabled && alpha(props.theme.palette.border, 0.4)};
 `;
 
 interface BoxProps {
