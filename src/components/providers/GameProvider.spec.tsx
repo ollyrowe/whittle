@@ -23,7 +23,7 @@ const mockGame: Game = {
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),
-    toggleEasyMode: () => {},
+    toggleHardMode: () => {},
     toggleTheme: () => {},
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {
   Dialog,
   DialogTitle,
-  Slide,
   DialogContent,
   IconButton,
   DialogProps,
@@ -11,7 +10,7 @@ import {
   IconButtonProps,
 } from "@mui/material";
 import { Close as CloseIcon } from "@mui/icons-material";
-import { TransitionProps } from "@mui/material/transitions";
+import SlideTransition from "../misc/SlideTransition";
 
 interface Props extends DialogProps {
   title: string;
@@ -31,7 +30,7 @@ const Modal: React.FC<Props> = ({
     <Dialog
       open={open}
       onClose={onClose}
-      TransitionComponent={Transition}
+      TransitionComponent={SlideTransition}
       maxWidth="xs"
       fullWidth
       PaperProps={{ sx: { backgroundImage: "none" } }}
@@ -64,14 +63,5 @@ const FixedIconButton: React.FC<IconButtonProps> = styled(IconButton)`
   top: ${(props) => props.theme.spacing(1)};
   color: ${(props) => props.theme.palette.grey[500]};
 `;
-
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement<any, any>;
-  },
-  ref: React.Ref<unknown>
-) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 export default Modal;

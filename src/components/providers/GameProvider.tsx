@@ -155,7 +155,7 @@ export const GameContext = React.createContext<Game>({
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),
-    toggleEasyMode: () => {},
+    toggleHardMode: () => {},
     toggleTheme: () => {},
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},

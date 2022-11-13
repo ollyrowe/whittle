@@ -14,8 +14,10 @@ interface Props {
   state?: TileState;
   hasPlaceholder?: boolean;
   size?: TileSize;
+  /** Whether the tile can be dragged */
+  draggable?: boolean;
+  /** Whether the tile cannot be swapped */
   disabled?: boolean;
-  disablePlaceholder?: boolean;
 }
 
 export const Tile: React.FC<Props> = ({
@@ -24,8 +26,8 @@ export const Tile: React.FC<Props> = ({
   state = TileState.DEFAULT,
   hasPlaceholder = false,
   size = "medium",
+  draggable = true,
   disabled = false,
-  disablePlaceholder = false,
 }) => {
   const theme = useTheme();
 
@@ -46,7 +48,7 @@ export const Tile: React.FC<Props> = ({
   } = useSortable({
     id,
     getNewIndex,
-    disabled,
+    disabled: !draggable,
     data: { hasOverTimerLapsed },
   });
 
@@ -78,11 +80,7 @@ export const Tile: React.FC<Props> = ({
   }, [state, theme]);
 
   return (
-    <Placeholder
-      size={size}
-      visible={hasPlaceholder}
-      disabled={disablePlaceholder}
-    >
+    <Placeholder size={size} visible={hasPlaceholder} disabled={disabled}>
       <Box
         ref={setNodeRef}
         size={size}

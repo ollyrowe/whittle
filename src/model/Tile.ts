@@ -11,6 +11,8 @@ export class Tile {
   private state: TileState;
   /** The letter being represented */
   private letter: Letter | undefined;
+  /** Whether the tile is disabled */
+  private disabled: boolean;
 
   /** Used to support ID generation */
   private static tileCount = 0;
@@ -20,6 +22,7 @@ export class Tile {
     this.location = location;
     this.state = TileState.DEFAULT;
     this.letter = letter;
+    this.disabled = false;
   }
 
   /**
@@ -111,12 +114,35 @@ export class Tile {
   }
 
   /**
+   * Determines whether the tile is able to be dragged.
+   *
+   * @returns boolean indicate whether the tile is draggable.
+   */
+  isDraggable() {
+    // Tiles without letters cannot be dragged
+    return this.hasLetter();
+  }
+
+  /**
    * Determines whether the tile is disabled.
    *
    * @returns boolean indicate whether the tile is disabled.
    */
   isDisabled() {
-    // Tiles without letters cannot be moved
-    return !this.hasLetter();
+    return this.disabled;
+  }
+
+  /**
+   * Disables the tile.
+   */
+  disable() {
+    this.disabled = true;
+  }
+
+  /**
+   * Enables the tile.
+   */
+  enable() {
+    this.disabled = false;
   }
 }

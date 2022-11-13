@@ -5,6 +5,7 @@ import { Tile } from "../model/Tile";
 import { gameWinSound, tilePlaceSound } from "../misc/sounds";
 import useSettings, { SettingsOptions } from "./useSettings";
 import { useConfetti, ConfettiControls } from "./useConfetti";
+import { useFirstRender } from "./useFirstRender";
 import { CompletedGame, GameLoader } from "../model/game/GameLoader";
 import { DateUtils } from "../model/utils/DateUtils";
 
@@ -65,6 +66,9 @@ export const useGame = (): Game => {
   // Ref to be bound to the board component
   const boardRef = createRef<HTMLDivElement>();
 
+  // Whether this is the first render
+  const isFirstRender = useFirstRender();
+
   /**
    * Callback which should be invoked on swapping two game tiles.
    *
@@ -78,7 +82,7 @@ export const useGame = (): Game => {
     // Play the tile place sound effect
     playSound(tilePlaceSound);
 
-    if (firstTile !== secondTile) {
+    if (firstTile !== secondTile && !secondTile.isDisabled()) {
       const updatedBoard = new Board(board.getTiles());
       const updatedRack = new Rack(rack.getTiles());
 
@@ -114,14 +118,47 @@ export const useGame = (): Game => {
   /**
    * Resets the game.
    */
-  const reset = () => {
+  const reset = useCallback(() => {
     const game = GameLoader.getTodaysGame();
+
+    // If hard mode is enabled, disable letters which do not form part of the solution
+    if (settings.enableHardMode) {
+      const tiles = game.board.getTiles();
+
+      // Disabled all tiles
+      tiles.forEach((tile) => tile.disable());
+
+      // Loop through each word within the solution
+      game.answer.words.forEach((word) => {
+        const { start, direction } = word;
+
+        // Loop through each letter within the word and enable the tile
+        for (let i = 0; i < word.letters.length; i++) {
+          const tile = game.board.getTileAt(
+            direction === "horizontal" ? start.column + i : start.column,
+            direction === "vertical" ? start.row + i : start.row
+          );
+
+          tile?.enable();
+        }
+      });
+    }
 
     setNumber(game.number);
     setDate(game.date);
     setBoard(game.board);
     setRack(game.rack);
-  };
+  }, [settings.enableHardMode]);
+
+  const enableBoardTiles = useCallback(() => {
+    setBoard((board) => {
+      const updatedBoard = new Board(board.getTiles());
+
+      updatedBoard.getTiles().forEach((tile) => tile.enable());
+
+      return updatedBoard;
+    });
+  }, []);
 
   const saveCompletedGame = useCallback((completedGame: CompletedGame) => {
     // Update the local completed games
@@ -141,8 +178,10 @@ export const useGame = (): Game => {
       if (
         !completedGames.find((game) => DateUtils.isSameDay(game.date, date))
       ) {
+        // Infer the game mode from the settings
+        const mode = settings.enableHardMode ? "hard" : "normal";
         // Save the completed game
-        saveCompletedGame(new CompletedGame(number, date, board));
+        saveCompletedGame(new CompletedGame(number, date, board, mode));
       }
 
       // Play the game win sound effect
@@ -154,7 +193,15 @@ export const useGame = (): Game => {
       // Fire confetti after a short delay
       setTimeout(confetti.fire, 150);
     },
-    [completedGames, date, number, saveCompletedGame, playSound, confetti.fire]
+    [
+      completedGames,
+      settings.enableHardMode,
+      number,
+      date,
+      saveCompletedGame,
+      playSound,
+      confetti.fire,
+    ]
   );
 
   /**
@@ -220,6 +267,22 @@ export const useGame = (): Game => {
 
     localStorage.setItem(LAST_VISITED_LS_KEY, JSON.stringify(new Date()));
   }, []);
+
+  /**
+   * Effect which which handles changes to the hard mode setting.
+   */
+  useEffect(() => {
+    // Avoid resetting the board on initial render
+    if (!isFirstRender) {
+      // If hard mode has been enabled
+      if (settings.enableHardMode) {
+        reset();
+      } else {
+        enableBoardTiles();
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [settings.enableHardMode]);
 
   /**
    * Opens the statistics modal.
