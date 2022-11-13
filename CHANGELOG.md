@@ -1,3 +1,10 @@
+## [1.22.2](https://github.com/ollyrowe/whittle/compare/v1.22.1...v1.22.2) (2022-11-13)
+
+
+### Bug Fixes
+
+* update homepage field with package json ([3770e2d](https://github.com/ollyrowe/whittle/commit/3770e2dbb5631e33a7d27fb0d8bb04997a33dd7d))
+
 ## [1.22.1](https://github.com/ollyrowe/whittle/compare/v1.22.0...v1.22.1) (2022-11-13)
 
 
