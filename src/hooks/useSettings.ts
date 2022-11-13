@@ -17,8 +17,8 @@ const useSettings = () => {
     [settings.themeMode, settings.enableHighContrastMode]
   );
 
-  const toggleEasyMode = () => {
-    setSettings({ ...settings, enableEasyMode: !settings.enableEasyMode });
+  const toggleHardMode = () => {
+    setSettings({ ...settings, enableHardMode: !settings.enableHardMode });
   };
 
   const toggleTheme = () => {
@@ -50,7 +50,7 @@ const useSettings = () => {
   return {
     ...settings,
     theme,
-    toggleEasyMode,
+    toggleHardMode,
     toggleTheme,
     toggleHighContrastMode,
     toggleSoundFx,
@@ -85,7 +85,7 @@ const updateSettings = (settings: Settings) => {
 
 export const defaultSettings: Settings = {
   themeMode: "system",
-  enableEasyMode: false,
+  enableHardMode: false,
   enableHighContrastMode: false,
   enableSoundFx: true,
 };
@@ -95,14 +95,14 @@ const SETTINGS_LS_KEY = "settings";
 
 interface Settings {
   themeMode: ThemeMode;
-  enableEasyMode: boolean;
+  enableHardMode: boolean;
   enableHighContrastMode: boolean;
   enableSoundFx: boolean;
 }
 
 export interface SettingsOptions extends Settings {
   theme: Theme;
-  toggleEasyMode: () => void;
+  toggleHardMode: () => void;
   toggleTheme: () => void;
   toggleHighContrastMode: () => void;
   toggleSoundFx: () => void;

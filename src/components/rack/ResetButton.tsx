@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { alpha, Button, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { Autorenew as AutorenewIcon } from "@mui/icons-material";
 import { useGameContext } from "../providers/GameProvider";
+import TextButton from "../misc/TextButton";
 
 interface Props {
   type: "text" | "icon";
@@ -14,9 +15,13 @@ const ResetButton: React.FC<Props> = ({ type, disabled, className }) => {
   const game = useGameContext();
 
   return type === "text" ? (
-    <TextButton onClick={game.reset} disabled={disabled} className={className}>
+    <StyledButton
+      onClick={game.reset}
+      disabled={disabled}
+      className={className}
+    >
       Reset
-    </TextButton>
+    </StyledButton>
   ) : (
     <IconButton
       size="small"
@@ -31,11 +36,6 @@ const ResetButton: React.FC<Props> = ({ type, disabled, className }) => {
 
 export default ResetButton;
 
-const TextButton = styled(Button)`
+const StyledButton = styled(TextButton)`
   height: fit-content;
-  color: ${(props) => alpha(props.theme.palette.text.primary, 0.64)};
-  &:hover {
-    background-color: ${(props) =>
-      alpha(props.theme.palette.text.primary, 0.08)}};
-  }
 `;

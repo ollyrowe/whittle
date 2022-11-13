@@ -259,7 +259,7 @@ export class Board extends Container {
    * @param row - the row of the tile to be fetched.
    * @returns the tile, if present.
    */
-  private getTileAt(column: number, row: number) {
+  public getTileAt(column: number, row: number) {
     return this.tiles.find((tile) => {
       const location = tile.getLocation();
 

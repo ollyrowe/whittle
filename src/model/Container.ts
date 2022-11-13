@@ -15,7 +15,7 @@ export abstract class Container {
 
   constructor(tiles: Tile[]) {
     this.tiles = tiles;
-    this.updated = false;
+    this.updated = true;
   }
 
   /**

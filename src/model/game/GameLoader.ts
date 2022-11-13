@@ -69,6 +69,7 @@ export class GameLoader {
       number: todaysGameNumber,
       board: new Board(),
       rack: new Rack(rackTiles),
+      answer: todaysAnswer,
     };
   }
 
@@ -203,12 +204,17 @@ export class CompletedGame {
   @Type(() => Board)
   public board: Board;
 
-  constructor(number: number, date: Date, board: Board) {
+  public mode: GameMode;
+
+  constructor(number: number, date: Date, board: Board, mode: GameMode) {
     this.number = number;
     this.date = date;
     this.board = board;
+    this.mode = mode;
   }
 }
+
+type GameMode = "normal" | "hard";
 
 // Local storage keys to support saving of game state between sessions
 const GAME_NUMBER_LS_KEY = "game-number";
