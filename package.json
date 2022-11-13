@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/ollyrowe/whittle/issues"
   },
-  "homepage": "https://ollyrowe.github.io/whittle/",
+  "homepage": "https://whittlegame.com",
   "scripts": {
     "start": "craco start",
     "build": "craco build",
