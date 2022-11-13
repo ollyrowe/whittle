@@ -1,3 +1,10 @@
+## [1.22.1](https://github.com/ollyrowe/whittle/compare/v1.22.0...v1.22.1) (2022-11-13)
+
+
+### Bug Fixes
+
+* remove unused import ([f038e2e](https://github.com/ollyrowe/whittle/commit/f038e2e764d545ba94be7bd5f7f41b7327549ad2))
+
 # [1.22.0](https://github.com/ollyrowe/whittle/compare/v1.21.0...v1.22.0) (2022-11-13)
 
 
