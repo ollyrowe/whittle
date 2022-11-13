@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://ollyrowe.github.io/whittle/"><img src="https://raw.githubusercontent.com/ollyrowe/whittle/master/public/logo192.png" alt="Whittle" width="200"></a>
+  <a href="https://ollyrowe.github.io/whittle/"><img src="https://raw.githubusercontent.com/ollyrowe/whittle/master/public/android-chrome-192x192.png" alt="Whittle" width="200"></a>
   <br>
   Whittle
   <br>
@@ -47,10 +47,11 @@ This is the official Whittle game.
 
 ## 🧾 Rules
 
-- 15 letters, all to be placed within a 5x6 grid
-- Place letters to form words and join them together until all letters have been placed
+- You have 15 letters, all to be placed within the 5 x 6 board
+- Place the letters on the board to form words and join these words together until all of the letters have been placed
 - Words must be spelt from left to right or from top to bottom
-- Can you _whittle_ it down and place as few words as possible?
+- The colour of the tiles will change to identify whether the places letters for valid words
+- All words must be connected to win the game
 
 ## ✨ Inspiration
 
