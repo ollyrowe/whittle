@@ -1,3 +1,11 @@
+## [1.20.1](https://github.com/ollyrowe/whittle/compare/v1.20.0...v1.20.1) (2022-11-13)
+
+
+### Bug Fixes
+
+* prevent multiple games for the same day being saved ([9e49797](https://github.com/ollyrowe/whittle/commit/9e49797d0673dfbdb1653e19df876b80294cb494))
+* reduce streak tick weight ([5a7f5e7](https://github.com/ollyrowe/whittle/commit/5a7f5e77b271709c0a1b5dfd1dbdd75fbabe4958))
+
 # [1.20.0](https://github.com/ollyrowe/whittle/compare/v1.19.0...v1.20.0) (2022-11-11)
 
 
