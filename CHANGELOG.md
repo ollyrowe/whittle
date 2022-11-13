@@ -1,3 +1,16 @@
+# [1.21.0](https://github.com/ollyrowe/whittle/compare/v1.20.1...v1.21.0) (2022-11-13)
+
+
+### Bug Fixes
+
+* improve visibility of disabled tiles ([1ed34d5](https://github.com/ollyrowe/whittle/commit/1ed34d557cb7e60b4d918dcf8fef66e0d9be3fc9))
+* prevent tile grid disabling tiles ([8001161](https://github.com/ollyrowe/whittle/commit/8001161fcd36bdfe6d4aeceb4a06d69a0950d556))
+
+
+### Features
+
+* add hard mode ([086bbf0](https://github.com/ollyrowe/whittle/commit/086bbf06262d4586439f65c99c4c78064129e162))
+
 ## [1.20.1](https://github.com/ollyrowe/whittle/compare/v1.20.0...v1.20.1) (2022-11-13)
 
 
