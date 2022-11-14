@@ -117,7 +117,9 @@ interface PlaceholderProps {
  */
 const Placeholder = styled.div<PlaceholderProps>`
   box-shadow: ${(props) =>
-    props.visible && "inset 0px 0px 0px 2px " + props.theme.palette.border};
+    props.visible &&
+    !props.disabled &&
+    "inset 0px 0px 0px 2px " + props.theme.palette.border};
   margin: 2.5px;
   width: ${(props) => tileSize[props.size]}px;
   height: ${(props) => tileSize[props.size]}px;
