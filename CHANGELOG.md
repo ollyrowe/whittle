@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/ollyrowe/whittle/compare/v1.23.0...v1.24.0) (2022-11-14)
+
+
+### Features
+
+* update disabled board styles ([8216168](https://github.com/ollyrowe/whittle/commit/82161681e0027496d46a589f38f75316c3fd72e0))
+
 # [1.23.0](https://github.com/ollyrowe/whittle/compare/v1.22.2...v1.23.0) (2022-11-14)
 
 
