@@ -109,8 +109,8 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
           <Divider />
           <ListItem disableGutters>
             <ListItemText primary="Feedback" />
-            <Link underline="none" href="/">
-              <Typography color="GrayText">Email</Typography>
+            <Link underline="none" href="https://twitter.com/WhittleGame">
+              <Typography color="GrayText">Twitter</Typography>
             </Link>
           </ListItem>
           <Divider />
