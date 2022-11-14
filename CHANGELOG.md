@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/ollyrowe/whittle/compare/v1.22.2...v1.23.0) (2022-11-14)
+
+
+### Features
+
+* add link to twitter page ([5a24112](https://github.com/ollyrowe/whittle/commit/5a24112ff07079c31ee697e1b7b271b4ae517d0a))
+
 ## [1.22.2](https://github.com/ollyrowe/whittle/compare/v1.22.1...v1.22.2) (2022-11-13)
 
 
