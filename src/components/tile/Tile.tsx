@@ -64,7 +64,9 @@ export const Tile: React.FC<Props> = ({
   // Transformation styles to be applied to the draggable element
   const style = {
     transform: CSS.Transform.toString(applyTransformation ? transform : null),
-    transition,
+    transition:
+      (transition ? transition + "," : "") +
+      "background-color 300ms cubic-bezier(0.19, 1, 0.22, 1)",
   };
 
   // The colour of the tile based on the state
@@ -155,10 +157,9 @@ export const Box = styled.div<BoxProps>`
   user-select: none;
   flex-shrink: 0;
   opacity: ${(props) => (props.isBlank ? 0 : 1)};
-    background-color 1s cubic-bezier(0.19, 1, 0.22, 1);
   box-shadow: ${(props) =>
-    props.isDragging &&
-    "2px 4px 10px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.25), "}
+      props.isDragging &&
+      "2px 4px 10px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.25), "}
     inset 0px -5px 0px 0px rgba(0, 0, 0, 0.1);
   z-index: ${(props) =>
     props.isDragging ? 9999 : props.isOver ? 9998 : "auto"};
