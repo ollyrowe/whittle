@@ -24,15 +24,11 @@ const HowToPlayModal: React.FC<Props> = ({ open, onClose }) => {
           You have 15 letters, all to be placed within the 5 x 6 board
         </Text>
         <Text>
-          Place the letters on the board to form words and join these words
+          Drag the letters onto the board to form words and join these words
           together until all of the letters have been placed
         </Text>
         <Text>
           Words must be spelt from left to right or from top to bottom
-        </Text>
-        <Text>
-          The colour of the tiles will change to identify whether the placed
-          letters form valid words
         </Text>
         <Text>All words must be connected to win the game</Text>
         <SpacedDivider />
