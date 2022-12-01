@@ -1,6 +1,6 @@
 {
   "name": "whittle",
-  "version": "1.24.0",
+  "version": "1.25.0",
   "description": "The official Whittle game!",
   "private": true,
   "repository": {
@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.4.5",
-    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.56",

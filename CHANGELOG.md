@@ -1,3 +1,16 @@
+# [1.25.0](https://github.com/ollyrowe/whittle/compare/v1.24.0...v1.25.0) (2022-12-01)
+
+
+### Bug Fixes
+
+* update how to play instructions ([ae6f786](https://github.com/ollyrowe/whittle/commit/ae6f786dce6e4f8d3521d1cb398fd27a7997b8b1))
+
+
+### Features
+
+* add meta tags to improve seo ([3264eea](https://github.com/ollyrowe/whittle/commit/3264eea57ed35a0aa2e324d0a439837b5db26f94))
+* add tile colour transition ([5b464b7](https://github.com/ollyrowe/whittle/commit/5b464b78eb65d13cebceb3f18972643a89999b10))
+
 # [1.24.0](https://github.com/ollyrowe/whittle/compare/v1.23.0...v1.24.0) (2022-11-14)
 
 
