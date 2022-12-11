@@ -18,6 +18,7 @@ const HowToPlayModal: React.FC<Props> = ({ open, onClose }) => {
       open={open}
       onClose={onClose}
       aria-describedby="how-to-play"
+      data-testid="how-to-play-modal"
     >
       <div id="how-to-play">
         <Text>

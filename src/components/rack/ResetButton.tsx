@@ -19,6 +19,7 @@ const ResetButton: React.FC<Props> = ({ type, disabled, className }) => {
       onClick={game.reset}
       disabled={disabled}
       className={className}
+      data-testid="reset-text-button"
     >
       Reset
     </StyledButton>
@@ -28,6 +29,7 @@ const ResetButton: React.FC<Props> = ({ type, disabled, className }) => {
       onClick={game.reset}
       disabled={disabled}
       className={className}
+      data-testid="reset-icon-button"
     >
       <AutorenewIcon fontSize="small" />
     </IconButton>

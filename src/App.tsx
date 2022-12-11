@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
   return (
     <GameProvider game={game}>
-      <Container>
+      <Container data-testid="background">
         <AppBar />
         <Board />
         <Rack />

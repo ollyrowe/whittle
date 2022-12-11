@@ -47,19 +47,25 @@ const AppBar: React.FC = () => {
     <>
       <Container>
         <ButtonContainer>
-          <AppBarButton onClick={openHowToPlay}>
+          <AppBarButton
+            onClick={openHowToPlay}
+            data-testid="how-to-play-button"
+          >
             <HelpOutlineIcon />
           </AppBarButton>
-          <AppBarButton onClick={openYesterdays}>
+          <AppBarButton
+            onClick={openYesterdays}
+            data-testid="yesterdays-button"
+          >
             <EventRepeatIcon />
           </AppBarButton>
         </ButtonContainer>
         <Title>Whittle</Title>
         <ButtonContainer>
-          <AppBarButton onClick={openStats}>
+          <AppBarButton onClick={openStats} data-testid="statistics-button">
             <BarChartIcon />
           </AppBarButton>
-          <AppBarButton onClick={openSettings}>
+          <AppBarButton onClick={openSettings} data-testid="settings-button">
             <SettingsIcon />
           </AppBarButton>
         </ButtonContainer>

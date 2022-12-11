@@ -82,7 +82,12 @@ export const Tile: React.FC<Props> = ({
   }, [state, theme]);
 
   return (
-    <Placeholder size={size} visible={hasPlaceholder} disabled={disabled}>
+    <Placeholder
+      size={size}
+      visible={hasPlaceholder}
+      disabled={disabled}
+      data-testid="placeholder"
+    >
       <Box
         ref={setNodeRef}
         size={size}
@@ -91,6 +96,7 @@ export const Tile: React.FC<Props> = ({
         isOver={isOver}
         color={color}
         style={style}
+        data-testid="tile"
         {...attributes}
         {...listeners}
       >

@@ -26,13 +26,18 @@ const ShareButton: React.FC = () => {
   const share = async () => {
     // Ensure the board ref is currently bound
     if (boardRef.current) {
-      // Create a screenshot of the board's DOM
-      const blob = await toBlob(boardRef.current, {
-        cacheBust: true,
-        backgroundColor: theme.palette.background.default,
-        // Remove the reset button
-        filter: (node) => node.tagName !== "BUTTON",
-      });
+      let blob: Blob | null = new Blob();
+
+      // Check that this isn't currently the test environment
+      if (!(window as any).Cypress) {
+        // Create a screenshot of the board's DOM
+        blob = await toBlob(boardRef.current, {
+          cacheBust: true,
+          backgroundColor: theme.palette.background.default,
+          // Remove the reset button
+          filter: (node) => node.tagName !== "BUTTON",
+        });
+      }
 
       if (blob) {
         // Create an image fom the returned blob

@@ -11,7 +11,7 @@ export const Board: React.FC = () => {
   const { number, board, boardRef } = useGameContext();
 
   return (
-    <BoardWrapper ref={boardRef}>
+    <BoardWrapper ref={boardRef} data-testid="board">
       <Header>
         <GameNumber number={number} />
         <FixedResetButton type="icon" disabled={!board.hasLetterTile()} />

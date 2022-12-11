@@ -11,7 +11,7 @@ interface Props {
 
 export const TileGrid: React.FC<Props> = ({ tiles, tileSize, disabled }) => {
   return (
-    <Grid>
+    <Grid data-testid="tile-grid">
       {tiles.map((tile) => (
         <Tile
           key={tile.getID()}

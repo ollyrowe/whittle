@@ -56,6 +56,7 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
         open={open && !displayConfirmHardMode}
         onClose={onClose}
         aria-describedby="settings"
+        data-testid="settings-modal"
       >
         <List id="settings">
           <ListItem disableGutters>
@@ -70,6 +71,7 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
               onChange={onToggleHardMode}
               inputProps={{ "aria-labelledby": "hard-mode-label" }}
               disabled={board.isDisabled()}
+              data-testid="hard-mode-toggle"
             />
           </ListItem>
           <Divider />
@@ -80,6 +82,7 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
               checked={theme.palette.mode === "dark"}
               onChange={settings.toggleTheme}
               inputProps={{ "aria-labelledby": "dark-theme-label" }}
+              data-testid="dark-theme-toggle"
             />
           </ListItem>
           <Divider />
@@ -94,6 +97,7 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
               checked={settings.enableHighContrastMode}
               onChange={settings.toggleHighContrastMode}
               inputProps={{ "aria-labelledby": "high-contrast-mode-label" }}
+              data-testid="high-contrast-toggle"
             />
           </ListItem>
           <Divider />
@@ -104,6 +108,7 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
               checked={settings.enableSoundFx}
               onChange={settings.toggleSoundFx}
               inputProps={{ "aria-labelledby": "sound-fx-label" }}
+              data-testid="sound-fx-toggle"
             />
           </ListItem>
           <Divider />
