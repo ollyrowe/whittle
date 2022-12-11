@@ -16,7 +16,7 @@ interface Props {
 
 const DayCircle: React.FC<Props> = ({ type, icon, formsStreak }) => {
   return (
-    <Circle type={type} formsStreak={formsStreak}>
+    <Circle type={type} formsStreak={formsStreak} data-testid="day-circle">
       {getIcon(icon, formsStreak)}
     </Circle>
   );
@@ -30,11 +30,11 @@ export type CircleIcon = "tick" | "cross" | "dot";
 const getIcon = (icon?: CircleIcon, hasContrastText?: boolean) => {
   switch (icon) {
     case "tick":
-      return <Tick $hasContrastText={!!hasContrastText} />;
+      return <Tick $hasContrastText={!!hasContrastText} data-testid="tick" />;
     case "cross":
-      return <Cross />;
+      return <Cross data-testid="cross" />;
     case "dot":
-      return <Dot />;
+      return <Dot data-testid="dot" />;
   }
 };
 

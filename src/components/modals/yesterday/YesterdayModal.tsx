@@ -26,6 +26,7 @@ const YesterdayModal: React.FC<Props> = ({ open, onClose }) => {
       open={open}
       onClose={onClose}
       aria-describedby="yesterday"
+      data-testid="yesterday-modal"
     >
       <div id="yesterday">
         <SolutionBoard solution={yesterdaysSolution} />

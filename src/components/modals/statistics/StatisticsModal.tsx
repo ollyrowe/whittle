@@ -21,6 +21,7 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
       open={open}
       onClose={onClose}
       aria-describedby="statistics"
+      data-testid="statistics-modal"
     >
       <Container id="statistics">
         <StreakDisplay />

@@ -26,7 +26,7 @@ const StreakDisplay: React.FC = () => {
   );
 
   return (
-    <Container>
+    <Container data-testid="streak-display">
       {currentStreak.length > 0 ? (
         <>
           <StreakNumber

@@ -6,9 +6,9 @@ interface Props {
 }
 
 const BoardWrapper = React.forwardRef<HTMLDivElement, Props>(
-  ({ children }, ref) => {
+  ({ children, ...props }, ref) => {
     return (
-      <Background>
+      <Background {...props}>
         <OuterContainer>
           <InnerContainer ref={ref}>{children}</InnerContainer>
         </OuterContainer>

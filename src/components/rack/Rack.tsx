@@ -9,7 +9,7 @@ const Rack: React.FC = () => {
 
   return (
     <Background>
-      <Container>
+      <Container data-testid="rack">
         {rack.hasLetterTile() ? (
           rack
             .getTiles()
