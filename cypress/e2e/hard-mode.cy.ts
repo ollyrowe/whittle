@@ -46,7 +46,7 @@ describe("Hard Mode", () => {
     // Loop through each tile on the board
     for (let row = 1; row <= 6; row++) {
       for (let column = 1; column <= 5; column++) {
-        // If this tile doesn't for part of the solution
+        // If this tile doesn't form part of the solution
         if (
           !solutionLetters.find(
             ({ location }) => location.row === row && location.column === column

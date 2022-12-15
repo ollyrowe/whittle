@@ -18,7 +18,7 @@ describe("Spell Word", () => {
     });
   });
 
-  it("displays an incorrect as grey", () => {
+  it("displays an incorrect word as grey", () => {
     cy.getTileFromRack("D").placeOnBoard({ row: 1, column: 1 });
     cy.getTileFromRack("C").placeOnBoard({ row: 1, column: 2 });
     cy.getTileFromRack("R").placeOnBoard({ row: 1, column: 3 });
