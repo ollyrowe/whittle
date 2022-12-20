@@ -71,6 +71,27 @@ const HowToPlayModal: React.FC<Props> = ({ open, onClose }) => {
         <Text variant="body2">
           Letters which appear green form valid words in both directions
         </Text>
+        <TileContainer>
+          <Tile
+            letter={Letter.T}
+            state={TileState.CORRECT_THEME_WORD}
+            size="small"
+            disabled
+          />
+          <Tile
+            letter={Letter.I}
+            state={TileState.CORRECT_THEME_WORD}
+            size="small"
+            disabled
+          />
+          <Tile
+            letter={Letter.N}
+            state={TileState.CORRECT_THEME_WORD}
+            size="small"
+            disabled
+          />
+        </TileContainer>
+        <Text variant="body2">Letters which appear blue form a theme word</Text>
       </div>
     </Modal>
   );
