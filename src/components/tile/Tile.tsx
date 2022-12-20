@@ -76,6 +76,8 @@ export const Tile: React.FC<Props> = ({
         return theme.palette.tile.green;
       case TileState.PARTIALLY_CORRECT:
         return theme.palette.tile.amber;
+      case TileState.CORRECT_THEME_WORD:
+        return theme.palette.tile.blue;
       default:
         return theme.palette.tile.default;
     }

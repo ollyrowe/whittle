@@ -1,5 +1,6 @@
 import { Board } from "../Board";
 import { Letter } from "../enums/Letter";
+import { TileState } from "../enums/TileState";
 import { Tile } from "../Tile";
 import { Answer } from "./AnswerValidator";
 
@@ -89,7 +90,11 @@ export class AnswerParser {
         });
 
         if (!tileAtSameLocation || tileAtSameLocation.getLetter() !== letter) {
-          tiles.push(new Tile({ name: "board", row, column }, letter));
+          const tile = new Tile({ name: "board", row, column }, letter);
+
+          tile.setState(TileState.CORRECT_THEME_WORD);
+
+          tiles.push(tile);
         }
       });
     });

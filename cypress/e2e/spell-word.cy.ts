@@ -3,7 +3,24 @@ import { getWordSolutionLetters } from "../support/utils";
 
 describe("Spell Word", () => {
   it("displays a correct word as green", () => {
-    // The first word in the solution
+    // Get the letters for a non-theme word
+    const letters = getWordSolutionLetters({
+      letters: "RAN",
+      start: { row: 1, column: 1 },
+      direction: "vertical",
+    });
+
+    letters.forEach(({ letter, location }) => {
+      cy.getTileFromRack(letter).placeOnBoard(location);
+    });
+
+    letters.forEach(({ location }) => {
+      // Each letter should be green
+      cy.getTileFromBoard(location).shouldHaveGreenBackground();
+    });
+  });
+
+  it("displays a correct theme word as blue", () => {
     const firstWord = answer.words[0];
 
     const letters = getWordSolutionLetters(firstWord);
@@ -13,8 +30,8 @@ describe("Spell Word", () => {
     });
 
     letters.forEach(({ location }) => {
-      // Each letter should be green
-      cy.getTileFromBoard(location).shouldHaveGreenBackground();
+      // Each letter should be blue
+      cy.getTileFromBoard(location).shouldHaveBlueBackground();
     });
   });
 

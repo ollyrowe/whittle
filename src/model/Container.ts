@@ -79,5 +79,5 @@ export abstract class Container {
   /**
    * Updates the states of the contained tiles.
    */
-  abstract updateTileStatuses(): void;
+  abstract updateTileStatuses(themeWords?: string[]): void;
 }

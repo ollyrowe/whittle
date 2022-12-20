@@ -67,7 +67,10 @@ export class Tile {
    * @returns whether the tile is correct.
    */
   isCorrect() {
-    return this.state === TileState.CORRECT;
+    return (
+      this.state === TileState.CORRECT ||
+      this.state === TileState.CORRECT_THEME_WORD
+    );
   }
 
   /**

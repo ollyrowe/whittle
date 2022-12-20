@@ -40,6 +40,9 @@ export const useGame = (): Game => {
   // Today's game date
   const [date, setDate] = useState(loadedGame.date);
 
+  // Today's game answer
+  const [answer, setAnswer] = useState(loadedGame.answer);
+
   // The main game board component
   const [board, setBoard] = useState(loadedGame.board);
 
@@ -146,6 +149,7 @@ export const useGame = (): Game => {
 
     setNumber(game.number);
     setDate(game.date);
+    setAnswer(game.answer);
     setBoard(game.board);
     setRack(game.rack);
   }, [settings.enableHardMode]);
@@ -215,8 +219,10 @@ export const useGame = (): Game => {
       const updatedBoard = new Board(board.getTiles());
       const updatedRack = new Rack(rack.getTiles());
 
+      const themeWords = answer.words.map(({ letters }) => letters);
+
       // Update the statuses of the tiles
-      updatedBoard.updateTileStatuses();
+      updatedBoard.updateTileStatuses(themeWords);
       updatedRack.updateTileStatuses();
 
       // All tiles with letters currently in the rack
@@ -244,7 +250,7 @@ export const useGame = (): Game => {
       setBoard(updatedBoard);
       setRack(updatedRack);
     }
-  }, [board, rack, handleWin]);
+  }, [board, rack, answer, handleWin]);
 
   /**
    * Upon any changes to the board and rack, save the game.
