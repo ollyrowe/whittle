@@ -180,12 +180,14 @@ export class GameLoader {
       const gameDate: string = JSON.parse(gameDateItem);
       const board: unknown = JSON.parse(boardItem);
       const rack: unknown = JSON.parse(rackItem);
+      const date = new Date(gameDate);
 
       return {
+        date,
         number: gameNumber,
-        date: new Date(gameDate),
         board: plainToInstance(Board, board),
         rack: plainToInstance(Rack, rack),
+        answer: GameLoader.getAnswer(date),
       };
     }
   }

@@ -10,4 +10,12 @@ export const colours = {
   darkGrey: "#121213",
   orange: "#e59e4d",
   darkOrange: "#d38a3a",
+  blue: "#8bc1eb",
+  darkBlue: "#75ACD6",
+};
+
+export const highContrastColours = {
+  amber: "#f5793a",
+  green: "#5ec740",
+  blue: "#4abee5",
 };

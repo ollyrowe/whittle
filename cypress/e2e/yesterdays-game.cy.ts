@@ -22,7 +22,7 @@ describe("Yesterday's Game", () => {
           // The tile should have a grey background
           cy.getByTestID("yesterday-modal")
             .findTile({ row, column })
-            .shouldHaveGreyBackground();
+            .shouldHaveBlueBackground();
         } else {
           // Otherwise the tile placeholder should be disabled
           cy.getByTestID("yesterday-modal")

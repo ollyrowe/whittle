@@ -40,9 +40,11 @@ export class Board extends Container {
     this.disabled = true;
   }
 
-  updateTileStatuses() {
+  updateTileStatuses(themeWords?: string[]) {
     // Calculate the new state of each tile on the board
-    this.tiles.forEach((tile) => tile.setState(this.getTileState(tile)));
+    this.tiles.forEach((tile) =>
+      tile.setState(this.getTileState(tile, themeWords))
+    );
     // Update the updated state
     this.updated = true;
   }
@@ -53,7 +55,7 @@ export class Board extends Container {
    * @param tile - the tile to determine the state of.
    * @returns the state of the tile.
    */
-  private getTileState(tile: Tile) {
+  private getTileState(tile: Tile, themeWords?: string[]) {
     // If the tile is actually on the board
     if (tile.getLocation().name === "board") {
       // Get the words that this tile forms part of
@@ -73,7 +75,17 @@ export class Board extends Container {
         (isHorizontalWordValid || words.horizontal?.hasLength(1)) &&
         (isVerticalWordValid || words.vertical?.hasLength(1))
       ) {
-        return TileState.CORRECT;
+        if (
+          themeWords?.find(
+            (word) =>
+              word === words.horizontal?.toString() ||
+              word === words.vertical?.toString()
+          )
+        ) {
+          return TileState.CORRECT_THEME_WORD;
+        } else {
+          return TileState.CORRECT;
+        }
       } else if (isHorizontalWordValid || isVerticalWordValid) {
         return TileState.PARTIALLY_CORRECT;
       }

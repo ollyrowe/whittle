@@ -1,5 +1,5 @@
 import { createTheme, ThemeOptions } from "@mui/material";
-import { colours } from "./colours";
+import { colours, highContrastColours } from "./colours";
 
 /**
  * Gets the theme based on the desired mode and high-contrast preference.
@@ -37,8 +37,9 @@ export const createLightTheme = (enableHighContrast: boolean) => {
       },
       tile: {
         default: colours.lighterGrey,
-        green: enableHighContrast ? highContrastColours.orange : colours.green,
-        amber: enableHighContrast ? highContrastColours.blue : colours.amber,
+        green: enableHighContrast ? highContrastColours.green : colours.green,
+        amber: enableHighContrast ? highContrastColours.amber : colours.amber,
+        blue: enableHighContrast ? highContrastColours.blue : colours.blue,
       },
       orange: {
         default: colours.orange,
@@ -68,11 +69,12 @@ export const createDarkTheme = (enableHighContrast: boolean) => {
       tile: {
         default: colours.lightGrey,
         green: enableHighContrast
-          ? highContrastColours.orange
+          ? highContrastColours.green
           : colours.darkGreen,
         amber: enableHighContrast
-          ? highContrastColours.blue
+          ? highContrastColours.amber
           : colours.darkAmber,
+        blue: enableHighContrast ? highContrastColours.blue : colours.darkBlue,
       },
       orange: {
         default: colours.darkOrange,
@@ -88,11 +90,6 @@ const baseThemeOptions: ThemeOptions = {
   typography: {
     fontFamily: "Quicksand",
   },
-};
-
-const highContrastColours = {
-  blue: "#85c0f9",
-  orange: "#f5793a",
 };
 
 const prefersDarkTheme = window.matchMedia(

@@ -16,6 +16,7 @@ declare module "@mui/material/styles" {
       default: string;
       green: string;
       amber: string;
+      blue: string;
     };
     orange: {
       default: string;
@@ -30,6 +31,7 @@ declare module "@mui/material/styles" {
       default: string;
       green: string;
       amber: string;
+      blue: string;
     };
     orange: {
       default: string;

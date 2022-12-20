@@ -18,6 +18,7 @@ declare global {
       shouldHaveGreenBackground(): Chainable<JQuery<HTMLElement>>;
       shouldHaveOrangeBackground(): Chainable<JQuery<HTMLElement>>;
       shouldHaveGreyBackground(): Chainable<JQuery<HTMLElement>>;
+      shouldHaveBlueBackground(): Chainable<JQuery<HTMLElement>>;
       shouldBeEnabledPlaceholder(): Chainable<JQuery<HTMLElement>>;
       shouldBeDisabledPlaceholder(): Chainable<JQuery<HTMLElement>>;
     }
@@ -127,6 +128,18 @@ Cypress.Commands.add(
       prefersDarkTheme
         ? hexToRgb(colours.lightGrey)
         : hexToRgb(colours.lighterGrey)
+    );
+  }
+);
+
+Cypress.Commands.add(
+  "shouldHaveBlueBackground",
+  { prevSubject: "element" },
+  (subject) => {
+    cy.wrap(subject).should(
+      "have.css",
+      "background-color",
+      prefersDarkTheme ? hexToRgb(colours.darkBlue) : hexToRgb(colours.blue)
     );
   }
 );
