@@ -76,7 +76,7 @@
     "@types/styled-components": "^5.1.26",
     "chalk": "^4.1.2",
     "craco-alias": "^3.0.1",
-    "cypress": "^11.1.0",
+    "cypress": "^12.1.0",
     "eslint-plugin-chai-friendly": "^0.7.2",
     "eslint-plugin-cypress": "^2.12.1",
     "ts-node": "^10.9.1",
