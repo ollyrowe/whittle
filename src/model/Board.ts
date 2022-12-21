@@ -5,6 +5,7 @@ import { Location } from "./enums/Location";
 import { TileState } from "./enums/TileState";
 import { Tile } from "./Tile";
 import { Word } from "./Word";
+import { Answer } from "./answers/AnswerValidator";
 
 /**
  * Represents the main board area for tiles to be placed upon.
@@ -280,6 +281,32 @@ export class Board extends Container {
         location.row === row &&
         location.column === column
       );
+    });
+  }
+
+  /**
+   * Enables the tiles associated with a given set of solution words
+   * and disables all other tiles.
+   *
+   * @param answer - the answer containing the solution words.
+   */
+  public enableSolutionTilesOnly(answer: Answer) {
+    // Disable all tiles
+    this.tiles.forEach((tile) => tile.disable());
+
+    // Loop through each word within the solution
+    answer.words.forEach((word) => {
+      const { start, direction } = word;
+
+      // Loop through each letter within the word and enable the tile
+      for (let i = 0; i < word.letters.length; i++) {
+        const tile = this.getTileAt(
+          direction === "horizontal" ? start.column + i : start.column,
+          direction === "vertical" ? start.row + i : start.row
+        );
+
+        tile?.enable();
+      }
     });
   }
 

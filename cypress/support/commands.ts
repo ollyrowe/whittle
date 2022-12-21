@@ -21,6 +21,7 @@ declare global {
       shouldHaveBlueBackground(): Chainable<JQuery<HTMLElement>>;
       shouldBeEnabledPlaceholder(): Chainable<JQuery<HTMLElement>>;
       shouldBeDisabledPlaceholder(): Chainable<JQuery<HTMLElement>>;
+      clearSavedGame(): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
@@ -183,6 +184,13 @@ Cypress.Commands.add(
     );
   }
 );
+
+Cypress.Commands.add("clearSavedGame", () => {
+  cy.clearLocalStorage("game-number");
+  cy.clearLocalStorage("game-date");
+  cy.clearLocalStorage("board");
+  cy.clearLocalStorage("rack");
+});
 
 const prefersDarkTheme = window.matchMedia(
   "(prefers-color-scheme: dark)"

@@ -11,31 +11,7 @@ describe("Hard Mode", () => {
   });
 
   it("enables only the tiles which form part of the solution", () => {
-    const solutionLetters = getTodaysSolutionLetters();
-
-    // Loop through each tile on the board
-    for (let row = 1; row <= 6; row++) {
-      for (let column = 1; column <= 5; column++) {
-        // If this tile forms part of the solution
-        if (
-          solutionLetters.find(
-            ({ location }) => location.row === row && location.column === column
-          )
-        ) {
-          // The tile placeholder should be enabled
-          cy.getTilePlaceholderFromBoard({
-            column,
-            row,
-          }).shouldBeEnabledPlaceholder();
-        } else {
-          // Otherwise the tile placeholder should be disabled
-          cy.getTilePlaceholderFromBoard({
-            column,
-            row,
-          }).shouldBeDisabledPlaceholder();
-        }
-      }
-    }
+    checkHardModeBoard();
   });
 
   it("prevents user from dragging letters onto disabled tiles", () => {
@@ -76,4 +52,41 @@ describe("Hard Mode", () => {
     cy.getByTestID("statistics-modal").should("contain.text", "1");
     cy.getByTestID("statistics-modal").should("contain.text", "day streak!");
   });
+
+  it("enables only the solution tiles when starting a new game", () => {
+    // Clear the user's saved game to simulate starting a new game
+    cy.clearSavedGame();
+
+    cy.reload();
+
+    checkHardModeBoard();
+  });
 });
+
+const checkHardModeBoard = () => {
+  const solutionLetters = getTodaysSolutionLetters();
+
+  // Loop through each tile on the board
+  for (let row = 1; row <= 6; row++) {
+    for (let column = 1; column <= 5; column++) {
+      // If this tile forms part of the solution
+      if (
+        solutionLetters.find(
+          ({ location }) => location.row === row && location.column === column
+        )
+      ) {
+        // The tile placeholder should be enabled
+        cy.getTilePlaceholderFromBoard({
+          column,
+          row,
+        }).shouldBeEnabledPlaceholder();
+      } else {
+        // Otherwise the tile placeholder should be disabled
+        cy.getTilePlaceholderFromBoard({
+          column,
+          row,
+        }).shouldBeDisabledPlaceholder();
+      }
+    }
+  }
+};
