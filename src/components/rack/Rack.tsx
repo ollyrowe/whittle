@@ -19,6 +19,7 @@ const Rack: React.FC = () => {
                 state={tile.getState()}
                 id={tile.getID()}
                 letter={tile.getLetter()}
+                draggable={tile.isDraggable()}
                 size="small"
               />
             ))
