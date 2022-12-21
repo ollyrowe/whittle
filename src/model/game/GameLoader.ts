@@ -21,12 +21,13 @@ export class GameLoader {
    *
    * If the user has a local save, then that will be loaded.
    *
+   * @param enableHardMode - whether only the solution board tiles should be enabled.
    * @returns the loaded game state.
    */
-  public static loadGame() {
+  public static loadGame(enableHardMode: boolean) {
     const savedGame = GameLoader.getSavedGame();
 
-    const todaysGame = GameLoader.getTodaysGame();
+    const todaysGame = GameLoader.getTodaysGame(enableHardMode);
 
     // If there is a saved game and is for today's game, return it
     if (savedGame && savedGame.number === todaysGame.number) {
@@ -53,24 +54,22 @@ export class GameLoader {
   /**
    * Gets today's game.
    *
+   * @param enableHardMode - whether only the solution board tiles should be enabled.
    * @returns today's game state.
    */
-  public static getTodaysGame() {
-    const today = new Date();
+  public static getTodaysGame(enableHardMode: boolean) {
+    const date = new Date();
+    const number = GameLoader.getGameNumber(date);
+    const answer = GameLoader.getAnswer(date);
+    const rack = new Rack(AnswerParser.createRackTiles(answer));
+    const board = new Board();
 
-    const todaysGameNumber = GameLoader.getGameNumber(today);
+    // If hard mode is enabled, enable only the solution tiles
+    if (enableHardMode) {
+      board.enableSolutionTilesOnly(answer);
+    }
 
-    const todaysAnswer = GameLoader.getAnswer(today);
-
-    const rackTiles = AnswerParser.createRackTiles(todaysAnswer);
-
-    return {
-      date: today,
-      number: todaysGameNumber,
-      board: new Board(),
-      rack: new Rack(rackTiles),
-      answer: todaysAnswer,
-    };
+    return { date, number, board, rack, answer };
   }
 
   /**

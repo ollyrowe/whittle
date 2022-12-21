@@ -34,6 +34,14 @@ export interface Game {
  * @returns various game state and control methods.
  */
 export const useGame = (): Game => {
+  // The game settings storing the user's preferences
+  const settings = useSettings();
+
+  // Load the current game
+  const [loadedGame, setLoadedGame] = useState(
+    GameLoader.loadGame(settings.enableHardMode)
+  );
+
   // Today's game number
   const [number, setNumber] = useState(loadedGame.number);
 
@@ -53,9 +61,6 @@ export const useGame = (): Game => {
   const [completedGames, setCompletedGames] = useState(
     GameLoader.getCompletedGames()
   );
-
-  // The game settings storing the user's preferences
-  const settings = useSettings();
 
   // Whether the statistics modal should be displayed
   const [displayStats, setDisplayStats] = useState(false);
@@ -122,31 +127,9 @@ export const useGame = (): Game => {
    * Resets the game.
    */
   const reset = useCallback(() => {
-    const game = GameLoader.getTodaysGame();
+    const game = GameLoader.getTodaysGame(settings.enableHardMode);
 
-    // If hard mode is enabled, disable letters which do not form part of the solution
-    if (settings.enableHardMode) {
-      const tiles = game.board.getTiles();
-
-      // Disabled all tiles
-      tiles.forEach((tile) => tile.disable());
-
-      // Loop through each word within the solution
-      game.answer.words.forEach((word) => {
-        const { start, direction } = word;
-
-        // Loop through each letter within the word and enable the tile
-        for (let i = 0; i < word.letters.length; i++) {
-          const tile = game.board.getTileAt(
-            direction === "horizontal" ? start.column + i : start.column,
-            direction === "vertical" ? start.row + i : start.row
-          );
-
-          tile?.enable();
-        }
-      });
-    }
-
+    setLoadedGame(game);
     setNumber(game.number);
     setDate(game.date);
     setAnswer(game.answer);
@@ -337,9 +320,6 @@ export const useGame = (): Game => {
     confetti,
   };
 };
-
-// Load the current game
-const loadedGame = GameLoader.loadGame();
 
 // Local storage key used to store the last time the user visited the site
 const LAST_VISITED_LS_KEY = "last-visited";
