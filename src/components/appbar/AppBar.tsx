@@ -85,7 +85,7 @@ const ButtonContainer = styled.div`
 
 const Container = styled.div`
   display: flex;
-  height: 60px;
+  height: ${(props) => !props.theme.isSmallDisplay && "60px"};
   border-bottom: 1px solid ${(props) => props.theme.palette.border};
 `;
 
@@ -94,6 +94,7 @@ const Title = styled.h1`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  margin: auto;
   color: ${(props) => props.theme.palette.text.primary};
 `;
 

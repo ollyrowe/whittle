@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { alpha, useTheme } from "@mui/material";
+import { alpha, Theme, useTheme } from "@mui/material";
 import styled from "styled-components";
 import { useConditionTimer } from "../../hooks/useConditionTimer";
 import { useSortable } from "@dnd-kit/sortable";
@@ -130,9 +130,9 @@ const Placeholder = styled.div<PlaceholderProps>`
     props.visible &&
     !props.disabled &&
     "inset 0px 0px 0px 2px " + props.theme.palette.border};
-  margin: 2.5px;
-  width: ${(props) => tileSize[props.size]}px;
-  height: ${(props) => tileSize[props.size]}px;
+  margin: ${(props) => (props.theme.isSmallDisplay ? "2px" : "2.5px")};
+  width: ${(props) => getTileSize(props.theme, props.size)}px;
+  height: ${(props) => getTileSize(props.theme, props.size)}px;
   border-radius: 4px;
   background-color: ${(props) =>
     props.disabled && alpha(props.theme.palette.border, 0.4)};
@@ -159,8 +159,8 @@ export const Box = styled.div<BoxProps>`
   background-color: ${(props) =>
     props.color || props.theme.palette.tile.default};
   border-radius: 4px;
-  width: ${(props) => tileSize[props.size]}px;
-  height: ${(props) => tileSize[props.size]}px;
+  width: ${(props) => getTileSize(props.theme, props.size)}px;
+  height: ${(props) => getTileSize(props.theme, props.size)}px;
   padding-bottom: 5px;
   user-select: none;
   flex-shrink: 0;
@@ -181,8 +181,20 @@ const fontSize: SizeMapping<string> = {
   large: "xx-large",
 };
 
-const tileSize: SizeMapping<number> = {
+const defaultTileSizes: SizeMapping<number> = {
   small: 37,
   medium: 44,
   large: 62,
+};
+
+const smallTileSizes: SizeMapping<number> = {
+  small: 35,
+  medium: 44,
+  large: 56,
+};
+
+const getTileSize = (theme: Theme, size: TileSize) => {
+  const sizes = theme.isSmallDisplay ? smallTileSizes : defaultTileSizes;
+
+  return sizes[size];
 };

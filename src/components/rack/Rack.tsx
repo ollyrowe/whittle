@@ -33,7 +33,8 @@ const Rack: React.FC = () => {
 
 const Background = styled.div`
   display: flex;
-  padding: ${(props) => props.theme.spacing(2, 0)};
+  padding: ${(props) =>
+    !props.theme.isSmallDisplay && props.theme.spacing(2, 0)};
   flex-grow: 1;
 `;
 
@@ -41,11 +42,10 @@ const Container = styled.div`
   display: flex;
   max-width: 341px;
   margin: auto;
+  margin-top: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 2.5px;
-  margin-bottom: 2.5px;
   height: fit-content;
   min-height: 84px;
 `;
