@@ -46,8 +46,7 @@ const ShareButton: React.FC = () => {
         });
 
         navigator.share({
-          title: "Whittle",
-          text: `Daily Whittle #${number}`,
+          title: `Daily Whittle #${number}`,
           files: [image],
         });
       }
