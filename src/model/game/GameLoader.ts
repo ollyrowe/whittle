@@ -79,18 +79,20 @@ export class GameLoader {
    * @param number - the date of the game to fetch the solution for.
    * @returns the game's solution.
    */
-  public static getSolution(date: Date): GameSolution {
+  public static getSolution(date: Date): GameSolution | undefined {
     const number = GameLoader.getGameNumber(date);
 
-    const answer = GameLoader.getAnswer(date);
+    if (number > 0) {
+      const answer = GameLoader.getAnswer(date);
 
-    const board = AnswerParser.createSolutionBoard(answer);
+      const board = AnswerParser.createSolutionBoard(answer);
 
-    return {
-      number,
-      theme: answer.theme,
-      board,
-    };
+      return {
+        number,
+        theme: answer.theme,
+        board,
+      };
+    }
   }
 
   /**

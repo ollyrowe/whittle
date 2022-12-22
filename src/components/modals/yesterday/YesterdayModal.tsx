@@ -29,8 +29,18 @@ const YesterdayModal: React.FC<Props> = ({ open, onClose }) => {
       data-testid="yesterday-modal"
     >
       <div id="yesterday">
-        <SolutionBoard solution={yesterdaysSolution} />
-        <FooterText>This is just one solution, there may be others!</FooterText>
+        {yesterdaysSolution ? (
+          <>
+            <SolutionBoard solution={yesterdaysSolution} />
+            <FooterText>
+              This is just one solution, there may be others!
+            </FooterText>
+          </>
+        ) : (
+          <NoSolutionText>
+            Come back tomorrow to see today's solution!
+          </NoSolutionText>
+        )}
       </div>
     </Modal>
   );
@@ -42,4 +52,10 @@ const FooterText = styled(Typography)`
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+`;
+
+const NoSolutionText = styled(Typography)`
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `;
