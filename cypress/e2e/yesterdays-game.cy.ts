@@ -32,4 +32,16 @@ describe("Yesterday's Game", () => {
       }
     }
   });
+
+  it("displays a message on the first day", () => {
+    cy.clock().invoke("restore");
+
+    cy.clock(new Date(2022, 9, 20));
+
+    cy.reload();
+
+    cy.getByTestID("yesterdays-button").click();
+
+    cy.contains("Come back tomorrow to see today's solution!");
+  });
 });
