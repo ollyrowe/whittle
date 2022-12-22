@@ -25,8 +25,8 @@ export const useConditionTimer = (condition: boolean, period: number) => {
    */
   useEffect(() => {
     if (condition) {
-      // If the timer hasn't yet been started
-      if (!timer.isRunning) {
+      // If the timer hasn't yet been started and the timer hasn't already completed
+      if (!timer.isRunning && !hasTimeLapsed) {
         // Restart the timer, which will expire after the threshold time has lapsed
         timer.restart(getTimeInFuture(period));
       }
@@ -36,7 +36,7 @@ export const useConditionTimer = (condition: boolean, period: number) => {
       // Reset the hasTimeLapsed state
       setHasTimeLapsed(false);
     }
-  }, [condition, timer, period]);
+  }, [hasTimeLapsed, condition, timer, period]);
 
   return hasTimeLapsed;
 };

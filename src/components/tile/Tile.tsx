@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { alpha, Theme, useTheme } from "@mui/material";
 import styled from "styled-components";
+import { useConditionCount } from "../../hooks/useConditionCount";
 import { useConditionTimer } from "../../hooks/useConditionTimer";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -50,10 +51,28 @@ export const Tile: React.FC<Props> = ({
     getNewIndex,
     disabled: !draggable,
     data: { hasOverTimerLapsed },
+    transition: sortTransition,
   });
+
+  // Record the number of times the tile has entered a dragging or over state
+  const dragCounter = useConditionCount(isDragging);
+  const overCounter = useConditionCount(isOver);
 
   // Detect whether this tile has been hovered over for the required time period
   const isOverTimerState = useConditionTimer(isOver, HOVER_PERIOD);
+
+  // Whether the tile is being dragged or transitioning back after being dropped
+  const isInDragMotion =
+    !useConditionTimer(!isDragging, sortTransition.duration) && dragCounter > 0;
+
+  // Whether the tile is being hovered over or transitioning back after being hovered over
+  const isInOverMotion =
+    !useConditionTimer(
+      isInDragMotion || !isOverTimerState,
+      sortTransition.duration
+    ) && overCounter > 0;
+
+  const isMoving = isInDragMotion || isInOverMotion;
 
   // Upon change to the isOver timer state, update the local state accordingly
   useEffect(() => setHasOverTimerLapsed(isOverTimerState), [isOverTimerState]);
@@ -95,7 +114,7 @@ export const Tile: React.FC<Props> = ({
         size={size}
         isBlank={!hasLetter}
         isDragging={isDragging}
-        isOver={isOver}
+        isMoving={isMoving}
         color={color}
         style={style}
         data-testid="tile"
@@ -142,7 +161,7 @@ interface BoxProps {
   size: TileSize;
   isBlank?: boolean;
   isDragging?: boolean;
-  isOver?: boolean;
+  isMoving?: boolean;
   color?: string;
 }
 
@@ -169,8 +188,7 @@ export const Box = styled.div<BoxProps>`
       props.isDragging &&
       "2px 4px 10px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.25), "}
     inset 0px -5px 0px 0px rgba(0, 0, 0, 0.1);
-  z-index: ${(props) =>
-    props.isDragging ? 9999 : props.isOver ? 9998 : "auto"};
+  z-index: ${(props) => (props.isDragging ? 9999 : props.isMoving ? 9998 : 1)};
 `;
 
 type SizeMapping<T> = { [size in TileSize]: T };
@@ -197,4 +215,9 @@ const getTileSize = (theme: Theme, size: TileSize) => {
   const sizes = theme.isSmallDisplay ? smallTileSizes : defaultTileSizes;
 
   return sizes[size];
+};
+
+const sortTransition = {
+  duration: 200,
+  easing: "ease",
 };
