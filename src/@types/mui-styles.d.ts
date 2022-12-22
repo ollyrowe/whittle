@@ -7,9 +7,13 @@ import {
 } from "@mui/material/styles";
 
 declare module "@mui/material/styles" {
-  export interface Theme extends MuiTheme {}
+  export interface Theme extends MuiTheme {
+    isSmallDisplay: boolean;
+  }
 
-  interface ThemeOptions extends MuiThemeOptions {}
+  interface ThemeOptions extends MuiThemeOptions {
+    isSmallDisplay: boolean;
+  }
 
   interface Palette extends MuiPalette {
     tile: {

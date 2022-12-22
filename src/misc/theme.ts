@@ -92,6 +92,7 @@ const baseThemeOptions: ThemeOptions = {
   typography: {
     fontFamily: "Quicksand",
   },
+  isSmallDisplay: window.matchMedia("(max-height: 631px)").matches,
 };
 
 const prefersDarkTheme = window.matchMedia(

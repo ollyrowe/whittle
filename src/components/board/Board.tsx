@@ -33,8 +33,8 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin-top: ${(props) => !props.theme.isSmallDisplay && "0.5rem"};
+  margin-bottom: ${(props) => (props.theme.isSmallDisplay ? "0.4rem" : "1rem")};
   color: ${(props) => alpha(props.theme.palette.text.primary, 0.64)};
 `;
 
