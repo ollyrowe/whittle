@@ -10,6 +10,7 @@ describe("Settings", () => {
       .find("input")
       .should("not.be.checked");
     cy.getByTestID("sound-fx-toggle").find("input").should("be.checked");
+    cy.getByTestID("hints-toggle").find("input").should("be.checked");
   });
 
   it("persists the user's settings", () => {
@@ -20,6 +21,7 @@ describe("Settings", () => {
     cy.getByTestID("dark-theme-toggle").find("input").click();
     cy.getByTestID("high-contrast-toggle").find("input").click();
     cy.getByTestID("sound-fx-toggle").find("input").click();
+    cy.getByTestID("hints-toggle").find("input").click();
 
     // Check that the values have been updated
     cy.getByTestID("hard-mode-toggle").find("input").should("be.checked");
@@ -28,6 +30,7 @@ describe("Settings", () => {
       .should(prefersDarkTheme ? "not.be.checked" : "be.checked");
     cy.getByTestID("high-contrast-toggle").find("input").should("be.checked");
     cy.getByTestID("sound-fx-toggle").find("input").should("not.be.checked");
+    cy.getByTestID("hints-toggle").find("input").should("not.be.checked");
 
     cy.reload();
 
@@ -40,6 +43,7 @@ describe("Settings", () => {
       .should(prefersDarkTheme ? "not.be.checked" : "be.checked");
     cy.getByTestID("high-contrast-toggle").find("input").should("be.checked");
     cy.getByTestID("sound-fx-toggle").find("input").should("not.be.checked");
+    cy.getByTestID("hints-toggle").find("input").should("not.be.checked");
   });
 });
 
