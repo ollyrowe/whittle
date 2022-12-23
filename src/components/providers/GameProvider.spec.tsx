@@ -30,6 +30,7 @@ const mockGame: Game = {
     toggleTheme: () => {},
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},
+    toggleHints: () => {},
   },
   completedGames: [],
   boardRef: createRef(),

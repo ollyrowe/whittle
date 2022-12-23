@@ -210,6 +210,7 @@ export const GameContext = React.createContext<Game>({
     toggleTheme: () => {},
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},
+    toggleHints: () => {},
   },
   completedGames: [],
   boardRef: createRef(),
