@@ -3,11 +3,12 @@ import { Board } from "../model/Board";
 import { Rack } from "../model/Rack";
 import { Tile } from "../model/Tile";
 import { gameWinSound, tilePlaceSound } from "../misc/sounds";
-import useSettings, { SettingsOptions } from "./useSettings";
+import { SettingsOptions } from "./useSettings";
 import { useConfetti, ConfettiControls } from "./useConfetti";
 import { useFirstRender } from "./useFirstRender";
 import { CompletedGame, GameLoader } from "../model/game/GameLoader";
 import { DateUtils } from "../model/utils/DateUtils";
+import { useNotificationContext } from "../components/providers/NotificationProvider";
 
 export interface Game {
   number: number;
@@ -36,10 +37,7 @@ export interface Game {
  *
  * @returns various game state and control methods.
  */
-export const useGame = (): Game => {
-  // The game settings storing the user's preferences
-  const settings = useSettings();
-
+export const useGame = (settings: SettingsOptions): Game => {
   // Load the current game
   const [loadedGame, setLoadedGame] = useState(
     GameLoader.loadGame(settings.enableHardMode)
@@ -82,6 +80,10 @@ export const useGame = (): Game => {
 
   // Whether the rack should appear as outlined
   const [outlineRack, setOutlineRack] = useState(false);
+
+  // Extract notification utilities
+  const { currentNotification, dispatchNotification } =
+    useNotificationContext();
 
   /**
    * Callback which should be invoked on swapping two game tiles.
@@ -208,6 +210,19 @@ export const useGame = (): Game => {
   );
 
   /**
+   * Handles the dispatching of notifications.
+   */
+  const handleDispatchNotification = useCallback(
+    (notification: string) => {
+      // Don't dispatch the notification if the same one is already being displayed
+      if (currentNotification !== notification) {
+        dispatchNotification(notification);
+      }
+    },
+    [currentNotification, dispatchNotification]
+  );
+
+  /**
    * Effect which handles the core game logic.
    *
    * Watches for changes to the board and rack.
@@ -242,14 +257,20 @@ export const useGame = (): Game => {
           if (updatedBoard.areLettersConnected()) {
             // Handle the game win
             handleWin(updatedBoard);
+          } else {
+            // Dispatch notification informing user that letters need to be connected
+            handleDispatchNotification("All words must be connected to win!");
           }
+        } else {
+          // Dispatch notification informing user that letters need to spell words
+          handleDispatchNotification("All words must be valid to win!");
         }
       }
 
       setBoard(updatedBoard);
       setRack(updatedRack);
     }
-  }, [board, rack, answer, handleWin]);
+  }, [board, rack, answer, handleWin, handleDispatchNotification]);
 
   /**
    * Upon any changes to the board and rack, save the game.

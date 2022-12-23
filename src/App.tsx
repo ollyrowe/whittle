@@ -1,33 +1,19 @@
 import React from "react";
-import styled from "styled-components";
-import AppBar from "./components/appbar/AppBar";
-import Board from "./components/board/Board";
-import Rack from "./components/rack/Rack";
-import GameProvider from "./components/providers/GameProvider";
-import { useGame } from "./hooks/useGame";
-import { CssBaseline } from "@mui/material";
+import ThemeProvider from "./components/providers/ThemeProvider";
+import useSettings from "./hooks/useSettings";
+import Game from "./Game";
+import NotificationProvider from "./components/providers/NotificationProvider";
 
 const App: React.FC = () => {
-  const game = useGame();
+  const settings = useSettings();
 
   return (
-    <GameProvider game={game}>
-      <Container data-testid="background">
-        <AppBar />
-        <Board />
-        <Rack />
-      </Container>
-      <CssBaseline enableColorScheme />
-    </GameProvider>
+    <ThemeProvider theme={settings.theme}>
+      <NotificationProvider>
+        <Game settings={settings} />
+      </NotificationProvider>
+    </ThemeProvider>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  background-color: ${(props) => props.theme.palette.background.default};
-`;
 
 export default App;
