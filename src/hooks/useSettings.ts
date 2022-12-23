@@ -7,7 +7,7 @@ import { getTheme, ThemeMode } from "../misc/theme";
  *
  * @returns the user's settings.
  */
-const useSettings = () => {
+const useSettings = (): SettingsOptions => {
   // User settings fetched from local storage
   const [settings, setSettings] = useState(getSettings());
 
