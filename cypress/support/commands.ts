@@ -1,6 +1,6 @@
 import { colours } from "../../src/misc/colours";
 import { Location } from "./types";
-import { hexToRgb, hexToRgba } from "./utils";
+import { getTodaysSolutionLetters, hexToRgb, hexToRgba } from "./utils";
 
 declare global {
   namespace Cypress {
@@ -15,6 +15,7 @@ declare global {
         location: Location
       ): Chainable<JQuery<HTMLElement>>;
       placeOnBoard(location: Location): Chainable<JQuery<HTMLElement>>;
+      placeAllLettersOnBoard(): Chainable<JQuery<HTMLElement>>;
       shouldHaveGreenBackground(): Chainable<JQuery<HTMLElement>>;
       shouldHaveOrangeBackground(): Chainable<JQuery<HTMLElement>>;
       shouldHaveGreyBackground(): Chainable<JQuery<HTMLElement>>;
@@ -94,6 +95,22 @@ Cypress.Commands.add(
       .wait(100);
   }
 );
+
+Cypress.Commands.add("placeAllLettersOnBoard", () => {
+  const solution = getTodaysSolutionLetters();
+
+  const letters = solution.map(({ letter }) => letter);
+
+  letters.forEach((letter, index) => {
+    const row = Math.floor((index + 1) / 5) + 1;
+
+    const column = (index + 1) % 5;
+
+    cy.getTileFromRack(letter).placeOnBoard({ row, column });
+
+    cy.getTileFromBoard({ row, column }).should("contain.text", letter);
+  });
+});
 
 Cypress.Commands.add(
   "shouldHaveGreenBackground",

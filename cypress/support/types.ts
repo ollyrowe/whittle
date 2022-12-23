@@ -5,7 +5,7 @@ export interface Answer {
   words: Word[];
 }
 
-interface Word {
+export interface Word {
   direction: string;
   start: Location;
   letters: string;

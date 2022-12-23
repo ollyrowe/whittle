@@ -26,20 +26,8 @@ describe("Reset Board", () => {
   it("resets the board using the rack button", () => {
     cy.getByTestID("reset-text-button").should("not.exist");
 
-    const solution = getTodaysSolutionLetters();
-
-    const letters = solution.map(({ letter }) => letter);
-
     // Place all of the letters on the board to reveal the reset button
-    letters.forEach((letter, index) => {
-      const row = Math.floor((index + 1) / 5) + 1;
-
-      const column = (index + 1) % 5;
-
-      cy.getTileFromRack(letter).placeOnBoard({ row, column });
-
-      cy.getTileFromBoard({ row, column }).should("contain.text", letter);
-    });
+    cy.placeAllLettersOnBoard();
 
     cy.getByTestID("reset-text-button").should("exist");
 
