@@ -35,6 +35,7 @@ export const createLightTheme = (enableHighContrast: boolean) => {
       text: {
         primary: colours.grey,
       },
+      info: { main: colours.blue },
       tile: {
         default: colours.lighterGrey,
         green: enableHighContrast ? highContrastColours.green : colours.green,
@@ -66,6 +67,7 @@ export const createDarkTheme = (enableHighContrast: boolean) => {
       text: {
         primary: colours.white,
       },
+      info: { main: colours.darkBlue },
       tile: {
         default: colours.lightGrey,
         green: enableHighContrast
