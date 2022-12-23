@@ -1,19 +1,19 @@
 import todaysAnswer from "../fixtures/todays-answer.json";
 import yesterdaysAnswer from "../fixtures/yesterdays-answer.json";
-import { Answer, Location } from "./types";
+import { Location, Word } from "./types";
 
 export const getTodaysSolutionLetters = () => {
-  return getSolutionLetters(todaysAnswer);
+  return getSolutionLetters(todaysAnswer.words);
 };
 
 export const getYesterdaySolutionLetters = () => {
-  return getSolutionLetters(yesterdaysAnswer);
+  return getSolutionLetters(yesterdaysAnswer.words);
 };
 
-const getSolutionLetters = (answer: Answer) => {
+export const getSolutionLetters = (words: Word[]) => {
   const letters: { letter: string; location: Location }[] = [];
 
-  answer.words.forEach((word) => {
+  words.forEach((word) => {
     const wordLetters = getWordSolutionLetters(word);
 
     wordLetters.forEach((wordLetter) => {

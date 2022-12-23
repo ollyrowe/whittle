@@ -75,7 +75,7 @@ const NotificationProvider: React.FC<Props> = ({ children }) => {
         TransitionProps={{ onExited: handleExited }}
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
       >
-        <Alert severity="info" variant="filled">
+        <Alert severity="info" variant="filled" data-testid="notification">
           {currentNotification}
         </Alert>
       </Snackbar>
