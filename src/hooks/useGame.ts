@@ -210,16 +210,19 @@ export const useGame = (settings: SettingsOptions): Game => {
   );
 
   /**
-   * Handles the dispatching of notifications.
+   * Handles the dispatching of hint notifications.
    */
-  const handleDispatchNotification = useCallback(
-    (notification: string) => {
-      // Don't dispatch the notification if the same one is already being displayed
-      if (currentNotification !== notification) {
-        dispatchNotification(notification);
+  const displayHint = useCallback(
+    (hint: string) => {
+      // If hints are enabled
+      if (settings.enableHints) {
+        // Don't dispatch the notification if the same one is already being displayed
+        if (currentNotification !== hint) {
+          dispatchNotification(hint);
+        }
       }
     },
-    [currentNotification, dispatchNotification]
+    [settings.enableHints, currentNotification, dispatchNotification]
   );
 
   /**
@@ -258,19 +261,19 @@ export const useGame = (settings: SettingsOptions): Game => {
             // Handle the game win
             handleWin(updatedBoard);
           } else {
-            // Dispatch notification informing user that letters need to be connected
-            handleDispatchNotification("All words must be connected to win!");
+            // Display a hint informing user that letters need to be connected
+            displayHint("All words must be connected to win!");
           }
         } else {
-          // Dispatch notification informing user that letters need to spell words
-          handleDispatchNotification("All words must be valid to win!");
+          // Display a hint informing user that letters need to spell words
+          displayHint("All words must be valid to win!");
         }
       }
 
       setBoard(updatedBoard);
       setRack(updatedRack);
     }
-  }, [board, rack, answer, handleWin, handleDispatchNotification]);
+  }, [board, rack, answer, handleWin, displayHint]);
 
   /**
    * Upon any changes to the board and rack, save the game.

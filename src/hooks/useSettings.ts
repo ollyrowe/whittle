@@ -39,6 +39,10 @@ const useSettings = (): SettingsOptions => {
     setSettings({ ...settings, enableSoundFx: !settings.enableSoundFx });
   };
 
+  const toggleHints = () => {
+    setSettings({ ...settings, enableHints: !settings.enableHints });
+  };
+
   /**
    * Effect which updates the user's settings within their local storage
    * upon any changes made to the settings state.
@@ -54,6 +58,7 @@ const useSettings = (): SettingsOptions => {
     toggleTheme,
     toggleHighContrastMode,
     toggleSoundFx,
+    toggleHints,
   };
 };
 
@@ -88,6 +93,7 @@ export const defaultSettings: Settings = {
   enableHardMode: false,
   enableHighContrastMode: false,
   enableSoundFx: true,
+  enableHints: true,
 };
 
 /** Key used to persist user settings to local storage */
@@ -98,6 +104,7 @@ interface Settings {
   enableHardMode: boolean;
   enableHighContrastMode: boolean;
   enableSoundFx: boolean;
+  enableHints: boolean;
 }
 
 export interface SettingsOptions extends Settings {
@@ -106,4 +113,5 @@ export interface SettingsOptions extends Settings {
   toggleTheme: () => void;
   toggleHighContrastMode: () => void;
   toggleSoundFx: () => void;
+  toggleHints: () => void;
 }

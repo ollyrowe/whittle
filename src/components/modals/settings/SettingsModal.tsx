@@ -113,6 +113,21 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
           </ListItem>
           <Divider />
           <ListItem disableGutters>
+            <ListItemText
+              id="hints-label"
+              primary="Hints"
+              secondary="Displays game hints"
+            />
+            <Switch
+              edge="end"
+              checked={settings.enableHints}
+              onChange={settings.toggleHints}
+              inputProps={{ "aria-labelledby": "hints-label" }}
+              data-testid="hints-toggle"
+            />
+          </ListItem>
+          <Divider />
+          <ListItem disableGutters>
             <ListItemText primary="Feedback" />
             <Link underline="none" href="https://twitter.com/WhittleGame">
               <Typography color="GrayText">Twitter</Typography>
