@@ -1,3 +1,18 @@
+# [1.26.0](https://github.com/ollyrowe/whittle/compare/v1.25.0...v1.26.0) (2022-12-24)
+
+
+### Bug Fixes
+
+* fix error on first day ([b368bcb](https://github.com/ollyrowe/whittle/commit/b368bcb832db8a15294ea501982b4fa5c28c538f))
+* prevent blank rack tiles from being dragged ([fb1f7cb](https://github.com/ollyrowe/whittle/commit/fb1f7cb9d7800c65d68b15a5c225562d01b6412c))
+* update share logic to remove text ([64838d6](https://github.com/ollyrowe/whittle/commit/64838d68f8295f19767858e7a44393cddb745304))
+
+
+### Features
+
+* add google analytics installation script ([32d64a6](https://github.com/ollyrowe/whittle/commit/32d64a6feea6e508e0c4f6d155dcaebd29c73fee))
+* update logo colours ([9daa306](https://github.com/ollyrowe/whittle/commit/9daa306c9f16132bd00b2ad9adac6fd86bb485c3))
+
 # [1.25.0](https://github.com/ollyrowe/whittle/compare/v1.24.0...v1.25.0) (2022-12-01)
 
 
