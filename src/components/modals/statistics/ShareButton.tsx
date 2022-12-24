@@ -45,10 +45,7 @@ const ShareButton: React.FC = () => {
           type: blob.type,
         });
 
-        navigator.share({
-          title: `Daily Whittle #${number}`,
-          files: [image],
-        });
+        navigator.share({ files: [image] });
       }
     }
   };

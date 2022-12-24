@@ -36,7 +36,6 @@ describe("Share", () => {
 
       const firstArgument = args[0];
 
-      expect(firstArgument).to.have.property("title", "Daily Whittle #2");
       expect(firstArgument.files).to.have.lengthOf(1);
     });
   });
