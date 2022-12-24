@@ -17,6 +17,7 @@ export interface Game {
   settings: SettingsOptions;
   completedGames: CompletedGame[];
   onSwapTiles: (firstTile: Tile, secondTile: Tile) => void;
+  onReturnTileToRack: (tile: Tile) => void;
   displayStats: boolean;
   openStats: () => void;
   closeStats: () => void;
@@ -106,6 +107,16 @@ export const useGame = (): Game => {
 
       setBoard(updatedBoard);
       setRack(updatedRack);
+    }
+  };
+
+  const onReturnTileToRack = (tile: Tile) => {
+    if (tile.hasLetter()) {
+      const emptyRackTile = rack.getTiles().find((tile) => !tile.hasLetter());
+
+      if (emptyRackTile) {
+        onSwapTiles(emptyRackTile, tile);
+      }
     }
   };
 
@@ -309,6 +320,7 @@ export const useGame = (): Game => {
     settings,
     completedGames,
     onSwapTiles,
+    onReturnTileToRack,
     displayStats,
     openStats,
     closeStats,

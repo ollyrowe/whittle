@@ -9,7 +9,7 @@ import { getNewIndex } from "../providers/GameProvider";
 import { TileState } from "../../model/enums/TileState";
 import { Letter } from "../../model/enums/Letter";
 
-interface Props {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "id"> {
   id?: number;
   letter?: Letter;
   state?: TileState;
@@ -29,6 +29,7 @@ export const Tile: React.FC<Props> = ({
   size = "medium",
   draggable = true,
   disabled = false,
+  ...otherProps
 }) => {
   const theme = useTheme();
 
@@ -118,6 +119,7 @@ export const Tile: React.FC<Props> = ({
         color={color}
         style={style}
         data-testid="tile"
+        {...otherProps}
         {...attributes}
         {...listeners}
       >

@@ -13,6 +13,7 @@ const mockGame: Game = {
   board: new Board(),
   rack: new Rack([]),
   onSwapTiles: () => {},
+  onReturnTileToRack: () => {},
   displayStats: false,
   openStats: () => {},
   closeStats: () => {},

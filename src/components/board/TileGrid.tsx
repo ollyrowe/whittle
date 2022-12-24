@@ -7,9 +7,15 @@ interface Props {
   tiles: TileModel[];
   tileSize?: TileSize;
   disabled?: boolean;
+  onDoubleClickTile?: (tile: TileModel) => void;
 }
 
-export const TileGrid: React.FC<Props> = ({ tiles, tileSize, disabled }) => {
+export const TileGrid: React.FC<Props> = ({
+  tiles,
+  tileSize,
+  disabled,
+  onDoubleClickTile,
+}) => {
   return (
     <Grid data-testid="tile-grid">
       {tiles.map((tile) => (
@@ -21,6 +27,7 @@ export const TileGrid: React.FC<Props> = ({ tiles, tileSize, disabled }) => {
           draggable={tile.isDraggable() && !disabled}
           disabled={tile.isDisabled() || disabled}
           size={tileSize}
+          onDoubleClick={() => onDoubleClickTile && onDoubleClickTile(tile)}
           hasPlaceholder
         />
       ))}

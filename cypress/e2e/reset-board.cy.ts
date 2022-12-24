@@ -52,4 +52,20 @@ describe("Reset Board", () => {
 
     cy.getByTestID("tile-grid").should("have.text", "");
   });
+
+  it("returns a letter to the rack when double clicked", () => {
+    const letters = getTodaysSolutionLetters();
+
+    const firstLetter = letters[0];
+
+    const location = { row: 1, column: 1 };
+
+    cy.getTileFromRack(firstLetter.letter).placeOnBoard(location);
+
+    cy.getTileFromBoard(location).should("have.text", firstLetter.letter);
+
+    cy.getTileFromBoard(location).dblclick();
+
+    cy.getTileFromBoard(location).should("not.have.text", firstLetter.letter);
+  });
 });

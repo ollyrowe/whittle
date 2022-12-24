@@ -8,7 +8,7 @@ import ResetButton from "../rack/ResetButton";
 import TileGrid from "./TileGrid";
 
 export const Board: React.FC = () => {
-  const { number, board, boardRef } = useGameContext();
+  const { number, board, boardRef, onReturnTileToRack } = useGameContext();
 
   return (
     <BoardWrapper ref={boardRef} data-testid="board">
@@ -20,6 +20,7 @@ export const Board: React.FC = () => {
         tiles={board.getTiles()}
         disabled={board.isDisabled()}
         tileSize="large"
+        onDoubleClickTile={onReturnTileToRack}
       />
     </BoardWrapper>
   );
