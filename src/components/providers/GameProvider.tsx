@@ -145,6 +145,7 @@ export const GameContext = React.createContext<Game>({
   board: new Board(),
   rack: new Rack([]),
   onSwapTiles: () => {},
+  onReturnTileToRack: () => {},
   displayStats: false,
   openStats: () => {},
   closeStats: () => {},
