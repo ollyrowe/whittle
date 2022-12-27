@@ -15,7 +15,7 @@ import { Answer } from "../answers/AnswerValidator";
  * persisting the state of the user's current game between sessions.
  */
 export class GameLoader {
-  private static FIRST_GAME_DATE = new Date(2022, 9, 20);
+  private static FIRST_GAME_DATE = new Date(2023, 0, 1);
 
   /**
    * Loads today's game.
