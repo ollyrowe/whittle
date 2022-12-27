@@ -7,7 +7,9 @@ interface Props {
 
 const GameNumber: React.FC<Props> = ({ number }) => {
   return (
-    <Typography textAlign="center">{`Daily Whittle #${number}`}</Typography>
+    <Typography component="h1" textAlign="center">
+      {`Daily Whittle #${number}`}
+    </Typography>
   );
 };
 
