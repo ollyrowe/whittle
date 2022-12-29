@@ -14,6 +14,7 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "id"> {
   letter?: Letter;
   state?: TileState;
   hasPlaceholder?: boolean;
+  placeholderType?: PlaceholderType;
   size?: TileSize;
   /** Whether the tile can be dragged */
   draggable?: boolean;
@@ -26,6 +27,7 @@ export const Tile: React.FC<Props> = ({
   letter,
   state = TileState.DEFAULT,
   hasPlaceholder = false,
+  placeholderType = "solid",
   size = "medium",
   draggable = true,
   disabled = false,
@@ -104,15 +106,9 @@ export const Tile: React.FC<Props> = ({
   }, [state, theme]);
 
   return (
-    <Placeholder
-      size={size}
-      visible={hasPlaceholder}
-      disabled={disabled}
-      data-testid="placeholder"
-    >
+    <Container size={size} disabled={disabled}>
       <Box
         ref={setNodeRef}
-        size={size}
         isBlank={!hasLetter}
         isDragging={isDragging}
         isMoving={isMoving}
@@ -125,7 +121,14 @@ export const Tile: React.FC<Props> = ({
       >
         {letter}
       </Box>
-    </Placeholder>
+      {hasPlaceholder && (
+        <Placeholder
+          type={placeholderType}
+          disabled={disabled}
+          data-testid="placeholder"
+        />
+      )}
+    </Container>
   );
 };
 
@@ -136,31 +139,46 @@ export type TileSize = "small" | "medium" | "large";
 /** The hover time period in milliseconds */
 const HOVER_PERIOD = 150;
 
-interface PlaceholderProps {
-  visible: boolean;
+interface ContainerProps {
   size: TileSize;
   disabled?: boolean;
   children?: React.ReactNode;
 }
 
-/**
- * Placeholder div which applies an inset border around the tile.
- */
-const Placeholder = styled.div<PlaceholderProps>`
-  box-shadow: ${(props) =>
-    props.visible &&
-    !props.disabled &&
-    "inset 0px 0px 0px 2px " + props.theme.palette.border};
+const Container = styled.div<ContainerProps>`
+  position: relative;
   margin: ${(props) => (props.theme.isSmallDisplay ? "2px" : "2.5px")};
   width: ${(props) => getTileSize(props.theme, props.size)}px;
   height: ${(props) => getTileSize(props.theme, props.size)}px;
-  border-radius: 4px;
+  font-size: ${(props) => fontSize[props.size]};
+`;
+
+type PlaceholderType = "solid" | "dashed";
+
+interface PlaceholderProps {
+  type: PlaceholderType;
+  disabled?: boolean;
+}
+
+/**
+ * Placeholder div which applies a border in the place of the tile.
+ */
+const Placeholder = styled.div<PlaceholderProps>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: ${(props) =>
+    !props.disabled && `2px ${props.theme.palette.border} ${props.type}`};
+  opacity: ${(props) => (props.type === "dashed" ? 0.6 : 1)};
   background-color: ${(props) =>
     props.disabled && alpha(props.theme.palette.border, 0.4)};
+  border-radius: 4px;
+  z-index: 0;
 `;
 
 interface BoxProps {
-  size: TileSize;
   isBlank?: boolean;
   isDragging?: boolean;
   isMoving?: boolean;
@@ -175,13 +193,12 @@ export const Box = styled.div<BoxProps>`
   position: relative;
   align-items: center;
   justify-content: center;
-  font-size: ${(props) => fontSize[props.size]};
   font-weight: bold;
   background-color: ${(props) =>
     props.color || props.theme.palette.tile.default};
   border-radius: 4px;
-  width: ${(props) => getTileSize(props.theme, props.size)}px;
-  height: ${(props) => getTileSize(props.theme, props.size)}px;
+  width: 100%;
+  height: 100%;
   padding-bottom: 5px;
   user-select: none;
   flex-shrink: 0;

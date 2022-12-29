@@ -16,6 +16,8 @@ export interface Game {
   rack: Rack;
   settings: SettingsOptions;
   completedGames: CompletedGame[];
+  outlineRack: boolean;
+  setOutlineRack: React.Dispatch<React.SetStateAction<boolean>>;
   onSwapTiles: (firstTile: Tile, secondTile: Tile) => void;
   onReturnTileToRack: (tile: Tile) => void;
   displayStats: boolean;
@@ -77,6 +79,9 @@ export const useGame = (): Game => {
 
   // Whether this is the first render
   const isFirstRender = useFirstRender();
+
+  // Whether the rack should appear as outlined
+  const [outlineRack, setOutlineRack] = useState(false);
 
   /**
    * Callback which should be invoked on swapping two game tiles.
@@ -319,6 +324,8 @@ export const useGame = (): Game => {
     rack,
     settings,
     completedGames,
+    outlineRack,
+    setOutlineRack,
     onSwapTiles,
     onReturnTileToRack,
     displayStats,

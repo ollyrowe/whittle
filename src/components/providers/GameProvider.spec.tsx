@@ -12,6 +12,8 @@ const mockGame: Game = {
   date: new Date(),
   board: new Board(),
   rack: new Rack([]),
+  outlineRack: false,
+  setOutlineRack: () => {},
   onSwapTiles: () => {},
   onReturnTileToRack: () => {},
   displayStats: false,
