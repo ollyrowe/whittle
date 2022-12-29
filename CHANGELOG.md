@@ -1,3 +1,12 @@
+# [1.27.0](https://github.com/ollyrowe/whittle/compare/v1.26.0...v1.27.0) (2022-12-29)
+
+
+### Features
+
+* add blue colour to correct theme words ([3907322](https://github.com/ollyrowe/whittle/commit/39073229b3f8f0983acb3de54d34bec9c431f395))
+* add theme word example to rules ([d34157d](https://github.com/ollyrowe/whittle/commit/d34157d7ce0da774d9285fc9a1a447c2c2c062fb))
+* update info theme colour ([d70777c](https://github.com/ollyrowe/whittle/commit/d70777c42a9320ea68e2f900fc6a82d25e5b7ec2))
+
 # [1.26.0](https://github.com/ollyrowe/whittle/compare/v1.25.0...v1.26.0) (2022-12-24)
 
 
