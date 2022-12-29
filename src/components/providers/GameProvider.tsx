@@ -1,4 +1,4 @@
-import React, { createRef, useContext, useState } from "react";
+import React, { createRef, useContext, useRef } from "react";
 import CanvasConfetti from "react-canvas-confetti";
 import {
   arraySwap,
@@ -9,7 +9,6 @@ import {
 import {
   DndContext,
   CollisionDetection,
-  UniqueIdentifier,
   DragStartEvent,
   DragEndEvent,
   MouseSensor,
@@ -24,6 +23,7 @@ import { createLightTheme } from "../../misc/theme";
 import { Game } from "../../hooks/useGame";
 import { Board } from "../../model/Board";
 import { Rack } from "../../model/Rack";
+import { Tile } from "../../model/Tile";
 
 interface Props {
   game: Game;
@@ -31,14 +31,17 @@ interface Props {
 }
 
 const GameProvider: React.FC<Props> = ({ game, children }) => {
-  const { board, rack, settings, onSwapTiles, confetti } = game;
+  const { board, rack, settings, onSwapTiles, setOutlineRack, confetti } = game;
 
   const tiles = [...board.getTiles(), ...rack.getTiles()];
 
   const tileIDs = tiles.map((tile) => tile.getID());
 
-  // The ID of the currently active tile which is being dragged
-  const [activeTileId, setActiveTileId] = useState<UniqueIdentifier>();
+  // The currently active tile which is being dragged
+  const activeTile = useRef<Tile>();
+
+  // The tile currently being hovered over
+  const overTile = useRef<Tile>();
 
   // Drag and drop sensor to enable mouse control
   const mouseSensor = useSensor(MouseSensor);
@@ -54,7 +57,30 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
    * @param event - the drag start event.
    */
   const onDragStart = (event: DragStartEvent) => {
-    setActiveTileId(event.active.id);
+    // Update the currently active tile
+    activeTile.current = tiles.find((tile) => tile.getID() === event.active.id);
+  };
+
+  /**
+   * Function which handles drag move events, hiding and showing
+   * the rack outline accordingly.
+   */
+  const onDragMove = () => {
+    // If a tile from the board is currently being dragged
+    if (activeTile.current?.getLocation().name === "board") {
+      // If there is a tile being hovered over
+      if (overTile.current) {
+        // If the tile being hovered over is on the board
+        if (overTile.current.getLocation().name === "board") {
+          setOutlineRack(false);
+        } else {
+          setOutlineRack(true);
+        }
+      } else {
+        // Display the outline when a tile isn't being hovered over
+        setOutlineRack(true);
+      }
+    }
   };
 
   /**
@@ -64,6 +90,9 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
    * @param event - the drag end event.
    */
   const onDragEnd = (event: DragEndEvent) => {
+    // Update the currently active tile
+    activeTile.current = undefined;
+
     // The tile being dragged (active) and the tile to be swapped (over)
     const { active, over } = event;
 
@@ -80,6 +109,9 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
         onSwapTiles(activeTile, overTile);
       }
     }
+
+    // Hide the rack outline
+    setOutlineRack(false);
   };
 
   /**
@@ -90,14 +122,29 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
    * other collisions are detected. The effect of this means that tiles can be
    * dragged outside of the bounds of the board and rack components.
    *
+   * This function also updates the tile which is currently being hovered over.
+   *
    * @param args - the collision detection arguments.
    * @returns any identified collisions.
    */
   const collisionDetection: CollisionDetection = (args) => {
     const collisions = rectIntersection(args);
 
-    if (collisions.length === 0 && activeTileId) {
-      collisions.push({ id: activeTileId });
+    if (collisions.length === 0 && activeTile.current) {
+      collisions.push({ id: activeTile.current.getID() });
+      // As there isn't actually a collision, reset the over tile
+      overTile.current = undefined;
+    } else {
+      // The ID of the first collision tile
+      const firstCollisionTileId = collisions[0].id;
+
+      // If the collision tile differs from the current over tile
+      if (overTile.current?.getID() !== firstCollisionTileId) {
+        // Update the current over tile
+        overTile.current = tiles.find(
+          (tile) => tile.getID() === firstCollisionTileId
+        );
+      }
     }
 
     return collisions;
@@ -110,6 +157,7 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
           <DndContext
             sensors={sensors}
             onDragStart={onDragStart}
+            onDragMove={onDragMove}
             onDragEnd={onDragEnd}
             collisionDetection={collisionDetection}
             autoScroll={false}
@@ -144,6 +192,8 @@ export const GameContext = React.createContext<Game>({
   date: new Date(),
   board: new Board(),
   rack: new Rack([]),
+  outlineRack: false,
+  setOutlineRack: () => {},
   onSwapTiles: () => {},
   onReturnTileToRack: () => {},
   displayStats: false,

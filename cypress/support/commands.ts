@@ -151,10 +151,10 @@ Cypress.Commands.add(
   (subject) => {
     cy.wrap(subject).should(
       "have.css",
-      "box-shadow",
+      "border",
       prefersDarkTheme
-        ? `${hexToRgb(colours.grey)} 0px 0px 0px 2px inset`
-        : `${hexToRgb(colours.lighterGrey)} 0px 0px 0px 2px inset`
+        ? `2px solid ${hexToRgb(colours.grey)}`
+        : `2px solid ${hexToRgb(colours.lighterGrey)}`
     );
     cy.wrap(subject).should(
       "not.have.css",

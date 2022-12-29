@@ -5,12 +5,12 @@ import Tile from "../tile/Tile";
 import ResetButton from "./ResetButton";
 
 const Rack: React.FC = () => {
-  const { rack } = useGameContext();
+  const { rack, outlineRack } = useGameContext();
 
   return (
     <Background>
       <Container data-testid="rack">
-        {rack.hasLetterTile() ? (
+        {rack.hasLetterTile() || outlineRack ? (
           rack
             .getTiles()
             .map((tile) => (
@@ -20,6 +20,8 @@ const Rack: React.FC = () => {
                 id={tile.getID()}
                 letter={tile.getLetter()}
                 draggable={tile.isDraggable()}
+                hasPlaceholder={outlineRack}
+                placeholderType="dashed"
                 size="small"
               />
             ))
