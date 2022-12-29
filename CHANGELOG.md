@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/ollyrowe/whittle/compare/v1.27.0...v1.28.0) (2022-12-29)
+
+
+### Features
+
+* improve layout for smaller displays ([487dc3f](https://github.com/ollyrowe/whittle/commit/487dc3fe632b5d673b3ce78a34ec42398dbe2464))
+
 # [1.27.0](https://github.com/ollyrowe/whittle/compare/v1.26.0...v1.27.0) (2022-12-29)
 
 
