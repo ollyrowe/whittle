@@ -1,3 +1,10 @@
+## [1.28.2](https://github.com/ollyrowe/whittle/compare/v1.28.1...v1.28.2) (2022-12-30)
+
+
+### Bug Fixes
+
+* fix stacking issue when dropping tiles ([a45c7e4](https://github.com/ollyrowe/whittle/commit/a45c7e4640328090770661a8b963618ec79e8750))
+
 ## [1.28.1](https://github.com/ollyrowe/whittle/compare/v1.28.0...v1.28.1) (2022-12-30)
 
 
