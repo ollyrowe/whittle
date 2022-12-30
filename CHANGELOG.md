@@ -1,3 +1,10 @@
+## [1.28.1](https://github.com/ollyrowe/whittle/compare/v1.28.0...v1.28.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* disable tiles in hard mode for new games ([1c3124e](https://github.com/ollyrowe/whittle/commit/1c3124e86a4d1f0aa3a0bbf0855c524dc7c0ce31))
+
 # [1.28.0](https://github.com/ollyrowe/whittle/compare/v1.27.0...v1.28.0) (2022-12-29)
 
 
