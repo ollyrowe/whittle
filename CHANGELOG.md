@@ -1,3 +1,11 @@
+# [1.31.0](https://github.com/ollyrowe/whittle/compare/v1.30.0...v1.31.0) (2022-12-30)
+
+
+### Features
+
+* add setting to toggle hints ([692fde2](https://github.com/ollyrowe/whittle/commit/692fde26b92e2751b24b844b1f64498fb3384995))
+* add win guidance notifications ([6d9e561](https://github.com/ollyrowe/whittle/commit/6d9e5619404ea532bca356657ee3dc4f15f6f1de))
+
 # [1.30.0](https://github.com/ollyrowe/whittle/compare/v1.29.0...v1.30.0) (2022-12-30)
 
 
