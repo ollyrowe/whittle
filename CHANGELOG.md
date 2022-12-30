@@ -1,3 +1,15 @@
+# [1.29.0](https://github.com/ollyrowe/whittle/compare/v1.28.2...v1.29.0) (2022-12-30)
+
+
+### Bug Fixes
+
+* update game number to be a h1 tag ([cad49f2](https://github.com/ollyrowe/whittle/commit/cad49f22b935572fc1e833c3a25f4649e1aa0925))
+
+
+### Features
+
+* update page title ([fd10294](https://github.com/ollyrowe/whittle/commit/fd10294b29ef9ce624077ebdebead29e22df630e))
+
 ## [1.28.2](https://github.com/ollyrowe/whittle/compare/v1.28.1...v1.28.2) (2022-12-30)
 
 
