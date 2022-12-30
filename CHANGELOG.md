@@ -1,3 +1,11 @@
+# [1.30.0](https://github.com/ollyrowe/whittle/compare/v1.29.0...v1.30.0) (2022-12-30)
+
+
+### Features
+
+* add tile double click return to rack action ([6710cde](https://github.com/ollyrowe/whittle/commit/6710cde4fc7a81942c62821c47d410b1fb149718))
+* allow tiles to be dragged back to empty rack ([4d6967d](https://github.com/ollyrowe/whittle/commit/4d6967d3805aa07570a5b57d342a530802641108))
+
 # [1.29.0](https://github.com/ollyrowe/whittle/compare/v1.28.2...v1.29.0) (2022-12-30)
 
 
