@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { alpha, Typography } from "@mui/material";
 import { GameSolution } from "../../model/game/GameLoader";
 import BoardWrapper from "./BoardWrapper";
-import GameNumber from "./GameNumber";
+import GameTitle from "./GameTitle";
 import TileGrid from "./TileGrid";
 
 interface Props {
@@ -14,7 +14,7 @@ export const SolutionBoard: React.FC<Props> = ({ solution }) => {
   return (
     <BoardWrapper>
       <Header>
-        <GameNumber number={solution.number} />
+        <GameTitle number={solution.number} answer={solution.answer} />
         <Subtitle variant="body2">{solution.theme}</Subtitle>
       </Header>
       <TileGrid tiles={solution.board.getTiles()} disabled />

@@ -1,12 +1,12 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import GameNumber from "./GameNumber";
+import GameTitle from "./GameTitle";
 import MockThemeProvider from "../providers/MockThemeProvider";
 
 it("renders", () => {
   render(
     <MockThemeProvider>
-      <GameNumber number={1} />
+      <GameTitle number={1} answer={{ letters: "", theme: "", words: [] }} />
     </MockThemeProvider>
   );
 });

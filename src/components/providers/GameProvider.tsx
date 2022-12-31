@@ -192,6 +192,7 @@ export const GameContext = React.createContext<Game>({
   date: new Date(),
   board: new Board(),
   rack: new Rack([]),
+  answer: { letters: "", theme: "", words: [] },
   outlineRack: false,
   setOutlineRack: () => {},
   onSwapTiles: () => {},

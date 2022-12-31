@@ -6,6 +6,7 @@ import { DateUtils } from "../utils/DateUtils";
 import { AnswerParser } from "../answers/AnswerParser";
 import answers from "../../answers/answers.json";
 import eventAnswers from "../../answers/event-answers.json";
+import { Answer } from "../answers/AnswerValidator";
 
 /**
  * Game Loader.
@@ -88,6 +89,7 @@ export class GameLoader {
 
       return {
         number,
+        answer,
         theme: answer.theme,
         board,
       };
@@ -196,6 +198,7 @@ export interface GameSolution {
   number: number;
   theme: string;
   board: Board;
+  answer: Answer;
 }
 
 export class CompletedGame {
