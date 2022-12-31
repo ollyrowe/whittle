@@ -1,3 +1,15 @@
+# [1.32.0](https://github.com/ollyrowe/whittle/compare/v1.31.0...v1.32.0) (2022-12-31)
+
+
+### Bug Fixes
+
+* update theme info colours ([eac5da2](https://github.com/ollyrowe/whittle/commit/eac5da224c7298881cb223ad40f9d2d8d0baa0d9))
+
+
+### Features
+
+* update game title to include event themes ([0e069d0](https://github.com/ollyrowe/whittle/commit/0e069d066fc666e9d65d00c1f9bcfe2241fb5a0e))
+
 # [1.31.0](https://github.com/ollyrowe/whittle/compare/v1.30.0...v1.31.0) (2022-12-30)
 
 
