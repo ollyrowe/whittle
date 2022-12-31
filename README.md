@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">The official Whittle game!</h4>
+<h4 align="center">The daily word game!</h4>
 
 <p align="center">
   <a href="https://ollyrowe.github.io/whittle/">
@@ -43,7 +43,7 @@
 
 ## 💡 About
 
-This is the official Whittle game.
+This is the code repository for the official Whittle daily word game. Follow us [@WhittleGame](https://twitter.com/WhittleGame).
 
 ## 🧾 Rules
 
