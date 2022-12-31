@@ -197,12 +197,6 @@ export const GameContext = React.createContext<Game>({
   setOutlineRack: () => {},
   onSwapTiles: () => {},
   onReturnTileToRack: () => {},
-  displayStats: false,
-  openStats: () => {},
-  closeStats: () => {},
-  displayHowToPlay: false,
-  openHowToPlay: () => {},
-  closeHowToPlay: () => {},
   reset: () => {},
   settings: {
     ...defaultSettings,

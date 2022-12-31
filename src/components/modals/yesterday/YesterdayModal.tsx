@@ -6,13 +6,13 @@ import Modal from "../Modal";
 import SolutionBoard from "../../board/SolutionBoard";
 import { useGameContext } from "../../providers/GameProvider";
 import { DateUtils } from "../../../model/utils/DateUtils";
+import { useModalContext } from "../../providers/ModalProvider";
 
-interface Props {
-  open: boolean;
-  onClose: () => void;
-}
+const YesterdayModal: React.FC = () => {
+  // Extract modal state and controls
+  const { displayYesterdays, closeYesterdays } = useModalContext();
 
-const YesterdayModal: React.FC<Props> = ({ open, onClose }) => {
+  // Extract game state
   const { date } = useGameContext();
 
   // Load yesterday's solution
@@ -23,8 +23,8 @@ const YesterdayModal: React.FC<Props> = ({ open, onClose }) => {
   return (
     <Modal
       title="Yesterday"
-      open={open}
-      onClose={onClose}
+      open={displayYesterdays}
+      onClose={closeYesterdays}
       aria-describedby="yesterday"
       data-testid="yesterday-modal"
     >
