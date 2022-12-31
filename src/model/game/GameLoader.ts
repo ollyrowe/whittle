@@ -15,7 +15,7 @@ import { Answer } from "../answers/AnswerValidator";
  * persisting the state of the user's current game between sessions.
  */
 export class GameLoader {
-  private static FIRST_GAME_DATE = new Date(2023, 0, 1);
+  public static FIRST_GAME_DATE = new Date(2023, 0, 1);
 
   /**
    * Loads today's game.
@@ -50,6 +50,21 @@ export class GameLoader {
     localStorage.setItem(GAME_DATE_LS_KEY, JSON.stringify(date));
     localStorage.setItem(BOARD_LS_KEY, JSON.stringify(instanceToPlain(board)));
     localStorage.setItem(RACK_LS_KEY, JSON.stringify(instanceToPlain(rack)));
+  }
+
+  /**
+   * Clears all of the user's game data from their local storage.
+   *
+   * This includes both the currently saved game and all past completed games.
+   */
+  public static clearAllGameData() {
+    // Remove all data relating to the currently saved game
+    localStorage.removeItem(GAME_NUMBER_LS_KEY);
+    localStorage.removeItem(GAME_DATE_LS_KEY);
+    localStorage.removeItem(BOARD_LS_KEY);
+    localStorage.removeItem(RACK_LS_KEY);
+    // Remove all of the previous completed games
+    localStorage.removeItem(COMPLETED_GAMES_LS_KEY);
   }
 
   /**
