@@ -3,17 +3,18 @@ import styled from "styled-components";
 import { alpha } from "@mui/material";
 import { useGameContext } from "../providers/GameProvider";
 import BoardWrapper from "./BoardWrapper";
-import GameNumber from "./GameNumber";
+import GameTitle from "./GameTitle";
 import ResetButton from "../rack/ResetButton";
 import TileGrid from "./TileGrid";
 
 export const Board: React.FC = () => {
-  const { number, board, boardRef, onReturnTileToRack } = useGameContext();
+  const { board, boardRef, number, answer, onReturnTileToRack } =
+    useGameContext();
 
   return (
     <BoardWrapper ref={boardRef} data-testid="board">
       <Header>
-        <GameNumber number={number} />
+        <GameTitle number={number} answer={answer} />
         <FixedResetButton type="icon" disabled={!board.hasLetterTile()} />
       </Header>
       <TileGrid

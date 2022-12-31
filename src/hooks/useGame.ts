@@ -9,12 +9,14 @@ import { useFirstRender } from "./useFirstRender";
 import { CompletedGame, GameLoader } from "../model/game/GameLoader";
 import { DateUtils } from "../model/utils/DateUtils";
 import { useNotificationContext } from "../components/providers/NotificationProvider";
+import { Answer } from "../model/answers/AnswerValidator";
 
 export interface Game {
   number: number;
   date: Date;
   board: Board;
   rack: Rack;
+  answer: Answer;
   settings: SettingsOptions;
   completedGames: CompletedGame[];
   outlineRack: boolean;
@@ -346,6 +348,7 @@ export const useGame = (settings: SettingsOptions): Game => {
     date,
     board,
     rack,
+    answer,
     settings,
     completedGames,
     outlineRack,
