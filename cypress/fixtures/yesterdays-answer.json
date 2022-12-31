@@ -1,26 +1,27 @@
 {
-  "theme": "Transport",
-  "letters": "ARABLNRTPOAISCE",
+  "date": "New Year's Day",
+  "theme": "Happy New Year's Day!",
+  "letters": "RBWHECUNLEAYBEB",
   "words": [
     {
       "direction": "vertical",
-      "start": { "row": 1, "column": 4 },
-      "letters": "TRAINS"
-    },
-    {
-      "direction": "horizontal",
       "start": { "row": 1, "column": 1 },
-      "letters": "BOAT"
+      "letters": "BUBBLY"
     },
     {
       "direction": "horizontal",
-      "start": { "row": 3, "column": 3 },
-      "letters": "CAR"
+      "start": { "row": 6, "column": 1 },
+      "letters": "YEAR"
+    },
+    {
+      "direction": "vertical",
+      "start": { "row": 2, "column": 4 },
+      "letters": "CHEER"
     },
     {
       "direction": "horizontal",
-      "start": { "row": 5, "column": 1 },
-      "letters": "PLANE"
+      "start": { "row": 4, "column": 3 },
+      "letters": "NEW"
     }
   ]
 }

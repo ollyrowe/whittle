@@ -5,29 +5,33 @@ describe("Streak", () => {
   beforeEach(() => {
     // Create a 4 day streak
     GameLoader.addCompletedGame({
-      date: new Date(2022, 9, 20),
+      date: new Date(2023, 0, 2),
       board: new Board(),
       number: 1,
       mode: "normal",
     });
     GameLoader.addCompletedGame({
-      date: new Date(2022, 9, 19),
+      date: new Date(2023, 0, 3),
       board: new Board(),
       number: 1,
       mode: "normal",
     });
     GameLoader.addCompletedGame({
-      date: new Date(2022, 9, 18),
+      date: new Date(2023, 0, 4),
       board: new Board(),
       number: 1,
       mode: "normal",
     });
     GameLoader.addCompletedGame({
-      date: new Date(2022, 9, 17),
+      date: new Date(2023, 0, 5),
       board: new Board(),
       number: 1,
       mode: "normal",
     });
+
+    cy.clock().invoke("restore");
+
+    cy.clock(new Date(2023, 0, 6));
 
     cy.reload();
   });
@@ -58,7 +62,7 @@ describe("Streak", () => {
     cy.clearLocalStorage("completed-games").then(() => {
       // Add one game that doesn't form part of the streak
       GameLoader.addCompletedGame({
-        date: new Date(2022, 9, 17),
+        date: new Date(2022, 11, 29),
         board: new Board(),
         number: 1,
         mode: "normal",
