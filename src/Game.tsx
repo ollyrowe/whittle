@@ -7,6 +7,10 @@ import GameProvider from "./components/providers/GameProvider";
 import { useGame } from "./hooks/useGame";
 import { CssBaseline } from "@mui/material";
 import { SettingsOptions } from "./hooks/useSettings";
+import HowToPlayModal from "./components/modals/how-to-play/HowToPlayModal";
+import SettingsModal from "./components/modals/settings/SettingsModal";
+import StatisticsModal from "./components/modals/statistics/StatisticsModal";
+import YesterdayModal from "./components/modals/yesterday/YesterdayModal";
 
 interface Props {
   settings: SettingsOptions;
@@ -22,6 +26,10 @@ const Game: React.FC<Props> = ({ settings }) => {
         <Board />
         <Rack />
       </Container>
+      <HowToPlayModal />
+      <YesterdayModal />
+      <StatisticsModal />
+      <SettingsModal />
       <CssBaseline enableColorScheme />
     </GameProvider>
   );

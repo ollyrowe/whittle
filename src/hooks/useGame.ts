@@ -8,8 +8,9 @@ import { useConfetti, ConfettiControls } from "./useConfetti";
 import { useFirstRender } from "./useFirstRender";
 import { CompletedGame, GameLoader } from "../model/game/GameLoader";
 import { DateUtils } from "../model/utils/DateUtils";
-import { useNotificationContext } from "../components/providers/NotificationProvider";
 import { Answer } from "../model/answers/AnswerValidator";
+import { useNotificationContext } from "../components/providers/NotificationProvider";
+import { useModalContext } from "../components/providers/ModalProvider";
 
 export interface Game {
   number: number;
@@ -23,12 +24,6 @@ export interface Game {
   setOutlineRack: React.Dispatch<React.SetStateAction<boolean>>;
   onSwapTiles: (firstTile: Tile, secondTile: Tile) => void;
   onReturnTileToRack: (tile: Tile) => void;
-  displayStats: boolean;
-  openStats: () => void;
-  closeStats: () => void;
-  displayHowToPlay: boolean;
-  openHowToPlay: () => void;
-  closeHowToPlay: () => void;
   reset: () => void;
   boardRef: React.RefObject<HTMLDivElement>;
   confetti: ConfettiControls;
@@ -65,12 +60,6 @@ export const useGame = (settings: SettingsOptions): Game => {
     GameLoader.getCompletedGames()
   );
 
-  // Whether the statistics modal should be displayed
-  const [displayStats, setDisplayStats] = useState(false);
-
-  // Whether the how to play modal should be displayed
-  const [displayHowToPlay, setDisplayHowToPlay] = useState(false);
-
   // Confetti firing controls
   const confetti = useConfetti();
 
@@ -82,6 +71,9 @@ export const useGame = (settings: SettingsOptions): Game => {
 
   // Whether the rack should appear as outlined
   const [outlineRack, setOutlineRack] = useState(false);
+
+  // Extract modal state and controls
+  const modals = useModalContext();
 
   // Extract notification utilities
   const { currentNotification, dispatchNotification } =
@@ -196,7 +188,7 @@ export const useGame = (settings: SettingsOptions): Game => {
       // Disable the board
       board.disable();
       // Display the game statistics
-      setDisplayStats(true);
+      modals.openStats();
       // Fire confetti after a short delay
       setTimeout(confetti.fire, 150);
     },
@@ -208,6 +200,7 @@ export const useGame = (settings: SettingsOptions): Game => {
       saveCompletedGame,
       playSound,
       confetti.fire,
+      modals,
     ]
   );
 
@@ -293,11 +286,11 @@ export const useGame = (settings: SettingsOptions): Game => {
     const lastVisited = localStorage.getItem(LAST_VISITED_LS_KEY);
 
     if (!lastVisited) {
-      openHowToPlay();
+      modals.openHowToPlay();
     }
 
     localStorage.setItem(LAST_VISITED_LS_KEY, JSON.stringify(new Date()));
-  }, []);
+  }, [modals]);
 
   /**
    * Effect which handles the first game date local storage state.
@@ -352,34 +345,6 @@ export const useGame = (settings: SettingsOptions): Game => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [settings.enableHardMode]);
 
-  /**
-   * Opens the statistics modal.
-   */
-  const openStats = () => {
-    setDisplayStats(true);
-  };
-
-  /**
-   * Closes the statistics modal.
-   */
-  const closeStats = () => {
-    setDisplayStats(false);
-  };
-
-  /**
-   * Opens the how to play modal.
-   */
-  const openHowToPlay = () => {
-    setDisplayHowToPlay(true);
-  };
-
-  /**
-   * Closes the how to play modal.
-   */
-  const closeHowToPlay = () => {
-    setDisplayHowToPlay(false);
-  };
-
   return {
     number,
     date,
@@ -392,12 +357,6 @@ export const useGame = (settings: SettingsOptions): Game => {
     setOutlineRack,
     onSwapTiles,
     onReturnTileToRack,
-    displayStats,
-    openStats,
-    closeStats,
-    displayHowToPlay,
-    openHowToPlay,
-    closeHowToPlay,
     reset,
     boardRef,
     confetti,

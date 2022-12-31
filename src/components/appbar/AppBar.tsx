@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { IconButton } from "@mui/material";
 import {
@@ -7,54 +7,24 @@ import {
   BarChart as BarChartIcon,
   Settings as SettingsIcon,
 } from "@mui/icons-material";
-import { useGameContext } from "../providers/GameProvider";
-import HowToPlayModal from "../modals/how-to-play/HowToPlayModal";
-import YesterdayModal from "../modals/yesterday/YesterdayModal";
-import StatisticsModal from "../modals/statistics/StatisticsModal";
-import SettingsModal from "../modals/settings/SettingsModal";
+import { useModalContext } from "../providers/ModalProvider";
 
 const AppBar: React.FC = () => {
-  const {
-    displayStats,
-    openStats,
-    closeStats,
-    displayHowToPlay,
-    openHowToPlay,
-    closeHowToPlay,
-  } = useGameContext();
-
-  const [displayYesterdays, setDisplayYesterdays] = useState(false);
-
-  const [displaySettings, setDisplaySettings] = useState(false);
-
-  const openYesterdays = () => {
-    setDisplayYesterdays(true);
-  };
-
-  const closeYesterdays = () => {
-    setDisplayYesterdays(false);
-  };
-
-  const openSettings = () => {
-    setDisplaySettings(true);
-  };
-
-  const closeSettings = () => {
-    setDisplaySettings(false);
-  };
+  // Extract modal controls
+  const modals = useModalContext();
 
   return (
     <>
       <Container>
         <ButtonContainer>
           <AppBarButton
-            onClick={openHowToPlay}
+            onClick={modals.openHowToPlay}
             data-testid="how-to-play-button"
           >
             <HelpOutlineIcon />
           </AppBarButton>
           <AppBarButton
-            onClick={openYesterdays}
+            onClick={modals.openYesterdays}
             data-testid="yesterdays-button"
           >
             <EventRepeatIcon />
@@ -62,18 +32,20 @@ const AppBar: React.FC = () => {
         </ButtonContainer>
         <Title>Whittle</Title>
         <ButtonContainer>
-          <AppBarButton onClick={openStats} data-testid="statistics-button">
+          <AppBarButton
+            onClick={modals.openStats}
+            data-testid="statistics-button"
+          >
             <BarChartIcon />
           </AppBarButton>
-          <AppBarButton onClick={openSettings} data-testid="settings-button">
+          <AppBarButton
+            onClick={modals.openSettings}
+            data-testid="settings-button"
+          >
             <SettingsIcon />
           </AppBarButton>
         </ButtonContainer>
       </Container>
-      <HowToPlayModal open={displayHowToPlay} onClose={closeHowToPlay} />
-      <YesterdayModal open={displayYesterdays} onClose={closeYesterdays} />
-      <StatisticsModal open={displayStats} onClose={closeStats} />
-      <SettingsModal open={displaySettings} onClose={closeSettings} />
     </>
   );
 };

@@ -5,18 +5,17 @@ import Modal from "../Modal";
 import Tile from "../../tile/Tile";
 import { TileState } from "../../../model/enums/TileState";
 import { Letter } from "../../../model/enums/Letter";
+import { useModalContext } from "../../providers/ModalProvider";
 
-interface Props {
-  open: boolean;
-  onClose: () => void;
-}
+const HowToPlayModal: React.FC = () => {
+  // Extract modal state and controls
+  const { displayHowToPlay, closeHowToPlay } = useModalContext();
 
-const HowToPlayModal: React.FC<Props> = ({ open, onClose }) => {
   return (
     <Modal
       title="How To Play"
-      open={open}
-      onClose={onClose}
+      open={displayHowToPlay}
+      onClose={closeHowToPlay}
       aria-describedby="how-to-play"
       data-testid="how-to-play-modal"
     >

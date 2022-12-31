@@ -7,21 +7,20 @@ import SupportButton from "./buttons/SupportButton";
 import ShareButton from "./buttons/ShareButton";
 import TwitterButton from "./buttons/TwitterButton";
 import { useNextGameTimer } from "../../../hooks/useNextGameTimer";
+import { useModalContext } from "../../providers/ModalProvider";
 
-interface Props {
-  open: boolean;
-  onClose: () => void;
-}
+const StatisticsModal = () => {
+  // Extract modal state and controls
+  const { displayStats, closeStats } = useModalContext();
 
-const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
   // Time left until the next game is released
   const timeUntilNextGame = useNextGameTimer();
 
   return (
     <Modal
       title="Statistics"
-      open={open}
-      onClose={onClose}
+      open={displayStats}
+      onClose={closeStats}
       aria-describedby="statistics"
       data-testid="statistics-modal"
     >

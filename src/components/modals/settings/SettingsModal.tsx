@@ -14,13 +14,13 @@ import {
 import { useGameContext } from "../../providers/GameProvider";
 import Modal from "../Modal";
 import ConfirmationDialog from "../../misc/ConfirmationDialog";
+import { useModalContext } from "../../providers/ModalProvider";
 
-interface Props {
-  open: boolean;
-  onClose: () => void;
-}
+const SettingsModal: React.FC = () => {
+  // Extract modal state and controls
+  const { displaySettings, closeSettings } = useModalContext();
 
-const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
+  // Extract game state
   const { settings, board } = useGameContext();
 
   const theme = useTheme();
@@ -42,7 +42,7 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
     // Close the confirmation dialog
     closeConfirmationDialog();
     // Close the settings modal
-    onClose();
+    closeSettings();
   };
 
   const closeConfirmationDialog = () => {
@@ -53,8 +53,8 @@ const SettingsModal: React.FC<Props> = ({ open, onClose }) => {
     <>
       <Modal
         title="Settings"
-        open={open && !displayConfirmHardMode}
-        onClose={onClose}
+        open={displaySettings && !displayConfirmHardMode}
+        onClose={closeSettings}
         aria-describedby="settings"
         data-testid="settings-modal"
       >
