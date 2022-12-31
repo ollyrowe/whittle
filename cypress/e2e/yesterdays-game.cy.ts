@@ -36,7 +36,7 @@ describe("Yesterday's Game", () => {
   it("displays a message on the first day", () => {
     cy.clock().invoke("restore");
 
-    cy.clock(new Date(2022, 9, 20));
+    cy.clock(new Date(2023, 0, 1));
 
     cy.reload();
 

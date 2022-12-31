@@ -6,7 +6,7 @@ beforeEach(() => {
   localStorage.setItem("last-visited", JSON.stringify(new Date()));
 
   // Set the date to be the same date as the 2nd Whittle
-  cy.clock(new Date(2022, 9, 21));
+  cy.clock(new Date(2023, 0, 2));
 
   cy.visit(Cypress.config().baseUrl!);
 });

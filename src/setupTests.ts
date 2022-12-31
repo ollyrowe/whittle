@@ -1,5 +1,8 @@
 import "reflect-metadata";
 import "@testing-library/jest-dom";
+import { GameLoader } from "./model/game/GameLoader";
+
+jest.useFakeTimers().setSystemTime(GameLoader.FIRST_GAME_DATE);
 
 jest.mock("@mui/material", () => {
   const originalModule = jest.requireActual("@mui/material");
