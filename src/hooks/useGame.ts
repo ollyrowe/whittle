@@ -298,6 +298,43 @@ export const useGame = (settings: SettingsOptions): Game => {
   }, []);
 
   /**
+   * Effect which handles the first game date local storage state.
+   *
+   * If the user doesn't have a correct date within their storage, then their
+   * game data will be cleared, including all past completed games.
+   *
+   * The purpose of this hook is to ensure that any game data is removed when
+   * the first game date is changed.
+   */
+  useEffect(() => {
+    // Fetch the first game date from the user's local storage
+    const firstGameDateItem = localStorage.getItem(FIRST_GAME_DATE_LS_KEY);
+
+    // Convert the local storage item to a date if it exists
+    const firstGameDate = firstGameDateItem
+      ? new Date(JSON.parse(firstGameDateItem))
+      : null;
+
+    // If the first game date doesn't exist or is incorrect
+    if (
+      !firstGameDate ||
+      !DateUtils.isSameDay(firstGameDate, GameLoader.FIRST_GAME_DATE)
+    ) {
+      // Reset the user's game data
+      GameLoader.clearAllGameData();
+
+      // Update the first game date within the user's local storage
+      localStorage.setItem(
+        FIRST_GAME_DATE_LS_KEY,
+        JSON.stringify(GameLoader.FIRST_GAME_DATE)
+      );
+
+      // Reset the game
+      reset();
+    }
+  }, [reset]);
+
+  /**
    * Effect which which handles changes to the hard mode setting.
    */
   useEffect(() => {
@@ -366,3 +403,6 @@ export const useGame = (settings: SettingsOptions): Game => {
 
 // Local storage key used to store the last time the user visited the site
 const LAST_VISITED_LS_KEY = "last-visited";
+
+// Local storage key used to store the date of the first game
+const FIRST_GAME_DATE_LS_KEY = "first-game-date";
