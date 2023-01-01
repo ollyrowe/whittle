@@ -1,3 +1,12 @@
+# [1.33.0](https://github.com/ollyrowe/whittle/compare/v1.32.0...v1.33.0) (2023-01-01)
+
+
+### Features
+
+* clear game data upon start date change ([e2c1fac](https://github.com/ollyrowe/whittle/commit/e2c1facd969095c82617216e75dbf7f8fdf4b8e7))
+* update first game start date ([e04e89b](https://github.com/ollyrowe/whittle/commit/e04e89b01da4285ac05b6468a3dca5671ac171c9))
+* update share logic ([545784b](https://github.com/ollyrowe/whittle/commit/545784b17b36d7b8988ee6336cbf4f68995a2e39))
+
 # [1.32.0](https://github.com/ollyrowe/whittle/compare/v1.31.0...v1.32.0) (2022-12-31)
 
 
