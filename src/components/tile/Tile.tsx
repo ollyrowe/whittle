@@ -29,7 +29,7 @@ export const Tile: React.FC<Props> = ({
   hasPlaceholder = false,
   placeholderType = "solid",
   size = "medium",
-  draggable = true,
+  draggable = false,
   disabled = false,
   ...otherProps
 }) => {
