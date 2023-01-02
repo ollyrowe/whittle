@@ -1,3 +1,10 @@
+## [1.33.2](https://github.com/ollyrowe/whittle/compare/v1.33.1...v1.33.2) (2023-01-02)
+
+
+### Bug Fixes
+
+* prevent duplicate theme name within solution board ([5c540f0](https://github.com/ollyrowe/whittle/commit/5c540f0f9505e5bbc65e1a4c2e185a625355070f))
+
 ## [1.33.1](https://github.com/ollyrowe/whittle/compare/v1.33.0...v1.33.1) (2023-01-02)
 
 
