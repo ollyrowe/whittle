@@ -14,7 +14,7 @@ export const SolutionBoard: React.FC<Props> = ({ solution }) => {
   return (
     <BoardWrapper>
       <Header>
-        <GameTitle number={solution.number} answer={solution.answer} />
+        <GameTitle number={solution.number} />
         <Subtitle variant="body2">{solution.theme}</Subtitle>
       </Header>
       <TileGrid tiles={solution.board.getTiles()} disabled />
