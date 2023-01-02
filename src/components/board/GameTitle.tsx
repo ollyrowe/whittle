@@ -4,12 +4,12 @@ import { Answer } from "../../model/answers/AnswerValidator";
 
 interface Props {
   number: number;
-  answer: Answer;
+  answer?: Answer;
 }
 
 const GameTitle: React.FC<Props> = ({ number, answer }) => {
   // If the answer has a date, then it's an event date
-  const isEvent = !!answer.date;
+  const isEvent = !!answer?.date;
 
   return (
     <Typography component="h1" textAlign="center">
