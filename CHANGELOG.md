@@ -1,3 +1,10 @@
+## [1.33.1](https://github.com/ollyrowe/whittle/compare/v1.33.0...v1.33.1) (2023-01-02)
+
+
+### Bug Fixes
+
+* update tile default draggable state ([1932a26](https://github.com/ollyrowe/whittle/commit/1932a26b422da34c569aea4d4fa42d01ad5aa6a0))
+
 # [1.33.0](https://github.com/ollyrowe/whittle/compare/v1.32.0...v1.33.0) (2023-01-01)
 
 
