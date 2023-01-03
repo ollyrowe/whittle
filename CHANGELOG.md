@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/ollyrowe/whittle/compare/v1.33.2...v1.34.0) (2023-01-03)
+
+
+### Features
+
+* add support and twitter buttons ([af7fe23](https://github.com/ollyrowe/whittle/commit/af7fe23e0522c0e001ffd9267b693f739562992e))
+
 ## [1.33.2](https://github.com/ollyrowe/whittle/compare/v1.33.1...v1.33.2) (2023-01-02)
 
 
