@@ -1,9 +1,8 @@
 import React, { useMemo } from "react";
-import styled from "styled-components";
 import { toBlob } from "html-to-image";
-import { Button, useTheme } from "@mui/material";
+import { IconButton, useTheme } from "@mui/material";
 import { Share as ShareIcon } from "@mui/icons-material";
-import { useGameContext } from "../../providers/GameProvider";
+import { useGameContext } from "../../../providers/GameProvider";
 
 const ShareButton: React.FC = () => {
   const theme = useTheme();
@@ -51,24 +50,16 @@ const ShareButton: React.FC = () => {
   };
 
   return (
-    <RoundedButton
-      variant="contained"
-      endIcon={<ShareIcon />}
+    <IconButton
+      color="success"
+      size="large"
       onClick={share}
       disabled={!canShare}
+      data-testid="share-button"
     >
-      Share
-    </RoundedButton>
+      <ShareIcon fontSize="large" />
+    </IconButton>
   );
 };
 
 export default ShareButton;
-
-const RoundedButton = styled(Button)`
-  border-radius: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  color: white;
-  font-weight: 700;
-  margin: ${(props) => props.theme.spacing(2)};
-`;

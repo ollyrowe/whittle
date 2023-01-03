@@ -12,6 +12,7 @@ export const colours = {
   darkOrange: "#d38a3a",
   blue: "#8bc1eb",
   darkBlue: "#75ACD6",
+  red: "#d75763",
 };
 
 export const highContrastColours = {
