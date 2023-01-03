@@ -8,7 +8,7 @@ describe("Share", () => {
 
     cy.getByTestID("statistics-button").click();
 
-    cy.get("button").contains("Share").should("be.disabled");
+    cy.getByTestID("share-button").should("be.disabled");
 
     cy.getByTestID("statistics-modal").find("[aria-label=close]").click();
 
@@ -24,9 +24,9 @@ describe("Share", () => {
 
     cy.getByTestID("statistics-button").click();
 
-    cy.get("button").contains("Share").should("be.enabled");
+    cy.getByTestID("share-button").should("be.enabled");
 
-    cy.get("button").contains("Share").click();
+    cy.getByTestID("share-button").click();
 
     // Check that the share method was called with the correct parameters
     cy.get("@share").then((share: any) => {
@@ -49,7 +49,7 @@ describe("Share", () => {
 
     cy.getByTestID("statistics-button").click();
 
-    cy.get("button").contains("Share").should("be.disabled");
+    cy.getByTestID("share-button").should("be.disabled");
   });
 });
 

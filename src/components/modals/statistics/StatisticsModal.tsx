@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { Typography } from "@mui/material";
 import Modal from "../Modal";
 import StreakDisplay from "./StreakDisplay";
-import ShareButton from "./ShareButton";
+import SupportButton from "./buttons/SupportButton";
+import ShareButton from "./buttons/ShareButton";
+import TwitterButton from "./buttons/TwitterButton";
 import { useNextGameTimer } from "../../../hooks/useNextGameTimer";
 
 interface Props {
@@ -30,7 +32,9 @@ const StatisticsModal: React.FC<Props> = ({ open, onClose }) => {
           {timeUntilNextGame}
         </NextGameSection>
         <ButtonContainer>
+          <SupportButton />
           <ShareButton />
+          <TwitterButton />
         </ButtonContainer>
       </Container>
     </Modal>

@@ -35,10 +35,20 @@ export const createLightTheme = (enableHighContrast: boolean) => {
       text: {
         primary: colours.grey,
       },
+      success: {
+        main: colours.green,
+        light: colours.green,
+        dark: colours.darkGreen,
+      },
       info: {
         main: colours.blue,
         light: colours.blue,
         dark: colours.darkBlue,
+      },
+      warning: {
+        main: colours.red,
+        light: colours.red,
+        dark: colours.red,
       },
       tile: {
         default: colours.lighterGrey,
@@ -71,10 +81,20 @@ export const createDarkTheme = (enableHighContrast: boolean) => {
       text: {
         primary: colours.white,
       },
+      success: {
+        main: colours.darkGreen,
+        light: colours.green,
+        dark: colours.darkGreen,
+      },
       info: {
         main: colours.darkBlue,
         light: colours.blue,
         dark: colours.darkBlue,
+      },
+      warning: {
+        main: colours.red,
+        light: colours.red,
+        dark: colours.red,
       },
       tile: {
         default: colours.lightGrey,
