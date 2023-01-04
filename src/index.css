@@ -18,6 +18,14 @@ body {
   src: url(./fonts/Quicksand-Regular.ttf);
 }
 
+@font-face {
+  font-family: Quicksand;
+  font-style: normal;
+  font-display: block;
+  font-weight: 700;
+  src: url(./fonts/Quicksand-SemiBold.ttf);
+}
+
 @media only screen and (min-width: 769px) {
   html {
     overflow: overlay !important;
