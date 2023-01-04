@@ -1,3 +1,10 @@
+# [1.35.0](https://github.com/ollyrowe/whittle/compare/v1.34.1...v1.35.0) (2023-01-04)
+
+
+### Features
+
+* add adsense script ([f1aa5d2](https://github.com/ollyrowe/whittle/commit/f1aa5d2ae02d2799295ef98e15d4d0487c5db791))
+
 ## [1.34.1](https://github.com/ollyrowe/whittle/compare/v1.34.0...v1.34.1) (2023-01-04)
 
 
