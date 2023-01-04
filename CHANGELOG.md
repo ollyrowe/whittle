@@ -1,3 +1,11 @@
+## [1.34.1](https://github.com/ollyrowe/whittle/compare/v1.34.0...v1.34.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* fix ios font issue ([c32368a](https://github.com/ollyrowe/whittle/commit/c32368a1630a32d99bcf90fc67db6f1a34f85e33))
+* fix ios scroll issue ([fd6016c](https://github.com/ollyrowe/whittle/commit/fd6016c40b2b9064b7a56bf57ee9d478781ec56c))
+
 # [1.34.0](https://github.com/ollyrowe/whittle/compare/v1.33.2...v1.34.0) (2023-01-03)
 
 
