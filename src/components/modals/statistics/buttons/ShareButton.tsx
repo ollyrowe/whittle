@@ -30,11 +30,11 @@ const ShareButton: React.FC = () => {
       // Check that this isn't currently the test environment
       if (!(window as any).Cypress) {
         // Create a screenshot of the board's DOM
-        blob = await toBlob(boardRef.current, {
+        blob = await doToBlob(boardRef.current, {
           cacheBust: true,
           backgroundColor: theme.palette.background.default,
           // Remove the reset button
-          filter: (node) => node.tagName !== "BUTTON",
+          filter: (node: HTMLElement) => node.tagName !== "BUTTON",
         });
       }
 
@@ -63,3 +63,17 @@ const ShareButton: React.FC = () => {
 };
 
 export default ShareButton;
+
+/**
+ * Calls the html-to-image toBlob method.
+ *
+ * This call is made several times to implement the fix outlined within the issue below.
+ *
+ * https://github.com/tsayen/dom-to-image/issues/343#issuecomment-685428224
+ */
+const doToBlob = async (node: HTMLDivElement, options: any) => {
+  await toBlob(node, options);
+  await toBlob(node, options);
+
+  return toBlob(node, options);
+};
