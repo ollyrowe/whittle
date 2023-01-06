@@ -1,3 +1,10 @@
+## [1.36.1](https://github.com/ollyrowe/whittle/compare/v1.36.0...v1.36.1) (2023-01-06)
+
+
+### Bug Fixes
+
+* fix text display issue within ios image share ([0a6f1f2](https://github.com/ollyrowe/whittle/commit/0a6f1f2e6c462040065b9d1fb6a3b84a3307594d))
+
 # [1.36.0](https://github.com/ollyrowe/whittle/compare/v1.35.0...v1.36.0) (2023-01-06)
 
 
