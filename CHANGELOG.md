@@ -1,3 +1,10 @@
+# [1.36.0](https://github.com/ollyrowe/whittle/compare/v1.35.0...v1.36.0) (2023-01-06)
+
+
+### Features
+
+* update support link ([a443337](https://github.com/ollyrowe/whittle/commit/a44333798f5ccd13d8d9f46b977d834970e9fa83))
+
 # [1.35.0](https://github.com/ollyrowe/whittle/compare/v1.34.1...v1.35.0) (2023-01-04)
 
 
