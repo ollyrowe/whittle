@@ -1,3 +1,10 @@
+# [1.37.0](https://github.com/ollyrowe/whittle/compare/v1.36.1...v1.37.0) (2023-01-07)
+
+
+### Features
+
+* add option to hide letters from shared board ([1cecb5e](https://github.com/ollyrowe/whittle/commit/1cecb5ebc0a8a2a58548a2e705a5d3e9a1de69b2))
+
 ## [1.36.1](https://github.com/ollyrowe/whittle/compare/v1.36.0...v1.36.1) (2023-01-06)
 
 
