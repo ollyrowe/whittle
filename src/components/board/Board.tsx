@@ -2,14 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { alpha } from "@mui/material";
 import { useGameContext } from "../providers/GameProvider";
+import { useShareContext } from "../providers/ShareProvider";
 import BoardWrapper from "./BoardWrapper";
 import GameTitle from "./GameTitle";
 import ResetButton from "../rack/ResetButton";
 import TileGrid from "./TileGrid";
 
 export const Board: React.FC = () => {
-  const { board, boardRef, number, answer, onReturnTileToRack } =
-    useGameContext();
+  const { board, number, answer, onReturnTileToRack } = useGameContext();
+
+  const { boardRef, tileGridRef } = useShareContext();
 
   return (
     <BoardWrapper ref={boardRef} data-testid="board">
@@ -18,6 +20,7 @@ export const Board: React.FC = () => {
         <FixedResetButton type="icon" disabled={!board.hasLetterTile()} />
       </Header>
       <TileGrid
+        ref={tileGridRef}
         tiles={board.getTiles()}
         disabled={board.isDisabled()}
         tileSize="large"

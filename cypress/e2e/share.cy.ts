@@ -28,6 +28,20 @@ describe("Share", () => {
 
     cy.getByTestID("share-button").click();
 
+    cy.getByTestID("share-modal").should("be.visible");
+
+    cy.getByTestID("share-modal").contains("Show Letters");
+
+    cy.getByTestID("show-letters-toggle")
+      .find("input")
+      .should("not.be.checked");
+
+    cy.getByTestID("show-letters-toggle").find("input").check();
+
+    cy.getByTestID("show-letters-toggle").find("input").should("be.checked");
+
+    cy.getByTestID("confirm-share-button").click();
+
     // Check that the share method was called with the correct parameters
     cy.get("@share").then((share: any) => {
       expect(share).to.have.been.called;
@@ -56,7 +70,7 @@ describe("Share", () => {
 const reloadAndStubShare = () => {
   cy.visit(Cypress.config().baseUrl!, {
     onBeforeLoad: (window) => {
-      const canShare = () => {};
+      const canShare = () => true;
       const share = () => {};
 
       window.navigator.canShare = window.navigator.canShare || canShare;

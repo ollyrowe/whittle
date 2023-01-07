@@ -17,6 +17,9 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
   // Whether the settings modal should be displayed
   const [displaySettings, setDisplaySettings] = useState(false);
 
+  // Whether the share modal should be displayed
+  const [displayShare, setDisplayShare] = useState(false);
+
   const openHowToPlay = () => {
     setDisplayHowToPlay(true);
   };
@@ -49,6 +52,14 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
     setDisplaySettings(false);
   };
 
+  const openShare = () => {
+    setDisplayShare(true);
+  };
+
+  const closeShare = () => {
+    setDisplayShare(false);
+  };
+
   const controls = {
     displayHowToPlay,
     openHowToPlay,
@@ -62,6 +73,9 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
     displaySettings,
     openSettings,
     closeSettings,
+    displayShare,
+    openShare,
+    closeShare,
   };
 
   return (
@@ -84,6 +98,9 @@ interface ModalControls {
   displaySettings: boolean;
   openSettings: () => void;
   closeSettings: () => void;
+  displayShare: boolean;
+  openShare: () => void;
+  closeShare: () => void;
 }
 
 export const ModalContext = React.createContext<ModalControls>({
@@ -99,6 +116,9 @@ export const ModalContext = React.createContext<ModalControls>({
   displaySettings: false,
   openSettings: () => {},
   closeSettings: () => {},
+  displayShare: false,
+  openShare: () => {},
+  closeShare: () => {},
 });
 
 export const useModalContext = () => {

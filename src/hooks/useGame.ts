@@ -1,4 +1,4 @@
-import { createRef, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Board } from "../model/Board";
 import { Rack } from "../model/Rack";
 import { Tile } from "../model/Tile";
@@ -25,7 +25,6 @@ export interface Game {
   onSwapTiles: (firstTile: Tile, secondTile: Tile) => void;
   onReturnTileToRack: (tile: Tile) => void;
   reset: () => void;
-  boardRef: React.RefObject<HTMLDivElement>;
   confetti: ConfettiControls;
 }
 
@@ -62,9 +61,6 @@ export const useGame = (settings: SettingsOptions): Game => {
 
   // Confetti firing controls
   const confetti = useConfetti();
-
-  // Ref to be bound to the board component
-  const boardRef = createRef<HTMLDivElement>();
 
   // Whether this is the first render
   const isFirstRender = useFirstRender();
@@ -358,7 +354,6 @@ export const useGame = (settings: SettingsOptions): Game => {
     onSwapTiles,
     onReturnTileToRack,
     reset,
-    boardRef,
     confetti,
   };
 };
