@@ -10,30 +10,27 @@ interface Props {
   onDoubleClickTile?: (tile: TileModel) => void;
 }
 
-export const TileGrid: React.FC<Props> = ({
-  tiles,
-  tileSize,
-  disabled,
-  onDoubleClickTile,
-}) => {
-  return (
-    <Grid data-testid="tile-grid">
-      {tiles.map((tile) => (
-        <Tile
-          key={tile.getID()}
-          state={tile.getState()}
-          id={tile.getID()}
-          letter={tile.getLetter()}
-          draggable={tile.isDraggable() && !disabled}
-          disabled={tile.isDisabled() || disabled}
-          size={tileSize}
-          onDoubleClick={() => onDoubleClickTile && onDoubleClickTile(tile)}
-          hasPlaceholder
-        />
-      ))}
-    </Grid>
-  );
-};
+const TileGrid = React.forwardRef<HTMLDivElement, Props>(
+  ({ tiles, tileSize, disabled, onDoubleClickTile }, ref) => {
+    return (
+      <Grid ref={ref} data-testid="tile-grid">
+        {tiles.map((tile) => (
+          <Tile
+            key={tile.getID()}
+            state={tile.getState()}
+            id={tile.getID()}
+            letter={tile.getLetter()}
+            draggable={tile.isDraggable() && !disabled}
+            disabled={tile.isDisabled() || disabled}
+            size={tileSize}
+            onDoubleClick={() => onDoubleClickTile && onDoubleClickTile(tile)}
+            hasPlaceholder
+          />
+        ))}
+      </Grid>
+    );
+  }
+);
 
 export default TileGrid;
 

@@ -28,7 +28,6 @@ const mockGame: Game = {
     toggleHints: () => {},
   },
   completedGames: [],
-  boardRef: createRef(),
   confetti: {
     canvasProps: {
       refConfetti: () => {},

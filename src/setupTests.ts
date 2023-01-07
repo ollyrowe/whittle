@@ -34,3 +34,8 @@ Object.defineProperty(global, "matchMedia", {
   writable: true,
   value: matchMedia,
 });
+
+Object.defineProperty(global.URL, "createObjectURL", {
+  writable: true,
+  value: () => "",
+});
