@@ -11,6 +11,10 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
