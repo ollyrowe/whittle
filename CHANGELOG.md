@@ -1,3 +1,10 @@
+# [1.38.0](https://github.com/ollyrowe/whittle/compare/v1.37.0...v1.38.0) (2023-01-08)
+
+
+### Features
+
+* revert support link to use ko-fi ([56c13ac](https://github.com/ollyrowe/whittle/commit/56c13aceda4f7285aa9ed4f1def39a50a4325e6a))
+
 # [1.37.0](https://github.com/ollyrowe/whittle/compare/v1.36.1...v1.37.0) (2023-01-07)
 
 
