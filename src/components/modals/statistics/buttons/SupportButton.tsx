@@ -4,7 +4,7 @@ import { Favorite as FavoriteIcon } from "@mui/icons-material";
 
 const SupportButton: React.FC = () => {
   const openSupportPage = () => {
-    window.open("https://www.buymeacoffee.com/whittle", "_blank");
+    window.open("https://ko-fi.com/whittle", "_blank");
   };
 
   return (
