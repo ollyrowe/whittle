@@ -1,4 +1,4 @@
-import React, { createRef } from "react";
+import React from "react";
 import { render } from "@testing-library/react";
 import GameProvider from "./GameProvider";
 import { Board } from "../../model/Board";
@@ -18,6 +18,13 @@ const mockGame: Game = {
   onSwapTiles: () => {},
   onReturnTileToRack: () => {},
   reset: () => {},
+  timer: {
+    text: "",
+    timeLapsed: 0,
+    start: () => {},
+    pause: () => {},
+    reset: () => {},
+  },
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),

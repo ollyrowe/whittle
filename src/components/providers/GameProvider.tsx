@@ -198,6 +198,13 @@ export const GameContext = React.createContext<Game>({
   onSwapTiles: () => {},
   onReturnTileToRack: () => {},
   reset: () => {},
+  timer: {
+    text: "",
+    timeLapsed: 0,
+    start: () => {},
+    pause: () => {},
+    reset: () => {},
+  },
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),
