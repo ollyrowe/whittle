@@ -47,7 +47,7 @@ export const useConditionTimer = (condition: boolean, period: number) => {
  * @param milliseconds - the number of milliseconds in the future.
  * @returns the future date and time.
  */
-const getTimeInFuture = (milliseconds: number) => {
+export const getTimeInFuture = (milliseconds: number) => {
   const currentTime = new Date();
 
   currentTime.setMilliseconds(currentTime.getMilliseconds() + milliseconds);

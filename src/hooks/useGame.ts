@@ -6,6 +6,7 @@ import { gameWinSound, tilePlaceSound } from "../misc/sounds";
 import { SettingsOptions } from "./useSettings";
 import { useConfetti, ConfettiControls } from "./useConfetti";
 import { useFirstRender } from "./useFirstRender";
+import { useTimer, Timer } from "./useTimer";
 import { CompletedGame, GameLoader } from "../model/game/GameLoader";
 import { DateUtils } from "../model/utils/DateUtils";
 import { Answer } from "../model/answers/AnswerValidator";
@@ -15,6 +16,7 @@ import { useModalContext } from "../components/providers/ModalProvider";
 export interface Game {
   number: number;
   date: Date;
+  timer: Timer;
   board: Board;
   rack: Rack;
   answer: Answer;
@@ -44,6 +46,9 @@ export const useGame = (settings: SettingsOptions): Game => {
 
   // Today's game date
   const [date, setDate] = useState(loadedGame.date);
+
+  // Timer used to track the time taken to complete the game
+  const timer = useTimer(loadedGame.timeLapsed);
 
   // Today's game answer
   const [answer, setAnswer] = useState(loadedGame.answer);
@@ -143,7 +148,9 @@ export const useGame = (settings: SettingsOptions): Game => {
     setAnswer(game.answer);
     setBoard(game.board);
     setRack(game.rack);
-  }, [settings.enableHardMode]);
+
+    timer.reset();
+  }, [settings.enableHardMode, timer]);
 
   const enableBoardTiles = useCallback(() => {
     setBoard((board) => {
@@ -176,11 +183,15 @@ export const useGame = (settings: SettingsOptions): Game => {
         // Infer the game mode from the settings
         const mode = settings.enableHardMode ? "hard" : "normal";
         // Save the completed game
-        saveCompletedGame(new CompletedGame(number, date, board, mode));
+        saveCompletedGame(
+          new CompletedGame(number, date, board, mode, timer.timeLapsed)
+        );
       }
 
       // Play the game win sound effect
       playSound(gameWinSound);
+      // Stop the timer
+      timer.pause();
       // Disable the board
       board.disable();
       // Display the game statistics
@@ -197,6 +208,7 @@ export const useGame = (settings: SettingsOptions): Game => {
       playSound,
       confetti.fire,
       modals,
+      timer,
     ]
   );
 
@@ -261,17 +273,26 @@ export const useGame = (settings: SettingsOptions): Game => {
         }
       }
 
+      // If the board no longer has any letters placed
+      if (!updatedBoard.hasLetterTile()) {
+        // Pause the timer
+        timer.pause();
+      } else {
+        // Otherwise, ensure the timer has been started
+        timer.start();
+      }
+
       setBoard(updatedBoard);
       setRack(updatedRack);
     }
-  }, [board, rack, answer, handleWin, displayHint]);
+  }, [board, timer, rack, answer, handleWin, displayHint]);
 
   /**
    * Upon any changes to the board and rack, save the game.
    */
   useEffect(() => {
-    GameLoader.saveGame(number, date, board, rack);
-  }, [number, date, board, rack]);
+    GameLoader.saveGame(number, date, timer.timeLapsed, board, rack);
+  }, [number, date, timer, board, rack]);
 
   /**
    * Effect which handles the last visited local storage state.
@@ -354,6 +375,7 @@ export const useGame = (settings: SettingsOptions): Game => {
     onSwapTiles,
     onReturnTileToRack,
     reset,
+    timer,
     confetti,
   };
 };

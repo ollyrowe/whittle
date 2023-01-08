@@ -25,7 +25,7 @@ export class GameLoader {
    * @param enableHardMode - whether only the solution board tiles should be enabled.
    * @returns the loaded game state.
    */
-  public static loadGame(enableHardMode: boolean) {
+  public static loadGame(enableHardMode: boolean): LoadedGame {
     const savedGame = GameLoader.getSavedGame();
 
     const todaysGame = GameLoader.getTodaysGame(enableHardMode);
@@ -39,15 +39,25 @@ export class GameLoader {
   }
 
   /**
-   * Save the current progress of a game within the user's local storage.
+   * Saves the current progress of a game within the user's local storage.
    *
+   * @param number - the number of the game being saved.
+   * @param date - the date of the game being saved.
+   * @param timeLapsed - the number of seconds currently lapsed in the game being saved.
    * @param board - the board to be saved.
    * @param rack - the rack to be saved.
    */
-  public static saveGame(number: number, date: Date, board: Board, rack: Rack) {
+  public static saveGame(
+    number: number,
+    date: Date,
+    timeLapsed: number,
+    board: Board,
+    rack: Rack
+  ) {
     // Save the game state to local storage
     localStorage.setItem(GAME_NUMBER_LS_KEY, JSON.stringify(number));
     localStorage.setItem(GAME_DATE_LS_KEY, JSON.stringify(date));
+    localStorage.setItem(TIME_LAPSED_LS_KEY, JSON.stringify(timeLapsed));
     localStorage.setItem(BOARD_LS_KEY, JSON.stringify(instanceToPlain(board)));
     localStorage.setItem(RACK_LS_KEY, JSON.stringify(instanceToPlain(rack)));
   }
@@ -188,12 +198,20 @@ export class GameLoader {
   private static getSavedGame() {
     const gameNumberItem = localStorage.getItem(GAME_NUMBER_LS_KEY);
     const gameDateItem = localStorage.getItem(GAME_DATE_LS_KEY);
+    const timeLapsedItem = localStorage.getItem(TIME_LAPSED_LS_KEY);
     const boardItem = localStorage.getItem(BOARD_LS_KEY);
     const rackItem = localStorage.getItem(RACK_LS_KEY);
 
-    if (gameNumberItem && gameDateItem && boardItem && rackItem) {
+    if (
+      gameNumberItem &&
+      gameDateItem &&
+      timeLapsedItem &&
+      boardItem &&
+      rackItem
+    ) {
       const gameNumber: number = JSON.parse(gameNumberItem);
       const gameDate: string = JSON.parse(gameDateItem);
+      const timeLapsed: number = JSON.parse(timeLapsedItem);
       const board: unknown = JSON.parse(boardItem);
       const rack: unknown = JSON.parse(rackItem);
       const date = new Date(gameDate);
@@ -201,6 +219,7 @@ export class GameLoader {
       return {
         date,
         number: gameNumber,
+        timeLapsed,
         board: plainToInstance(Board, board),
         rack: plainToInstance(Rack, rack),
         answer: GameLoader.getAnswer(date),
@@ -227,19 +246,39 @@ export class CompletedGame {
 
   public mode: GameMode;
 
-  constructor(number: number, date: Date, board: Board, mode: GameMode) {
+  /** The number of seconds taken to complete the game */
+  public timeTaken?: number;
+
+  constructor(
+    number: number,
+    date: Date,
+    board: Board,
+    mode: GameMode,
+    timeTaken: number
+  ) {
     this.number = number;
     this.date = date;
     this.board = board;
     this.mode = mode;
+    this.timeTaken = timeTaken;
   }
 }
 
 type GameMode = "normal" | "hard";
 
+interface LoadedGame {
+  date: Date;
+  number: number;
+  timeLapsed?: number;
+  board: Board;
+  rack: Rack;
+  answer: Answer;
+}
+
 // Local storage keys to support saving of game state between sessions
 const GAME_NUMBER_LS_KEY = "game-number";
 const GAME_DATE_LS_KEY = "game-date";
+const TIME_LAPSED_LS_KEY = "time-lapsed";
 const BOARD_LS_KEY = "board";
 const RACK_LS_KEY = "rack";
 const COMPLETED_GAMES_LS_KEY = "completed-games";
