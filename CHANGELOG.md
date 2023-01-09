@@ -1,3 +1,16 @@
+# [1.39.0](https://github.com/ollyrowe/whittle/compare/v1.38.0...v1.39.0) (2023-01-09)
+
+
+### Bug Fixes
+
+* prevent showing stat cards before completing game ([a2f2b45](https://github.com/ollyrowe/whittle/commit/a2f2b459c5f86f2802f111170a7d0990a5571c71))
+* reduce the size of the streak display ([671d88b](https://github.com/ollyrowe/whittle/commit/671d88bbc427d6dbe639cd5344df5e19fba17e14))
+
+
+### Features
+
+* add game timer ([79d2f8f](https://github.com/ollyrowe/whittle/commit/79d2f8f91ac001014ba36079c01a0392ded933a1))
+
 # [1.38.0](https://github.com/ollyrowe/whittle/compare/v1.37.0...v1.38.0) (2023-01-08)
 
 
