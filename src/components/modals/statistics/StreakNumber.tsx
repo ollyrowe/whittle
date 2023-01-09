@@ -60,18 +60,18 @@ const Container = styled.div<ContainerProps>`
 `;
 
 const Fire = styled(FireAnimation)`
-  width: 86px;
-  height: 86px;
+  width: 80px;
+  height: 80px;
 `;
 
 const Numbers = styled.div`
   display: flex;
   position: absolute;
-  top: 24px;
+  top: 22px;
   left: 50%;
   transform: translate(-50%);
   font-weight: 600;
-  font-size: 32px;
+  font-size: 30px;
   color: white;
   -webkit-text-stroke: 1px;
 `;

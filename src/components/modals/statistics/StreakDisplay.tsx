@@ -110,9 +110,9 @@ const Container = styled.div`
 const StreakText = styled.div`
   color: ${(props) => props.theme.palette.orange.default};
   font-weight: 600;
-  font-size: 28px;
-  margin-top: -8px;
-  margin-bottom: 12px;
+  font-size: 27px;
+  margin-top: -10px;
+  margin-bottom: 8px;
 `;
 
 const ContinueStreakText = styled.div`
