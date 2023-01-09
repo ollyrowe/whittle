@@ -61,17 +61,19 @@ const NextGameSection = styled.div`
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
+  font-size: 15px;
 `;
 
 const CardContainer = styled.div`
   display: flex;
-  margin-top: 12px;
   align-self: center;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 `;
 
 const TimeText = styled(Typography)`

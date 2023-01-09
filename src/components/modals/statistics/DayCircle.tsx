@@ -42,9 +42,10 @@ const Circle = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${(props) => (props.type === "complete" ? "29px" : "35px")};
-  height: ${(props) => (props.type === "complete" ? "29px" : "35px")};
-  margin: ${(props) => props.type === "complete" && "4px"};
+  width: ${(props) => width[props.type]};
+  height: 27px;
+  padding: ${(props) => padding[props.type]};
+  margin: ${(props) => margin[props.type]};
   background-color: ${(props) =>
     props.formsStreak
       ? props.theme.palette.orange.default
@@ -60,6 +61,27 @@ const borderRadius: Record<CircleType, string> = {
   middle: "0px",
 };
 
+const padding: Record<CircleType, string> = {
+  complete: "0px",
+  "left-end": "0px 4px 0px 4px",
+  "right-end": "0px 4px 0px 4px",
+  middle: "0px 4px",
+};
+
+const margin: Record<CircleType, string> = {
+  complete: "0px 4px",
+  "left-end": "0px 0px 0px 4px",
+  "right-end": "0px 4px 0px 0px",
+  middle: "0px",
+};
+
+const width: Record<CircleType, string> = {
+  complete: "27px",
+  "left-end": "31px",
+  "right-end": "31px",
+  middle: "35px",
+};
+
 interface TickProps {
   $hasContrastText: boolean;
 }
@@ -69,17 +91,17 @@ const Tick = styled(DoneIcon)<TickProps>`
   stroke: ${(props) =>
     props.$hasContrastText ? "white" : props.theme.palette.text.disabled};
   stroke-width: 2;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const Cross = styled(CloseIcon)`
   color: transparent;
   stroke: ${(props) => props.theme.palette.text.disabled};
   stroke-width: 2;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 const Dot = styled(DotIcon)`
   color: ${(props) => props.theme.palette.text.disabled};
-  font-size: 8px;
+  font-size: 6px;
 `;
