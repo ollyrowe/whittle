@@ -25,20 +25,21 @@ const SettingsModal: React.FC = () => {
 
   const theme = useTheme();
 
-  // Whether the enable hard mode confirmation dialog should be displayed
-  const [displayConfirmHardMode, setDisplayConfirmHardMode] = useState(false);
+  // Whether the enable restricted mode confirmation dialog should be displayed
+  const [displayConfirmRestrictedMode, setDisplayConfirmRestrictedMode] =
+    useState(false);
 
-  const onToggleHardMode = () => {
-    // If hard mode is about to be enabled and there is a letter on the board
-    if (!settings.enableHardMode && board.hasLetterTile()) {
-      setDisplayConfirmHardMode(true);
+  const onToggleRestrictedMode = () => {
+    // If restricted mode is about to be enabled and there is a letter on the board
+    if (!settings.enableRestrictedMode && board.hasLetterTile()) {
+      setDisplayConfirmRestrictedMode(true);
     } else {
-      settings.toggleHardMode();
+      settings.toggleRestrictedMode();
     }
   };
 
-  const confirmEnableHardMode = () => {
-    settings.toggleHardMode();
+  const confirmEnableRestrictedMode = () => {
+    settings.toggleRestrictedMode();
     // Close the confirmation dialog
     closeConfirmationDialog();
     // Close the settings modal
@@ -46,14 +47,14 @@ const SettingsModal: React.FC = () => {
   };
 
   const closeConfirmationDialog = () => {
-    setDisplayConfirmHardMode(false);
+    setDisplayConfirmRestrictedMode(false);
   };
 
   return (
     <>
       <Modal
         title="Settings"
-        open={displaySettings && !displayConfirmHardMode}
+        open={displaySettings && !displayConfirmRestrictedMode}
         onClose={closeSettings}
         aria-describedby="settings"
         data-testid="settings-modal"
@@ -61,17 +62,17 @@ const SettingsModal: React.FC = () => {
         <List id="settings">
           <ListItem disableGutters>
             <ListItemText
-              id="hard-mode-label"
-              primary="Hard Mode"
+              id="restricted-mode-label"
+              primary="Restricted Mode"
               secondary="Disables part of the board"
             />
             <Switch
               edge="end"
-              checked={settings.enableHardMode}
-              onChange={onToggleHardMode}
-              inputProps={{ "aria-labelledby": "hard-mode-label" }}
+              checked={settings.enableRestrictedMode}
+              onChange={onToggleRestrictedMode}
+              inputProps={{ "aria-labelledby": "restricted-mode-label" }}
               disabled={board.isDisabled()}
-              data-testid="hard-mode-toggle"
+              data-testid="restricted-mode-toggle"
             />
           </ListItem>
           <Divider />
@@ -146,9 +147,9 @@ const SettingsModal: React.FC = () => {
       </Modal>
       <ConfirmationDialog
         title="Confirm reset board"
-        text="Enabling hard mode will reset the board, are you sure?"
-        open={displayConfirmHardMode}
-        onConfirm={confirmEnableHardMode}
+        text="Enabling restricted mode will reset the board, are you sure?"
+        open={displayConfirmRestrictedMode}
+        onConfirm={confirmEnableRestrictedMode}
         onReject={closeConfirmationDialog}
       />
     </>
