@@ -38,7 +38,7 @@ export interface Game {
 export const useGame = (settings: SettingsOptions): Game => {
   // Load the current game
   const [loadedGame, setLoadedGame] = useState(
-    GameLoader.loadGame(settings.enableHardMode)
+    GameLoader.loadGame(settings.enableRestrictedMode)
   );
 
   // Today's game number
@@ -140,7 +140,7 @@ export const useGame = (settings: SettingsOptions): Game => {
    * Resets the game.
    */
   const reset = useCallback(() => {
-    const game = GameLoader.getTodaysGame(settings.enableHardMode);
+    const game = GameLoader.getTodaysGame(settings.enableRestrictedMode);
 
     setLoadedGame(game);
     setNumber(game.number);
@@ -150,7 +150,7 @@ export const useGame = (settings: SettingsOptions): Game => {
     setRack(game.rack);
 
     timer.reset();
-  }, [settings.enableHardMode, timer]);
+  }, [settings.enableRestrictedMode, timer]);
 
   const enableBoardTiles = useCallback(() => {
     setBoard((board) => {
@@ -181,7 +181,7 @@ export const useGame = (settings: SettingsOptions): Game => {
         !completedGames.find((game) => DateUtils.isSameDay(game.date, date))
       ) {
         // Infer the game mode from the settings
-        const mode = settings.enableHardMode ? "hard" : "normal";
+        const mode = settings.enableRestrictedMode ? "restricted" : "normal";
         // Save the completed game
         saveCompletedGame(
           new CompletedGame(number, date, board, mode, timer.timeLapsed)
@@ -201,7 +201,7 @@ export const useGame = (settings: SettingsOptions): Game => {
     },
     [
       completedGames,
-      settings.enableHardMode,
+      settings.enableRestrictedMode,
       number,
       date,
       saveCompletedGame,
@@ -347,20 +347,20 @@ export const useGame = (settings: SettingsOptions): Game => {
   }, [reset]);
 
   /**
-   * Effect which which handles changes to the hard mode setting.
+   * Effect which which handles changes to the restricted mode setting.
    */
   useEffect(() => {
     // Avoid resetting the board on initial render
     if (!isFirstRender) {
-      // If hard mode has been enabled
-      if (settings.enableHardMode) {
+      // If restricted mode has been enabled
+      if (settings.enableRestrictedMode) {
         reset();
       } else {
         enableBoardTiles();
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [settings.enableHardMode]);
+  }, [settings.enableRestrictedMode]);
 
   return {
     number,

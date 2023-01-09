@@ -1,17 +1,17 @@
 import { getTodaysSolutionLetters } from "../support/utils";
 
-describe("Hard Mode", () => {
+describe("Restricted Mode", () => {
   beforeEach(() => {
     cy.getByTestID("settings-button").click();
 
-    // Enable hard mode
-    cy.getByTestID("hard-mode-toggle").find("input").check();
+    // Enable restricted mode
+    cy.getByTestID("restricted-mode-toggle").find("input").check();
 
     cy.getByTestID("settings-modal").find("[aria-label=close]").click();
   });
 
   it("enables only the tiles which form part of the solution", () => {
-    checkHardModeBoard();
+    checkRestrictedModeBoard();
   });
 
   it("prevents user from dragging letters onto disabled tiles", () => {
@@ -38,7 +38,7 @@ describe("Hard Mode", () => {
     }
   });
 
-  it("wins a game in hard mode", () => {
+  it("wins a game in restricted mode", () => {
     cy.getByTestID("statistics-modal").should("not.exist");
 
     getTodaysSolutionLetters().forEach(({ letter, location }) => {
@@ -59,11 +59,11 @@ describe("Hard Mode", () => {
 
     cy.reload();
 
-    checkHardModeBoard();
+    checkRestrictedModeBoard();
   });
 });
 
-const checkHardModeBoard = () => {
+const checkRestrictedModeBoard = () => {
   const solutionLetters = getTodaysSolutionLetters();
 
   // Loop through each tile on the board

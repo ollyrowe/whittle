@@ -22,13 +22,13 @@ export class GameLoader {
    *
    * If the user has a local save, then that will be loaded.
    *
-   * @param enableHardMode - whether only the solution board tiles should be enabled.
+   * @param enableRestrictedMode - whether only the solution board tiles should be enabled.
    * @returns the loaded game state.
    */
-  public static loadGame(enableHardMode: boolean): LoadedGame {
+  public static loadGame(enableRestrictedMode: boolean): LoadedGame {
     const savedGame = GameLoader.getSavedGame();
 
-    const todaysGame = GameLoader.getTodaysGame(enableHardMode);
+    const todaysGame = GameLoader.getTodaysGame(enableRestrictedMode);
 
     // If there is a saved game and is for today's game, return it
     if (savedGame && savedGame.number === todaysGame.number) {
@@ -80,18 +80,18 @@ export class GameLoader {
   /**
    * Gets today's game.
    *
-   * @param enableHardMode - whether only the solution board tiles should be enabled.
+   * @param enableRestrictedMode - whether only the solution board tiles should be enabled.
    * @returns today's game state.
    */
-  public static getTodaysGame(enableHardMode: boolean) {
+  public static getTodaysGame(enableRestrictedMode: boolean) {
     const date = new Date();
     const number = GameLoader.getGameNumber(date);
     const answer = GameLoader.getAnswer(date);
     const rack = new Rack(AnswerParser.createRackTiles(answer));
     const board = new Board();
 
-    // If hard mode is enabled, enable only the solution tiles
-    if (enableHardMode) {
+    // If restricted mode is enabled, enable only the solution tiles
+    if (enableRestrictedMode) {
       board.enableSolutionTilesOnly(answer);
     }
 
@@ -264,7 +264,7 @@ export class CompletedGame {
   }
 }
 
-type GameMode = "normal" | "hard";
+type GameMode = "normal" | "restricted";
 
 interface LoadedGame {
   date: Date;
