@@ -1,3 +1,10 @@
+## [1.39.1](https://github.com/ollyrowe/whittle/compare/v1.39.0...v1.39.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* fix issue where timer would incorrectly run ([ccaa6dc](https://github.com/ollyrowe/whittle/commit/ccaa6dcc05bccd36e1f97a7fde86c92998070006))
+
 # [1.39.0](https://github.com/ollyrowe/whittle/compare/v1.38.0...v1.39.0) (2023-01-09)
 
 
