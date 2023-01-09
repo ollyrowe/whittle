@@ -14,6 +14,7 @@ const TimeCard: React.FC<Props> = ({ time, disabled }) => {
       color="blue"
       icon={<AccessTimeIcon style={{ fontSize: 18 }} />}
       disabled={disabled}
+      data-testid="time-card"
     >
       {disabled ? "-- : --" : time}
     </StatCard>

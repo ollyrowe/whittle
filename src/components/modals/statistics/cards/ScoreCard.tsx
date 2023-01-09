@@ -8,7 +8,12 @@ interface Props {
 
 const ScoreCard: React.FC<Props> = ({ disabled }) => {
   return (
-    <StatCard title="Score" color="green" disabled={disabled}>
+    <StatCard
+      title="Score"
+      color="green"
+      disabled={disabled}
+      data-testid="score-card"
+    >
       <Text>Coming Soon!</Text>
     </StatCard>
   );
