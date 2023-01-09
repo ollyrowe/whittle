@@ -11,6 +11,9 @@ describe("Timer", () => {
       cy.getTileFromBoard(location).should("contain.text", letter);
     });
 
+    // Tick another second to check that the timer isn't still running
+    cy.tick(1000);
+
     cy.getByTestID("statistics-modal").should("be.visible");
 
     cy.getByTestID("statistics-modal")
@@ -25,6 +28,25 @@ describe("Timer", () => {
 
     cy.getByTestID("statistics-button").click();
 
+    cy.getByTestID("statistics-modal")
+      .findByTestID("time-card")
+      .should("contain.text", "Time");
+    cy.getByTestID("statistics-modal")
+      .findByTestID("time-card")
+      .should("contain.text", "00:14");
+
+    /**
+     * Simulate the user clicking away and back onto the application
+     * in order to reproduce an issue to do with the auto pause and
+     * start feature.
+     */
+    cy.window().trigger("blur");
+    cy.window().trigger("focus");
+
+    // Tick 1 second
+    cy.tick(1000);
+
+    // Check that the time still isn't ticking
     cy.getByTestID("statistics-modal")
       .findByTestID("time-card")
       .should("contain.text", "Time");
