@@ -48,7 +48,7 @@ export const useGame = (settings: SettingsOptions): Game => {
   const [date, setDate] = useState(loadedGame.date);
 
   // Timer used to track the time taken to complete the game
-  const timer = useTimer(loadedGame.timeLapsed);
+  const timer = useTimer(loadedGame.timeLapsed, loadedGame.board.isDisabled());
 
   // Today's game answer
   const [answer, setAnswer] = useState(loadedGame.answer);
@@ -191,7 +191,7 @@ export const useGame = (settings: SettingsOptions): Game => {
       // Play the game win sound effect
       playSound(gameWinSound);
       // Stop the timer
-      timer.pause();
+      timer.stop();
       // Disable the board
       board.disable();
       // Display the game statistics

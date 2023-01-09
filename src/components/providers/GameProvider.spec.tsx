@@ -23,6 +23,7 @@ const mockGame: Game = {
     timeLapsed: 0,
     start: () => {},
     pause: () => {},
+    stop: () => {},
     reset: () => {},
   },
   settings: {

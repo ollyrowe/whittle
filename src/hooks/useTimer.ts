@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useStopwatch } from "react-timer-hook";
 import { getTimeInFuture } from "./useConditionTimer";
 import { useDocumentEventListener } from "./useDocumentEventListener";
@@ -7,13 +7,16 @@ import { useDocumentEventListener } from "./useDocumentEventListener";
  * Hook which returns a timer.
  *
  * @param startTime - the initial time lapsed value.
+ * @param isStopped - the initial stopped state.
  * @returns the timer state and controls.
  */
-export const useTimer = (startTime = 0): Timer => {
+export const useTimer = (startTime = 0, isStopped = false): Timer => {
   const stopwatch = useStopwatch({
     offsetTimestamp: getTimeInFuture(startTime * 1000),
     autoStart: false,
   });
+
+  const [stopped, setStopped] = useState(isStopped);
 
   const { seconds, minutes, hours, isRunning, pause } = stopwatch;
 
@@ -24,17 +27,27 @@ export const useTimer = (startTime = 0): Timer => {
   }, [isRunning, stopwatch]);
 
   const reset = () => {
+    setStopped(false);
+
     stopwatch.reset(new Date(), false);
+  };
+
+  const stop = () => {
+    setStopped(true);
+
+    pause();
   };
 
   /**
    * If the user navigates away from the page, pause the timer.
    */
-  useDocumentEventListener("visibilitychange", (e) => {
-    if (document.visibilityState === "visible") {
-      start();
-    } else {
-      pause();
+  useDocumentEventListener("visibilitychange", () => {
+    if (!stopped) {
+      if (document.visibilityState === "visible") {
+        start();
+      } else {
+        pause();
+      }
     }
   });
 
@@ -42,7 +55,7 @@ export const useTimer = (startTime = 0): Timer => {
 
   const timeLapsed = seconds + minutes * 60 + hours * 60 * 60;
 
-  return { text, timeLapsed, start, pause, reset };
+  return { text, timeLapsed, start, pause, stop, reset };
 };
 
 const getTimeString = (hours: number, minutes: number, seconds: number) => {
@@ -61,5 +74,6 @@ export interface Timer {
   timeLapsed: number;
   start: () => void;
   pause: () => void;
+  stop: () => void;
   reset: () => void;
 }
