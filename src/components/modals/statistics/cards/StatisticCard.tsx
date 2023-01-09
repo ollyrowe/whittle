@@ -17,6 +17,7 @@ const StatisticCard: React.FC<Props> = ({
   icon,
   color = "default",
   disabled = false,
+  ...otherProps
 }) => {
   const theme = useTheme();
 
@@ -36,7 +37,7 @@ const StatisticCard: React.FC<Props> = ({
   }, [disabled, color, theme]);
 
   return (
-    <Background color={backgroundColour}>
+    <Background color={backgroundColour} {...otherProps}>
       <Title disabled={disabled}>{title}</Title>
       <Container>
         {icon && <Icon>{icon}</Icon>}
