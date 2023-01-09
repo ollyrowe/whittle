@@ -75,6 +75,33 @@ describe("Timer", () => {
       .should("contain.text", "00:01");
   });
 
+  it("stops the timer when the user clicks away from the application", () => {
+    // Tick a second between clicking away from the application and check that timer hasn't incremented
+    getTodaysSolutionLetters().forEach(({ letter, location }) => {
+      // Simulate the user clicking away from the application
+      cy.window().trigger("blur");
+
+      // Tick a second (this shouldn't cause a timer change)
+      cy.tick(1000);
+
+      // Simulate the user clicking back onto the application
+      cy.window().trigger("focus");
+
+      cy.getTileFromRack(letter).placeOnBoard(location);
+
+      cy.getTileFromBoard(location).should("contain.text", letter);
+    });
+
+    cy.getByTestID("statistics-modal").should("be.visible");
+
+    cy.getByTestID("statistics-modal")
+      .findByTestID("time-card")
+      .should("contain.text", "Time");
+    cy.getByTestID("statistics-modal")
+      .findByTestID("time-card")
+      .should("contain.text", "00:00");
+  });
+
   it("resets the timer when resetting the game", () => {
     const solutionLetters = getTodaysSolutionLetters();
 
