@@ -17,8 +17,11 @@ const useSettings = (): SettingsOptions => {
     [settings.themeMode, settings.enableHighContrastMode]
   );
 
-  const toggleHardMode = () => {
-    setSettings({ ...settings, enableHardMode: !settings.enableHardMode });
+  const toggleRestrictedMode = () => {
+    setSettings({
+      ...settings,
+      enableRestrictedMode: !settings.enableRestrictedMode,
+    });
   };
 
   const toggleTheme = () => {
@@ -54,7 +57,7 @@ const useSettings = (): SettingsOptions => {
   return {
     ...settings,
     theme,
-    toggleHardMode,
+    toggleRestrictedMode,
     toggleTheme,
     toggleHighContrastMode,
     toggleSoundFx,
@@ -90,7 +93,7 @@ const updateSettings = (settings: Settings) => {
 
 export const defaultSettings: Settings = {
   themeMode: "system",
-  enableHardMode: false,
+  enableRestrictedMode: false,
   enableHighContrastMode: false,
   enableSoundFx: true,
   enableHints: true,
@@ -101,7 +104,7 @@ const SETTINGS_LS_KEY = "settings";
 
 interface Settings {
   themeMode: ThemeMode;
-  enableHardMode: boolean;
+  enableRestrictedMode: boolean;
   enableHighContrastMode: boolean;
   enableSoundFx: boolean;
   enableHints: boolean;
@@ -109,7 +112,7 @@ interface Settings {
 
 export interface SettingsOptions extends Settings {
   theme: Theme;
-  toggleHardMode: () => void;
+  toggleRestrictedMode: () => void;
   toggleTheme: () => void;
   toggleHighContrastMode: () => void;
   toggleSoundFx: () => void;

@@ -29,7 +29,7 @@ const mockGame: Game = {
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),
-    toggleHardMode: () => {},
+    toggleRestrictedMode: () => {},
     toggleTheme: () => {},
     toggleHighContrastMode: () => {},
     toggleSoundFx: () => {},
