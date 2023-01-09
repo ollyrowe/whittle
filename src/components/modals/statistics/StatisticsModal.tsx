@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import { Typography } from "@mui/material";
 import Modal from "../Modal";
@@ -11,12 +11,22 @@ import ScoreCard from "./cards/ScoreCard";
 import { useNextGameTimer } from "../../../hooks/useNextGameTimer";
 import { useModalContext } from "../../providers/ModalProvider";
 import { useGameContext } from "../../providers/GameProvider";
+import { DateUtils } from "../../../model/utils/DateUtils";
 
 const StatisticsModal = () => {
   // Extract modal state and controls
   const { displayStats, closeStats } = useModalContext();
 
-  const { board, timer } = useGameContext();
+  const { board, timer, completedGames } = useGameContext();
+
+  // Whether the user has completed today's game
+  const hasCompletedTodaysGame = useMemo(() => {
+    const today = new Date();
+
+    return !!completedGames.find((game) =>
+      DateUtils.isSameDay(game.date, today)
+    );
+  }, [completedGames]);
 
   // Time left until the next game is released
   const timeUntilNextGame = useNextGameTimer();
@@ -31,10 +41,12 @@ const StatisticsModal = () => {
     >
       <Container id="statistics">
         <StreakDisplay />
-        <CardContainer>
-          <TimeCard time={timer.text} disabled={!board.isDisabled()} />
-          <ScoreCard disabled={!board.isDisabled()} />
-        </CardContainer>
+        {hasCompletedTodaysGame && (
+          <CardContainer>
+            <TimeCard time={timer.text} disabled={!board.isDisabled()} />
+            <ScoreCard disabled={!board.isDisabled()} />
+          </CardContainer>
+        )}
         <ButtonContainer>
           <ShareButton />
           <SupportButton />
