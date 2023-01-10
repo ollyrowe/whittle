@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useStopwatch } from "react-timer-hook";
 import { getTimeInFuture } from "./useConditionTimer";
-import { useDocumentEventListener } from "./useDocumentEventListener";
+import { useWindowEventListener } from "./useWindowEventListener";
 
 /**
  * Hook which returns a timer.
@@ -41,13 +41,18 @@ export const useTimer = (startTime = 0, isStopped = false): Timer => {
   /**
    * If the user navigates away from the page, pause the timer.
    */
-  useDocumentEventListener("visibilitychange", () => {
+  useWindowEventListener("blur", () => {
     if (!stopped) {
-      if (document.visibilityState === "visible") {
-        start();
-      } else {
-        pause();
-      }
+      pause();
+    }
+  });
+
+  /**
+   * If the user navigates back to the page, start the timer.
+   */
+  useWindowEventListener("focus", () => {
+    if (!stopped) {
+      start();
     }
   });
 
