@@ -22,8 +22,8 @@ const Game: React.FC<Props> = ({ settings }) => {
   const game = useGame(settings);
 
   return (
-    <GameProvider game={game}>
-      <ShareProvider>
+    <ShareProvider>
+      <GameProvider game={game}>
         <Container data-testid="background">
           <AppBar />
           <Board />
@@ -35,8 +35,8 @@ const Game: React.FC<Props> = ({ settings }) => {
         <SettingsModal />
         <ShareModal />
         <CssBaseline enableColorScheme />
-      </ShareProvider>
-    </GameProvider>
+      </GameProvider>
+    </ShareProvider>
   );
 };
 

@@ -18,7 +18,7 @@ interface Props {
 const ShareProvider: React.FC<Props> = ({ children }) => {
   const theme = useTheme();
 
-  const { board, number } = useGameContext();
+  const { number } = useGameContext();
 
   // A preview of the image to be shared
   const [preview, setPreview] = useState(new Blob());
@@ -40,11 +40,9 @@ const ShareProvider: React.FC<Props> = ({ children }) => {
       // Check that sharing is allowed within the current context
       !!navigator.canShare &&
       // Check that the device can actually share images
-      !!navigator.canShare(createShareableContent(number, preview)) &&
-      // Ensure the board is disabled which implies it contains a completed solution
-      board.isDisabled()
+      !!navigator.canShare(createShareableContent(number, preview))
     );
-  }, [number, preview, board]);
+  }, [number, preview]);
 
   /**
    * Function which captures a screenshot of the board as an
@@ -115,10 +113,8 @@ const ShareProvider: React.FC<Props> = ({ children }) => {
    * Effect which automatically creates a share preview.
    */
   useEffect(() => {
-    if (board.isDisabled()) {
-      createPreview();
-    }
-  }, [board, createPreview]);
+    createPreview();
+  }, [createPreview]);
 
   const controls: ShareControls = {
     canShare,
