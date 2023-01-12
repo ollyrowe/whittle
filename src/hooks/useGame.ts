@@ -12,6 +12,7 @@ import { DateUtils } from "../model/utils/DateUtils";
 import { Answer } from "../model/answers/AnswerValidator";
 import { useNotificationContext } from "../components/providers/NotificationProvider";
 import { useModalContext } from "../components/providers/ModalProvider";
+import { useShareContext } from "../components/providers/ShareProvider";
 
 export interface Game {
   number: number;
@@ -72,6 +73,9 @@ export const useGame = (settings: SettingsOptions): Game => {
 
   // Whether the rack should appear as outlined
   const [outlineRack, setOutlineRack] = useState(false);
+
+  // Extract share controls
+  const share = useShareContext();
 
   // Extract modal state and controls
   const modals = useModalContext();
@@ -196,6 +200,8 @@ export const useGame = (settings: SettingsOptions): Game => {
       board.disable();
       // Display the game statistics
       modals.openStats();
+      // Create a share preview
+      share.createPreview();
       // Fire confetti after a short delay
       setTimeout(confetti.fire, 150);
     },
@@ -209,6 +215,7 @@ export const useGame = (settings: SettingsOptions): Game => {
       confetti.fire,
       modals,
       timer,
+      share,
     ]
   );
 
