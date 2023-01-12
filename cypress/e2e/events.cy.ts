@@ -83,12 +83,28 @@ describe("Events", () => {
     cy.getByTestID("board").should("have.text", "Happy Hanukkah!");
   });
 
+  it("Christmas Eve", () => {
+    cy.clock(new Date(2022, 11, 24));
+
+    cy.reload();
+
+    cy.getByTestID("board").should("have.text", "Happy Christmas Eve!");
+  });
+
   it("Christmas", () => {
     cy.clock(new Date(2022, 11, 25));
 
     cy.reload();
 
     cy.getByTestID("board").should("have.text", "Merry Christmas!");
+  });
+
+  it("New Year's Eve", () => {
+    cy.clock(new Date(2022, 11, 31));
+
+    cy.reload();
+
+    cy.getByTestID("board").should("have.text", "Happy New Year's Eve!");
   });
 });
 

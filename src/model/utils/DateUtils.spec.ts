@@ -18,6 +18,15 @@ describe("DateUtils", () => {
             // eslint-disable-next-line jest/no-conditional-expect
             return expect(event).toBe(Event.CHRISTMAS);
           }
+          // If Hanukkah falls on the same day as Christmas Eve, then prioritise Christmas Eve
+          else if (
+            dates[Event.CHRISTMAS_EVE].find((date) =>
+              DateUtils.isSameDay(date, eventDate)
+            )
+          ) {
+            // eslint-disable-next-line jest/no-conditional-expect
+            return expect(event).toBe(Event.CHRISTMAS_EVE);
+          }
         }
 
         expect(event).toBe(eventName);
@@ -125,6 +134,16 @@ describe("DateUtils", () => {
     expect(DateUtils.isFirstDayOfHanukkah(nonEventDay)).toBe(false);
   });
 
+  it("knows when Christmas Eve is", () => {
+    // Each valid date should return true
+    dates[Event.CHRISTMAS_EVE].forEach((date) => {
+      expect(DateUtils.isChristmasEve(date)).toBe(true);
+    });
+
+    // Non event day should return false
+    expect(DateUtils.isChristmasEve(nonEventDay)).toBe(false);
+  });
+
   it("knows when Christmas Day is", () => {
     // Each valid date should return true
     dates[Event.CHRISTMAS].forEach((date) => {
@@ -133,6 +152,16 @@ describe("DateUtils", () => {
 
     // Non event day should return false
     expect(DateUtils.isChristmas(nonEventDay)).toBe(false);
+  });
+
+  it("knows when New Year's Eve is", () => {
+    // Each valid date should return true
+    dates[Event.NEW_YEARS_EVE].forEach((date) => {
+      expect(DateUtils.isNewYearsEve(date)).toBe(true);
+    });
+
+    // Non event day should return false
+    expect(DateUtils.isNewYearsEve(nonEventDay)).toBe(false);
   });
 
   it("knows whether two dates fall on the same day", () => {
@@ -211,11 +240,23 @@ const dates: Record<Event, Date[]> = {
     new Date(2024, 9, 31),
     new Date(2024, 9, 31),
   ],
+  "Christmas Eve": [
+    new Date(2022, 11, 24),
+    new Date(2023, 11, 24),
+    new Date(2024, 11, 24),
+    new Date(2025, 11, 24),
+  ],
   Christmas: [
     new Date(2022, 11, 25),
     new Date(2023, 11, 25),
     new Date(2024, 11, 25),
     new Date(2025, 11, 25),
+  ],
+  "New Year's Eve": [
+    new Date(2022, 11, 31),
+    new Date(2023, 11, 31),
+    new Date(2024, 11, 31),
+    new Date(2025, 11, 31),
   ],
 };
 

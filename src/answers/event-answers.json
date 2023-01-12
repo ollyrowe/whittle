@@ -265,6 +265,33 @@
     ]
   },
   {
+    "date": "Christmas Eve",
+    "theme": "Happy Christmas Eve!",
+    "letters": "EOTCRORLEVKEOIA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "COOKIE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "CAROL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "EVE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 3 },
+        "letters": "TREE"
+      }
+    ]
+  },
+  {
     "date": "Christmas",
     "theme": "Merry Christmas!",
     "letters": "FIFGFETTEINSLOR",
@@ -288,6 +315,33 @@
         "direction": "horizontal",
         "start": { "row": 6, "column": 3 },
         "letters": "ELF"
+      }
+    ]
+  },
+  {
+    "date": "New Year's Eve",
+    "theme": "Happy New Year's Eve!",
+    "letters": "BEAPWRLVEVTLAYE",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "TWELVE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "PARTY"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "BALL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 2 },
+        "letters": "EVE"
       }
     ]
   }

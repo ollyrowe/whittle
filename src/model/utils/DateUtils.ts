@@ -56,12 +56,20 @@ export class DateUtils {
       return Event.HALLOWEEN;
     }
 
+    if (DateUtils.isChristmasEve(date)) {
+      return Event.CHRISTMAS_EVE;
+    }
+
     if (DateUtils.isChristmas(date)) {
       return Event.CHRISTMAS;
     }
 
     if (DateUtils.isFirstDayOfHanukkah(date)) {
       return Event.FIRST_DAY_OF_HANUKKAH;
+    }
+
+    if (DateUtils.isNewYearsEve(date)) {
+      return Event.NEW_YEARS_EVE;
     }
   }
 
@@ -129,8 +137,16 @@ export class DateUtils {
     return hebrewDate.day === 24 && hebrewDate.month === 3;
   }
 
+  public static isChristmasEve(date: Date) {
+    return date.getDate() === 24 && date.getMonth() === 11;
+  }
+
   public static isChristmas(date: Date) {
     return date.getDate() === 25 && date.getMonth() === 11;
+  }
+
+  public static isNewYearsEve(date: Date) {
+    return date.getDate() === 31 && date.getMonth() === 11;
   }
 
   /**
