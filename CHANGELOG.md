@@ -1,3 +1,10 @@
+## [1.39.2](https://github.com/ollyrowe/whittle/compare/v1.39.1...v1.39.2) (2023-01-12)
+
+
+### Bug Fixes
+
+* update craco to fix peer dependency issue ([19c4d97](https://github.com/ollyrowe/whittle/commit/19c4d972853c2482e7d1b6a86f4367b8c4690279))
+
 ## [1.39.1](https://github.com/ollyrowe/whittle/compare/v1.39.0...v1.39.1) (2023-01-09)
 
 
