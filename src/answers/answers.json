@@ -426,7 +426,7 @@
     ]
   },
   {
-    "theme": "Green Things",
+    "theme": "Greenery",
     "letters": "OEIVCRDVEFYFELN",
     "words": [
       {
@@ -790,13 +790,13 @@
     ]
   },
   {
-    "theme": "Conjunctions",
-    "letters": "UTHETLSNIBSWTLL",
+    "theme": "Subordinating Conjunctions",
+    "letters": "HLIVWEEINUNSTCL",
     "words": [
       {
         "direction": "vertical",
-        "start": { "row": 1, "column": 4 },
-        "letters": "WHILST"
+        "start": { "row": 1, "column": 2 },
+        "letters": "SINCE"
       },
       {
         "direction": "horizontal",
@@ -805,13 +805,13 @@
       },
       {
         "direction": "horizontal",
-        "start": { "row": 6, "column": 1 },
-        "letters": "LEST"
+        "start": { "row": 5, "column": 2 },
+        "letters": "EVEN"
       },
       {
         "direction": "vertical",
-        "start": { "row": 2, "column": 1 },
-        "letters": "BUT"
+        "start": { "row": 1, "column": 4 },
+        "letters": "WHILE"
       }
     ]
   },
@@ -838,32 +838,6 @@
         "direction": "horizontal",
         "start": { "row": 6, "column": 3 },
         "letters": "ION"
-      }
-    ]
-  },
-  {
-    "theme": "Blue Things",
-    "letters": "LIASNSOPGAKLVOY",
-    "words": [
-      {
-        "direction": "vertical",
-        "start": { "row": 1, "column": 2 },
-        "letters": "LAGOON"
-      },
-      {
-        "direction": "horizontal",
-        "start": { "row": 2, "column": 1 },
-        "letters": "LAPIS"
-      },
-      {
-        "direction": "horizontal",
-        "start": { "row": 6, "column": 2 },
-        "letters": "NAVY"
-      },
-      {
-        "direction": "vertical",
-        "start": { "row": 4, "column": 5 },
-        "letters": "SKY"
       }
     ]
   },
@@ -952,6 +926,32 @@
         "direction": "horizontal",
         "start": { "row": 6, "column": 1 },
         "letters": "JET"
+      }
+    ]
+  },
+  {
+    "theme": "Numbers 2",
+    "letters": "SXLFNTEIEHVERVE",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "ELEVEN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "THREE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "FIVE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 4, "column": 2 },
+        "letters": "SIX"
       }
     ]
   },
@@ -1195,6 +1195,32 @@
     ]
   },
   {
+    "theme": "Colours 2",
+    "letters": "TWAMTHEEIBELGLI",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 3 },
+        "letters": "BEIGE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "WHITE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 2 },
+        "letters": "TEAL"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "LIME"
+      }
+    ]
+  },
+  {
     "theme": "Elements of the Periodic Table",
     "letters": "ROICZOIBNANBOTC",
     "words": [
@@ -1325,7 +1351,7 @@
     ]
   },
   {
-    "theme": "Natural Areas",
+    "theme": "Landscapes",
     "letters": "EFOSTOASRKCAESL",
     "words": [
       {
@@ -1694,28 +1720,28 @@
     ]
   },
   {
-    "theme": "Yellow Things",
-    "letters": "OKARYTRLNXNCIAO",
+    "theme": "Jobs 2",
+    "letters": "IOPSHOKLCARCAOY",
     "words": [
       {
         "direction": "vertical",
-        "start": { "row": 1, "column": 2 },
-        "letters": "CANARY"
+        "start": { "row": 2, "column": 1 },
+        "letters": "COACH"
       },
       {
         "direction": "horizontal",
-        "start": { "row": 1, "column": 2 },
-        "letters": "CORN"
+        "start": { "row": 5, "column": 1 },
+        "letters": "COOK"
       },
       {
         "direction": "horizontal",
-        "start": { "row": 4, "column": 1 },
-        "letters": "TAXI"
+        "start": { "row": 1, "column": 3 },
+        "letters": "SPY"
       },
       {
-        "direction": "horizontal",
-        "start": { "row": 6, "column": 2 },
-        "letters": "YOLK"
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "SAILOR"
       }
     ]
   },
@@ -1824,6 +1850,32 @@
     ]
   },
   {
+    "theme": "Family 2",
+    "letters": "TEOMSICHEORWFIN",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "MOTHER"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "NIECE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 1 },
+        "letters": "SON"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "WIFE"
+      }
+    ]
+  },
+  {
     "theme": "Precious Stones",
     "letters": "PZYTBRXAUOEALNO",
     "words": [
@@ -1846,32 +1898,6 @@
         "direction": "vertical",
         "start": { "row": 3, "column": 4 },
         "letters": "RUBY"
-      }
-    ]
-  },
-  {
-    "theme": "Phone Apps",
-    "letters": "PMUAAECASRMMAIG",
-    "words": [
-      {
-        "direction": "vertical",
-        "start": { "row": 1, "column": 5 },
-        "letters": "CAMERA"
-      },
-      {
-        "direction": "horizontal",
-        "start": { "row": 1, "column": 1 },
-        "letters": "MUSIC"
-      },
-      {
-        "direction": "horizontal",
-        "start": { "row": 4, "column": 2 },
-        "letters": "GAME"
-      },
-      {
-        "direction": "vertical",
-        "start": { "row": 1, "column": 1 },
-        "letters": "MAP"
       }
     ]
   },
@@ -1971,6 +1997,630 @@
         "direction": "vertical",
         "start": { "row": 3, "column": 4 },
         "letters": "ROSE"
+      }
+    ]
+  },
+  {
+    "theme": "Elements of the Periodic Table 2",
+    "letters": "DLNEGENRANOBORO",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "LEAD"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "ARGON"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "NEON"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 4 },
+        "letters": "BORON"
+      }
+    ]
+  },
+  {
+    "theme": "Phone Apps",
+    "letters": "PMUAAECASRMMAIG",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "CAMERA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "MUSIC"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 2 },
+        "letters": "GAME"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "MAP"
+      }
+    ]
+  },
+  {
+    "theme": "Fruits",
+    "letters": "PARFERGEAGIORNP",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "ORANGE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "GRAPE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "FIG"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "PEAR"
+      }
+    ]
+  },
+  {
+    "theme": "Emotions 2",
+    "letters": "IENAEXFTCAAGWER",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "EXCITE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "AWE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 2 },
+        "letters": "FEAR"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "ANGER"
+      }
+    ]
+  },
+  {
+    "theme": "Parts of a Dog",
+    "letters": "USAUFCIFRLLWRST",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "SCRUFF"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "FUR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "CLAWS"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "TAIL"
+      }
+    ]
+  },
+  {
+    "theme": "Hairstyles",
+    "letters": "FDOBKEWAHRBMEAD",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "MOHAWK"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 3 },
+        "letters": "BOB"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "DREAD"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "FADE"
+      }
+    ]
+  },
+  {
+    "theme": "Components of a House",
+    "letters": "ORIORLOATORSFOD",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "FLOOR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 2 },
+        "letters": "ROOF"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "STAIR"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "DOOR"
+      }
+    ]
+  },
+  {
+    "theme": "Baking",
+    "letters": "AFGIGLURGOKEUSM",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "SUGAR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "EGGS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "FLOUR"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 2 },
+        "letters": "MILK"
+      }
+    ]
+  },
+  {
+    "theme": "Nato Alphabet",
+    "letters": "LAADIMVTOEROERB",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "BRAVO"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "DELTA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "ROMEO"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 3 },
+        "letters": "LIMA"
+      }
+    ]
+  },
+  {
+    "theme": "Bladed Weapons",
+    "letters": "EDAXPAEENGELGCR",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "LANCE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "EPEE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 3 },
+        "letters": "AXE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "DAGGER"
+      }
+    ]
+  },
+  {
+    "theme": "Hobbies",
+    "letters": "NETDIADCPADRWAR",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "PAINT"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "DRAW"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "DANCE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "READ"
+      }
+    ]
+  },
+  {
+    "theme": "Food Prep",
+    "letters": "IENLDSDCETCKIER",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 1 },
+        "letters": "STIR"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 3 },
+        "letters": "DICE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "SLICE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "KNEED"
+      }
+    ]
+  },
+  {
+    "theme": "Farm Animals",
+    "letters": "GENPEHALEITSEOG",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "PIGLET"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "SHEEP"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 2 },
+        "letters": "GOAT"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "HEN"
+      }
+    ]
+  },
+  {
+    "theme": "Collective Nouns",
+    "letters": "OSOMLCAOHCFCBKP",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "SCHOOL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "FLOCK"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "MOB"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "PACK"
+      }
+    ]
+  },
+  {
+    "theme": "Communication",
+    "letters": "NPAMCHLEOLHTICA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "PHONE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "EMAIL"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 3 },
+        "letters": "CHAT"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "CALL"
+      }
+    ]
+  },
+  {
+    "theme": "Stationery",
+    "letters": "REUERLSAPNRGELR",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "ERASER"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 3 },
+        "letters": "PEN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "RULER"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 2 },
+        "letters": "GLUE"
+      }
+    ]
+  },
+  {
+    "theme": "Parts of a Car",
+    "letters": "TSIANEAEARGNKEG",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "ENGINE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "GEAR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "TANK"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "SEAT"
+      }
+    ]
+  },
+  {
+    "theme": "Reptiles",
+    "letters": "OSEOBNOACARGKKE",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 3 },
+        "letters": "COBRA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "GECKO"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 3 },
+        "letters": "BOA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "SNAKE"
+      }
+    ]
+  },
+  {
+    "theme": "Keyboard Keys",
+    "letters": "AHPETIEBAFRSNCT",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "SHIFT"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "SPACE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "TAB"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "ENTER"
+      }
+    ]
+  },
+  {
+    "theme": "Animal Sounds",
+    "letters": "IKUEOLKNAUWQCCM",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "CLUCK"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "QUACK"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "OINK"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 1 },
+        "letters": "MEOW"
+      }
+    ]
+  },
+  {
+    "theme": "Bathroom Activities",
+    "letters": "DVYRHESOSAEAHWS",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "SHOWER"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "SHAVE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 2 },
+        "letters": "WASH"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "DRY"
+      }
+    ]
+  },
+  {
+    "theme": "Social Media",
+    "letters": "LOKFIETLDOWFESP",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "FOLLOW"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "POST"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 2 },
+        "letters": "LIKE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "FEED"
+      }
+    ]
+  },
+  {
+    "theme": "Nato Alphabet 2",
+    "letters": "TLGHNLAEAOKIOMI",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "HOTEL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "LIMA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "TANGO"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "KILO"
+      }
+    ]
+  },
+  {
+    "theme": "Jobs 3",
+    "letters": "CPOLRMOOCATDITI",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "DOCTOR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "MAID"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "PILOT"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 1 },
+        "letters": "COP"
       }
     ]
   }
