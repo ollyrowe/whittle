@@ -9,5 +9,7 @@ export enum Event {
   FIRST_DAY_OF_PRIDE_MONTH = "First Day of Pride Month",
   HALLOWEEN = "Halloween",
   FIRST_DAY_OF_HANUKKAH = "First Day of Hanukkah",
+  CHRISTMAS_EVE = "Christmas Eve",
   CHRISTMAS = "Christmas",
+  NEW_YEARS_EVE = "New Year's Eve",
 }
