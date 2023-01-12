@@ -1,3 +1,16 @@
+# [1.40.0](https://github.com/ollyrowe/whittle/compare/v1.39.2...v1.40.0) (2023-01-12)
+
+
+### Bug Fixes
+
+* fix package lock synchronisation issue ([083ab5b](https://github.com/ollyrowe/whittle/commit/083ab5bcc8507b69c4a51ba2e071635be248fbae))
+* rename hard mode to restricted mode ([83b3344](https://github.com/ollyrowe/whittle/commit/83b3344054afe831fbf39d2706cc1ffdd54e6e22))
+
+
+### Features
+
+* add board share button ([87355ff](https://github.com/ollyrowe/whittle/commit/87355ffcd2ef250fe02ea336ad38bd3802239de1))
+
 ## [1.39.2](https://github.com/ollyrowe/whittle/compare/v1.39.1...v1.39.2) (2023-01-12)
 
 
