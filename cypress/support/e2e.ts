@@ -10,3 +10,10 @@ beforeEach(() => {
 
   cy.visit(Cypress.config().baseUrl!);
 });
+
+// Prevent XHR requests being logged to the console
+Cypress.Server.defaults({
+  ignore: () => {
+    return true;
+  },
+});
