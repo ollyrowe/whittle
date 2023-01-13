@@ -1,3 +1,11 @@
+## [1.40.1](https://github.com/ollyrowe/whittle/compare/v1.40.0...v1.40.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* fix share preview image issue ([b8686f6](https://github.com/ollyrowe/whittle/commit/b8686f6af554a25bf145833285debde950d0bdc6))
+* synchronise package lock ([91a46da](https://github.com/ollyrowe/whittle/commit/91a46da5725506d3c4f1ea220ca728a150074492))
+
 # [1.40.0](https://github.com/ollyrowe/whittle/compare/v1.39.2...v1.40.0) (2023-01-12)
 
 
