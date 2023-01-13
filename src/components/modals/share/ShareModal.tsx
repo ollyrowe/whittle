@@ -4,10 +4,14 @@ import { Button, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import Modal from "../Modal";
 import { useModalContext } from "../../providers/ModalProvider";
 import { useShareContext } from "../../providers/ShareProvider";
+import { useGameContext } from "../../providers/GameProvider";
 
 const ShareModal = () => {
   // Extract modal state and controls
   const { displayShare, closeShare } = useModalContext();
+
+  // Extract game state
+  const { number } = useGameContext();
 
   // Extract share controls
   const { canShare, preview, showLetters, share, toggleShowLetters } =
@@ -39,7 +43,7 @@ const ShareModal = () => {
         </FormGroup>
         <RoundedButton
           variant="contained"
-          onClick={share}
+          onClick={() => share(number)}
           disabled={!canShare}
           data-testid="confirm-share-button"
         >

@@ -6,12 +6,14 @@ import { useShareContext } from "../../../providers/ShareProvider";
 
 const ShareButton: React.FC = () => {
   // Extract share state
-  const { canShare } = useShareContext();
+  const { canShare, createPreview } = useShareContext();
 
   // Extract modal controls
   const { openShare, closeStats } = useModalContext();
 
   const share = async () => {
+    createPreview();
+
     closeStats();
 
     openShare();

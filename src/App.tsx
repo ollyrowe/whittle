@@ -4,6 +4,7 @@ import useSettings from "./hooks/useSettings";
 import Game from "./Game";
 import NotificationProvider from "./components/providers/NotificationProvider";
 import ModalProvider from "./components/providers/ModalProvider";
+import ShareProvider from "./components/providers/ShareProvider";
 
 const App: React.FC = () => {
   const settings = useSettings();
@@ -12,7 +13,9 @@ const App: React.FC = () => {
     <ThemeProvider theme={settings.theme}>
       <NotificationProvider>
         <ModalProvider>
-          <Game settings={settings} />
+          <ShareProvider>
+            <Game settings={settings} />
+          </ShareProvider>
         </ModalProvider>
       </NotificationProvider>
     </ThemeProvider>

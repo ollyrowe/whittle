@@ -47,8 +47,10 @@ const ShareProvider: React.FC<Props> = ({ children }) => {
   /**
    * Function which captures a screenshot of the board as an
    * image which is then passed to the user agents share API.
+   *
+   * @param number - the number of the game being shared
    */
-  const share = async () => {
+  const share = async (number: number) => {
     // Ensure the board ref is currently bound
     if (boardRef.current) {
       const blob = await createImage({ showLetters });
@@ -168,7 +170,7 @@ interface CreateImageOptions {
 
 interface ShareControls {
   canShare: boolean;
-  share: () => Promise<void>;
+  share: (number: number) => Promise<void>;
   preview: Blob | null;
   createPreview: () => void;
   showLetters: boolean;
