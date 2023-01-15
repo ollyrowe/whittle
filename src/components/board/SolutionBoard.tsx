@@ -37,4 +37,5 @@ const Subtitle = styled(Typography)`
   font-weight: bold;
   margin-top: 0.2rem;
   margin-bottom: 1rem;
+  text-align: center;
 `;

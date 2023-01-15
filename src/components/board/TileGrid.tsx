@@ -38,6 +38,5 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   justify-content: center;
-  max-width: 350px;
   height: fit-content;
 `;
