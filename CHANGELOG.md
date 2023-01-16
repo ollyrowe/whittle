@@ -1,3 +1,10 @@
+## [1.40.2](https://github.com/ollyrowe/whittle/compare/v1.40.1...v1.40.2) (2023-01-16)
+
+
+### Bug Fixes
+
+* fix meta tag image for link sharing ([0580f22](https://github.com/ollyrowe/whittle/commit/0580f22e3baad00db0964fdfe3e08df5b43b9617))
+
 ## [1.40.1](https://github.com/ollyrowe/whittle/compare/v1.40.0...v1.40.1) (2023-01-13)
 
 
