@@ -1,3 +1,10 @@
+## [1.40.3](https://github.com/ollyrowe/whittle/compare/v1.40.2...v1.40.3) (2023-01-16)
+
+
+### Bug Fixes
+
+* fix theme styling in yesterday modal ([d0cdf09](https://github.com/ollyrowe/whittle/commit/d0cdf09089c64b8300a557f30f86c0de0e7732ca))
+
 ## [1.40.2](https://github.com/ollyrowe/whittle/compare/v1.40.1...v1.40.2) (2023-01-16)
 
 
