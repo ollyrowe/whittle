@@ -1,3 +1,10 @@
+# [1.41.0](https://github.com/ollyrowe/whittle/compare/v1.40.3...v1.41.0) (2023-01-16)
+
+
+### Features
+
+* add a new set of answers ([1e9d206](https://github.com/ollyrowe/whittle/commit/1e9d2062fc7ff166e08e7d563739ff2191b74f18))
+
 ## [1.40.3](https://github.com/ollyrowe/whittle/compare/v1.40.2...v1.40.3) (2023-01-16)
 
 
