@@ -124,7 +124,48 @@ describe("Timer", () => {
       .should("contain.text", "00:00");
   });
 
-  it("resets the timer when resetting the game", () => {
+  it("resets the timer when resetting a completed game", () => {
+    // Place all of the letters, ticking two seconds each time
+    getTodaysSolutionLetters().forEach(({ letter, location }) => {
+      cy.getTileFromRack(letter).placeOnBoard(location);
+
+      cy.getTileFromBoard(location).should("contain.text", letter);
+
+      // Tick 2 seconds, although the last tick shouldn't anything
+      cy.tick(2000);
+    });
+
+    cy.getByTestID("statistics-modal")
+      .findByTestID("time-card")
+      .should("contain.text", "Time");
+    cy.getByTestID("statistics-modal")
+      .findByTestID("time-card")
+      .should("contain.text", "00:28");
+
+    cy.getByTestID("statistics-modal").find("[aria-label=close]").click();
+
+    // Click the reset button
+    cy.getByTestID("reset-icon-button").click({ force: true });
+
+    // Place all of the letters, ticking oen second each time
+    getTodaysSolutionLetters().forEach(({ letter, location }) => {
+      cy.getTileFromRack(letter).placeOnBoard(location);
+
+      cy.getTileFromBoard(location).should("contain.text", letter);
+
+      // Tick 1 second, although the last tick shouldn't anything
+      cy.tick(1000);
+    });
+
+    cy.getByTestID("statistics-modal")
+      .findByTestID("time-card")
+      .should("contain.text", "Time");
+    cy.getByTestID("statistics-modal")
+      .findByTestID("time-card")
+      .should("contain.text", "00:14");
+  });
+
+  it("doesn't reset the timer when resetting the game midway through", () => {
     const solutionLetters = getTodaysSolutionLetters();
 
     const firstLetter = solutionLetters[0];
@@ -155,7 +196,7 @@ describe("Timer", () => {
       .should("contain.text", "Time");
     cy.getByTestID("statistics-modal")
       .findByTestID("time-card")
-      .should("contain.text", "00:00");
+      .should("contain.text", "00:30");
   });
 
   it("doesn't display the timer before the user has completed the game", () => {
