@@ -153,8 +153,11 @@ export const useGame = (settings: SettingsOptions): Game => {
     setBoard(game.board);
     setRack(game.rack);
 
-    timer.reset();
-  }, [settings.enableRestrictedMode, timer]);
+    // If the game has been completed, reset the timer
+    if (board.isDisabled()) {
+      timer.reset();
+    }
+  }, [settings.enableRestrictedMode, board, timer]);
 
   const enableBoardTiles = useCallback(() => {
     setBoard((board) => {
