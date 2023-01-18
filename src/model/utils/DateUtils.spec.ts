@@ -28,6 +28,17 @@ describe("DateUtils", () => {
             return expect(event).toBe(Event.CHRISTMAS_EVE);
           }
         }
+        if (eventName === Event.SHROVE_TUESDAY) {
+          // If Shrove Tuesday falls on the same day as Chinese New Year, then prioritise Chinese New Year
+          if (
+            dates[Event.CHINESE_NEW_YEAR].find((date) =>
+              DateUtils.isSameDay(date, eventDate)
+            )
+          ) {
+            // eslint-disable-next-line jest/no-conditional-expect
+            return expect(event).toBe(Event.CHINESE_NEW_YEAR);
+          }
+        }
 
         expect(event).toBe(eventName);
       });
@@ -178,85 +189,111 @@ describe("DateUtils", () => {
   });
 });
 
-// The dates of each event for the next five years
+// The dates of each event for the next six years
 const dates: Record<Event, Date[]> = {
   "New Year's Day": [
     new Date(2022, 0, 1),
     new Date(2023, 0, 1),
     new Date(2024, 0, 1),
     new Date(2025, 0, 1),
+    new Date(2026, 0, 1),
+    new Date(2027, 0, 1),
   ],
   "Chinese New Year": [
     new Date(2022, 1, 1),
     new Date(2023, 0, 22),
     new Date(2024, 1, 10),
     new Date(2025, 0, 29),
+    new Date(2026, 1, 17),
+    new Date(2027, 1, 7),
   ],
   "Valentine's Day": [
     new Date(2022, 1, 14),
     new Date(2023, 1, 14),
     new Date(2024, 1, 14),
     new Date(2025, 1, 14),
+    new Date(2026, 1, 14),
+    new Date(2027, 1, 14),
   ],
   "Shrove Tuesday": [
     new Date(2022, 2, 1),
     new Date(2023, 1, 21),
     new Date(2024, 1, 13),
     new Date(2025, 2, 4),
+    new Date(2026, 1, 17),
+    new Date(2027, 1, 9),
   ],
   "St. Patrick's Day": [
     new Date(2022, 2, 17),
     new Date(2023, 2, 17),
     new Date(2024, 2, 17),
     new Date(2025, 2, 17),
+    new Date(2026, 2, 17),
+    new Date(2027, 2, 17),
   ],
   "April Fools' Day": [
     new Date(2022, 3, 1),
     new Date(2023, 3, 1),
     new Date(2024, 3, 1),
     new Date(2025, 3, 1),
+    new Date(2026, 3, 1),
+    new Date(2027, 3, 1),
   ],
   "Easter Sunday": [
     new Date(2022, 3, 17),
     new Date(2023, 3, 9),
     new Date(2024, 2, 31),
     new Date(2025, 3, 20),
+    new Date(2026, 3, 5),
+    new Date(2027, 2, 28),
   ],
   "First Day of Pride Month": [
     new Date(2022, 5, 1),
     new Date(2023, 5, 1),
     new Date(2024, 5, 1),
     new Date(2025, 5, 1),
+    new Date(2026, 5, 1),
+    new Date(2027, 5, 1),
   ],
   "First Day of Hanukkah": [
     new Date(2022, 11, 18),
     new Date(2023, 11, 7),
     new Date(2024, 11, 25),
     new Date(2025, 11, 14),
+    new Date(2026, 11, 4),
+    new Date(2027, 11, 24),
   ],
   Halloween: [
     new Date(2022, 9, 31),
     new Date(2023, 9, 31),
     new Date(2024, 9, 31),
-    new Date(2024, 9, 31),
+    new Date(2025, 9, 31),
+    new Date(2026, 9, 31),
+    new Date(2027, 9, 31),
   ],
   "Christmas Eve": [
     new Date(2022, 11, 24),
     new Date(2023, 11, 24),
     new Date(2024, 11, 24),
     new Date(2025, 11, 24),
+    new Date(2026, 11, 24),
+    new Date(2027, 11, 24),
   ],
   Christmas: [
     new Date(2022, 11, 25),
     new Date(2023, 11, 25),
     new Date(2024, 11, 25),
     new Date(2025, 11, 25),
+    new Date(2026, 11, 25),
+    new Date(2027, 11, 25),
   ],
   "New Year's Eve": [
     new Date(2022, 11, 31),
     new Date(2023, 11, 31),
     new Date(2024, 11, 31),
     new Date(2025, 11, 31),
+    new Date(2026, 11, 31),
+    new Date(2027, 11, 31),
   ],
 };
 
