@@ -1,3 +1,11 @@
+## [1.41.1](https://github.com/ollyrowe/whittle/compare/v1.41.0...v1.41.1) (2023-01-18)
+
+
+### Bug Fixes
+
+* fix issue where tile appears in front of modal ([888c672](https://github.com/ollyrowe/whittle/commit/888c6726e1b9946f30fc4d9a3a0048fd035213ef))
+* prevent timer reset upon resetting board ([6a7ed8b](https://github.com/ollyrowe/whittle/commit/6a7ed8b28fded3dd69fa9b46067d0cff54809df3))
+
 # [1.41.0](https://github.com/ollyrowe/whittle/compare/v1.40.3...v1.41.0) (2023-01-16)
 
 
