@@ -131,7 +131,7 @@ describe("Timer", () => {
 
       cy.getTileFromBoard(location).should("contain.text", letter);
 
-      // Tick 2 seconds, although the last tick shouldn't anything
+      // Tick 2 seconds, although the last tick shouldn't do anything
       cy.tick(2000);
     });
 
@@ -147,13 +147,13 @@ describe("Timer", () => {
     // Click the reset button
     cy.getByTestID("reset-icon-button").click({ force: true });
 
-    // Place all of the letters, ticking oen second each time
+    // Place all of the letters, ticking 1 second each time
     getTodaysSolutionLetters().forEach(({ letter, location }) => {
       cy.getTileFromRack(letter).placeOnBoard(location);
 
       cy.getTileFromBoard(location).should("contain.text", letter);
 
-      // Tick 1 second, although the last tick shouldn't anything
+      // Tick 1 second, although the last tick shouldn't do anything
       cy.tick(1000);
     });
 
