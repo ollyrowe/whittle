@@ -27,7 +27,7 @@ const Modal: React.FC<Props> = ({
   ...dialogProps
 }) => {
   return (
-    <Dialog
+    <StyledDialog
       open={open}
       onClose={onClose}
       TransitionComponent={SlideTransition}
@@ -41,9 +41,14 @@ const Modal: React.FC<Props> = ({
         <CloseButton onClick={onClose} />
       </CenteredTitle>
       <DialogContent>{children}</DialogContent>
-    </Dialog>
+    </StyledDialog>
   );
 };
+
+// Dialog which appears in front of moving tiles
+const StyledDialog = styled(Dialog)`
+  z-index: ${(props) => props.open && 10000};
+`;
 
 const CenteredTitle: React.FC<DialogTitleProps> = styled(DialogTitle)`
   text-align: center;
