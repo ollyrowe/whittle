@@ -204,6 +204,33 @@ describe("Timer", () => {
 
     cy.getByTestID("statistics-modal").should("be.visible");
 
-    cy.getByTestID("statistics-modal").get("time-card").should("not.exist");
+    cy.getByTestID("statistics-modal")
+      .getByTestID("time-card")
+      .should("not.exist");
+  });
+
+  it("doesn't display the timer once the game has been reset and there is a new game", () => {
+    // Place all of the letters
+    getTodaysSolutionLetters().forEach(({ letter, location }) => {
+      cy.getTileFromRack(letter).placeOnBoard(location);
+
+      cy.getTileFromBoard(location).should("contain.text", letter);
+    });
+
+    cy.reload();
+
+    cy.clock().invoke("restore");
+
+    // Update the date to the following day
+    cy.clock(new Date(2023, 0, 3));
+
+    // Reset the board which should update the game to the next day's
+    cy.getByTestID("reset-icon-button").click();
+
+    cy.getByTestID("statistics-button").click();
+
+    cy.getByTestID("statistics-modal")
+      .getByTestID("time-card")
+      .should("not.exist");
   });
 });
