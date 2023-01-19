@@ -1,3 +1,15 @@
+# [1.42.0](https://github.com/ollyrowe/whittle/compare/v1.41.1...v1.42.0) (2023-01-19)
+
+
+### Bug Fixes
+
+* rework streak logic to fix erroneous timer display ([dd0e46d](https://github.com/ollyrowe/whittle/commit/dd0e46d5e1e8d2fe9af609cbb95107c30f1e0406))
+
+
+### Features
+
+* add christmas eve and nye event answers ([1daf794](https://github.com/ollyrowe/whittle/commit/1daf794dbe437d9d95be98fe895001db2b0e4443))
+
 ## [1.41.1](https://github.com/ollyrowe/whittle/compare/v1.41.0...v1.41.1) (2023-01-18)
 
 
