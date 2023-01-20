@@ -22,4 +22,4 @@ jobs:
         with:
           browser: chrome
           build: npm run build
-          start: npx serve -s build
+          start: npx serve -s build --no-request-logging
