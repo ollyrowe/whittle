@@ -18,6 +18,7 @@ import {
   rectIntersection,
 } from "@dnd-kit/core";
 import ThemeProvider from "./ThemeProvider";
+import StreakProvider from "./StreakProvider";
 import { defaultSettings } from "../../hooks/useSettings";
 import { createLightTheme } from "../../misc/theme";
 import { Game } from "../../hooks/useGame";
@@ -153,20 +154,22 @@ const GameProvider: React.FC<Props> = ({ game, children }) => {
   return (
     <>
       <GameContext.Provider value={game}>
-        <ThemeProvider theme={settings.theme}>
-          <DndContext
-            sensors={sensors}
-            onDragStart={onDragStart}
-            onDragMove={onDragMove}
-            onDragEnd={onDragEnd}
-            collisionDetection={collisionDetection}
-            autoScroll={false}
-          >
-            <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
-              {children}
-            </SortableContext>
-          </DndContext>
-        </ThemeProvider>
+        <StreakProvider>
+          <ThemeProvider theme={settings.theme}>
+            <DndContext
+              sensors={sensors}
+              onDragStart={onDragStart}
+              onDragMove={onDragMove}
+              onDragEnd={onDragEnd}
+              collisionDetection={collisionDetection}
+              autoScroll={false}
+            >
+              <SortableContext items={tileIDs} strategy={rectSwappingStrategy}>
+                {children}
+              </SortableContext>
+            </DndContext>
+          </ThemeProvider>
+        </StreakProvider>
       </GameContext.Provider>
       <CanvasConfetti {...confetti.canvasProps} />
     </>

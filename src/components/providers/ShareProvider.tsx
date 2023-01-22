@@ -1,193 +1,163 @@
-import React, {
-  createRef,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { toBlob } from "html-to-image";
-import { useTheme } from "styled-components";
-import { useGameContext } from "./GameProvider";
+import React, { useContext } from "react";
+import { useNotificationContext } from "./NotificationProvider";
+import { StreakStatistics } from "./StreakProvider";
+import { isMobile, isTablet } from "../../misc/device";
+import { Game } from "../../hooks/useGame";
+import { Board } from "../../model/Board";
+import { TileState } from "../../model/enums/TileState";
+import { Tile } from "../../model/Tile";
 
 interface Props {
   children?: React.ReactNode;
 }
 
 const ShareProvider: React.FC<Props> = ({ children }) => {
-  const theme = useTheme();
-
-  const { number } = useGameContext();
-
-  // A preview of the image to be shared
-  const [preview, setPreview] = useState(new Blob());
-
-  // Whether the letters should be revealed within the shared image
-  const [showLetters, setShowLetters] = useState(false);
-
-  // Ref to be bound to the board component
-  const boardRef = useRef<HTMLDivElement>(null);
-
-  // Ref to be bound to the tile grid component
-  const tileGridRef = useRef<HTMLDivElement>(null);
+  // Extract notification controls
+  const { dispatchNotification } = useNotificationContext();
 
   /**
-   * Determines whether sharing is available within the current context.
-   */
-  const canShare = useMemo(() => {
-    return (
-      // Check that sharing is allowed within the current context
-      !!navigator.canShare &&
-      // Check that the device can actually share images
-      !!navigator.canShare(createShareableContent(number, preview))
-    );
-  }, [number, preview]);
-
-  /**
-   * Function which captures a screenshot of the board as an
-   * image which is then passed to the user agents share API.
+   * Function which passes some text to the user agent's share
+   * API, falling back to the clipboard if this is not possible.
    *
-   * @param number - the number of the game being shared
+   * @param text - the text to share.
    */
-  const share = async (number: number) => {
-    // Ensure the board ref is currently bound
-    if (boardRef.current) {
-      const blob = await createImage({ showLetters });
+  const shareText = async (text: string) => {
+    // Create a shareable object from the text
+    const shareableContent = { text };
 
-      if (blob) {
-        // Create the shareable content based on the returned blob
-        const content = createShareableContent(number, blob);
+    // If the share API should be used to share the content
+    if (shouldShare(shareableContent)) {
+      navigator.share(shareableContent);
+    } else {
+      // Otherwise, copy the text to the user's clipboard
+      await navigator.clipboard.writeText(text);
 
-        navigator.share(content);
-      }
+      // Notify the user
+      dispatchNotification("Copied to clipboard!");
     }
   };
 
   /**
-   * Creates an image of the board.
+   * Function which passes a file derived from a blob to the user
+   * agent's share API, falling back to the clipboard if this is
+   * not possible.
+   *
+   * @param blob - the blob to share.
    */
-  const createImage = useCallback(
-    ({ isPreview, showLetters }: CreateImageOptions = {}) => {
-      // If the image should be a preview, target the tile grid, ignoring the board title
-      const target = isPreview ? tileGridRef.current : boardRef.current;
+  const shareBlob = async (blob: Blob, filename: string) => {
+    // Create a shareable file from the blob
+    const image = new File([blob], filename, {
+      type: blob.type,
+    });
 
-      if (target) {
-        // Check that this isn't currently the test environment as the method doesn't run
-        if (!(window as any).Cypress) {
-          // Create a screenshot of the target's DOM
-          return doToBlob(target, {
-            cacheBust: true,
-            backgroundColor: theme.palette.background.default,
-            filter: (node: HTMLElement) => {
-              return (
-                // Remove the reset button
-                node.tagName !== "BUTTON" &&
-                // Remove the letters from the tiles unless specified otherwise
-                (showLetters ||
-                  node.parentElement?.getAttribute("role") !== "button")
-              );
-            },
-          });
-        }
+    // Create a shareable object from the file
+    const shareableContent = { files: [image] };
 
-        return Promise.resolve(new Blob());
-      }
+    // If the share API should be used to share the content
+    if (shouldShare(shareableContent)) {
+      navigator.share(shareableContent);
+    } else {
+      // Otherwise, create an item that can be copied to the user's clipboard
+      const clipboardItem = new ClipboardItem({ [blob.type]: blob });
 
-      return Promise.resolve(null);
-    },
-    [theme]
-  );
+      await navigator.clipboard.write([clipboardItem]);
 
-  const toggleShowLetters = () => {
-    setShowLetters((showLetters) => !showLetters);
-  };
-
-  const createPreview = useCallback(async () => {
-    const preview = await createImage({ showLetters, isPreview: true });
-
-    if (preview) {
-      setPreview(preview);
+      // Notify the user
+      dispatchNotification("Copied to clipboard!");
     }
-  }, [showLetters, createImage]);
-
-  /**
-   * Effect which automatically creates a share preview.
-   */
-  useEffect(() => {
-    createPreview();
-  }, [createPreview]);
-
-  const controls: ShareControls = {
-    canShare,
-    share,
-    preview,
-    createPreview,
-    showLetters,
-    toggleShowLetters,
-    boardRef,
-    tileGridRef,
   };
 
   return (
-    <ShareContext.Provider value={controls}>{children}</ShareContext.Provider>
+    <ShareContext.Provider value={{ shareText, shareBlob }}>
+      {children}
+    </ShareContext.Provider>
   );
 };
 
 export default ShareProvider;
 
 /**
- * Calls the html-to-image toBlob method.
- *
- * This call is made several times to implement the fix outlined within the issue below.
- *
- * https://github.com/tsayen/dom-to-image/issues/343#issuecomment-685428224
+ * Determines whether the user's device supports the sharing
+ * of a given piece of data.
  */
-const doToBlob = async (node: HTMLDivElement, options: any) => {
-  await toBlob(node, options);
-  await toBlob(node, options);
-
-  return toBlob(node, options);
+export const canShare = (content: ShareData) => {
+  return !!(navigator.canShare && navigator.canShare(content));
 };
 
 /**
- * Creates a shareable object given the game number and the blob containing the captured solution.
+ * Determines whether the share API should be used to share data.
+ *
+ * This function checks that sharing is possible and that the user
+ * is using a mobile or tablet device.
  */
-const createShareableContent = (number: number, blob: Blob) => {
-  // Create an image file fom the blob
-  const image = new File([blob], `daily-whittle-${number}.png`, {
-    type: blob.type,
-  });
-
-  return { files: [image] };
+export const shouldShare = (content: ShareData) => {
+  return !!(canShare(content) && (isMobile || isTablet));
 };
 
-interface CreateImageOptions {
-  /** Whether a preview image should be created */
-  isPreview?: boolean;
-  showLetters?: boolean;
-}
+/**
+ * Given a completed game, this function creates a shareable text
+ * output which displays the user's solution as a series of emojis
+ * as well as their statistics.
+ *
+ * @param game - the completed game.
+ * @param streak - the user's current streak statistics.
+ * @returns a shareable string.
+ */
+export const createShareText = (game: Game, streak: StreakStatistics) => {
+  const lines: string[] = [];
+
+  lines.push(`#whittle${game.number}`);
+  lines.push("");
+
+  const rows: Tile[][] = [];
+
+  for (let row = 1; row <= Board.HEIGHT; row++) {
+    const tiles: Tile[] = [];
+
+    for (let column = 1; column <= Board.WIDTH; column++) {
+      const tile = game.board.getTileAt(column, row)!;
+
+      tiles.push(tile);
+    }
+
+    rows.push(tiles);
+  }
+
+  rows.forEach((row) => {
+    const characters = row.map((tile) => {
+      switch (tile.getState()) {
+        case TileState.CORRECT:
+          return tileCharacters.green;
+        case TileState.CORRECT_THEME_WORD:
+          return tileCharacters.blue;
+        default:
+          return tileCharacters.grey;
+      }
+    });
+
+    lines.push(characters.join(""));
+  });
+
+  lines.push("");
+
+  lines.push(`⌛time: ${game.timer.text}`);
+  lines.push(`🔥streak: ${streak.currentStreak.length}`);
+
+  lines.push("whittlegame.com");
+
+  return lines.join("\n");
+};
+
+const tileCharacters = { green: "🟩", blue: "🟦", grey: "⬜" };
 
 interface ShareControls {
-  canShare: boolean;
-  share: (number: number) => Promise<void>;
-  preview: Blob | null;
-  createPreview: () => void;
-  showLetters: boolean;
-  toggleShowLetters: () => void;
-  boardRef: React.RefObject<HTMLDivElement>;
-  tileGridRef: React.RefObject<HTMLDivElement>;
+  shareText: (text: string) => Promise<void>;
+  shareBlob: (blob: Blob, filename: string) => Promise<void>;
 }
 
 export const ShareContext = React.createContext<ShareControls>({
-  canShare: false,
-  share: () => Promise.resolve(),
-  preview: null,
-  createPreview: () => {},
-  showLetters: false,
-  toggleShowLetters: () => {},
-  boardRef: createRef(),
-  tileGridRef: createRef(),
+  shareText: () => Promise.resolve(),
+  shareBlob: () => Promise.resolve(),
 });
 
 export const useShareContext = () => {

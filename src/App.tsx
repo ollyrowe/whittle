@@ -4,6 +4,7 @@ import useSettings from "./hooks/useSettings";
 import Game from "./Game";
 import NotificationProvider from "./components/providers/NotificationProvider";
 import ModalProvider from "./components/providers/ModalProvider";
+import ScreenshotProvider from "./components/providers/ScreenshotProvider";
 import ShareProvider from "./components/providers/ShareProvider";
 
 const App: React.FC = () => {
@@ -14,7 +15,9 @@ const App: React.FC = () => {
       <NotificationProvider>
         <ModalProvider>
           <ShareProvider>
-            <Game settings={settings} />
+            <ScreenshotProvider>
+              <Game settings={settings} />
+            </ScreenshotProvider>
           </ShareProvider>
         </ModalProvider>
       </NotificationProvider>

@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import StreakNumber from "./StreakNumber";
 import StreakCalendar from "./StreakCalendar";
-import { StreakStatistics } from "../../../hooks/useStreak";
+import { useStreakContext } from "../../providers/StreakProvider";
+import { useGameContext } from "../../providers/GameProvider";
 
-interface Props {
-  streak: StreakStatistics;
-}
+const StreakDisplay: React.FC = () => {
+  // Extract game state
+  const { completedGames } = useGameContext();
 
-const StreakDisplay: React.FC<Props> = ({ streak }) => {
   // Extract streak statistics
-  const { currentStreak, completedGames, hasCompletedTodaysGame } = streak;
+  const { currentStreak, hasCompletedTodaysGame } = useStreakContext();
 
   return (
     <Container data-testid="streak-display">

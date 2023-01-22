@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { alpha } from "@mui/material";
 import { useGameContext } from "../providers/GameProvider";
-import { useShareContext } from "../providers/ShareProvider";
+import { useScreenshotContext } from "../providers/ScreenshotProvider";
 import BoardWrapper from "./BoardWrapper";
-import ShareBoardButton from "./ShareBoardButton";
+import ScreenshotButton from "./ScreenshotButton";
 import GameTitle from "./GameTitle";
 import ResetButton from "../rack/ResetButton";
 import TileGrid from "./TileGrid";
@@ -12,12 +12,12 @@ import TileGrid from "./TileGrid";
 export const Board: React.FC = () => {
   const { board, number, answer, onReturnTileToRack } = useGameContext();
 
-  const { boardRef, tileGridRef } = useShareContext();
+  const { boardRef, tileGridRef } = useScreenshotContext();
 
   return (
     <BoardWrapper ref={boardRef} data-testid="board">
       <Header>
-        <FixedShareButton disabled={!board.hasLetterTile()} />
+        <FixedScreenshotButton disabled={!board.hasLetterTile()} />
         <GameTitle number={number} answer={answer} />
         <FixedResetButton type="icon" disabled={!board.hasLetterTile()} />
       </Header>
@@ -45,7 +45,7 @@ const Header = styled.div`
   color: ${(props) => alpha(props.theme.palette.text.primary, 0.64)};
 `;
 
-const FixedShareButton = styled(ShareBoardButton)`
+const FixedScreenshotButton = styled(ScreenshotButton)`
   position: absolute;
   left: 0;
   top: 0;

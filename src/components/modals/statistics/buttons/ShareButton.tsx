@@ -1,22 +1,27 @@
 import React from "react";
 import { IconButton } from "@mui/material";
 import { Share as ShareIcon } from "@mui/icons-material";
-import { useModalContext } from "../../../providers/ModalProvider";
-import { useShareContext } from "../../../providers/ShareProvider";
+import { useGameContext } from "../../../providers/GameProvider";
+import { useStreakContext } from "../../../providers/StreakProvider";
+import {
+  createShareText,
+  useShareContext,
+} from "../../../providers/ShareProvider";
 
 const ShareButton: React.FC = () => {
-  // Extract share state
-  const { canShare, createPreview } = useShareContext();
+  // Extract game state
+  const game = useGameContext();
 
-  // Extract modal controls
-  const { openShare, closeStats } = useModalContext();
+  // Extract user's current streak statistics
+  const streak = useStreakContext();
 
-  const share = async () => {
-    createPreview();
+  // Extract share utility
+  const { shareText } = useShareContext();
 
-    closeStats();
+  const share = () => {
+    const text = createShareText(game, streak);
 
-    openShare();
+    shareText(text);
   };
 
   return (
@@ -24,7 +29,6 @@ const ShareButton: React.FC = () => {
       color="success"
       size="large"
       onClick={share}
-      disabled={!canShare}
       data-testid="share-button"
     >
       <ShareIcon fontSize="large" />
