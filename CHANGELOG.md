@@ -1,3 +1,15 @@
+# [1.43.0](https://github.com/ollyrowe/whittle/compare/v1.42.0...v1.43.0) (2023-01-22)
+
+
+### Bug Fixes
+
+* fix package-lock issues ([fbea863](https://github.com/ollyrowe/whittle/commit/fbea8638d376c42e2f6af82e02a5ef693b8992ac))
+
+
+### Features
+
+* rework share feature to introduce text output ([4cefed9](https://github.com/ollyrowe/whittle/commit/4cefed9820bdd5a999747d3fef63214651548f72))
+
 # [1.42.0](https://github.com/ollyrowe/whittle/compare/v1.41.1...v1.42.0) (2023-01-19)
 
 
