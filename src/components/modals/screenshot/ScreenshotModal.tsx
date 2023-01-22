@@ -3,31 +3,30 @@ import styled from "styled-components";
 import { Button, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import Modal from "../Modal";
 import { useModalContext } from "../../providers/ModalProvider";
-import { useShareContext } from "../../providers/ShareProvider";
-import { useGameContext } from "../../providers/GameProvider";
+import { useScreenshotContext } from "../../providers/ScreenshotProvider";
 
-const ShareModal = () => {
+const ScreenshotModal = () => {
   // Extract modal state and controls
-  const { displayShare, closeShare } = useModalContext();
+  const { displayScreenshot, closeScreenshot } = useModalContext();
 
-  // Extract game state
-  const { number } = useGameContext();
-
-  // Extract share controls
-  const { canShare, preview, showLetters, share, toggleShowLetters } =
-    useShareContext();
+  // Extract screenshot state and controls
+  const { preview, showLetters, shareScreenshot, toggleShowLetters } =
+    useScreenshotContext();
 
   return (
     <Modal
-      title="Share"
-      open={displayShare}
-      onClose={closeShare}
-      aria-describedby="share"
-      data-testid="share-modal"
+      title="Screenshot"
+      open={displayScreenshot}
+      onClose={closeScreenshot}
+      aria-describedby="screenshot"
+      data-testid="screenshot-modal"
     >
-      <Container id="share">
+      <Container id="screenshot">
         {preview && (
-          <Preview src={URL.createObjectURL(preview)} alt="Share Preview" />
+          <Preview
+            src={URL.createObjectURL(preview)}
+            alt="Screenshot Preview"
+          />
         )}
         <FormGroup>
           <FormControlLabel
@@ -43,9 +42,8 @@ const ShareModal = () => {
         </FormGroup>
         <RoundedButton
           variant="contained"
-          onClick={() => share(number)}
-          disabled={!canShare}
-          data-testid="confirm-share-button"
+          onClick={shareScreenshot}
+          data-testid="share-screenshot-button"
         >
           Share
         </RoundedButton>
@@ -54,7 +52,7 @@ const ShareModal = () => {
   );
 };
 
-export default ShareModal;
+export default ScreenshotModal;
 
 const Container = styled.div`
   display: flex;

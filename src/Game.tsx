@@ -11,7 +11,7 @@ import HowToPlayModal from "./components/modals/how-to-play/HowToPlayModal";
 import SettingsModal from "./components/modals/settings/SettingsModal";
 import StatisticsModal from "./components/modals/statistics/StatisticsModal";
 import YesterdayModal from "./components/modals/yesterday/YesterdayModal";
-import ShareModal from "./components/modals/share/ShareModal";
+import ScreenshotModal from "./components/modals/screenshot/ScreenshotModal";
 
 interface Props {
   settings: SettingsOptions;
@@ -31,7 +31,7 @@ const Game: React.FC<Props> = ({ settings }) => {
       <YesterdayModal />
       <StatisticsModal />
       <SettingsModal />
-      <ShareModal />
+      <ScreenshotModal />
       <CssBaseline enableColorScheme />
     </GameProvider>
   );

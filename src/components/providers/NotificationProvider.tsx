@@ -33,12 +33,18 @@ const NotificationProvider: React.FC<Props> = ({ children }) => {
     setCurrentNotification(undefined);
   };
 
-  const dispatchNotification = useCallback((notification: string) => {
-    setPendingNotifications((notifications) => [
-      ...notifications,
-      notification,
-    ]);
-  }, []);
+  const dispatchNotification = useCallback(
+    (notification: string) => {
+      // Don't dispatch the notification if the same one is already being displayed
+      if (currentNotification !== notification) {
+        setPendingNotifications((notifications) => [
+          ...notifications,
+          notification,
+        ]);
+      }
+    },
+    [currentNotification]
+  );
 
   /**
    * Effect which displays the next notification.
@@ -74,6 +80,7 @@ const NotificationProvider: React.FC<Props> = ({ children }) => {
         autoHideDuration={3000}
         TransitionProps={{ onExited: handleExited }}
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
+        sx={{ zIndex: 10001 }}
       >
         <Alert severity="info" variant="filled" data-testid="notification">
           {currentNotification}
@@ -87,7 +94,7 @@ export default NotificationProvider;
 
 interface NotificationOptions {
   currentNotification?: string;
-  dispatchNotification: (currentNotification: string) => void;
+  dispatchNotification: (notification: string) => void;
 }
 
 export const NotificationContext = React.createContext<NotificationOptions>({

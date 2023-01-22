@@ -17,8 +17,8 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
   // Whether the settings modal should be displayed
   const [displaySettings, setDisplaySettings] = useState(false);
 
-  // Whether the share modal should be displayed
-  const [displayShare, setDisplayShare] = useState(false);
+  // Whether the screenshot modal should be displayed
+  const [displayScreenshot, setDisplayScreenshot] = useState(false);
 
   const openHowToPlay = () => {
     setDisplayHowToPlay(true);
@@ -52,12 +52,12 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
     setDisplaySettings(false);
   };
 
-  const openShare = () => {
-    setDisplayShare(true);
+  const openScreenshot = () => {
+    setDisplayScreenshot(true);
   };
 
-  const closeShare = () => {
-    setDisplayShare(false);
+  const closeScreenshot = () => {
+    setDisplayScreenshot(false);
   };
 
   const controls = {
@@ -73,9 +73,9 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
     displaySettings,
     openSettings,
     closeSettings,
-    displayShare,
-    openShare,
-    closeShare,
+    displayScreenshot,
+    openScreenshot,
+    closeScreenshot,
   };
 
   return (
@@ -98,9 +98,9 @@ interface ModalControls {
   displaySettings: boolean;
   openSettings: () => void;
   closeSettings: () => void;
-  displayShare: boolean;
-  openShare: () => void;
-  closeShare: () => void;
+  displayScreenshot: boolean;
+  openScreenshot: () => void;
+  closeScreenshot: () => void;
 }
 
 export const ModalContext = React.createContext<ModalControls>({
@@ -116,9 +116,9 @@ export const ModalContext = React.createContext<ModalControls>({
   displaySettings: false,
   openSettings: () => {},
   closeSettings: () => {},
-  displayShare: false,
-  openShare: () => {},
-  closeShare: () => {},
+  displayScreenshot: false,
+  openScreenshot: () => {},
+  closeScreenshot: () => {},
 });
 
 export const useModalContext = () => {

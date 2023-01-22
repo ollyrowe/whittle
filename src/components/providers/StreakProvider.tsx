@@ -1,19 +1,15 @@
-import { useMemo } from "react";
-import { useGameContext } from "../components/providers/GameProvider";
-import { CompletedGame } from "../model/game/GameLoader";
-import { DateUtils } from "../model/utils/DateUtils";
+import React, { useContext, useMemo } from "react";
+import { useGameContext } from "../../components/providers/GameProvider";
+import { CompletedGame } from "../../model/game/GameLoader";
+import { DateUtils } from "../../model/utils/DateUtils";
 
-/**
- * Hook which determines the user's current game streak.
- */
-export const useStreak = (): StreakStatistics => {
+interface Props {
+  children?: React.ReactNode;
+}
+
+const StreakProvider: React.FC<Props> = ({ children }) => {
+  // Extract game state
   const { completedGames, date } = useGameContext();
-
-  // Whether the user has completed today's game
-  const hasCompletedTodaysGame = useMemo(
-    () => !!completedGames.find((game) => DateUtils.isSameDay(game.date, date)),
-    [completedGames, date]
-  );
 
   // The completed games which make up the current streak
   const currentStreak = useMemo(
@@ -21,18 +17,38 @@ export const useStreak = (): StreakStatistics => {
     [completedGames]
   );
 
-  return {
+  // Whether the user has completed today's game
+  const hasCompletedTodaysGame = useMemo(
+    () => !!completedGames.find((game) => DateUtils.isSameDay(game.date, date)),
+    [completedGames, date]
+  );
+
+  const streakStatistics: StreakStatistics = {
     currentStreak,
     hasCompletedTodaysGame,
-    completedGames,
   };
+
+  return (
+    <StreakContext.Provider value={streakStatistics}>
+      {children}
+    </StreakContext.Provider>
+  );
+};
+
+export default StreakProvider;
+
+export const StreakContext = React.createContext<StreakStatistics>({
+  currentStreak: [],
+  hasCompletedTodaysGame: false,
+});
+
+export const useStreakContext = () => {
+  return useContext(StreakContext);
 };
 
 export interface StreakStatistics {
   /** The games which form the user's current streak */
   currentStreak: CompletedGame[];
-  /** All games that have been completed by the user */
-  completedGames: CompletedGame[];
   /** Whether the user has completed today's game */
   hasCompletedTodaysGame: boolean;
 }

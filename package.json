@@ -63,6 +63,7 @@
     "react-timer-hook": "^3.0.5",
     "reflect-metadata": "^0.1.13",
     "styled-components": "^5.3.6",
+    "ua-parser-js": "^1.0.32",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
@@ -74,6 +75,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.26",
+    "@types/ua-parser-js": "^0.7.36",
     "chalk": "^4.1.2",
     "craco-alias": "^3.0.1",
     "cypress": "^11.1.0",

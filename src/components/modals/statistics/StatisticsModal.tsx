@@ -8,19 +8,20 @@ import ShareButton from "./buttons/ShareButton";
 import TwitterButton from "./buttons/TwitterButton";
 import TimeCard from "./cards/TimeCard";
 import ScoreCard from "./cards/ScoreCard";
-import { useStreak } from "../../../hooks/useStreak";
 import { useNextGameTimer } from "../../../hooks/useNextGameTimer";
 import { useModalContext } from "../../providers/ModalProvider";
 import { useGameContext } from "../../providers/GameProvider";
+import { useStreakContext } from "../../providers/StreakProvider";
 
 const StatisticsModal = () => {
   // Extract modal state and controls
   const { displayStats, closeStats } = useModalContext();
 
-  const { board, timer } = useGameContext();
+  // Extract streak state
+  const { hasCompletedTodaysGame } = useStreakContext();
 
-  // The user's current streak statistics
-  const streak = useStreak();
+  // Extract game state
+  const { board, timer } = useGameContext();
 
   // Time left until the next game is released
   const timeUntilNextGame = useNextGameTimer();
@@ -34,15 +35,15 @@ const StatisticsModal = () => {
       data-testid="statistics-modal"
     >
       <Container id="statistics">
-        <StreakDisplay streak={streak} />
-        {streak.hasCompletedTodaysGame && (
+        <StreakDisplay />
+        {hasCompletedTodaysGame && (
           <CardContainer>
             <TimeCard time={timer.text} disabled={!board.isDisabled()} />
             <ScoreCard disabled={!board.isDisabled()} />
           </CardContainer>
         )}
         <ButtonContainer>
-          <ShareButton />
+          {board.isDisabled() && <ShareButton />}
           <SupportButton />
           <TwitterButton />
         </ButtonContainer>

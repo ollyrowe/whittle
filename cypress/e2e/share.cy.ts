@@ -1,123 +1,122 @@
-import { getTodaysSolutionLetters } from "../support/utils";
+import { Board } from "../../src/model/Board";
+import { GameLoader } from "../../src/model/game/GameLoader";
+import {
+  getTodaysSolutionLetters,
+  reloadAndStubNavigator,
+  userAgents,
+} from "../support/utils";
 
 describe("Share", () => {
-  describe("Board Button", () => {
-    it("disables the button if the user cannot share", () => {
-      reloadAndStubShare({ canShare: false });
+  describe("Incomplete Game", () => {
+    it("doesn't display the share button by default", () => {
+      cy.getByTestID("statistics-button").click();
 
-      const letters = getTodaysSolutionLetters();
+      cy.getByTestID("statistics-modal").should("be.visible");
 
-      const firstLetter = letters[0];
-
-      cy.getTileFromRack(firstLetter.letter).placeOnBoard(firstLetter.location);
-
-      cy.getByTestID("share-board-button").should("be.disabled");
-    });
-
-    it("disables the button when there are no tiles placed on the board", () => {
-      reloadAndStubShare();
-
-      const letters = getTodaysSolutionLetters();
-
-      const firstLetter = letters[0];
-
-      cy.getByTestID("share-board-button").should("be.disabled");
-
-      cy.getTileFromRack(firstLetter.letter).placeOnBoard(firstLetter.location);
-
-      cy.getByTestID("share-board-button").should("be.enabled");
-
-      // Return the tile to the rack
-      cy.getTileFromBoard(firstLetter.location).dblclick();
-
-      cy.getByTestID("share-board-button").should("be.disabled");
-    });
-
-    it("shares a screenshot of the current game progress", () => {
-      const letters = getTodaysSolutionLetters();
-
-      const firstLetter = letters[0];
-
-      cy.getTileFromRack(firstLetter.letter).placeOnBoard(firstLetter.location);
-
-      // Cypress decides it doesn't want to click the button unless a reload is done
-      reloadAndStubShare();
-
-      cy.getByTestID("share-board-button").click();
-
-      handleShare();
-
-      checkShareHasBeenCalled();
+      cy.getByTestID("share-button").should("not.exist");
     });
   });
 
-  describe("Statistics Modal Button", () => {
-    it("disables the button if the user cannot share", () => {
-      const letters = getTodaysSolutionLetters();
-
-      const firstLetter = letters[0];
-
-      cy.getTileFromRack(firstLetter.letter).placeOnBoard(firstLetter.location);
-
-      reloadAndStubShare({ canShare: false });
-
-      cy.getByTestID("statistics-button").click();
-
-      cy.getByTestID("share-button").should("be.disabled");
-    });
-
-    it("shares a screenshot of the completed board", () => {
-      reloadAndStubShare();
-
-      cy.get("@share").should("not.have.been.called");
+  describe("Completed Game", () => {
+    beforeEach(() => {
+      // Create a 2 day streak
+      GameLoader.addCompletedGame({
+        date: new Date(2022, 11, 31),
+        board: new Board(),
+        number: 1,
+        mode: "normal",
+      });
+      GameLoader.addCompletedGame({
+        date: new Date(2023, 0, 1),
+        board: new Board(),
+        number: 1,
+        mode: "normal",
+      });
 
       // Complete the game
       getTodaysSolutionLetters().forEach(({ letter, location }) => {
         cy.getTileFromRack(letter).placeOnBoard(location);
 
+        // Tick 1 second
+        cy.tick(1000);
+
         cy.getTileFromBoard(location).should("contain.text", letter);
       });
+    });
 
-      // Cypress decides it doesn't want to click the button unless a reload is done
-      reloadAndStubShare();
+    it("shares a text image of the completed board and statistics when on mobile", () => {
+      reloadAndStubNavigator({ userAgent: userAgents.mobile });
+
+      checkShareHasNotBeenCalled();
 
       cy.getByTestID("statistics-button").click();
 
-      cy.getByTestID("share-button").should("be.enabled");
+      cy.getByTestID("share-button").click();
+
+      checkShareHasBeenCalled();
+
+      checkClipboardHasNotBeenCalled();
+    });
+
+    it("shares a text image of the completed board and statistics when on tablet", () => {
+      reloadAndStubNavigator({ userAgent: userAgents.tablet });
+
+      checkShareHasNotBeenCalled();
+
+      cy.getByTestID("statistics-button").click();
 
       cy.getByTestID("share-button").click();
 
-      handleShare();
-
       checkShareHasBeenCalled();
+
+      checkClipboardHasNotBeenCalled();
+    });
+
+    it("copies a text image of the completed board and statistics when on desktop", () => {
+      reloadAndStubNavigator({ userAgent: userAgents.desktop });
+
+      checkClipboardHasNotBeenCalled();
+
+      cy.getByTestID("statistics-button").click();
+
+      cy.getByTestID("share-button").click();
+
+      checkClipboardHasBeenCalled();
+
+      checkShareHasNotBeenCalled();
+    });
+
+    it("copies a text image of the completed board and statistics when unable to share", () => {
+      // Set the user agent to a mobile device as share API is not used for desktops
+      reloadAndStubNavigator({ userAgent: userAgents.mobile, canShare: false });
+
+      checkClipboardHasNotBeenCalled();
+
+      cy.getByTestID("statistics-button").click();
+
+      cy.getByTestID("share-button").click();
+
+      checkClipboardHasBeenCalled();
+
+      checkShareHasNotBeenCalled();
+    });
+
+    it("doesn't display the share button once the board has been reset", () => {
+      cy.getByTestID("statistics-modal").find("[aria-label=close]").click();
+
+      // Cypress decides it doesn't want to click the button unless a reload is done
+      cy.reload();
+
+      cy.getByTestID("reset-icon-button").click();
+
+      cy.getByTestID("statistics-button").click();
+
+      cy.getByTestID("statistics-modal").should("be.visible");
+
+      cy.getByTestID("share-button").should("not.exist");
     });
   });
 });
-
-const reloadAndStubShare = ({ canShare } = { canShare: true }) => {
-  cy.visit(Cypress.config().baseUrl!, {
-    onBeforeLoad: (window) => {
-      window.navigator.canShare = () => canShare;
-      window.navigator.share = () => Promise.resolve();
-
-      cy.stub(window.navigator, "share").as("share").resolves();
-    },
-  });
-};
-
-const handleShare = () => {
-  cy.getByTestID("share-modal").should("be.visible");
-
-  cy.getByTestID("share-modal").contains("Show Letters");
-
-  cy.getByTestID("show-letters-toggle").find("input").should("not.be.checked");
-
-  cy.getByTestID("show-letters-toggle").find("input").check();
-
-  cy.getByTestID("show-letters-toggle").find("input").should("be.checked");
-
-  cy.getByTestID("confirm-share-button").click();
-};
 
 const checkShareHasBeenCalled = () => {
   // Check that the share method was called with the correct parameters
@@ -128,8 +127,30 @@ const checkShareHasBeenCalled = () => {
 
     const firstArgument = args[0];
 
-    expect(firstArgument.files).to.have.lengthOf(1);
+    expect(firstArgument.text).to.equal(shareString);
   });
 };
 
-export {};
+const checkShareHasNotBeenCalled = () => {
+  cy.get("@share").should("not.have.been.called");
+};
+
+const checkClipboardHasBeenCalled = () => {
+  // Check that the copy method was called with the correct parameters
+  cy.get("@copy-text").then((copy: any) => {
+    expect(copy).to.have.been.called;
+
+    const { args } = copy.getCalls()[0];
+
+    const firstArgument = args[0];
+
+    expect(firstArgument).to.equal(shareString);
+  });
+};
+
+const checkClipboardHasNotBeenCalled = () => {
+  cy.get("@copy-text").should("not.have.been.called");
+};
+
+const shareString =
+  "#whittle2\n\n⬜🟦⬜🟦⬜\n🟦🟦🟦🟦⬜\n⬜🟦⬜🟦⬜\n⬜🟦⬜🟦⬜\n⬜⬜⬜🟦⬜\n🟦🟦🟦🟦⬜\n\n⌛time: 00:14\n🔥streak: 3\nwhittlegame.com";

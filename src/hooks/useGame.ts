@@ -12,7 +12,7 @@ import { DateUtils } from "../model/utils/DateUtils";
 import { Answer } from "../model/answers/AnswerValidator";
 import { useNotificationContext } from "../components/providers/NotificationProvider";
 import { useModalContext } from "../components/providers/ModalProvider";
-import { useShareContext } from "../components/providers/ShareProvider";
+import { useScreenshotContext } from "../components/providers/ScreenshotProvider";
 
 export interface Game {
   number: number;
@@ -75,14 +75,13 @@ export const useGame = (settings: SettingsOptions): Game => {
   const [outlineRack, setOutlineRack] = useState(false);
 
   // Extract share controls
-  const share = useShareContext();
+  const share = useScreenshotContext();
 
   // Extract modal state and controls
   const modals = useModalContext();
 
   // Extract notification utilities
-  const { currentNotification, dispatchNotification } =
-    useNotificationContext();
+  const { dispatchNotification } = useNotificationContext();
 
   /**
    * Callback which should be invoked on swapping two game tiles.
@@ -229,13 +228,10 @@ export const useGame = (settings: SettingsOptions): Game => {
     (hint: string) => {
       // If hints are enabled
       if (settings.enableHints) {
-        // Don't dispatch the notification if the same one is already being displayed
-        if (currentNotification !== hint) {
-          dispatchNotification(hint);
-        }
+        dispatchNotification(hint);
       }
     },
-    [settings.enableHints, currentNotification, dispatchNotification]
+    [settings.enableHints, dispatchNotification]
   );
 
   /**
