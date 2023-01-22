@@ -264,7 +264,12 @@ export class CompletedGame {
   }
 }
 
-type GameMode = "normal" | "restricted";
+/**
+ * The various game modes.
+ *
+ * Hard game mode was renamed to restricted, however previously completed games may still be labelled 'hard'.
+ */
+type GameMode = "normal" | "hard" | "restricted";
 
 interface LoadedGame {
   date: Date;
