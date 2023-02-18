@@ -16,6 +16,7 @@ interface Props extends DialogProps {
   title: string;
   open: boolean;
   onClose: () => void;
+  headerAction?: React.ReactNode;
   children?: React.ReactNode;
 }
 
@@ -23,6 +24,7 @@ const Modal: React.FC<Props> = ({
   title,
   open,
   onClose,
+  headerAction,
   children,
   ...dialogProps
 }) => {
@@ -37,8 +39,11 @@ const Modal: React.FC<Props> = ({
       {...dialogProps}
     >
       <CenteredTitle>
+        <LeftButtonContainer>{headerAction}</LeftButtonContainer>
         {title.toUpperCase()}
-        <CloseButton onClick={onClose} />
+        <RightButtonContainer>
+          <CloseButton onClick={onClose} />
+        </RightButtonContainer>
       </CenteredTitle>
       <DialogContent>{children}</DialogContent>
     </StyledDialog>
@@ -56,13 +61,20 @@ const CenteredTitle: React.FC<DialogTitleProps> = styled(DialogTitle)`
 
 const CloseButton: React.FC<IconButtonProps> = (props) => {
   return (
-    <FixedIconButton aria-label="close" {...props}>
+    <IconButton aria-label="close" {...props} data-testid="close-button">
       <CloseIcon />
-    </FixedIconButton>
+    </IconButton>
   );
 };
 
-const FixedIconButton: React.FC<IconButtonProps> = styled(IconButton)`
+const LeftButtonContainer = styled.div`
+  position: absolute;
+  left: ${(props) => props.theme.spacing(1)};
+  top: ${(props) => props.theme.spacing(1)};
+  color: ${(props) => props.theme.palette.grey[500]};
+`;
+
+const RightButtonContainer = styled.div`
   position: absolute;
   right: ${(props) => props.theme.spacing(1)};
   top: ${(props) => props.theme.spacing(1)};

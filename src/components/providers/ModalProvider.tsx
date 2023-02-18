@@ -20,6 +20,12 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
   // Whether the screenshot modal should be displayed
   const [displayScreenshot, setDisplayScreenshot] = useState(false);
 
+  // Whether the score modal should be displayed
+  const [displayScore, setDisplayScore] = useState(false);
+
+  // Whether the score info modal should be displayed
+  const [displayScoreInfo, setDisplayScoreInfo] = useState(false);
+
   const openHowToPlay = () => {
     setDisplayHowToPlay(true);
   };
@@ -60,6 +66,22 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
     setDisplayScreenshot(false);
   };
 
+  const openScore = () => {
+    setDisplayScore(true);
+  };
+
+  const closeScore = () => {
+    setDisplayScore(false);
+  };
+
+  const openScoreInfo = () => {
+    setDisplayScoreInfo(true);
+  };
+
+  const closeScoreInfo = () => {
+    setDisplayScoreInfo(false);
+  };
+
   const controls = {
     displayHowToPlay,
     openHowToPlay,
@@ -76,6 +98,12 @@ const ModalProvider: React.FC<Props> = ({ children }) => {
     displayScreenshot,
     openScreenshot,
     closeScreenshot,
+    displayScore,
+    openScore,
+    closeScore,
+    displayScoreInfo,
+    openScoreInfo,
+    closeScoreInfo,
   };
 
   return (
@@ -101,6 +129,12 @@ interface ModalControls {
   displayScreenshot: boolean;
   openScreenshot: () => void;
   closeScreenshot: () => void;
+  displayScore: boolean;
+  openScore: () => void;
+  closeScore: () => void;
+  displayScoreInfo: boolean;
+  openScoreInfo: () => void;
+  closeScoreInfo: () => void;
 }
 
 export const ModalContext = React.createContext<ModalControls>({
@@ -119,6 +153,12 @@ export const ModalContext = React.createContext<ModalControls>({
   displayScreenshot: false,
   openScreenshot: () => {},
   closeScreenshot: () => {},
+  displayScore: false,
+  openScore: () => {},
+  closeScore: () => {},
+  displayScoreInfo: false,
+  openScoreInfo: () => {},
+  closeScoreInfo: () => {},
 });
 
 export const useModalContext = () => {

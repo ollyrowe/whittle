@@ -26,6 +26,7 @@ const mockGame: Game = {
     stop: () => {},
     reset: () => {},
   },
+  score: 0,
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),

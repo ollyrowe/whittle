@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Board } from "../model/Board";
 import { Rack } from "../model/Rack";
 import { Tile } from "../model/Tile";
@@ -9,6 +9,7 @@ import { useFirstRender } from "./useFirstRender";
 import { useTimer, Timer } from "./useTimer";
 import { CompletedGame, GameLoader } from "../model/game/GameLoader";
 import { DateUtils } from "../model/utils/DateUtils";
+import { ScoreUtils } from "../model/utils/ScoreUtils";
 import { Answer } from "../model/answers/AnswerValidator";
 import { useNotificationContext } from "../components/providers/NotificationProvider";
 import { useModalContext } from "../components/providers/ModalProvider";
@@ -18,6 +19,7 @@ export interface Game {
   number: number;
   date: Date;
   timer: Timer;
+  score: number;
   board: Board;
   rack: Rack;
   answer: Answer;
@@ -64,6 +66,9 @@ export const useGame = (settings: SettingsOptions): Game => {
   const [completedGames, setCompletedGames] = useState(
     GameLoader.getCompletedGames()
   );
+
+  // Calculate the score based on the current configuration of the board
+  const score = useMemo(() => ScoreUtils.getScore(board), [board]);
 
   // Confetti firing controls
   const confetti = useConfetti();
@@ -382,6 +387,7 @@ export const useGame = (settings: SettingsOptions): Game => {
     onReturnTileToRack,
     reset,
     timer,
+    score,
     confetti,
   };
 };

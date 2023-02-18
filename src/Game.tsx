@@ -12,6 +12,8 @@ import SettingsModal from "./components/modals/settings/SettingsModal";
 import StatisticsModal from "./components/modals/statistics/StatisticsModal";
 import YesterdayModal from "./components/modals/yesterday/YesterdayModal";
 import ScreenshotModal from "./components/modals/screenshot/ScreenshotModal";
+import ScoreModal from "./components/modals/score/ScoreModal";
+import ScoreInfoModal from "./components/modals/score/ScoreInfoModal";
 
 interface Props {
   settings: SettingsOptions;
@@ -32,6 +34,8 @@ const Game: React.FC<Props> = ({ settings }) => {
       <StatisticsModal />
       <SettingsModal />
       <ScreenshotModal />
+      <ScoreModal />
+      <ScoreInfoModal />
       <CssBaseline enableColorScheme />
     </GameProvider>
   );
