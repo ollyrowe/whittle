@@ -153,4 +153,4 @@ const checkClipboardHasNotBeenCalled = () => {
 };
 
 const shareString =
-  "#whittle2\n\n⬜🟦⬜🟦⬜\n🟦🟦🟦🟦⬜\n⬜🟦⬜🟦⬜\n⬜🟦⬜🟦⬜\n⬜⬜⬜🟦⬜\n🟦🟦🟦🟦⬜\n\n⌛time: 00:14\n🔥streak: 3\nwhittlegame.com";
+  "#whittle2\n\n⬜🟦⬜🟦⬜\n🟦🟦🟦🟦⬜\n⬜🟦⬜🟦⬜\n⬜🟦⬜🟦⬜\n⬜⬜⬜🟦⬜\n🟦🟦🟦🟦⬜\n\n⌛time: 00:14\n📊score: 28 pts\n🔥streak: 3\nwhittlegame.com";
