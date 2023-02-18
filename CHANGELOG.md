@@ -1,3 +1,16 @@
+# [1.44.0](https://github.com/ollyrowe/whittle/compare/v1.43.0...v1.44.0) (2023-02-18)
+
+
+### Bug Fixes
+
+* update game mode options to include hard mode ([92a3e9a](https://github.com/ollyrowe/whittle/commit/92a3e9a2011984018d33070199cc35112c10672c))
+
+
+### Features
+
+* add score system ([ef117ff](https://github.com/ollyrowe/whittle/commit/ef117ff66d4c406d08c785049d7f0fac95d57d4a))
+* update share text to include score ([d7f7a95](https://github.com/ollyrowe/whittle/commit/d7f7a95204ee69ec643213c5cef1b1d87e244279))
+
 # [1.43.0](https://github.com/ollyrowe/whittle/compare/v1.42.0...v1.43.0) (2023-01-22)
 
 
