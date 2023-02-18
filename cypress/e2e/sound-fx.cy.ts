@@ -52,7 +52,7 @@ describe("Sound FX", () => {
     // Disable the sound FXs
     cy.getByTestID("sound-fx-toggle").find("input").click();
 
-    cy.getByTestID("settings-modal").find("[aria-label=close]").click();
+    cy.getByTestID("settings-modal").findByTestID("close-button").click();
 
     // Neither sound should have been played
     expect(tilePlaceSound.play).not.to.be.called;

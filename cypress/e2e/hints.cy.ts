@@ -45,7 +45,7 @@ describe("Hints", () => {
     // Disable hints
     cy.getByTestID("hints-toggle").find("input").uncheck();
 
-    cy.getByTestID("settings-modal").find("[aria-label=close]").click();
+    cy.getByTestID("settings-modal").findByTestID("close-button").click();
 
     cy.placeAllLettersOnBoard();
 

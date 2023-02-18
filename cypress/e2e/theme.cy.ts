@@ -16,7 +16,7 @@ describe("Theme", () => {
 
       cy.getByTestID("dark-theme-toggle").find("input").should("be.checked");
 
-      cy.getByTestID("settings-modal").find("[aria-label=close]").click();
+      cy.getByTestID("settings-modal").findByTestID("close-button").click();
     }
 
     checkDarkTheme();
@@ -33,7 +33,7 @@ describe("Theme", () => {
         .find("input")
         .should("not.be.checked");
 
-      cy.getByTestID("settings-modal").find("[aria-label=close]").click();
+      cy.getByTestID("settings-modal").findByTestID("close-button").click();
     }
 
     checkLightTheme();
@@ -61,7 +61,7 @@ describe("Theme", () => {
 
     cy.getByTestID("high-contrast-toggle").find("input").should("be.checked");
 
-    cy.getByTestID("settings-modal").find("[aria-label=close]").click();
+    cy.getByTestID("settings-modal").findByTestID("close-button").click();
 
     // Partially correct letter should be blue
     cy.getTileFromBoard({ row: 1, column: 1 }).should("have.css", [
