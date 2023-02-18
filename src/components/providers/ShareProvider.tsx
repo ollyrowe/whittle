@@ -141,6 +141,7 @@ export const createShareText = (game: Game, streak: StreakStatistics) => {
   lines.push("");
 
   lines.push(`⌛time: ${game.timer.text}`);
+  lines.push(`📊score: ${game.score} pts`);
   lines.push(`🔥streak: ${streak.currentStreak.length}`);
 
   lines.push("whittlegame.com");
