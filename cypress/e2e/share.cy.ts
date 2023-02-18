@@ -102,7 +102,7 @@ describe("Share", () => {
     });
 
     it("doesn't display the share button once the board has been reset", () => {
-      cy.getByTestID("statistics-modal").find("[aria-label=close]").click();
+      cy.getByTestID("statistics-modal").findByTestID("close-button").click();
 
       // Cypress decides it doesn't want to click the button unless a reload is done
       cy.reload();

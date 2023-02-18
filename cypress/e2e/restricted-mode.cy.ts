@@ -7,7 +7,7 @@ describe("Restricted Mode", () => {
     // Enable restricted mode
     cy.getByTestID("restricted-mode-toggle").find("input").check();
 
-    cy.getByTestID("settings-modal").find("[aria-label=close]").click();
+    cy.getByTestID("settings-modal").findByTestID("close-button").click();
   });
 
   it("enables only the tiles which form part of the solution", () => {

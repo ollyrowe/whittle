@@ -142,7 +142,7 @@ describe("Timer", () => {
       .findByTestID("time-card")
       .should("contain.text", "00:28");
 
-    cy.getByTestID("statistics-modal").find("[aria-label=close]").click();
+    cy.getByTestID("statistics-modal").findByTestID("close-button").click();
 
     // Click the reset button
     cy.getByTestID("reset-icon-button").click({ force: true });
