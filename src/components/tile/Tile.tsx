@@ -8,6 +8,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { getNewIndex } from "../providers/GameProvider";
 import { TileState } from "../../model/enums/TileState";
 import { Letter } from "../../model/enums/Letter";
+import { points } from "../../model/utils/ScoreUtils";
 
 interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "id"> {
   id?: number;
@@ -16,6 +17,8 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, "id"> {
   hasPlaceholder?: boolean;
   placeholderType?: PlaceholderType;
   size?: TileSize;
+  /** Optional score multiplier to display  */
+  multiplier?: number;
   /** Whether the tile can be dragged */
   draggable?: boolean;
   /** Whether the tile cannot be swapped */
@@ -29,6 +32,7 @@ export const Tile: React.FC<Props> = ({
   hasPlaceholder = false,
   placeholderType = "solid",
   size = "medium",
+  multiplier,
   draggable = false,
   disabled = false,
   ...otherProps
@@ -91,6 +95,9 @@ export const Tile: React.FC<Props> = ({
       "background-color 300ms cubic-bezier(0.19, 1, 0.22, 1)",
   };
 
+  // Whether the score information should be displayed
+  const displayScoreInfo = typeof multiplier !== "undefined" && letter;
+
   // The colour of the tile based on the state
   const color = useMemo(() => {
     switch (state) {
@@ -119,7 +126,13 @@ export const Tile: React.FC<Props> = ({
         {...attributes}
         {...listeners}
       >
+        {displayScoreInfo && (
+          <Points data-testid="points">{points[letter]}</Points>
+        )}
         {letter}
+        {displayScoreInfo && (
+          <Multiplier data-testid="multiplier">{`x${multiplier}`}</Multiplier>
+        )}
       </Box>
       {hasPlaceholder && (
         <Placeholder
@@ -208,6 +221,22 @@ export const Box = styled.div<BoxProps>`
       "2px 4px 10px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.25), "}
     inset 0px -5px 0px 0px rgba(0, 0, 0, 0.1);
   z-index: ${(props) => (props.isDragging ? 9999 : props.isMoving ? 9998 : 1)};
+`;
+
+const Points = styled.div`
+  font-size: small;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 2px 4px;
+`;
+
+const Multiplier = styled.div`
+  font-size: x-small;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0px 4px;
 `;
 
 type SizeMapping<T> = { [size in TileSize]: T };

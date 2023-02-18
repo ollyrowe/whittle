@@ -209,6 +209,7 @@ export const GameContext = React.createContext<Game>({
     stop: () => {},
     reset: () => {},
   },
+  score: 0,
   settings: {
     ...defaultSettings,
     theme: createLightTheme(false),

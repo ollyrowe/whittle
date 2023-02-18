@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Typography } from "@mui/material";
+import { IconButton, IconButtonProps, Typography } from "@mui/material";
+import { InfoOutlined as InfoOutlinedIcon } from "@mui/icons-material";
 import Modal from "../Modal";
 import StreakDisplay from "./StreakDisplay";
 import SupportButton from "./buttons/SupportButton";
@@ -15,22 +16,35 @@ import { useStreakContext } from "../../providers/StreakProvider";
 
 const StatisticsModal = () => {
   // Extract modal state and controls
-  const { displayStats, closeStats } = useModalContext();
+  const { displayStats, closeStats, openScore, openScoreInfo } =
+    useModalContext();
 
   // Extract streak state
   const { hasCompletedTodaysGame } = useStreakContext();
 
   // Extract game state
-  const { board, timer } = useGameContext();
+  const { board, timer, score } = useGameContext();
 
   // Time left until the next game is released
   const timeUntilNextGame = useNextGameTimer();
+
+  const displayScoreModal = () => {
+    closeStats();
+
+    // If the game has been complete
+    if (board.isDisabled()) {
+      openScore();
+    } else {
+      openScoreInfo();
+    }
+  };
 
   return (
     <Modal
       title="Statistics"
       open={displayStats}
       onClose={closeStats}
+      headerAction={<ScoreButton onClick={displayScoreModal} />}
       aria-describedby="statistics"
       data-testid="statistics-modal"
     >
@@ -39,7 +53,11 @@ const StatisticsModal = () => {
         {hasCompletedTodaysGame && (
           <CardContainer>
             <TimeCard time={timer.text} disabled={!board.isDisabled()} />
-            <ScoreCard disabled={!board.isDisabled()} />
+            <ScoreCard
+              score={score}
+              disabled={!board.isDisabled()}
+              onClick={displayScoreModal}
+            />
           </CardContainer>
         )}
         <ButtonContainer>
@@ -53,6 +71,14 @@ const StatisticsModal = () => {
         </NextGameSection>
       </Container>
     </Modal>
+  );
+};
+
+const ScoreButton: React.FC<IconButtonProps> = (props) => {
+  return (
+    <IconButton {...props} data-testid="score-button">
+      <InfoOutlinedIcon />
+    </IconButton>
   );
 };
 

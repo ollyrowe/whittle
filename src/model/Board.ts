@@ -1,5 +1,5 @@
 import { Container } from "./Container";
-import { GraphUtils } from "./GraphUtils";
+import { GraphUtils } from "./utils/GraphUtils";
 import { Letter } from "./enums/Letter";
 import { Location } from "./enums/Location";
 import { TileState } from "./enums/TileState";
@@ -177,10 +177,7 @@ export class Board extends Container {
    * @param location - the location on the board.
    * @returns any words that the tile's letter forms.
    */
-  public getWordsAt(location: Location): {
-    vertical?: Word;
-    horizontal?: Word;
-  } {
+  public getWordsAt(location: Location) {
     // If the location is actually a location on the board
     if (location.name === "board") {
       // Get the tile at the specified location
@@ -262,7 +259,10 @@ export class Board extends Container {
       }
     }
 
-    return {};
+    return {
+      horizontal: new Word([]),
+      vertical: new Word([]),
+    };
   }
 
   /**

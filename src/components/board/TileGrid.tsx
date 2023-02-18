@@ -4,14 +4,23 @@ import Tile, { TileSize } from "../tile/Tile";
 import { Tile as TileModel } from "../../model/Tile";
 
 interface Props {
+  /** The tiles to be rendered */
   tiles: TileModel[];
+  /** The size of the tiles to be rendered */
   tileSize?: TileSize;
+  /** Function used to get the score multiplier for a given tile */
+  getTileMultiplier?: (tile: TileModel) => number;
+  /** Whether the rendered tiles should appear disabled */
   disabled?: boolean;
+  /** Function to be called upon doubling clicking a tile */
   onDoubleClickTile?: (tile: TileModel) => void;
 }
 
 const TileGrid = React.forwardRef<HTMLDivElement, Props>(
-  ({ tiles, tileSize, disabled, onDoubleClickTile }, ref) => {
+  (
+    { tiles, tileSize, getTileMultiplier, disabled, onDoubleClickTile },
+    ref
+  ) => {
     return (
       <Grid ref={ref} data-testid="tile-grid">
         {tiles.map((tile) => (
@@ -24,6 +33,7 @@ const TileGrid = React.forwardRef<HTMLDivElement, Props>(
             disabled={tile.isDisabled() || disabled}
             size={tileSize}
             onDoubleClick={() => onDoubleClickTile && onDoubleClickTile(tile)}
+            multiplier={getTileMultiplier && getTileMultiplier(tile)}
             hasPlaceholder
           />
         ))}

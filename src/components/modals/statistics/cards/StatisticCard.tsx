@@ -9,6 +9,7 @@ interface Props {
   color?: StatisticCardColor;
   disabled?: boolean;
   children?: React.ReactNode;
+  onClick?: () => void;
 }
 
 const StatisticCard: React.FC<Props> = ({
@@ -56,6 +57,7 @@ const Background = styled.div`
   background-color: ${(props) => props.color};
   border-radius: 6px;
   margin: ${(props) => props.theme.spacing(1)};
+  cursor: ${(props) => props.onClick && "pointer"};
 `;
 
 interface TitleProps {
