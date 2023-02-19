@@ -8,7 +8,12 @@ const SupportButton: React.FC = () => {
   };
 
   return (
-    <IconButton color="warning" size="large" onClick={openSupportPage}>
+    <IconButton
+      color="warning"
+      size="large"
+      onClick={openSupportPage}
+      data-testid="support-button"
+    >
       <FavoriteIcon fontSize="large" />
     </IconButton>
   );
