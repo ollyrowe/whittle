@@ -100,6 +100,23 @@ export const userAgents = {
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246",
 };
 
+/**
+ * Reloads the site, stubbing the open function on the window global variable,
+ * allowing for external links to be tested without actually opening the link.
+ *
+ * This method assigns the following function aliases:
+ *   - open - window.open
+ */
+export const reloadAndStubWindow = () => {
+  cy.visit(Cypress.config().baseUrl!, {
+    onBeforeLoad: (window) => {
+      window.open = () => null;
+
+      cy.stub(window, "open").as("open");
+    },
+  });
+};
+
 const hexToRgbValues = (hex: string) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 

@@ -8,7 +8,12 @@ const TwitterButton: React.FC = () => {
   };
 
   return (
-    <IconButton color="info" size="large" onClick={openTwitterPage}>
+    <IconButton
+      color="info"
+      size="large"
+      onClick={openTwitterPage}
+      data-testid="twitter-button"
+    >
       <TwitterIcon fontSize="large" />
     </IconButton>
   );
