@@ -56,4 +56,28 @@ describe("Reset Board", () => {
 
     cy.getTileFromBoard(location).should("not.have.text", firstLetter.letter);
   });
+
+  it("doesn't return a letter to the rack upon double click when board is disabled", () => {
+    const solutionLetters = getTodaysSolutionLetters();
+
+    // Complete the game
+    solutionLetters.forEach(({ letter, location }) => {
+      cy.getTileFromRack(letter).placeOnBoard(location);
+
+      cy.getTileFromBoard(location).should("contain.text", letter);
+    });
+
+    // Refresh the page as cypress may be preventing clicking
+    cy.reload();
+
+    const firstLetter = solutionLetters[0];
+
+    cy.getTileFromBoard(firstLetter.location).dblclick();
+
+    // Letter should still be on the board
+    cy.getTileFromBoard(firstLetter.location).should(
+      "have.text",
+      firstLetter.letter
+    );
+  });
 });

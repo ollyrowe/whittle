@@ -121,7 +121,8 @@ export const useGame = (settings: SettingsOptions): Game => {
   };
 
   const onReturnTileToRack = (tile: Tile) => {
-    if (tile.hasLetter()) {
+    // If the tile being clicked has a letter and the board isn't disabled
+    if (tile.hasLetter() && !board.isDisabled()) {
       const emptyRackTile = rack.getTiles().find((tile) => !tile.hasLetter());
 
       if (emptyRackTile) {
