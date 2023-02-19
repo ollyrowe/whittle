@@ -130,9 +130,7 @@ const SettingsModal: React.FC = () => {
           <Divider />
           <ListItem disableGutters>
             <ListItemText primary="Feedback" />
-            <Link underline="none" href="https://twitter.com/WhittleGame">
-              <Typography color="GrayText">Twitter</Typography>
-            </Link>
+            <TwitterLink />
           </ListItem>
           <Divider />
           <CaptionContainer>
@@ -157,6 +155,19 @@ const SettingsModal: React.FC = () => {
 };
 
 export default SettingsModal;
+
+const TwitterLink: React.FC = () => {
+  return (
+    <Link
+      underline="none"
+      target="_blank"
+      href="https://twitter.com/WhittleGame"
+      data-testid="twitter-link"
+    >
+      <Typography color="GrayText">Twitter</Typography>
+    </Link>
+  );
+};
 
 const CaptionContainer = styled.div`
   display: flex;
