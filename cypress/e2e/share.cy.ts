@@ -1,7 +1,8 @@
+import todaysAnswer from "../fixtures/todays-answer.json";
 import { Board } from "../../src/model/Board";
 import { GameLoader } from "../../src/model/game/GameLoader";
 import {
-  getTodaysSolutionLetters,
+  getSolutionLetters,
   reloadAndStubNavigator,
   userAgents,
 } from "../support/utils";
@@ -33,15 +34,24 @@ describe("Share", () => {
         mode: "normal",
       });
 
-      // Complete the game
-      getTodaysSolutionLetters().forEach(({ letter, location }) => {
-        cy.getTileFromRack(letter).placeOnBoard(location);
+      // All words except the last
+      const words = todaysAnswer.words.slice(0, todaysAnswer.words.length - 1);
 
-        // Tick 1 second
-        cy.tick(1000);
+      // Complete the game using a combination of theme and non-theme words
+      getSolutionLetters(words).forEach(({ letter, location }) => {
+        cy.getTileFromRack(letter).placeOnBoard(location);
 
         cy.getTileFromBoard(location).should("contain.text", letter);
       });
+
+      // Tick 12 seconds
+      cy.tick(12000);
+
+      // Place the 'F' to form the 2-letter word 'OF'
+      cy.getTileFromRack("F").placeOnBoard({ column: 5, row: 3 });
+      // Place the 'G' and 'O' to form the word 'GOS'
+      cy.getTileFromRack("G").placeOnBoard({ column: 2, row: 6 });
+      cy.getTileFromRack("O").placeOnBoard({ column: 3, row: 6 });
     });
 
     it("shares a text image of the completed board and statistics when on mobile", () => {
@@ -152,5 +162,16 @@ const checkClipboardHasNotBeenCalled = () => {
   cy.get("@copy-text").should("not.have.been.called");
 };
 
-const shareString =
-  "#whittle2\n\n⬜🟦⬜🟦⬜\n🟦🟦🟦🟦⬜\n⬜🟦⬜🟦⬜\n⬜🟦⬜🟦⬜\n⬜⬜⬜🟦⬜\n🟦🟦🟦🟦⬜\n\n⌛time: 00:14\n📊score: 28 pts\n🔥streak: 3\nwhittlegame.com";
+const shareString = `#whittle2
+
+⬜🟦⬜🟦⬜
+🟦🟦🟦🟦⬜
+⬜🟦⬜🟦🟩
+⬜🟦⬜🟦⬜
+⬜⬜⬜🟦⬜
+⬜🟩🟩🟦⬜
+
+⌛time: 00:12
+📊score: 24 pts
+🔥streak: 3
+whittlegame.com`;
