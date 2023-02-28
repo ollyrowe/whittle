@@ -1,5 +1,6 @@
 import { Board } from "../../src/model/Board";
 import { GameLoader } from "../../src/model/game/GameLoader";
+import { getTodaysSolutionLetters } from "../support/utils";
 
 describe("Streak", () => {
   beforeEach(() => {
@@ -126,5 +127,76 @@ describe("Streak", () => {
     cy.tick(1000);
 
     cy.getByTestID("statistics-modal").contains("23:59:58");
+  });
+
+  it("displays a badge warning the user that their streak is in danger", () => {
+    // As the user hasn't completed today's game according to test data
+    cy.getByTestID("statistics-button").findByTestID("warning-badge");
+
+    cy.getByTestID("statistics-button")
+      .findByTestID("streak-badge")
+      .should("not.exist");
+  });
+
+  it("displays a badge indicating the user has completed today's game", () => {
+    // Clear the streak data
+    cy.clearLocalStorage("completed-games");
+
+    // Restore the date back to the default date
+    cy.clock().invoke("restore");
+
+    cy.clock(new Date(2023, 0, 2));
+
+    cy.reload();
+
+    // Streak badge should not yet be visible
+    cy.getByTestID("statistics-button")
+      .findByTestID("streak-badge")
+      .should("not.exist");
+
+    // Complete the game
+    getTodaysSolutionLetters().forEach(({ letter, location }) => {
+      cy.getTileFromRack(letter).placeOnBoard(location);
+
+      cy.getTileFromBoard(location).should("contain.text", letter);
+    });
+
+    // Streak badge should now exist
+    cy.getByTestID("statistics-button")
+      .findByTestID("streak-badge")
+      .should("exist");
+  });
+
+  it("doesn't display a badge if the user hasn't played a game before", () => {
+    // Clear the streak data
+    cy.clearLocalStorage("completed-games");
+
+    // Refresh the page
+    cy.reload();
+
+    cy.getByTestID("statistics-button")
+      .findByTestID("streak-badge")
+      .should("not.exist");
+
+    cy.getByTestID("statistics-button")
+      .findByTestID("warning-badge")
+      .should("not.exist");
+  });
+
+  it("doesn't display a badge if the user has a historic steak but not a current one", () => {
+    // Set the date to the following day meaning the current streak has been lost
+    cy.clock().invoke("restore");
+
+    cy.clock(new Date(2023, 0, 7));
+
+    cy.reload();
+
+    cy.getByTestID("statistics-button")
+      .findByTestID("streak-badge")
+      .should("not.exist");
+
+    cy.getByTestID("statistics-button")
+      .findByTestID("warning-badge")
+      .should("not.exist");
   });
 });
