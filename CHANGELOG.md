@@ -1,3 +1,12 @@
+## [1.44.1](https://github.com/ollyrowe/whittle/compare/v1.44.0...v1.44.1) (2023-03-28)
+
+
+### Bug Fixes
+
+* prevent return tile to rack for disabled board ([807c020](https://github.com/ollyrowe/whittle/commit/807c020268010da10909908e9af924dfb25defdc))
+* remove adsense scripts ([0b81d46](https://github.com/ollyrowe/whittle/commit/0b81d463651fd7e53bd903e2e04cff2fe917c3ad))
+* update settings twitter link to open new tab ([6841ac2](https://github.com/ollyrowe/whittle/commit/6841ac22eaf30f3e67ddfacfff694313e0b84eff))
+
 # [1.44.0](https://github.com/ollyrowe/whittle/compare/v1.43.0...v1.44.0) (2023-02-18)
 
 
