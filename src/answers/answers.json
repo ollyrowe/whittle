@@ -2469,6 +2469,84 @@
     ]
   },
   {
+    "theme": "Magic",
+    "letters": "CSODNHOATTSPWIA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "POTION"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "CASTS"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 2 },
+        "letters": "WAND"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 2 },
+        "letters": "HAT"
+      }
+    ]
+  },
+  {
+    "theme": "Units of Measurement",
+    "letters": "IRECLYRETAEMDEA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 3 },
+        "letters": "METER"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "LITER"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "ACRE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "YARD"
+      }
+    ]
+  },
+  {
+    "theme": "Currencies",
+    "letters": "SROREPDOUEOPENU",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "POUND"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "PESO"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "RUPEE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "EURO"
+      }
+    ]
+  },
+  {
     "theme": "Keyboard Keys",
     "letters": "AHPETIEBAFRSNCT",
     "words": [
@@ -2621,6 +2699,464 @@
         "direction": "vertical",
         "start": { "row": 3, "column": 1 },
         "letters": "COP"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Rock",
+    "letters": "BMUAEAZLRSQAERT",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "MARBLE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "QUARTZ"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "SLATE"
+      }
+    ]
+  },
+  {
+    "theme": "Bodies of Water",
+    "letters": "ACOKENCNNAEPLDL",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "OCEAN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "POND"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "CANAL"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 4 },
+        "letters": "LAKE"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Skirt",
+    "letters": "WAEILMIRNITPICK",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "PENCIL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "WRAP"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 2 },
+        "letters": "MINI"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 2 },
+        "letters": "KILT"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Home",
+    "letters": "LCIHTHLEATVLUAF",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "CHALET"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "VILLA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "HUT"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "FLAT"
+      }
+    ]
+  },
+  {
+    "theme": "Baby Animals",
+    "letters": "GEOPJHDLKITCCIY",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "PIGLET"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "CHICK"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "JOEY"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "KID"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Wine",
+    "letters": "PNEOTOOIRRSMELD",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "MERLOT"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 2 },
+        "letters": "ROSE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "PINOT"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 2 },
+        "letters": "RED"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Bear",
+    "letters": "LRASOBAANOUPWDN",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "PANDA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "POLAR"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 3 },
+        "letters": "SUN"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "BROWN"
+      }
+    ]
+  },
+  {
+    "theme": "Volcanoes",
+    "letters": "NSAATMAGAVLMAEH",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "MANTLE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "MAGMA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "LAVA"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "ASH"
+      }
+    ]
+  },
+  {
+    "theme": "Synonyms for Small",
+    "letters": "TNEMEYTITTNPEIN",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "PETITE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 2 },
+        "letters": "MINI"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "TEENY"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 5 },
+        "letters": "TINY"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Restaurant",
+    "letters": "BFUECRNEIDAPUFT",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "BUFFET"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "PUB"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 2 },
+        "letters": "CAFE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "DINER"
+      }
+    ]
+  },
+  {
+    "theme": "Units of Measurement 2",
+    "letters": "NHTUIMECOICSLNE",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 1 },
+        "letters": "STONE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "OUNCE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 3 },
+        "letters": "INCH"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "MILE"
+      }
+    ]
+  },
+  {
+    "theme": "Magic 2",
+    "letters": "SCLEPUGERHELAMA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "CURSE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "SPELL"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "MAGE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "HEAL"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Bread",
+    "letters": "AYUATEIRNGNBLPA",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "PITA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 4, "column": 1 },
+        "letters": "BAGEL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "NAAN"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 4, "column": 1 },
+        "letters": "BUN"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 4 },
+        "letters": "RYE"
+      }
+    ]
+  },
+  {
+    "theme": "Fishing",
+    "letters": "RENIRLEEGUTAELB",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "ANGLER"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "BAIT"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "LURE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 1 },
+        "letters": "REEL"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Pants",
+    "letters": "GRCFGSREALEJORO",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "FLARES"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "CARGO"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "JOGGER"
+      }
+    ]
+  },
+  {
+    "theme": "Types of Rock 2",
+    "letters": "BSUAEACAMLKPTIH",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 1 },
+        "letters": "PUMICE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "CHALK"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 4 },
+        "letters": "BASALT"
+      }
+    ]
+  },
+  {
+    "theme": "Synonyms for Big",
+    "letters": "GATBFEALEIRGHRY",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 1 },
+        "letters": "BIG"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 3 },
+        "letters": "LARGE"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "GREAT"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "HEFTY"
+      }
+    ]
+  },
+  {
+    "theme": "Currencies 2",
+    "letters": "BLRAUICEARKFANM",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "RUBEL"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 1 },
+        "letters": "FRANC"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 2 },
+        "letters": "LIRA"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 3, "column": 4 },
+        "letters": "MARK"
       }
     ]
   }
