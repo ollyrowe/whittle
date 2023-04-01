@@ -38,7 +38,7 @@ const ScoreModal = () => {
     >
       <Container id="score">
         <Title>{`${score} points`}</Title>
-        <BoardWrapper>
+        <BoardWrapper dense>
           <TileGrid
             tiles={board.getTiles()}
             getTileMultiplier={getTileMultiplier}
