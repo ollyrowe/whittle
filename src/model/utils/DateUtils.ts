@@ -52,6 +52,10 @@ export class DateUtils {
       return Event.EASTER_SUNDAY;
     }
 
+    if (DateUtils.isStarWarsDay(date)) {
+      return Event.STAR_WARS_DAY;
+    }
+
     if (DateUtils.isFirstDayOfPrideMonth(date)) {
       return Event.FIRST_DAY_OF_PRIDE_MONTH;
     }
@@ -128,6 +132,10 @@ export class DateUtils {
       date.getDate() === easter.getDate() &&
       date.getMonth() === easter.getMonth()
     );
+  }
+
+  public static isStarWarsDay(date: Date) {
+    return date.getDate() === 4 && date.getMonth() === 4;
   }
 
   public static isFirstDayOfPrideMonth(date: Date) {

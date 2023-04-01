@@ -125,6 +125,16 @@ describe("DateUtils", () => {
     expect(DateUtils.isEasterSunday(nonEventDay)).toBe(false);
   });
 
+  it("knows when Star Wars Day is", () => {
+    // Each valid date should return true
+    dates[Event.STAR_WARS_DAY].forEach((date) => {
+      expect(DateUtils.isStarWarsDay(date)).toBe(true);
+    });
+
+    // Non event day should return false
+    expect(DateUtils.isStarWarsDay(nonEventDay)).toBe(false);
+  });
+
   it("knows when the first day of pride month is", () => {
     // Each valid date should return true
     dates[Event.FIRST_DAY_OF_PRIDE_MONTH].forEach((date) => {
@@ -264,6 +274,14 @@ const dates: Record<Event, Date[]> = {
     new Date(2025, 3, 20),
     new Date(2026, 3, 5),
     new Date(2027, 2, 28),
+  ],
+  "Star Wars Day": [
+    new Date(2022, 4, 4),
+    new Date(2023, 4, 4),
+    new Date(2024, 4, 4),
+    new Date(2025, 4, 4),
+    new Date(2026, 4, 4),
+    new Date(2027, 4, 4),
   ],
   "First Day of Pride Month": [
     new Date(2022, 5, 1),
