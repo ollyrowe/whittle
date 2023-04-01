@@ -162,6 +162,33 @@
     ]
   },
   {
+    "date": "Good Friday",
+    "theme": "Happy Good Friday!",
+    "letters": "AENPIOTYSRRCSNL",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "PRAYER"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "CROSS"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "SIN"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 5, "column": 1 },
+        "letters": "LENT"
+      }
+    ]
+  },
+  {
     "date": "Easter Sunday",
     "theme": "Happy Easter!",
     "letters": "RNGSEUOIYPGBNHG",
