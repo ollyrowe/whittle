@@ -1,3 +1,10 @@
+# [1.45.0](https://github.com/ollyrowe/whittle/compare/v1.44.1...v1.45.0) (2023-04-01)
+
+
+### Features
+
+* add good friday event theme solution ([4db7273](https://github.com/ollyrowe/whittle/commit/4db7273e5f707f3c32f2f7de77be9e78aae860c5))
+
 ## [1.44.1](https://github.com/ollyrowe/whittle/compare/v1.44.0...v1.44.1) (2023-03-28)
 
 
