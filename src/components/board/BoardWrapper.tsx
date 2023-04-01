@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-interface Props {
+interface Props extends ContainerProps {
   children?: React.ReactNode;
 }
 
 const BoardWrapper = React.forwardRef<HTMLDivElement, Props>(
-  ({ children, ...props }, ref) => {
+  ({ children, dense = false, ...props }, ref) => {
     return (
       <Background {...props}>
-        <OuterContainer>
-          <InnerContainer ref={ref}>{children}</InnerContainer>
-        </OuterContainer>
+        <Container ref={ref} dense={dense}>
+          {children}
+        </Container>
       </Background>
     );
   }
@@ -26,10 +26,11 @@ const Background = styled.div`
   justify-content: center;
 `;
 
-const OuterContainer = styled.div`
-  margin: auto;
-`;
+interface ContainerProps {
+  dense?: boolean;
+}
 
-const InnerContainer = styled.div`
-  padding: ${(props) => props.theme.spacing(1)};
+const Container = styled.div<ContainerProps>`
+  margin: auto;
+  padding: ${(props) => !props.dense && props.theme.spacing(1)};
 `;

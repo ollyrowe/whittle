@@ -12,7 +12,7 @@ interface Props {
 
 export const SolutionBoard: React.FC<Props> = ({ solution }) => {
   return (
-    <BoardWrapper>
+    <BoardWrapper dense>
       <Header>
         <GameTitle number={solution.number} />
         <Subtitle variant="body2">{solution.theme}</Subtitle>
