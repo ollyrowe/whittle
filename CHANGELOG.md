@@ -1,3 +1,16 @@
+# [1.46.0](https://github.com/ollyrowe/whittle/compare/v1.45.0...v1.46.0) (2023-04-01)
+
+
+### Bug Fixes
+
+* fix solution board central alignment issue ([b2fbe6c](https://github.com/ollyrowe/whittle/commit/b2fbe6cf1480eb561b274fb2643a671d170acac2))
+
+
+### Features
+
+* add new theme solutions ([7ac24d4](https://github.com/ollyrowe/whittle/commit/7ac24d4ccdcf7c4a04e682bd605b6aaa2cda45ac))
+* add star wars day event theme solution ([bc10199](https://github.com/ollyrowe/whittle/commit/bc10199a46cb2bd54e3864ed66d01f99e3357709))
+
 # [1.45.0](https://github.com/ollyrowe/whittle/compare/v1.44.1...v1.45.0) (2023-04-01)
 
 
