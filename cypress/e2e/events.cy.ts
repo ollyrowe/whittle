@@ -51,6 +51,14 @@ describe("Events", () => {
     cy.getByTestID("board").should("have.text", "Happy April Fools' Day!");
   });
 
+  it("Good Friday", () => {
+    cy.clock(new Date(2023, 3, 7));
+
+    cy.reload();
+
+    cy.getByTestID("board").should("have.text", "Happy Good Friday!");
+  });
+
   it("Easter Sunday", () => {
     cy.clock(new Date(2023, 3, 9));
 

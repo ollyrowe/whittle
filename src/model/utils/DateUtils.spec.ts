@@ -105,6 +105,16 @@ describe("DateUtils", () => {
     expect(DateUtils.isAprilFools(nonEventDay)).toBe(false);
   });
 
+  it("knows when Good Friday is", () => {
+    // Each valid date should return true
+    dates[Event.GOOD_FRIDAY].forEach((date) => {
+      expect(DateUtils.isGoodFriday(date)).toBe(true);
+    });
+
+    // Non event day should return false
+    expect(DateUtils.isGoodFriday(nonEventDay)).toBe(false);
+  });
+
   it("knows when Easter Sunday is", () => {
     // Each valid date should return true
     dates[Event.EASTER_SUNDAY].forEach((date) => {
@@ -238,6 +248,14 @@ const dates: Record<Event, Date[]> = {
     new Date(2025, 3, 1),
     new Date(2026, 3, 1),
     new Date(2027, 3, 1),
+  ],
+  "Good Friday": [
+    new Date(2022, 3, 15),
+    new Date(2023, 3, 7),
+    new Date(2024, 2, 29),
+    new Date(2025, 3, 18),
+    new Date(2026, 3, 3),
+    new Date(2027, 2, 26),
   ],
   "Easter Sunday": [
     new Date(2022, 3, 17),

@@ -44,6 +44,10 @@ export class DateUtils {
       return Event.APRIL_FOOLS;
     }
 
+    if (DateUtils.isGoodFriday(date)) {
+      return Event.GOOD_FRIDAY;
+    }
+
     if (DateUtils.isEasterSunday(date)) {
       return Event.EASTER_SUNDAY;
     }
@@ -106,6 +110,15 @@ export class DateUtils {
 
   public static isAprilFools(date: Date) {
     return date.getDate() === 1 && date.getMonth() === 3;
+  }
+
+  public static isGoodFriday(date: Date) {
+    const easter = DateUtils.getEaster(date);
+
+    return (
+      date.getDate() === easter.getDate() - 2 &&
+      date.getMonth() === easter.getMonth()
+    );
   }
 
   public static isEasterSunday(date: Date) {

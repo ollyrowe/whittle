@@ -5,6 +5,7 @@ export enum Event {
   SHROVE_TUESDAY = "Shrove Tuesday",
   ST_PATRICKS_DAY = "St. Patrick's Day",
   APRIL_FOOLS = "April Fools' Day",
+  GOOD_FRIDAY = "Good Friday",
   EASTER_SUNDAY = "Easter Sunday",
   FIRST_DAY_OF_PRIDE_MONTH = "First Day of Pride Month",
   HALLOWEEN = "Halloween",
