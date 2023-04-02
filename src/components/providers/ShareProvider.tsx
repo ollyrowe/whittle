@@ -135,7 +135,8 @@ export const createShareText = (game: Game, streak: StreakStatistics) => {
       }
     });
 
-    lines.push(characters.join(""));
+    // Add two spaces at the end to improve formatting on Reddit
+    lines.push(characters.join("") + "  ");
   });
 
   lines.push("");
