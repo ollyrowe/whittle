@@ -1,3 +1,10 @@
+## [1.46.1](https://github.com/ollyrowe/whittle/compare/v1.46.0...v1.46.1) (2023-04-03)
+
+
+### Bug Fixes
+
+* update share text to fix formatting on reddit ([f032185](https://github.com/ollyrowe/whittle/commit/f032185b410942c83eba63db41cf45f70839614a))
+
 # [1.46.0](https://github.com/ollyrowe/whittle/compare/v1.45.0...v1.46.0) (2023-04-01)
 
 
