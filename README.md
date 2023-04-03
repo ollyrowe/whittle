@@ -64,4 +64,4 @@ The project changelog can be found [here](https://github.com/ollyrowe/whittle/bl
 
 ## 📝 License
 
-This project is licensed under the terms of the [MIT](https://github.com/ollyrowe/whittle/blob/master/LICENSE) license.
+This project is licensed under the terms of the [GNU AGPLv3](https://github.com/ollyrowe/whittle/blob/master/LICENSE) license.
