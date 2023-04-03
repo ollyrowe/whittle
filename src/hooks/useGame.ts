@@ -362,8 +362,8 @@ export const useGame = (settings: SettingsOptions): Game => {
    * Effect which which handles changes to the restricted mode setting.
    */
   useEffect(() => {
-    // Avoid resetting the board on initial render
-    if (!isFirstRender) {
+    // Avoid resetting the board on initial render and ensure the game isn't complete
+    if (!isFirstRender && !board.isDisabled()) {
       // If restricted mode has been enabled
       if (settings.enableRestrictedMode) {
         reset();

@@ -71,7 +71,6 @@ const SettingsModal: React.FC = () => {
               checked={settings.enableRestrictedMode}
               onChange={onToggleRestrictedMode}
               inputProps={{ "aria-labelledby": "restricted-mode-label" }}
-              disabled={board.isDisabled()}
               data-testid="restricted-mode-toggle"
             />
           </ListItem>
