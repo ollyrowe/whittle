@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { styled as muiStyled } from "@mui/material/styles";
 import { Button, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import Modal from "../Modal";
 import { useModalContext } from "../../providers/ModalProvider";
@@ -14,7 +15,7 @@ const ScreenshotModal = () => {
     useScreenshotContext();
 
   return (
-    <Modal
+    <StyledModal
       title="Screenshot"
       open={displayScreenshot}
       onClose={closeScreenshot}
@@ -23,10 +24,12 @@ const ScreenshotModal = () => {
     >
       <Container id="screenshot">
         {preview && (
-          <Preview
-            src={URL.createObjectURL(preview)}
-            alt="Screenshot Preview"
-          />
+          <PreviewContainer>
+            <Preview
+              src={URL.createObjectURL(preview)}
+              alt="Screenshot Preview"
+            />
+          </PreviewContainer>
         )}
         <FormGroup>
           <FormControlLabel
@@ -48,19 +51,31 @@ const ScreenshotModal = () => {
           Share
         </RoundedButton>
       </Container>
-    </Modal>
+    </StyledModal>
   );
 };
 
 export default ScreenshotModal;
+
+const StyledModal = muiStyled(Modal)(() => ({
+  "& .MuiDialogContent-root": {
+    display: "flex",
+  },
+}));
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
+const PreviewContainer = styled.div`
+  overflow: hidden;
+  margin: auto;
+`;
+
 const Preview = styled.img`
-  width: 100%;
+  height: 100%;
+  max-width: 100%;
 `;
 
 const RoundedButton = styled(Button)`
