@@ -3159,5 +3159,57 @@
         "letters": "MARK"
       }
     ]
+  },
+  {
+    "theme": "Condiments",
+    "letters": "LALSOCPSIARNHDI",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 5 },
+        "letters": "RANCH"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 2, "column": 1 },
+        "letters": "SALSA"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 6, "column": 1 },
+        "letters": "DIP"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 2 },
+        "letters": "AIOLI"
+      }
+    ]
+  },
+  {
+    "theme": "Gardening",
+    "letters": "OIWPETTOMUPRSNR",
+    "words": [
+      {
+        "direction": "vertical",
+        "start": { "row": 1, "column": 2 },
+        "letters": "STRIM"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 1, "column": 2 },
+        "letters": "SOW"
+      },
+      {
+        "direction": "horizontal",
+        "start": { "row": 3, "column": 1 },
+        "letters": "PRUNE"
+      },
+      {
+        "direction": "vertical",
+        "start": { "row": 2, "column": 5 },
+        "letters": "REPOT"
+      }
+    ]
   }
 ]
