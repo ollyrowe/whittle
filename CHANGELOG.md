@@ -1,3 +1,11 @@
+## [1.46.2](https://github.com/ollyrowe/whittle/compare/v1.46.1...v1.46.2) (2023-05-10)
+
+
+### Bug Fixes
+
+* fix screenshot preview overflow style issue ([b8c2935](https://github.com/ollyrowe/whittle/commit/b8c2935db0bbb23c3253db089092d660752b9ab6))
+* prevent restricted mode setting disabling ([ce1e99c](https://github.com/ollyrowe/whittle/commit/ce1e99cf7a035641e78202923620075189529b30))
+
 ## [1.46.1](https://github.com/ollyrowe/whittle/compare/v1.46.0...v1.46.1) (2023-04-03)
 
 
